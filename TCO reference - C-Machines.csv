@@ -1,0 +1,267 @@
+Name,API Name,Memory,vCPUs,Family,Type,Size,Ratio,Instance Storage,SSD/HDD?,GPUs,GPU model,GPU memory
+A1 Double Extra Large,a1.2xlarge,16,8,n1,custom,8,2,0,,0,None,0 GiB
+A1 Quadruple Extra Large,a1.4xlarge,32,16,n1,custom,16,2,0,,0,None,0 GiB
+A1 Large,a1.large,4,2,n1,custom,2,2,0,,0,None,0 GiB
+A1 Medium,a1.medium,2,1,n1,custom,1,2,0,,0,None,0 GiB
+A1 Metal,a1.metal,32,16,n1,custom,16,2,0,,0,None,0 GiB
+A1 Extra Large,a1.xlarge,8,4,n1,custom,4,2,0,,0,None,0 GiB
+C1 High-CPU Medium,c1.medium,1.7,2,n1,highcpu,2,0.85,350,HDD,0,None,0 GiB
+C1 High-CPU Extra Large,c1.xlarge,7,8,n1,highcpu,8,0.875,1680,HDD,0,None,0 GiB
+C3 High-CPU Double Extra Large,c3.2xlarge,15,8,n1,custom,8,1.875,160,SSD,0,None,0 GiB
+C3 High-CPU Quadruple Extra Large,c3.4xlarge,30,16,n1,custom,16,1.875,320,SSD,0,None,0 GiB
+C3 High-CPU Eight Extra Large,c3.8xlarge,60,32,n1,custom,32,1.875,640,SSD,0,None,0 GiB
+C3 High-CPU Large,c3.large,3.75,2,n1,custom,2,1.875,32,SSD,0,None,0 GiB
+C3 High-CPU Extra Large,c3.xlarge,7.5,4,n1,custom,4,1.875,80,SSD,0,None,0 GiB
+C4 High-CPU Double Extra Large,c4.2xlarge,15,8,n1,custom,8,1.875,0,,0,None,0 GiB
+C4 High-CPU Quadruple Extra Large,c4.4xlarge,30,16,n1,custom,16,1.875,0,,0,None,0 GiB
+C4 High-CPU Eight Extra Large,c4.8xlarge,60,36,n1,custom,36,1.666666667,0,,0,None,0 GiB
+C4 High-CPU Large,c4.large,3.75,2,n1,custom,2,1.875,0,,0,None,0 GiB
+C4 High-CPU Extra Large,c4.xlarge,7.5,4,n1,custom,4,1.875,0,,0,None,0 GiB
+C5 High-CPU 12xlarge,c5.12xlarge,96,48,n1,custom,48,2,0,,0,None,0 GiB
+C5 High-CPU 18xlarge,c5.18xlarge,144,72,n1,custom,72,2,0,,0,None,0 GiB
+C5 High-CPU 24xlarge,c5.24xlarge,192,96,n1,custom,96,2,0,,0,None,0 GiB
+C5 High-CPU Double Extra Large,c5.2xlarge,16,8,n1,custom,8,2,0,,0,None,0 GiB
+C5 High-CPU Quadruple Extra Large,c5.4xlarge,32,16,n1,custom,16,2,0,,0,None,0 GiB
+C5 High-CPU 9xlarge,c5.9xlarge,72,36,n1,custom,36,2,0,,0,None,0 GiB
+C5 High-CPU Large,c5.large,4,2,n1,custom,2,2,0,,0,None,0 GiB
+C5 High-CPU Metal,c5.metal,192,96,n1,custom,96,2,0,,0,None,0 GiB
+C5 High-CPU Extra Large,c5.xlarge,8,4,n1,custom,4,2,0,,0,None,0 GiB
+C5 High-CPU 12xlarge,c5d.12xlarge,96,48,n1,custom,48,2,1800,SSD,0,None,0 GiB
+C5 High-CPU 18xlarge,c5d.18xlarge,144,72,n1,custom,72,2,1800,SSD,0,None,0 GiB
+C5 High-CPU 24xlarge,c5d.24xlarge,192,96,n1,custom,96,2,3600,SSD,0,None,0 GiB
+C5 High-CPU Double Extra Large,c5d.2xlarge,16,8,n1,custom,8,2,200,SSD,0,None,0 GiB
+C5 High-CPU Quadruple Extra Large,c5d.4xlarge,32,16,n1,custom,16,2,400,SSD,0,None,0 GiB
+C5 High-CPU 9xlarge,c5d.9xlarge,72,36,n1,custom,36,2,900,SSD,0,None,0 GiB
+C5 High-CPU Large,c5d.large,4,2,n1,custom,2,2,50,SSD,0,None,0 GiB
+C5 High-CPU Metal,c5d.metal,192,96,n1,custom,96,2,3600,SSD,0,None,0 GiB
+C5 High-CPU Extra Large,c5d.xlarge,8,4,n1,custom,4,2,100,SSD,0,None,0 GiB
+C5N 18xlarge,c5n.18xlarge,192,72,n1,custom,72,2.666666667,0,,0,None,0 GiB
+C5N Double Extra Large,c5n.2xlarge,21,8,n1,custom,8,2.625,0,,0,None,0 GiB
+C5N Quadruple Extra Large,c5n.4xlarge,42,16,n1,custom,16,2.625,0,,0,None,0 GiB
+C5N 9xlarge,c5n.9xlarge,96,36,n1,custom,36,2.666666667,0,,0,None,0 GiB
+C5N Large,c5n.large,5.25,2,n1,custom,2,2.625,0,,0,None,0 GiB
+C5N Metal,c5n.metal,192,72,n1,custom,72,2.666666667,0,,0,None,0 GiB
+C5N Extra Large,c5n.xlarge,10.5,4,n1,custom,4,2.625,0,,0,None,0 GiB
+Cluster Compute Eight Extra Large,cc2.8xlarge,60.5,32,n1,custom,32,1.890625,3360,HDD,0,None,0 GiB
+High Memory Cluster Eight Extra Large,cr1.8xlarge,244,32,n1,highmem,32,7.625,240,SSD,0,None,0 GiB
+D2 Double Extra Large,d2.2xlarge,61,8,n1,highmem,8,7.625,12000,HDD,0,None,0 GiB
+D2 Quadruple Extra Large,d2.4xlarge,122,16,n1,highmem,16,7.625,24000,HDD,0,None,0 GiB
+D2 Eight Extra Large,d2.8xlarge,244,36,n1,highmem,36,6.777777778,48000,HDD,0,None,0 GiB
+D2 Extra Large,d2.xlarge,30.5,4,n1,highmem,4,7.625,6000,HDD,0,None,0 GiB
+F1 16xlarge,f1.16xlarge,976,64,n1,custom,64,15.25,3760,SSD,0,None,0 GiB
+F1 Double Extra Large,f1.2xlarge,122,8,n1,custom,8,15.25,470,SSD,0,None,0 GiB
+F1 Quadruple Extra Large,f1.4xlarge,244,16,n1,custom,16,15.25,940,SSD,0,None,0 GiB
+G2 Double Extra Large,g2.2xlarge,15,8,n1,custom,8,1.875,60,SSD,1,NVIDIA GRID K520,4 GiB
+G2 Eight Extra Large,g2.8xlarge,60,32,n1,custom,32,1.875,240,SSD,4,NVIDIA GRID K520,32 GiB
+G3 16xlarge,g3.16xlarge,488,64,n1,highmem,64,7.625,0,,4,NVIDIA Tesla M60,32 GiB
+G3 Quadruple Extra Large,g3.4xlarge,122,16,n1,highmem,16,7.625,0,,1,NVIDIA Tesla M60,8 GiB
+G3 Eight Extra Large,g3.8xlarge,244,32,n1,highmem,32,7.625,0,,2,NVIDIA Tesla M60,16 GiB
+G3S Extra Large,g3s.xlarge,30.5,4,n1,highmem,4,7.625,0,,1,NVIDIA Tesla M60,8 GiB
+G4DN 12xlarge,g4dn.12xlarge,192,48,n1,standard,48,4,900,SSD,4,NVIDIA T4 Tensor Core,64 GiB
+G4DN 16xlarge,g4dn.16xlarge,256,64,n1,standard,64,4,900,SSD,1,NVIDIA T4 Tensor Core,16 GiB
+G4DN Double Extra Large,g4dn.2xlarge,32,8,n1,standard,8,4,225,SSD,1,NVIDIA T4 Tensor Core,16 GiB
+G4DN Quadruple Extra Large,g4dn.4xlarge,64,16,n1,standard,16,4,225,SSD,1,NVIDIA T4 Tensor Core,16 GiB
+G4DN Eight Extra Large,g4dn.8xlarge,128,32,n1,standard,32,4,900,SSD,1,NVIDIA T4 Tensor Core,16 GiB
+G4DN Metal,g4dn.metal,384,96,n1,standard,96,4,0,,8,None,0 GiB
+G4DN Extra Large,g4dn.xlarge,16,4,n1,standard,4,4,125,SSD,1,NVIDIA T4 Tensor Core,16 GiB
+H1 16xlarge,h1.16xlarge,256,64,n1,standard,64,4,16000,HDD,0,None,0 GiB
+H1 Double Extra Large,h1.2xlarge,32,8,n1,standard,8,4,2000,HDD,0,None,0 GiB
+H1 Quadruple Extra Large,h1.4xlarge,64,16,n1,standard,16,4,4000,HDD,0,None,0 GiB
+H1 Eight Extra Large,h1.8xlarge,128,32,n1,standard,32,4,8000,HDD,0,None,0 GiB
+High Storage Eight Extra Large,hs1.8xlarge,117,17,n1,highmem,17,6.882352941,48000,HDD,0,None,0 GiB
+I2 Double Extra Large,i2.2xlarge,61,8,n1,highmem,8,7.625,1600,SSD,0,None,0 GiB
+I2 Quadruple Extra Large,i2.4xlarge,122,16,n1,highmem,16,7.625,3200,SSD,0,None,0 GiB
+I2 Eight Extra Large,i2.8xlarge,244,32,n1,highmem,32,7.625,6400,SSD,0,None,0 GiB
+I2 Extra Large,i2.xlarge,30.5,4,n1,highmem,4,7.625,800,SSD,0,None,0 GiB
+I3 High I/O 16xlarge,i3.16xlarge,488,64,n1,highmem,64,7.625,15200,SSD,0,None,0 GiB
+I3 High I/O Double Extra Large,i3.2xlarge,61,8,n1,highmem,8,7.625,1900,SSD,0,None,0 GiB
+I3 High I/O Quadruple Extra Large,i3.4xlarge,122,16,n1,highmem,16,7.625,3800,SSD,0,None,0 GiB
+I3 High I/O Eight Extra Large,i3.8xlarge,244,32,n1,highmem,32,7.625,7600,SSD,0,None,0 GiB
+I3 High I/O Large,i3.large,15.25,2,n1,highmem,2,7.625,475,SSD,0,None,0 GiB
+I3 High I/O Metal,i3.metal,512,72,n1,highmem,72,7.111111111,15200,SSD,0,None,0 GiB
+I3 High I/O Extra Large,i3.xlarge,30.5,4,n1,highmem,4,7.625,950,SSD,0,None,0 GiB
+I3EN 12xlarge,i3en.12xlarge,384,48,n1,highmem,48,8,30000,SSD,0,None,0 GiB
+I3EN 24xlarge,i3en.24xlarge,768,96,n1,highmem,96,8,60000,SSD,0,None,0 GiB
+I3EN Double Extra Large,i3en.2xlarge,64,8,n1,highmem,8,8,5000,SSD,0,None,0 GiB
+I3EN 3xlarge,i3en.3xlarge,96,12,n1,highmem,12,8,7500,SSD,0,None,0 GiB
+I3EN 6xlarge,i3en.6xlarge,192,24,n1,highmem,24,8,15000,SSD,0,None,0 GiB
+I3EN Large,i3en.large,16,2,n1,highmem,2,8,1250,SSD,0,None,0 GiB
+I3EN Metal,i3en.metal,768,96,n1,highmem,96,8,60000,SSD,0,None,0 GiB
+I3EN Extra Large,i3en.xlarge,32,4,n1,highmem,4,8,2500,SSD,0,None,0 GiB
+M1 General Purpose Large,m1.large,7.5,2,n1,standard,2,3.75,840,HDD,0,None,0 GiB
+M1 General Purpose Medium,m1.medium,3.75,1,n1,standard,1,3.75,410,HDD,0,None,0 GiB
+M1 General Purpose Small,m1.small,1.7,1,n1,custom,1,1.7,160,HDD,0,None,0 GiB
+M1 General Purpose Extra Large,m1.xlarge,15,4,n1,standard,4,3.75,1680,HDD,0,None,0 GiB
+M2 High Memory Double Extra Large,m2.2xlarge,34.2,4,n1,highmem,4,8.55,850,HDD,0,None,0 GiB
+M2 High Memory Quadruple Extra Large,m2.4xlarge,68.4,8,n1,highmem,8,8.55,1680,HDD,0,None,0 GiB
+M2 High Memory Extra Large,m2.xlarge,17.1,2,n1,highmem,2,8.55,420,HDD,0,None,0 GiB
+M3 General Purpose Double Extra Large,m3.2xlarge,30,8,n1,standard,8,3.75,160,SSD,0,None,0 GiB
+M3 General Purpose Large,m3.large,7.5,2,n1,standard,2,3.75,32,SSD,0,None,0 GiB
+M3 General Purpose Medium,m3.medium,3.75,1,n1,standard,1,3.75,4,SSD,0,None,0 GiB
+M3 General Purpose Extra Large,m3.xlarge,15,4,n1,standard,4,3.75,80,SSD,0,None,0 GiB
+M4 General Purpose Deca Extra Large,m4.10xlarge,160,40,n1,standard,40,4,0,,0,None,0 GiB
+M4 General Purpose 16xlarge,m4.16xlarge,256,64,n1,standard,64,4,0,,0,None,0 GiB
+M4 General Purpose Double Extra Large,m4.2xlarge,32,8,n1,standard,8,4,0,,0,None,0 GiB
+M4 General Purpose Quadruple Extra Large,m4.4xlarge,64,16,n1,standard,16,4,0,,0,None,0 GiB
+M4 General Purpose Large,m4.large,8,2,n1,standard,2,4,0,,0,None,0 GiB
+M4 General Purpose Extra Large,m4.xlarge,16,4,n1,standard,4,4,0,,0,None,0 GiB
+M5 General Purpose 12xlarge,m5.12xlarge,192,48,n1,standard,48,4,0,,0,None,0 GiB
+M5 General Purpose 16xlarge,m5.16xlarge,256,64,n1,standard,64,4,0,,0,None,0 GiB
+M5 General Purpose 24xlarge,m5.24xlarge,384,96,n1,standard,96,4,0,,0,None,0 GiB
+M5 General Purpose Double Extra Large,m5.2xlarge,32,8,n1,standard,8,4,0,,0,None,0 GiB
+M5 General Purpose Quadruple Extra Large,m5.4xlarge,64,16,n1,standard,16,4,0,,0,None,0 GiB
+M5 General Purpose Eight Extra Large,m5.8xlarge,128,32,n1,standard,32,4,0,,0,None,0 GiB
+M5 General Purpose Large,m5.large,8,2,n1,standard,2,4,0,,0,None,0 GiB
+M5 General Purpose Metal,m5.metal,384,96,n1,standard,96,4,0,,0,None,0 GiB
+M5 General Purpose Extra Large,m5.xlarge,16,4,n1,standard,4,4,0,,0,None,0 GiB
+M5A 12xlarge,m5a.12xlarge,192,48,n1,standard,48,4,0,,0,None,0 GiB
+M5A 16xlarge,m5a.16xlarge,256,64,n1,standard,64,4,0,,0,None,0 GiB
+M5A 24xlarge,m5a.24xlarge,384,96,n1,standard,96,4,0,,0,None,0 GiB
+M5A Double Extra Large,m5a.2xlarge,32,8,n1,standard,8,4,0,,0,None,0 GiB
+M5A Quadruple Extra Large,m5a.4xlarge,64,16,n1,standard,16,4,0,,0,None,0 GiB
+M5A Eight Extra Large,m5a.8xlarge,128,32,n1,standard,32,4,0,,0,None,0 GiB
+M5A Large,m5a.large,8,2,n1,standard,2,4,0,,0,None,0 GiB
+M5A Extra Large,m5a.xlarge,16,4,n1,standard,4,4,0,,0,None,0 GiB
+M5AD 12xlarge,m5ad.12xlarge,192,48,n1,standard,48,4,1800,SSD,0,None,0 GiB
+M5AD 24xlarge,m5ad.24xlarge,384,96,n1,standard,96,4,3600,SSD,0,None,0 GiB
+M5AD Double Extra Large,m5ad.2xlarge,32,8,n1,standard,8,4,300,SSD,0,None,0 GiB
+M5AD Quadruple Extra Large,m5ad.4xlarge,64,16,n1,standard,16,4,600,SSD,0,None,0 GiB
+M5AD Large,m5ad.large,8,2,n1,standard,2,4,75,SSD,0,None,0 GiB
+M5AD Extra Large,m5ad.xlarge,16,4,n1,standard,4,4,150,SSD,0,None,0 GiB
+M5 General Purpose 12xlarge,m5d.12xlarge,192,48,n1,standard,48,4,1800,SSD,0,None,0 GiB
+M5 General Purpose 16xlarge,m5d.16xlarge,256,64,n1,standard,64,4,2400,SSD,0,None,0 GiB
+M5 General Purpose 24xlarge,m5d.24xlarge,384,96,n1,standard,96,4,3600,SSD,0,None,0 GiB
+M5 General Purpose Double Extra Large,m5d.2xlarge,32,8,n1,standard,8,4,300,SSD,0,None,0 GiB
+M5 General Purpose Quadruple Extra Large,m5d.4xlarge,64,16,n1,standard,16,4,600,SSD,0,None,0 GiB
+M5 General Purpose Eight Extra Large,m5d.8xlarge,128,32,n1,standard,32,4,1200,SSD,0,None,0 GiB
+M5 General Purpose Large,m5d.large,8,2,n1,standard,2,4,75,SSD,0,None,0 GiB
+M5 General Purpose Metal,m5d.metal,384,96,n1,standard,96,4,3600,SSD,0,None,0 GiB
+M5 General Purpose Extra Large,m5d.xlarge,16,4,n1,standard,4,4,150,SSD,0,None,0 GiB
+M5DN 12xlarge,m5dn.12xlarge,192,48,n1,standard,48,4,1800,SSD,0,None,0 GiB
+M5DN 16xlarge,m5dn.16xlarge,256,64,n1,standard,64,4,2400,SSD,0,None,0 GiB
+M5DN 24xlarge,m5dn.24xlarge,384,96,n1,standard,96,4,3600,SSD,0,None,0 GiB
+M5DN Double Extra Large,m5dn.2xlarge,32,8,n1,standard,8,4,300,SSD,0,None,0 GiB
+M5DN Quadruple Extra Large,m5dn.4xlarge,64,16,n1,standard,16,4,600,SSD,0,None,0 GiB
+M5DN Eight Extra Large,m5dn.8xlarge,128,32,n1,standard,32,4,1200,SSD,0,None,0 GiB
+M5DN Large,m5dn.large,8,2,n1,standard,2,4,75,SSD,0,None,0 GiB
+M5DN Metal,m5dn.metal,384,96,n1,standard,96,4,0,,0,None,0 GiB
+M5DN Extra Large,m5dn.xlarge,16,4,n1,standard,4,4,150,SSD,0,None,0 GiB
+M5N 12xlarge,m5n.12xlarge,192,48,n1,standard,48,4,0,,0,None,0 GiB
+M5N 16xlarge,m5n.16xlarge,256,64,n1,standard,64,4,0,,0,None,0 GiB
+M5N 24xlarge,m5n.24xlarge,384,96,n1,standard,96,4,0,,0,None,0 GiB
+M5N Double Extra Large,m5n.2xlarge,32,8,n1,standard,8,4,0,,0,None,0 GiB
+M5N Quadruple Extra Large,m5n.4xlarge,64,16,n1,standard,16,4,0,,0,None,0 GiB
+M5N Eight Extra Large,m5n.8xlarge,128,32,n1,standard,32,4,0,,0,None,0 GiB
+M5N Large,m5n.large,8,2,n1,standard,2,4,0,,0,None,0 GiB
+M5N Metal,m5n.metal,384,96,n1,standard,96,4,0,,0,None,0 GiB
+M5N Extra Large,m5n.xlarge,16,4,n1,standard,4,4,0,,0,None,0 GiB
+General Purpose GPU 16xlarge,p2.16xlarge,768,64,n1,custom,64,12,0,,16,NVIDIA Tesla K80,192 GiB
+General Purpose GPU Eight Extra Large,p2.8xlarge,488,32,n1,custom,32,15.25,0,,8,NVIDIA Tesla K80,96 GiB
+General Purpose GPU Extra Large,p2.xlarge,61,4,n1,custom,4,15.25,0,,1,NVIDIA Tesla K80,12 GiB
+P3 16xlarge,p3.16xlarge,488,64,n1,highmem,64,7.625,0,,8,NVIDIA Tesla V100,128 GiB
+P3 Double Extra Large,p3.2xlarge,61,8,n1,highmem,8,7.625,0,,1,NVIDIA Tesla V100,16 GiB
+P3 Eight Extra Large,p3.8xlarge,244,32,n1,highmem,32,7.625,0,,4,NVIDIA Tesla V100,64 GiB
+P3DN 24xlarge,p3dn.24xlarge,768,96,n1,highmem,96,8,1800,SSD,8,NVIDIA Tesla V100,256 GiB
+R3 High-Memory Double Extra Large,r3.2xlarge,61,8,n1,highmem,8,7.625,160,SSD,0,None,0 GiB
+R3 High-Memory Quadruple Extra Large,r3.4xlarge,122,16,n1,highmem,16,7.625,320,SSD,0,None,0 GiB
+R3 High-Memory Eight Extra Large,r3.8xlarge,244,32,n1,highmem,32,7.625,640,SSD,0,None,0 GiB
+R3 High-Memory Large,r3.large,15.25,2,n1,highmem,2,7.625,32,SSD,0,None,0 GiB
+R3 High-Memory Extra Large,r3.xlarge,30.5,4,n1,highmem,4,7.625,80,SSD,0,None,0 GiB
+R4 High-Memory 16xlarge,r4.16xlarge,488,64,n1,highmem,64,7.625,0,,0,None,0 GiB
+R4 High-Memory Double Extra Large,r4.2xlarge,61,8,n1,highmem,8,7.625,0,,0,None,0 GiB
+R4 High-Memory Quadruple Extra Large,r4.4xlarge,122,16,n1,highmem,16,7.625,0,,0,None,0 GiB
+R4 High-Memory Eight Extra Large,r4.8xlarge,244,32,n1,highmem,32,7.625,0,,0,None,0 GiB
+R4 High-Memory Large,r4.large,15.25,2,n1,highmem,2,7.625,0,,0,None,0 GiB
+R4 High-Memory Extra Large,r4.xlarge,30.5,4,n1,highmem,4,7.625,0,,0,None,0 GiB
+R5 12xlarge,r5.12xlarge,384,48,n1,highmem,48,8,0,,0,None,0 GiB
+R5 16xlarge,r5.16xlarge,512,64,n1,highmem,64,8,0,,0,None,0 GiB
+R5 24xlarge,r5.24xlarge,768,96,n1,highmem,96,8,0,,0,None,0 GiB
+R5 Double Extra Large,r5.2xlarge,64,8,n1,highmem,8,8,0,,0,None,0 GiB
+R5 Quadruple Extra Large,r5.4xlarge,128,16,n1,highmem,16,8,0,,0,None,0 GiB
+R5 Eight Extra Large,r5.8xlarge,256,32,n1,highmem,32,8,0,,0,None,0 GiB
+R5 Large,r5.large,16,2,n1,highmem,2,8,0,,0,None,0 GiB
+R5 Metal,r5.metal,768,96,n1,highmem,96,8,0,,0,None,0 GiB
+R5 Extra Large,r5.xlarge,32,4,n1,highmem,4,8,0,,0,None,0 GiB
+R5A 12xlarge,r5a.12xlarge,384,48,n1,highmem,48,8,0,,0,None,0 GiB
+R5A 16xlarge,r5a.16xlarge,512,64,n1,highmem,64,8,0,,0,None,0 GiB
+R5A 24xlarge,r5a.24xlarge,768,96,n1,highmem,96,8,0,,0,None,0 GiB
+R5A Double Extra Large,r5a.2xlarge,64,8,n1,highmem,8,8,0,,0,None,0 GiB
+R5A Quadruple Extra Large,r5a.4xlarge,128,16,n1,highmem,16,8,0,,0,None,0 GiB
+R5A Eight Extra Large,r5a.8xlarge,256,32,n1,highmem,32,8,0,,0,None,0 GiB
+R5A Large,r5a.large,16,2,n1,highmem,2,8,0,,0,None,0 GiB
+R5A Extra Large,r5a.xlarge,32,4,n1,highmem,4,8,0,,0,None,0 GiB
+R5AD 12xlarge,r5ad.12xlarge,384,48,n1,highmem,48,8,1800,SSD,0,None,0 GiB
+R5AD 24xlarge,r5ad.24xlarge,768,96,n1,highmem,96,8,3600,SSD,0,None,0 GiB
+R5AD Double Extra Large,r5ad.2xlarge,64,8,n1,highmem,8,8,300,SSD,0,None,0 GiB
+R5AD Quadruple Extra Large,r5ad.4xlarge,128,16,n1,highmem,16,8,600,SSD,0,None,0 GiB
+R5AD Large,r5ad.large,16,2,n1,highmem,2,8,75,SSD,0,None,0 GiB
+R5AD Extra Large,r5ad.xlarge,32,4,n1,highmem,4,8,150,SSD,0,None,0 GiB
+R5D 12xlarge,r5d.12xlarge,384,48,n1,highmem,48,8,1800,SSD,0,None,0 GiB
+R5D 16xlarge,r5d.16xlarge,512,64,n1,highmem,64,8,2400,SSD,0,None,0 GiB
+R5D 24xlarge,r5d.24xlarge,768,96,n1,highmem,96,8,3600,SSD,0,None,0 GiB
+R5D Double Extra Large,r5d.2xlarge,64,8,n1,highmem,8,8,300,SSD,0,None,0 GiB
+R5D Quadruple Extra Large,r5d.4xlarge,128,16,n1,highmem,16,8,600,SSD,0,None,0 GiB
+R5D Eight Extra Large,r5d.8xlarge,256,32,n1,highmem,32,8,1200,SSD,0,None,0 GiB
+R5D Large,r5d.large,16,2,n1,highmem,2,8,75,SSD,0,None,0 GiB
+R5D Metal,r5d.metal,768,96,n1,highmem,96,8,3600,SSD,0,None,0 GiB
+R5D Extra Large,r5d.xlarge,32,4,n1,highmem,4,8,150,SSD,0,None,0 GiB
+R5DN 12xlarge,r5dn.12xlarge,384,48,n1,highmem,48,8,1800,SSD,0,None,0 GiB
+R5DN 16xlarge,r5dn.16xlarge,512,64,n1,highmem,64,8,2400,SSD,0,None,0 GiB
+R5DN 24xlarge,r5dn.24xlarge,768,96,n1,highmem,96,8,3600,SSD,0,None,0 GiB
+R5DN Double Extra Large,r5dn.2xlarge,64,8,n1,highmem,8,8,300,SSD,0,None,0 GiB
+R5DN Quadruple Extra Large,r5dn.4xlarge,128,16,n1,highmem,16,8,600,SSD,0,None,0 GiB
+R5DN Eight Extra Large,r5dn.8xlarge,256,32,n1,highmem,32,8,1200,SSD,0,None,0 GiB
+R5DN Large,r5dn.large,16,2,n1,highmem,2,8,75,SSD,0,None,0 GiB
+R5DN Metal,r5dn.metal,768,96,n1,highmem,96,8,0,,0,None,0 GiB
+R5DN Extra Large,r5dn.xlarge,32,4,n1,highmem,4,8,150,SSD,0,None,0 GiB
+R5N 12xlarge,r5n.12xlarge,384,48,n1,highmem,48,8,0,,0,None,0 GiB
+R5N 16xlarge,r5n.16xlarge,512,64,n1,highmem,64,8,0,,0,None,0 GiB
+R5N 24xlarge,r5n.24xlarge,768,96,n1,highmem,96,8,0,,0,None,0 GiB
+R5N Double Extra Large,r5n.2xlarge,64,8,n1,highmem,8,8,0,,0,None,0 GiB
+R5N Quadruple Extra Large,r5n.4xlarge,128,16,n1,highmem,16,8,0,,0,None,0 GiB
+R5N Eight Extra Large,r5n.8xlarge,256,32,n1,highmem,32,8,0,,0,None,0 GiB
+R5N Large,r5n.large,16,2,n1,highmem,2,8,0,,0,None,0 GiB
+R5N Metal,r5n.metal,768,96,n1,highmem,96,8,0,,0,None,0 GiB
+R5N Extra Large,r5n.xlarge,32,4,n1,highmem,4,8,0,,0,None,0 GiB
+T1 Micro,t1.micro,0.613,1,e2,micro,,,0,,0,None,0 GiB
+T2 Double Extra Large,t2.2xlarge,32,8,e2,standard,8,,0,,0,None,0 GiB
+T2 Large,t2.large,8,2,e2,standard,2,,0,,0,None,0 GiB
+T2 Medium,t2.medium,4,2,e2,medium,,,0,,0,None,0 GiB
+T2 Micro,t2.micro,1,1,e2,micro,,,0,,0,None,0 GiB
+T2 Nano,t2.nano,0.5,1,f1,micro,,,0,,0,None,0 GiB
+T2 Small,t2.small,2,1,e2,small,,,0,,0,None,0 GiB
+T2 Extra Large,t2.xlarge,16,4,e2,standard,4,,0,,0,None,0 GiB
+T3 Double Extra Large,t3.2xlarge,32,8,e2,standard,8,,0,,0,None,0 GiB
+T3 Large,t3.large,8,2,e2,standard,2,,0,,0,None,0 GiB
+T3 Medium,t3.medium,4,2,e2,medium,,,0,,0,None,0 GiB
+T3 Micro,t3.micro,1,2,e2,micro,,,0,,0,None,0 GiB
+T3 Nano,t3.nano,0.5,2,f1,micro,,,0,,0,None,0 GiB
+T3 Small,t3.small,2,2,e2,small,,,0,,0,None,0 GiB
+T3 Extra Large,t3.xlarge,16,4,e2,standard,4,,0,,0,None,0 GiB
+T3A Double Extra Large,t3a.2xlarge,32,8,e2,standard,8,,0,,0,None,0 GiB
+T3A Large,t3a.large,8,2,e2,standard,2,,0,,0,None,0 GiB
+T3A Medium,t3a.medium,4,2,e2,medium,,,0,,0,None,0 GiB
+T3A Micro,t3a.micro,1,2,e2,micro,,,0,,0,None,0 GiB
+T3A Nano,t3a.nano,0.5,2,f1,micro,,,0,,0,None,0 GiB
+T3A Small,t3a.small,2,2,e2,small,,,0,,0,None,0 GiB
+T3A Extra Large,t3a.xlarge,16,4,e2,standard,4,,0,,0,None,0 GiB
+U-12TB1 Metal,u-12tb1.metal,12288,448,n1,custom,448,27.42857143,0,,0,None,0 GiB
+U-18TB1 Metal,u-18tb1.metal,18432,448,n1,custom,448,41.14285714,0,,0,None,0 GiB
+U-24TB1 Metal,u-24tb1.metal,24576,448,n1,custom,448,54.85714286,0,,0,None,0 GiB
+U-6TB1 Metal,u-6tb1.metal,6144,448,n1,custom,448,13.71428571,0,,0,None,0 GiB
+U-9TB1 Metal,u-9tb1.metal,9216,448,n1,custom,448,20.57142857,0,,0,None,0 GiB
+X1 Extra High-Memory 16xlarge,x1.16xlarge,976,64,n1,custom,64,15.25,1920,SSD,0,None,0 GiB
+X1 Extra High-Memory 32xlarge,x1.32xlarge,1952,128,n1,custom,128,15.25,3840,SSD,0,None,0 GiB
+X1E 16xlarge,x1e.16xlarge,1952,64,n1,custom,64,30.5,1920,SSD,0,None,0 GiB
+X1E Double Extra Large,x1e.2xlarge,244,8,n1,custom,8,30.5,240,SSD,0,None,0 GiB
+X1E 32xlarge,x1e.32xlarge,3904,128,n1,custom,128,30.5,3840,SSD,0,None,0 GiB
+X1E Quadruple Extra Large,x1e.4xlarge,488,16,n1,custom,16,30.5,480,SSD,0,None,0 GiB
+X1E Eight Extra Large,x1e.8xlarge,976,32,n1,custom,32,30.5,960,SSD,0,None,0 GiB
+X1E Extra Large,x1e.xlarge,122,4,n1,custom,4,30.5,120,SSD,0,None,0 GiB
+Z1D 12xlarge,z1d.12xlarge,384,48,n1,highmem,48,8,1800,SSD,0,None,0 GiB
+Z1D Double Extra Large,z1d.2xlarge,64,8,n1,highmem,8,8,300,SSD,0,None,0 GiB
+Z1D 3xlarge,z1d.3xlarge,96,12,n1,highmem,12,8,450,SSD,0,None,0 GiB
+Z1D 6xlarge,z1d.6xlarge,192,24,n1,highmem,24,8,900,SSD,0,None,0 GiB
+Z1D Large,z1d.large,16,2,n1,highmem,2,8,75,SSD,0,None,0 GiB
+Z1D Metal,z1d.metal,384,48,n1,highmem,48,8,1800,SSD,0,None,0 GiB
+Z1D Extra Large,z1d.xlarge,32,4,n1,highmem,4,8,150,SSD,0,None,0 GiB

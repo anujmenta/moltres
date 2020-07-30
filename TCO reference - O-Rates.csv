@@ -1,0 +1,49 @@
+Region,Code,Family,Type,Metric,List-price,Sustained-use,Preemptible-use,Commitment-1yr,Commitment-3yr
+Oregon,us-west1,N1,Predefined,vCPUs,$0.031611,$0.022128,$0.006655,$0.019915,$0.014225
+Oregon,us-west1,N1,Predefined,Memory,$0.004237,$0.002966,$0.000892,$0.002669,$0.001907
+Oregon,us-west1,N1,Custom,vCPUs,$0.033174,$0.023222,$0.006980,$0.019915,$0.014225
+Oregon,us-west1,N1,Custom,Memory,$0.004446,$0.003112,$0.000940,$0.002669,$0.001907
+Oregon,us-west1,E2,Predefined,vCPUs,$0.021811,$0.021811,$0.006543,$0.013741,$0.009815
+Oregon,us-west1,E2,Predefined,Memory,$0.002923,$0.002923,$0.000877,$0.001842,$0.001316
+Oregon,us-west1,E2,Micro,,$0.008376,$0.008376,$0.002513,$0.005280,$0.003770
+Oregon,us-west1,E2,Small,,$0.016751,$0.016751,$0.005025,$0.010550,$0.007540
+Oregon,us-west1,E2,Medium,,$0.033503,$0.033503,$0.010051,$0.021110,$0.015080
+Oregon,us-west1,F1,Micro,,$0.007600,$0.005320,$0.003500,$0.007600,$0.007600
+Oregon,us-west1,G1,Small,,$0.025700,$0.017990,$0.007000,$0.025700,$0.025700
+,,,,,,,,,
+Iowa,us-central1,N1,Predefined,vCPUs,$0.031611,$0.022128,$0.006655,$0.019915,$0.014225
+Iowa,us-central1,N1,Predefined,Memory,$0.004237,$0.002966,$0.000892,$0.002669,$0.001907
+Iowa,us-central1,N1,Custom,vCPUs,$0.033174,$0.023222,$0.006980,$0.019915,$0.014225
+Iowa,us-central1,N1,Custom,Memory,$0.004446,$0.003112,$0.000940,$0.002669,$0.001907
+Iowa,us-central1,E2,Predefined,vCPUs,$0.021811,$0.021811,$0.006543,$0.013741,$0.009815
+Iowa,us-central1,E2,Predefined,Memory,$0.002923,$0.002923,$0.000877,$0.001842,$0.001316
+Iowa,us-central1,E2,Micro,,$0.008376,$0.008376,$0.002513,$0.005280,$0.003770
+Iowa,us-central1,E2,Small,,$0.016751,$0.016751,$0.005025,$0.010550,$0.007540
+Iowa,us-central1,E2,Medium,,$0.033503,$0.033503,$0.010051,$0.021110,$0.015080
+Iowa,us-central1,F1,Micro,,$0.007600,$0.005320,$0.003500,$0.007600,$0.007600
+Iowa,us-central1,G1,Small,,$0.025700,$0.017990,$0.007000,$0.025700,$0.025700
+,,,,,,,,,
+S. Carolina ,us-east1,N1,Predefined,vCPUs,$0.031611,$0.022128,$0.006655,$0.019915,$0.014225
+S. Carolina ,us-east1,N1,Predefined,Memory,$0.004237,$0.002966,$0.000892,$0.002669,$0.001907
+S. Carolina ,us-east1,N1,Custom,vCPUs,$0.033174,$0.023222,$0.006980,$0.019915,$0.014225
+S. Carolina ,us-east1,N1,Custom,Memory,$0.004446,$0.003112,$0.000940,$0.002669,$0.001907
+S. Carolina ,us-east1,E2,Predefined,vCPUs,$0.021811,$0.021811,$0.006543,$0.013741,$0.009815
+S. Carolina ,us-east1,E2,Predefined,Memory,$0.002923,$0.002923,$0.000877,$0.001842,$0.001316
+S. Carolina ,us-east1,E2,Micro,,$0.008376,$0.008376,$0.002513,$0.005280,$0.003770
+S. Carolina ,us-east1,E2,Small,,$0.016751,$0.016751,$0.005025,$0.010550,$0.007540
+S. Carolina ,us-east1,E2,Medium,,$0.033503,$0.033503,$0.010051,$0.021110,$0.015080
+S. Carolina ,us-east1,F1,Micro,,$0.007600,$0.005320,$0.003500,$0.007600,$0.007600
+S. Carolina ,us-east1,G1,Small,,$0.025700,$0.017990,$0.007000,$0.025700,$0.025700
+,,,,,,,,,
+,,,,,,,,,
+Sydney,australia-southeast1,N1,Predefined,vCPUs,$0.04,$0.01,$0.03,$0.02,
+Sydney,australia-southeast1,N1,Predefined,Memory,$0.01,$0.00,$0.00,$0.00,
+Sydney,australia-southeast1,N1,Custom,vCPUs,$0.04,$0.01,$0.03,$0.02,
+Sydney,australia-southeast1,N1,Custom,Memory,$0.01,$0.00,$0.00,$0.00,
+Sydney,australia-southeast1,E2,Predefined,vCPUs,$0.03,$0.01,$0.02,$0.01,
+Sydney,australia-southeast1,E2,Predefined,Memory,$0.00,$0.00,$0.00,$0.00,
+Sydney,australia-southeast1,E2,Micro,,$0.01,$0.00,$0.01,$0.01,
+Sydney,australia-southeast1,E2,Small,,$0.02,$0.01,$0.01,$0.01,
+Sydney,australia-southeast1,E2,Medium,,$0.05,$0.01,$0.03,$0.02,
+Sydney,australia-southeast1,F1,Micro,,$0.01,$0.00,,,
+Sydney,australia-southeast1,G1,Small,,$0.03,$0.01,,,
