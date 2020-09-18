@@ -6,6 +6,10 @@ rates = pd.read_csv('TCO reference - O-Rates.csv')
 
 csv_to_read = input('path to csv file: ')
 
+#function to detect column names
+
+
+
 df = pd.read_csv(csv_to_read)
 #Main component
 def sud(nunits, rate):
