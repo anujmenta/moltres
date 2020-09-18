@@ -58,6 +58,7 @@ gpu_rates = {
 region_dict = {
     'USW2' : 'us-west1',
     'APS2' : 'australia-southeast1',
+    'USE1' : 'us-east-1'
 }
 
 testmode = False
@@ -76,6 +77,8 @@ def parseusage(row):
   elif 'SpotUsage' in val:
     usagetype = 'spot'
   # print(val)
+  if row[columnnames['productname']]=='Amazon Elastic MapReduce':
+    usagetype = 'spot'
   try:
     region, rest = val.split('-')
   except:
@@ -117,27 +120,27 @@ def parseusage(row):
   returner = [nunits]+gcpmachine_name[:2]+[gcp_rate, nunits*gcp_rate+ssd_cost, sud_savings, ssd_cost, sud_savings/(nunits*original_rate)*100]
   return pd.Series(returner)
 
-# columnnames = {
-#   'usage' : 'lineItem/UsageType',
-#   'cost' : 'lineItem/UnblendedCost',
-#   'rate' : 'UnblendedRate',
-#   'description': 'lineItem/LineItemDescription',
-#   'quantity' : 'lineItem/UsageAmount',
-#   'productname' : 'product/ProductName',
-# }
-
 columnnames = {
-      'usage' : 'UsageType',
-      'cost' : 'TotalCost',
-      'rate' : 'UnblendedRate',
-      'type' : 'ItemType',
-      'description': 'ItemDescription',
-      'quantity' : 'UsageQuantity',
-      'productname' : 'ProductName',
-  }
+  'usage' : 'lineItem/UsageType',
+  'cost' : 'lineItem/UnblendedCost',
+  'rate' : 'UnblendedRate',
+  'description': 'lineItem/LineItemDescription',
+  'quantity' : 'lineItem/UsageAmount',
+  'productname' : 'product/ProductName',
+}
 
-for key in columnnames:
-	columnnames[key] = input('Enter column name for {}: '.format(key))
+# columnnames = {
+#       'usage' : 'UsageType',
+#       'cost' : 'TotalCost',
+#       'rate' : 'UnblendedRate',
+#       'type' : 'ItemType',
+#       'description': 'ItemDescription',
+#       'quantity' : 'UsageQuantity',
+#       'productname' : 'ProductCode',
+#   }
+
+# for key in columnnames:
+# 	columnnames[key] = input('Enter column name for {}: '.format(key))
 
 df['UnblendedRate'] = df[columnnames['cost']]/df[columnnames['quantity']]
 grouped = df.groupby([columnnames['usage'], columnnames['description'], columnnames['productname']]).agg({columnnames['cost']:'sum', columnnames['rate']:'mean', columnnames['quantity']:'sum'}).reset_index()
