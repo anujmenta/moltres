@@ -5,12 +5,29 @@ machines = pd.read_csv('TCO reference - C-Machines.csv')
 rates = pd.read_csv('TCO reference - O-Rates.csv')
 
 csv_to_read = input('path to csv file: ')
+df = pd.read_csv(csv_to_read)
 
 #function to detect column names
+def detect_column_names(dataframe):
+  usage_options = ['lineItem/UsageType', 'UsageType']
+  cost_options = ['lineItem/UnblendedCost', 'TotalCost']
+  rate_options = ['UnblendedRate']
+  description_options = ['lineItem/LineItemDescription', 'ItemDescription']
+  quantity_options = ['lineItem/UsageAmount', 'UsageQuantity']
+  productname_options = ['product/ProductName', 'ProductCode']
+  type_options = ['ItemType']
 
+  columnnames = {
+  'usage': set(usage_options).intersection(set(dataframe.columns)),
+  'cost': set(cost_options).intersection(set(dataframe.columns)),
+  'rate': set(rate_options).intersection(set(dataframe.columns)),
+  'description': set(description_options).intersection(set(dataframe.columns)),
+  'quantity': set(quantity_options).intersection(set(dataframe.columns)),
+  'productname': set(productname_options).intersection(set(dataframe.columns)),
+  'type': set(type_options).intersection(set(dataframe.columns)),
+  }
+  return columnnames
 
-
-df = pd.read_csv(csv_to_read)
 #Main component
 def sud(nunits, rate):
   n30, remaining = int(nunits)//744, int(nunits)%744
@@ -71,9 +88,11 @@ sud_dict = {
     'GPU' : True,
     'All' : True,
 }
-def parseusage(row):
-  usagetype = ''
+
+def get_usagetype(row):
+
   val = row[columnnames['usage']]
+
   if 'BoxUsage' in val:
     usagetype = 'box'
   elif 'HeavyUsage' in val:
@@ -81,8 +100,12 @@ def parseusage(row):
   elif 'SpotUsage' in val:
     usagetype = 'spot'
   # print(val)
+
   if row[columnnames['productname']]=='Amazon Elastic MapReduce':
     usagetype = 'spot'
+
+  return usagetype
+def parseusage(row):
   try:
     region, rest = val.split('-')
   except:
@@ -124,24 +147,7 @@ def parseusage(row):
   returner = [nunits]+gcpmachine_name[:2]+[gcp_rate, nunits*gcp_rate+ssd_cost, sud_savings, ssd_cost, sud_savings/(nunits*original_rate)*100]
   return pd.Series(returner)
 
-columnnames = {
-  'usage' : 'lineItem/UsageType',
-  'cost' : 'lineItem/UnblendedCost',
-  'rate' : 'UnblendedRate',
-  'description': 'lineItem/LineItemDescription',
-  'quantity' : 'lineItem/UsageAmount',
-  'productname' : 'product/ProductName',
-}
-
-# columnnames = {
-#       'usage' : 'UsageType',
-#       'cost' : 'TotalCost',
-#       'rate' : 'UnblendedRate',
-#       'type' : 'ItemType',
-#       'description': 'ItemDescription',
-#       'quantity' : 'UsageQuantity',
-#       'productname' : 'ProductCode',
-#   }
+columnnames = detect_column_names(df)
 
 # for key in columnnames:
 # 	columnnames[key] = input('Enter column name for {}: '.format(key))

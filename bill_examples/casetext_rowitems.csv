@@ -1,0 +1,594 @@
+lineItem/UsageType,lineItem/LineItemDescription,product/ProductName,lineItem/UnblendedCost,lineItem/UnblendedRate,lineItem/UsageAmount
+AP-DataTransfer-Out-Bytes,$0.140 per GB - first 10 TB / month data transfer out,Amazon CloudFront,0.005793148800000001,0.1400000000000005,0.041379615300000026
+AP-DataTransfer-Out-Bytes,Tax for product code AmazonCloudFront usage type AP-DataTransfer-Out-Bytes,Amazon CloudFront,0.0,,1.0
+AP-DataTransfer-Out-OBytes,$0.060 per GB - All data transfer out to Origin (Asia),Amazon CloudFront,7.93e-08,0.06,1.3215e-06
+AP-Requests-HTTP-Proxy,"$0.0090 per 10,000 Proxy HTTP Requests (Asia)",Amazon CloudFront,9e-07,9e-07,1.0
+AP-Requests-HTTPS-Proxy,"$0.0120 per 10,000 Proxy HTTPS Requests (Asia)",Amazon CloudFront,2.4e-06,1.2e-06,2.0
+AP-Requests-Tier1,"$0.0090 per 10,000 HTTP Requests",Amazon CloudFront,0.0005391000000000005,8.999999999999966e-07,599.0
+AP-Requests-Tier2-HTTPS,"$0.012 per 10,000 HTTPS Requests",Amazon CloudFront,0.004043999999999985,1.2000000000000025e-06,3370.0
+APN1-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+APN1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.452e-07
+APN1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,AWS Elemental MediaStore,0.0,0.0,1.267e-07
+APN1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7882e-06
+APN1-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Tokyo) region,AWS CloudTrail,0.0,0.0,2158.0
+APN1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+APN1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+APN2-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+APN2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.4519999999999998e-07
+APN2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,AWS Elemental MediaStore,0.0,0.0,1.267e-07
+APN2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7882e-06
+APN2-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Seoul) region,AWS CloudTrail,0.0,0.0,2096.0
+APN2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+APN2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+APS1-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+APS1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.452e-07
+APS1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7882e-06
+APS1-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Singapore) region,AWS CloudTrail,0.0,0.0,2054.0
+APS1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+APS1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+APS2-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+APS2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.4519999999999998e-07
+APS2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,AWS Elemental MediaStore,0.0,0.0,1.267e-07
+APS2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7881999999999999e-06
+APS2-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Sydney) region,AWS CloudTrail,0.0,0.0,2099.0
+APS2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+APS2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+APS3-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+APS3-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.4520000000000003e-07
+APS3-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7882e-06
+APS3-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Mumbai) region,AWS CloudTrail,0.0,0.0,2060.0
+APS3-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+APS3-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+AU-DataTransfer-Out-Bytes,$0.114 per GB - first 10 TB / month data transfer out,Amazon CloudFront,0.0009750598999999999,0.114,0.008553153700000003
+AU-Requests-Tier1,"$0.0090 per 10,000 HTTP Requests",Amazon CloudFront,2.610000000000001e-05,9.000000000000002e-07,29.0
+AU-Requests-Tier2-HTTPS,"$0.0125 per 10,000 HTTPS Requests",Amazon CloudFront,0.0011862499999999935,1.2500000000000029e-06,949.0
+AWS-Auto-Steps-Tier1,"Free Tier Automation Steps 100,000 in AWS Commercial Regions",AWS Systems Manager,0.0,0.0,9191.0
+BudgetsUsage,$0.00 for 62 Budget-days per month (free tier),AWS Budgets,0.0,0.0,31.0
+CA-DataTransfer-Out-Bytes,$0.085 per GB - first 10 TB / month data transfer out (Canada),Amazon CloudFront,0.013162771699999994,0.08500000000000069,0.15485613069999996
+CA-DataTransfer-Out-Bytes,Tax for product code AmazonCloudFront usage type CA-DataTransfer-Out-Bytes,Amazon CloudFront,0.0,,1.0
+CA-DataTransfer-Out-OBytes,$0.020 per GB - All data transfer out to Origin (Canada),Amazon CloudFront,5.09e-08,0.02,2.5444e-06
+CA-Requests-HTTPS-Proxy,"$0.0100 per 10,000 Proxy HTTPS Requests (Canada)",Amazon CloudFront,9e-06,1e-06,9.0
+CA-Requests-Tier1,"$0.0075 per 10,000 HTTP Requests (Canada)",Amazon CloudFront,0.0005182499999999986,7.49999999999998e-07,691.0
+CA-Requests-Tier2-HTTPS,"$0.0100 per 10,000 HTTPS Requests (Canada)",Amazon CloudFront,0.0016849999999999973,1.00000000000001e-06,1685.0
+CAN1-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+CAN1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.452e-07
+CAN1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7881999999999999e-06
+CAN1-FreeEventsRecorded,0.0 per free event recorded in Canada (Central) region,AWS CloudTrail,0.0,0.0,2104.0
+CAN1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+CAN1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,93.0
+CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+DNS-Queries,"$0.40 per 1,000,000 queries for the first 1 Billion queries",Amazon Route 53,2.0448140000000294,3.999999999999446e-07,5112035.0
+DNS-Queries,Tax for product code AmazonRoute53 usage type DNS-Queries,Amazon Route 53,0.0,,1.0
+DashboardsUsageHour,$3.00 per Dashboard per Month (>50 metrics),AmazonCloudWatch,17.99999993520002,3.0,5.99999997840006
+DashboardsUsageHour,Tax for product code AmazonCloudWatch usage type DashboardsUsageHour operation DashboardHour,AmazonCloudWatch,0.0,,1.0
+DashboardsUsageHour-Basic,$3.00 per Dashboard per Month,AmazonCloudWatch,119.22580685489909,3.0,39.741935618300495
+DashboardsUsageHour-Basic,First 3 Dashboards per month are free.,AmazonCloudWatch,0.0,0.0,2.999999851300003
+DashboardsUsageHour-Basic,Tax for product code AmazonCloudWatch usage type DashboardsUsageHour-Basic operation DashboardHour,AmazonCloudWatch,0.0,,1.0
+DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Simple Storage Service,0.0,0.0,1.5241671996000001
+DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,AWS Elemental MediaStore,0.0,0.0,1.267e-07
+DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon Simple Storage Service,0.0,0.0,0.475776623
+Dollar,10% of monthly AWS usage for the first $0-$10K,AWS Support (Business),833.5608503907001,0.1,8335.6085039065
+Dollar,3% of monthly AWS usage from $250K+,AWS Support (Business),0.0,0.03,0.0
+Dollar,5% of monthly AWS usage from $80K-$250K,AWS Support (Business),0.0,0.05,0.0
+Dollar,7% of monthly AWS usage from $10K-$80K,AWS Support (Business),0.0,0.07,0.0
+Dollar,Tax for product code AWSSupportBusiness usage type Dollar,AWS Support (Business),0.0,,1.0
+EU-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+EU-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.452e-07
+EU-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,AWS Elemental MediaStore,0.0,0.0,1.267e-07
+EU-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7882000000000003e-06
+EU-DataTransfer-Out-Bytes,$0.085 per GB - first 10 TB / month data transfer out,Amazon CloudFront,0.11850442000000004,0.08499999999999945,1.394169636099998
+EU-DataTransfer-Out-Bytes,Tax for product code AmazonCloudFront usage type EU-DataTransfer-Out-Bytes,Amazon CloudFront,0.0,,1.0
+EU-DataTransfer-Out-OBytes,$0.020 per GB - All data transfer out to Origin (Europe),Amazon CloudFront,3.4360000000000003e-07,0.02,1.7183e-05
+EU-FreeEventsRecorded,0.0 per free event recorded in EU (Dublin) region,AWS CloudTrail,0.0,0.0,2167.0
+EU-Requests-HTTPS-Proxy,"$0.0120 per 10,000 Proxy HTTPS Requests (Europe)",Amazon CloudFront,3.840000000000001e-05,1.2e-06,32.0
+EU-Requests-Tier1,"$0.0090 per 10,000 HTTP Requests",Amazon CloudFront,0.0006831,8.999999999999966e-07,759.0
+EU-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+EU-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+EU-Requests-Tier2-HTTPS,"$0.0120 per 10,000 HTTPS Requests",Amazon CloudFront,0.02210879999999994,1.2000000000000107e-06,18424.0
+EU-Requests-Tier2-HTTPS,Tax for product code AmazonCloudFront usage type EU-Requests-Tier2-HTTPS,Amazon CloudFront,0.0,,1.0
+EUC1-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+EUC1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.452e-07
+EUC1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,AWS Elemental MediaStore,0.0,0.0,1.267e-07
+EUC1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7881999999999999e-06
+EUC1-FreeEventsRecorded,0.0 per free event recorded in EU (Frankfurt) region,AWS CloudTrail,0.0,0.0,2068.0
+EUC1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+EUC1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,63.0
+EUN1-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+EUN1-DataTransfer-In-Bytes,USD 0.0 per GB for DataTransfer-In-Bytes in EU (Stockholm),Amazon DynamoDB,0.0,0.0,1.452e-07
+EUN1-DataTransfer-Out-Bytes,USD 0.0 per GB for DataTransfer-Out-Bytes in EU (Stockholm),Amazon DynamoDB,0.0,0.0,1.7882e-06
+EUN1-FreeEventsRecorded,0.0 per free event recorded in EU (Stockholm) region,AWS CloudTrail,0.0,0.0,794.0
+EUW2-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+EUW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.452e-07
+EUW2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,AWS Elemental MediaStore,0.0,0.0,1.267e-07
+EUW2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7882000000000005e-06
+EUW2-FreeEventsRecorded,0.0 per free event recorded in EU (London) region,AWS CloudTrail,0.0,0.0,2089.0
+EUW2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+EUW2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+EUW3-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+EUW3-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.4519999999999998e-07
+EUW3-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7882000000000005e-06
+EUW3-FreeEventsRecorded,0.0 per free event recorded in EU (Paris) region,AWS CloudTrail,0.0,0.0,2081.0
+EUW3-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+EUW3-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+HostedZone,$0.50 per Hosted Zone for the first 25 Hosted Zones,Amazon Route 53,9.0,0.5,18.0
+HostedZone,Tax for product code AmazonRoute53 usage type HostedZone,Amazon Route 53,0.0,,1.0
+IN-DataTransfer-Out-Bytes,$0.170 per GB - first 10 TB / month data transfer out (India),Amazon CloudFront,0.0029925839999999974,0.17000000000000134,0.0176034305
+IN-DataTransfer-Out-OBytes,$0.16 per GB - All data transfer out to Origin (India),Amazon CloudFront,2.0180000000000002e-07,0.16,1.2611e-06
+IN-Requests-HTTP-Proxy,"$0.0090 per 10,000 Proxy HTTP Requests (India)",Amazon CloudFront,1.8e-06,9e-07,2.0
+IN-Requests-HTTPS-Proxy,"$0.0120 per 10,000 Proxy HTTPS Requests (India)",Amazon CloudFront,1.2e-06,1.2e-06,1.0
+IN-Requests-Tier1,"$0.0090 per 10,000 HTTP Requests (India)",Amazon CloudFront,0.00025739999999999975,8.999999999999977e-07,286.0
+IN-Requests-Tier2-HTTPS,"$0.0120 per 10,000 HTTPS Requests (India)",Amazon CloudFront,0.0017040000000000033,1.1999999999999921e-06,1420.0
+Intra-AWS-DNS-Queries,Queries to Alias records are free of charge,Amazon Route 53,0.0,0.0,83317.0
+Invalidations,"$0.000 per URL - first 1,000 URLs / month.",Amazon CloudFront,0.0,0.0,4.0
+JP-DataTransfer-Out-Bytes,$0.114 per GB - first 10 TB / month data transfer out,Amazon CloudFront,0.0004949098000000009,0.11399999999999931,0.0043413319999999955
+JP-DataTransfer-Out-OBytes,$0.060 per GB - All data transfer out to Origin (Japan),Amazon CloudFront,5.4e-08,0.06,8.986000000000001e-07
+JP-Requests-HTTP-Proxy,"$0.0090 per 10,000 Proxy HTTP Requests (Japan)",Amazon CloudFront,3.6e-06,9e-07,4.0
+JP-Requests-Tier1,"$0.0090 per 10,000 HTTP Requests",Amazon CloudFront,0.0007712999999999991,8.999999999999965e-07,857.0
+JP-Requests-Tier2-HTTPS,"$0.012 per 10,000 HTTPS Requests",Amazon CloudFront,0.0020940000000000004,1.1999999999999896e-06,1745.0
+ME-DataTransfer-Out-Bytes,$0.110 per GB - first 10 TB / month data transfer out,Amazon CloudFront,0.00021473589999999976,0.10999999999999978,0.0019521576000000006
+ME-DataTransfer-Out-OBytes,$0.060 per GB - All data transfer out to Origin (Middle East),Amazon CloudFront,1.63e-08,0.06,2.7100000000000003e-07
+ME-Requests-HTTPS-Proxy,"$0.0120 per 10,000 Proxy HTTPS Requests (Middle East)",Amazon CloudFront,1.2e-06,1.2e-06,1.0
+ME-Requests-Tier1,"$0.0090 per 10,000 HTTP Requests",Amazon CloudFront,2.7e-06,9e-07,3.0
+ME-Requests-Tier2-HTTPS,"$0.0120 per 10,000 HTTPS Requests",Amazon CloudFront,0.0003275999999999999,1.2000000000000014e-06,273.0
+Requests-RBP,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,2.4799999999999983e-05,3.999999999999997e-07,62.0
+Requests-Tier1,"$0.005 per 1,000 PUT, COPY, POST, or LIST requests",Amazon Simple Storage Service,5.375119999999927,4.999999999999841e-06,1075024.0
+Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,93.0
+Requests-Tier1,Tax for product code AmazonS3 usage type Requests-Tier1,Amazon Simple Storage Service,0.0,,1.0
+Requests-Tier2,"$0.004 per 10,000 GET and all other requests",Amazon Simple Storage Service,0.08663759999999904,4.000000000000084e-07,216594.0
+Requests-Tier2,Tax for product code AmazonS3 usage type Requests-Tier2,Amazon Simple Storage Service,0.0,,1.0
+SA-DataTransfer-Out-Bytes,$0.110 per GB - first 10 TB / month data transfer out,Amazon CloudFront,0.0008252393999999997,0.10999999999999961,0.007502196700000002
+SA-DataTransfer-Out-OBytes,$0.125 per GB - All data transfer out to Origin (South America),Amazon CloudFront,5.89e-08,0.125,4.712e-07
+SA-Requests-HTTPS-Proxy,"$0.0220 per 10,000 Proxy HTTPS Requests (South America)",Amazon CloudFront,2.2e-06,2.2e-06,1.0
+SA-Requests-Tier1,"$0.0160 per 10,000 HTTP Requests",Amazon CloudFront,5.599999999999998e-05,1.6e-06,35.0
+SA-Requests-Tier2-HTTPS,"$0.0220 per 10,000 HTTPS Requests",Amazon CloudFront,0.0015488000000000025,2.2000000000000154e-06,704.0
+SAE1-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+SAE1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.452e-07
+SAE1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7882000000000003e-06
+SAE1-FreeEventsRecorded,0.0 per free event recorded in South America(Sao Paulo) region,AWS CloudTrail,0.0,0.0,2025.0
+SAE1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+SAE1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+TimedStorage-ByteHrs,$0.00 per GB-Month of storage for first 1 GB-Month,Amazon SimpleDB,0.0,0.0,2.7540999999999996e-06
+TimedStorage-ByteHrs,$0.023 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,280.8210527034001,0.02300000000000001,12209.610986960797
+TimedStorage-ByteHrs,Tax for product code AmazonS3 usage type TimedStorage-ByteHrs,Amazon Simple Storage Service,0.0,,1.0
+TimedStorage-RRS-ByteHrs,$0.0240 per GB - first 1 TB / month of storage used - Reduced Redundancy Storage,Amazon Simple Storage Service,0.00010389649999999992,0.02400000000000001,0.0043289671
+US-DataTransfer-Out-Bytes,$0.085 per GB - first 10 TB / month data transfer out,Amazon CloudFront,2.8599079638999965,0.08499999999999824,33.64597598189999
+US-DataTransfer-Out-Bytes,Tax for product code AmazonCloudFront usage type US-DataTransfer-Out-Bytes,Amazon CloudFront,0.0,,1.0
+US-DataTransfer-Out-OBytes,$0.020 per GB - All data transfer out to Origin (US),Amazon CloudFront,1.5053999999999998e-06,0.02000000000000001,7.525800000000002e-05
+US-Requests-HTTP-Proxy,"$0.0075 per 10,000 Proxy HTTP Requests (US)",Amazon CloudFront,2.25e-06,7.5e-07,3.0
+US-Requests-HTTPS-Proxy,"$0.0100 per 10,000 Proxy HTTPS Requests (US)",Amazon CloudFront,0.00010499999999999986,9.999999999999983e-07,105.0
+US-Requests-Tier1,"$0.0075 per 10,000 HTTP Requests",Amazon CloudFront,0.0014760000000000057,7.499999999999949e-07,1968.0
+US-Requests-Tier2-HTTPS,"$0.0100 per 10,000 HTTPS Requests",Amazon CloudFront,0.31299899999999914,1.0000000000000082e-06,312999.0
+US-Requests-Tier2-HTTPS,Tax for product code AmazonCloudFront usage type US-Requests-Tier2-HTTPS,Amazon CloudFront,0.0,,1.0
+USE1-APN1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to Asia Pacific (Tokyo),Amazon Simple Storage Service,4.5e-09,0.02,2.2629999999999998e-07
+USE1-CloudFront-Out-Bytes,$0.00 per GB data transfer out of US East (Northern Virginia) to CloudFront,Amazon Simple Storage Service,0.0,0.0,33.98804921999999
+USE1-EUC1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to EU (Germany),Amazon Simple Storage Service,3.62e-08,0.02,1.8104999999999999e-06
+USE1-FreeEventsRecorded,0.0 per free event recorded in US East (N.Virginia) region,AWS CloudTrail,0.0,0.0,97221.0
+USE1-TimedStorage-ByteHrs,First 5GB-mo per month of logs storage is free.,AmazonCloudWatch,0.0,0.0,0.009153027
+USE1-USW1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to US West (Northern California),Amazon Simple Storage Service,1.803e-07,0.019999999999999997,9.0114e-06
+USE1-USW2-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from US West (Oregon),Amazon Simple Storage Service,0.0,0.0,96.58674729620006
+USE1-USW2-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to US West (Oregon),Amazon Simple Storage Service,1.0840777246999993,0.020000000000000014,54.20388613970005
+USE1-USW2-AWS-Out-Bytes,Tax for product code AWSDataTransfer usage type USE1-USW2-AWS-Out-Bytes,AWS Data Transfer,0.0,,1.0
+USE2-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+USE2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,1.452e-07
+USE2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.7882e-06
+USE2-FreeEventsRecorded,0.0 per free event recorded in US East (Ohio) region,AWS CloudTrail,0.0,0.0,3215.0
+USE2-Requests-Tier1,"$0.005 per 1,000 PUT, COPY, POST, or LIST requests",Amazon Simple Storage Service,9e-05,5e-06,18.0
+USE2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,2.4799999999999983e-05,3.999999999999997e-07,62.0
+USE2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,93.0
+USE2-Requests-Tier2,"$0.004 per 10,000 GET and all other requests",Amazon Simple Storage Service,0.00026200000000000084,3.9999999999999903e-07,655.0
+USE2-TimedStorage-ByteHrs,$0.023 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,3.3083199999999995e-05,0.02300000000000001,0.001438365900000001
+USE2-USE1-AWS-Out-Bytes,$0.01 per GB - US East (Ohio) data transfer to US East (Northern Virginia),Amazon Simple Storage Service,1.093100000000001e-06,0.009999999999999967,0.00010899700000000008
+USW1-APN1-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from Asia Pacific (Tokyo),Amazon Elastic Compute Cloud,0.0,0.0,2.6697e-06
+USW1-APN1-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to Asia Pacific (Tokyo),Amazon Elastic Compute Cloud,2.3709999999999997e-07,0.020000000000000007,1.1854900000000002e-05
+USW1-APN2-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from Asia Pacific (Seoul),Amazon Elastic Compute Cloud,0.0,0.0,2.237e-07
+USW1-APN2-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to Asia Pacific (Seoul),Amazon Elastic Compute Cloud,2.9400000000000002e-08,0.02,1.4753e-06
+USW1-APS1-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from Asia Pacific (Singapore),Amazon Elastic Compute Cloud,0.0,0.0,4.609099999999998e-06
+USW1-APS1-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to Asia Pacific (Singapore),Amazon Elastic Compute Cloud,4.198e-07,0.020000000000000007,2.099970000000001e-05
+USW1-APS2-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from Asia Pacific (Sydney),Amazon Elastic Compute Cloud,0.0,0.0,1.1926000000000002e-06
+USW1-APS2-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to Asia Pacific (Sydney),Amazon Elastic Compute Cloud,1.313e-07,0.02,6.582899999999998e-06
+USW1-APS3-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from Asia Pacific (Mumbai),Amazon Elastic Compute Cloud,0.0,0.0,1.7587000000000004e-06
+USW1-APS3-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to Asia Pacific (Mumbai),Amazon Elastic Compute Cloud,1.5499999999999997e-07,0.020000000000000004,7.767399999999998e-06
+USW1-BoxUsage:m5.large,$0.112 per On Demand Linux m5.large Instance Hour,Amazon Elastic Compute Cloud,83.3279999999994,0.1119999999999992,744.0
+USW1-BoxUsage:m5.large,Tax for product code AmazonEC2 usage type USW1-BoxUsage:m5.large operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW1-CAN1-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from Canada (Central),Amazon Elastic Compute Cloud,0.0,0.0,1.2992e-06
+USW1-CAN1-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to Canada (Central),Amazon Elastic Compute Cloud,1.25e-08,0.02,6.268000000000001e-07
+USW1-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,39.0
+USW1-CloudFront-In-Bytes,$0.00 per GB data transfer in to US West (Northern California) from CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,0.00039668309999999965
+USW1-CloudFront-Out-Bytes,$0.00 per GB data transfer out of US West (Northern California) to CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,0.00013069849999999993
+USW1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Elastic Compute Cloud,0.0,0.0,0.051248091099999976
+USW1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon Elastic Compute Cloud,0.0,0.0,0.09095587040000007
+USW1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon Simple Storage Service,0.0,0.0,1.9095899999999998e-05
+USW1-DataTransfer-Regional-Bytes,$0.010 per GB - regional data transfer - in/out/between EC2 AZs or using elastic IPs or ELB,Amazon Elastic Compute Cloud,0.0008680565000000004,0.009999999999999998,0.08680560879999999
+USW1-EBS:VolumeUsage.gp2,$0.12 per GB-month of General Purpose SSD (gp2) provisioned storage - US West (Northern California),Amazon Elastic Compute Cloud,3.6000000167999997,0.12000000000000048,29.999999966400498
+USW1-EBS:VolumeUsage.gp2,Tax for product code AmazonEC2 usage type USW1-EBS:VolumeUsage.gp2,Amazon Elastic Compute Cloud,0.0,,1.0
+USW1-EBSOptimized:m5.large,$0.00 for 480 Mbps per m5.large instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,744.0
+USW1-EU-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from EU (Ireland),Amazon Elastic Compute Cloud,0.0,0.0,3.0929e-06
+USW1-EU-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to EU (Ireland),Amazon Elastic Compute Cloud,3.4459999999999995e-07,0.020000000000000007,1.725180000000001e-05
+USW1-EUC1-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from EU (Germany),Amazon Elastic Compute Cloud,0.0,0.0,5.8046e-06
+USW1-EUC1-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to EU (Germany),Amazon Elastic Compute Cloud,4.818e-07,0.020000000000000004,2.4095500000000007e-05
+USW1-EUN1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in EU (Stockholm),Amazon Elastic Compute Cloud,0.0,0.0,4.4730000000000004e-07
+USW1-EUN1-AWS-Out-Bytes,USD 0.02 per GB for EUN1-AWS-Out-Bytes in EU (Stockholm),Amazon Elastic Compute Cloud,4.21e-08,0.02,2.1162e-06
+USW1-EUS1-AWS-In-Bytes,USD 0 per GB for USW1-EUS1-AWS-In-Bytes in EU (Milan),Amazon Elastic Compute Cloud,0.0,0.0,1.1180000000000001e-07
+USW1-EUS1-AWS-Out-Bytes,USD 0.02 per GB for USW1-EUS1-AWS-Out-Bytes in EU (Milan),Amazon Elastic Compute Cloud,1.47e-08,0.02,7.375999999999999e-07
+USW1-EUW2-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from EU (London),Amazon Elastic Compute Cloud,0.0,0.0,2.4482000000000005e-06
+USW1-EUW2-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to EU (London),Amazon Elastic Compute Cloud,2.43e-07,0.020000000000000007,1.2166900000000004e-05
+USW1-EUW3-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from EU (Paris),Amazon Elastic Compute Cloud,0.0,0.0,1.491e-07
+USW1-EUW3-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to EU (Paris),Amazon Elastic Compute Cloud,1.12e-08,0.02,5.663000000000001e-07
+USW1-FreeEventsRecorded,0.0 per free event recorded in US West (N.California) region,AWS CloudTrail,0.0,0.0,6155.0
+USW1-Requests-Tier1,"$0.0055 per 1,000 PUT, COPY, POST, or LIST requests",Amazon Simple Storage Service,0.0006215,5.499999999999999e-06,113.0
+USW1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.2399999999999991e-05,3.999999999999997e-07,31.0
+USW1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,62.0
+USW1-Requests-Tier2,"$0.0044 per 10,000 GET and all other requests",Amazon Simple Storage Service,0.0022145199999999868,4.399999999999937e-07,5033.0
+USW1-SAE1-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from South America (Sao Paulo),Amazon Elastic Compute Cloud,0.0,0.0,9.689000000000002e-07
+USW1-SAE1-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to South America (Sao Paulo),Amazon Elastic Compute Cloud,1.0869999999999999e-07,0.019999999999999997,5.4391e-06
+USW1-TimedStorage-ByteHrs,$0.026 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,2.315364552099999,0.026000000000000016,89.05248267960006
+USW1-TimedStorage-ByteHrs,Tax for product code AmazonS3 usage type USW1-TimedStorage-ByteHrs,Amazon Simple Storage Service,0.0,,1.0
+USW1-UGE1-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from AWS GovCloud (US),Amazon Elastic Compute Cloud,0.0,0.0,1.863e-07
+USW1-UGE1-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to AWS GovCloud (US),Amazon Elastic Compute Cloud,2.4600000000000002e-08,0.02,1.2293e-06
+USW1-UGW1-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from AWS GovCloud (US),Amazon Elastic Compute Cloud,0.0,0.0,1.1180000000000001e-07
+USW1-UGW1-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to AWS GovCloud (US),Amazon Elastic Compute Cloud,1.47e-08,0.02,7.375999999999999e-07
+USW1-USE1-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from US East (Northern Virginia),Amazon Elastic Compute Cloud,0.0,0.0,0.0014821389999999993
+USW1-USE1-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to US East (Northern Virginia),Amazon Elastic Compute Cloud,0.00014484779999999998,0.020000000000000014,0.007242412700000002
+USW1-USE1-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to US East (Northern Virginia),Amazon Simple Storage Service,7.659170000000003e-05,0.019999999999999723,0.003829391000000016
+USW1-USE2-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from US East (Ohio),Amazon Elastic Compute Cloud,0.0,0.0,5.22e-07
+USW1-USE2-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to US East (Ohio),Amazon Elastic Compute Cloud,5.059999999999999e-08,0.019999999999999997,2.5410000000000003e-06
+USW1-USE2-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to US East (Ohio),Amazon Simple Storage Service,4.4100000000000004e-08,0.02,2.2073e-06
+USW1-USW2-AWS-In-Bytes,$0.00 per GB - US West (Northern California) data transfer from US West (Oregon),Amazon Elastic Compute Cloud,0.0,0.0,0.017993669400000013
+USW1-USW2-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to US West (Oregon),Amazon Elastic Compute Cloud,0.0002483767000000002,0.019999999999999803,0.012418873900000005
+USW1-USW2-AWS-Out-Bytes,$0.02 per GB - US West (Northern California) data transfer to US West (Oregon),Amazon Simple Storage Service,1.5204100000000004e-05,0.02000000000000001,0.0007602237999999998
+USW2-AFS1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in Africa (Cape Town),Amazon Elastic Compute Cloud,0.0,0.0,7.46e-08
+USW2-AFS1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in Africa (Cape Town),Amazon Simple Storage Service,0.0,0.0,0.0002312129
+USW2-AFS1-AWS-Out-Bytes,USD 0.02 per GB for EUN1-AWS-Out-Bytes in Africa (Cape Town),Amazon Elastic Compute Cloud,9.8e-09,0.02,4.918e-07
+USW2-APE1-AWS-In-Bytes,USD0.0 per GB for  in Asia Pacific (Hong Kong),Amazon Elastic Compute Cloud,0.0,0.0,1.3834000000000006e-06
+USW2-APE1-AWS-In-Bytes,USD0.0 per GB for  in Asia Pacific (Hong Kong),Amazon Simple Storage Service,0.0,0.0,0.0004941427999999996
+USW2-APE1-AWS-Out-Bytes,USD0.02 per GB for  in Asia Pacific (Hong Kong),Amazon Elastic Compute Cloud,1.282e-07,0.019999999999999997,6.430299999999999e-06
+USW2-APN1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Tokyo),Amazon Elastic Compute Cloud,0.0,0.0,6.42321e-05
+USW2-APN1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Tokyo),Amazon Simple Storage Service,0.0,0.0,0.0010933960000000023
+USW2-APN1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Tokyo),Amazon Elastic Compute Cloud,3.4994000000000003e-06,0.020000000000000014,0.00017512319999999997
+USW2-APN1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Tokyo),Amazon Simple Storage Service,2.131999999999995e-06,0.020000000000000014,0.00010653849999999968
+USW2-APN2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Seoul),Amazon Elastic Compute Cloud,0.0,0.0,6.301599999999997e-06
+USW2-APN2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Seoul),Amazon Simple Storage Service,0.0,0.0,0.0010820577000000037
+USW2-APN2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Seoul),Amazon Elastic Compute Cloud,4.1830000000000003e-07,0.020000000000000007,2.0966400000000006e-05
+USW2-APN2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Seoul),Amazon Simple Storage Service,2.1423999999999945e-06,0.020000000000000014,0.00010705819999999964
+USW2-APN3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Osaka-Local),Amazon Elastic Compute Cloud,0.0,0.0,7.83e-08
+USW2-APN3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Osaka-Local),Amazon Simple Storage Service,0.0,0.0,0.0004978544000000022
+USW2-APN3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Osaka-Local),Amazon Elastic Compute Cloud,5.6000000000000005e-09,0.02,2.832e-07
+USW2-APS1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Singapore),Amazon Elastic Compute Cloud,0.0,0.0,0.019332583499999986
+USW2-APS1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Singapore),Amazon Simple Storage Service,0.0,0.0,0.0010671482000000033
+USW2-APS1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Singapore),Amazon Elastic Compute Cloud,1.0469200000000005e-05,0.020000000000000014,0.0005235533
+USW2-APS1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Singapore),Amazon Simple Storage Service,2.1111999999999947e-06,0.020000000000000014,0.00010549909999999968
+USW2-APS2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Sydney),AWS Lambda,0.0,0.0,7.08e-08
+USW2-APS2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Sydney),Amazon Elastic Compute Cloud,0.0,0.0,2.5286900000000007e-05
+USW2-APS2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Sydney),Amazon Simple Storage Service,0.0,0.0,0.0010828775000000035
+USW2-APS2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Sydney),AWS Lambda,1.4000000000000001e-09,0.02,7.08e-08
+USW2-APS2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Sydney),Amazon Elastic Compute Cloud,1.8892e-06,0.02000000000000001,9.449200000000002e-05
+USW2-APS2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Sydney),Amazon Simple Storage Service,2.0591999999999955e-06,0.020000000000000014,0.00010290059999999971
+USW2-APS3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Mumbai),Amazon Elastic Compute Cloud,0.0,0.0,2.693440000000002e-05
+USW2-APS3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Mumbai),Amazon Simple Storage Service,0.0,0.0,0.0010731950000000016
+USW2-APS3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Mumbai),Amazon Elastic Compute Cloud,1.9608e-06,0.02000000000000001,9.80888e-05
+USW2-APS3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Mumbai),Amazon Simple Storage Service,2.100799999999995e-06,0.020000000000000014,0.00010497939999999967
+USW2-Aurora:BackupUsage,Tax for product code AmazonRDS usage type USW2-Aurora:BackupUsage operation CreateDBInstance:0021,Amazon Relational Database Service,0.0,,1.0
+USW2-Aurora:BackupUsage,USD 0.021 per GB-month of backup storage exceeding free allocation for Aurora PostgreSQL,Amazon Relational Database Service,15.792649303400003,0.021000000000000348,752.0309180738003
+USW2-Aurora:ServerlessUsage,$0.06 per Aurora Capacity Unit hour running Amazon Aurora PostgreSQL Serverless,Amazon Relational Database Service,455.82783315809877,0.06000000000000024,7597.130552637
+USW2-Aurora:ServerlessUsage,Tax for product code AmazonRDS usage type USW2-Aurora:ServerlessUsage operation CreateDBInstance:0021,Amazon Relational Database Service,0.0,,1.0
+USW2-Aurora:StorageIOUsage,$0.20 per 1 million I/O requests (Aurora PostgreSQL),Amazon Relational Database Service,294.23104320000016,2.000000000000026e-07,1471155216.0
+USW2-Aurora:StorageIOUsage,Tax for product code AmazonRDS usage type USW2-Aurora:StorageIOUsage operation CreateDBInstance:0021,Amazon Relational Database Service,0.0,,1.0
+USW2-Aurora:StorageUsage,$0.10 per GB-month of consumed storage (Aurora PostgreSQL),Amazon Relational Database Service,87.2713639550999,0.10000000000000006,872.7136391653
+USW2-Aurora:StorageUsage,Tax for product code AmazonRDS usage type USW2-Aurora:StorageUsage operation CreateDBInstance:0021,Amazon Relational Database Service,0.0,,1.0
+USW2-BoxUsage:c4.2xlarge,$0.398 per On Demand Linux c4.2xlarge Instance Hour,Amazon Elastic Compute Cloud,28.480327177999985,0.3979999999999998,71.55861100000001
+USW2-BoxUsage:c4.2xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:c4.2xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:c4.4xlarge,$0.796 per On Demand Linux c4.4xlarge Instance Hour,Amazon Elastic Compute Cloud,347.9426572359997,0.7959999999999989,437.113891
+USW2-BoxUsage:c4.4xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:c4.4xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:c4.8xlarge,$1.591 per On Demand Linux c4.8xlarge Instance Hour,Amazon Elastic Compute Cloud,261.7689976010004,1.5910000000000035,164.53111099999998
+USW2-BoxUsage:c4.8xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:c4.8xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:c4.large,$0.1 per On Demand Linux c4.large Instance Hour,Amazon Elastic Compute Cloud,85.08647220000007,0.10000000000000032,850.8647220000003
+USW2-BoxUsage:c4.large,Tax for product code AmazonEC2 usage type USW2-BoxUsage:c4.large operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:c4.xlarge,$0.199 per On Demand Linux c4.xlarge Instance Hour,Amazon Elastic Compute Cloud,54.74008997100006,0.19900000000000026,275.0758290000001
+USW2-BoxUsage:c4.xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:c4.xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:c5.24xlarge,(Granite promotion at 25%) $3.0600 per On Demand Linux c5.24xlarge Instance Hour,Amazon Elastic Compute Cloud,105.83180135999997,4.079999999999999,25.939167
+USW2-BoxUsage:c5.24xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:c5.24xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:c5.2xlarge,(Granite promotion at 25%) $0.2550 per On Demand Linux c5.2xlarge Instance Hour,Amazon Elastic Compute Cloud,145.3463167800001,0.3400000000000003,427.489167
+USW2-BoxUsage:c5.2xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:c5.2xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:c5.4xlarge,(Granite promotion at 25%) $0.5100 per On Demand Linux c5.4xlarge Instance Hour,Amazon Elastic Compute Cloud,60.39287876,0.6799999999999998,88.813057
+USW2-BoxUsage:c5.4xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:c5.4xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:c5.xlarge,(Granite promotion at 25%) $0.1275 per On Demand Linux c5.xlarge Instance Hour,Amazon Elastic Compute Cloud,576.588811469994,0.16999999999999457,3391.6988910000005
+USW2-BoxUsage:c5.xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:c5.xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:g4dn.xlarge,$0.526 per On Demand Linux g4dn.xlarge Instance Hour,Amazon Elastic Compute Cloud,14.685628595999997,0.5259999999999999,27.919446
+USW2-BoxUsage:g4dn.xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:g4dn.xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:i3.large,$0.156 per On Demand Linux i3.large Instance Hour,Amazon Elastic Compute Cloud,580.319999999989,0.1560000000000022,3720.0
+USW2-BoxUsage:i3.large,Tax for product code AmazonEC2 usage type USW2-BoxUsage:i3.large operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:i3en.xlarge,$0.452 per On Demand Linux i3en.xlarge Instance Hour,Amazon Elastic Compute Cloud,11097.503999999923,0.4519999999999985,24552.0
+USW2-BoxUsage:i3en.xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:i3en.xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:m5.24xlarge,(Granite promotion at 25%) $3.45600 per On Demand Linux m5.24xlarge Instance Hour,Amazon Elastic Compute Cloud,330.5433600000002,4.608000000000002,71.7325
+USW2-BoxUsage:m5.24xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:m5.24xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:m5.2xlarge,(Granite promotion at 25%) $0.28800 per On Demand Linux m5.2xlarge Instance Hour,Amazon Elastic Compute Cloud,47.19018624000003,0.3840000000000003,122.89111
+USW2-BoxUsage:m5.2xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:m5.2xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:m5.8xlarge,(Granite promotion at 25%) $1.15200 per On Demand Linux m5.8xlarge Instance Hour,Amazon Elastic Compute Cloud,29.39776051200001,1.5360000000000003,19.139167
+USW2-BoxUsage:m5.8xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:m5.8xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:m5.large,(Granite promotion at 25%) $0.07200 per On Demand Linux m5.large Instance Hour,Amazon Elastic Compute Cloud,6.3981866880000045,0.09600000000000006,66.647778
+USW2-BoxUsage:m5.large,Tax for product code AmazonEC2 usage type USW2-BoxUsage:m5.large operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:m5a.4xlarge,(Granite promotion at 25%) $0.51600 per On Demand Linux m5a.4xlarge Instance Hour,Amazon Elastic Compute Cloud,141.78132000000005,0.6880000000000001,206.07750000000001
+USW2-BoxUsage:m5a.4xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:m5a.4xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:m5a.large,(Granite promotion at 25%) $0.06450 per On Demand Linux m5a.large Instance Hour,Amazon Elastic Compute Cloud,63.98399999999921,0.08599999999999894,744.0
+USW2-BoxUsage:m5a.large,Tax for product code AmazonEC2 usage type USW2-BoxUsage:m5a.large operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:m5a.xlarge,(Granite promotion at 25%) $0.12900 per On Demand Linux m5a.xlarge Instance Hour,Amazon Elastic Compute Cloud,255.93599999999623,0.17199999999999746,1488.0
+USW2-BoxUsage:m5a.xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:m5a.xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:p2.xlarge,$0.9 per On Demand Linux p2.xlarge Instance Hour,Amazon Elastic Compute Cloud,1229.5275002999947,0.899999999999985,1366.1416670000003
+USW2-BoxUsage:p2.xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:p2.xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:p3.2xlarge,$3.06 per On Demand Linux p3.2xlarge Instance Hour,Amazon Elastic Compute Cloud,7.2130993199999995,3.06,2.357222
+USW2-BoxUsage:p3.2xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:p3.2xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:r5.12xlarge,(Granite promotion at 25%) $2.26800 per On Demand Linux r5.12xlarge Instance Hour,Amazon Elastic Compute Cloud,384.07403966400005,3.0240000000000005,127.008611
+USW2-BoxUsage:r5.12xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:r5.12xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:t2.large,$0.0928 per On Demand Linux t2.large Instance Hour,Amazon Elastic Compute Cloud,276.96255370560465,0.09279999999999874,2984.5102770000003
+USW2-BoxUsage:t2.large,Tax for product code AmazonEC2 usage type USW2-BoxUsage:t2.large operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:t2.medium,$0.0464 per On Demand Linux t2.medium Instance Hour,Amazon Elastic Compute Cloud,69.04319999999906,0.04639999999999937,1488.0
+USW2-BoxUsage:t2.medium,Tax for product code AmazonEC2 usage type USW2-BoxUsage:t2.medium operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:t2.micro,$0.0116 per On Demand Linux t2.micro Instance Hour,Amazon Elastic Compute Cloud,8.630399999999861,0.011599999999999814,744.0
+USW2-BoxUsage:t2.micro,Tax for product code AmazonEC2 usage type USW2-BoxUsage:t2.micro operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:t2.small,$0.023 per On Demand Linux t2.small Instance Hour,Amazon Elastic Compute Cloud,34.23673305299994,0.022999999999999965,1488.553611
+USW2-BoxUsage:t2.small,Tax for product code AmazonEC2 usage type USW2-BoxUsage:t2.small operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:t2.xlarge,$0.1856 per On Demand Linux t2.xlarge Instance Hour,Amazon Elastic Compute Cloud,138.08639999999778,0.18559999999999702,744.0
+USW2-BoxUsage:t2.xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:t2.xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:t3a.large,(Granite promotion at 25%) $0.056400 per On Demand Linux t3a.large Instance Hour,Amazon Elastic Compute Cloud,111.6000000000028,0.07500000000000187,1488.0
+USW2-BoxUsage:t3a.large,Tax for product code AmazonEC2 usage type USW2-BoxUsage:t3a.large operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:t3a.medium,(Granite promotion at 25%) $0.028200 per On Demand Linux t3a.medium Instance Hour,Amazon Elastic Compute Cloud,402.41058447400303,0.03799999999999869,10589.752223000001
+USW2-BoxUsage:t3a.medium,Tax for product code AmazonEC2 usage type USW2-BoxUsage:t3a.medium operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:t3a.micro,(Granite promotion at 25%) $0.007050 per On Demand Linux t3a.micro Instance Hour,Amazon Elastic Compute Cloud,6.696000000000069,0.009000000000000093,744.0
+USW2-BoxUsage:t3a.micro,Tax for product code AmazonEC2 usage type USW2-BoxUsage:t3a.micro operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:t3a.small,(Granite promotion at 25%) $0.014100 per On Demand Linux t3a.small Instance Hour,Amazon Elastic Compute Cloud,14.136000000000077,0.019000000000000104,744.0
+USW2-BoxUsage:t3a.small,Tax for product code AmazonEC2 usage type USW2-BoxUsage:t3a.small operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:x1.32xlarge,$13.338 per On Demand Linux x1.32xlarge Instance Hour,Amazon Elastic Compute Cloud,9.010565928,13.338,0.675556
+USW2-BoxUsage:x1.32xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:x1.32xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:x1e.32xlarge,$26.688 per On Demand Linux x1e.32xlarge Instance Hour,Amazon Elastic Compute Cloud,4614.807401472012,26.688000000000077,172.91694399999997
+USW2-BoxUsage:x1e.32xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:x1e.32xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-BoxUsage:x1e.4xlarge,$3.336 per On Demand Linux x1e.4xlarge Instance Hour,Amazon Elastic Compute Cloud,805.4021400000024,3.3360000000000105,241.4275
+USW2-BoxUsage:x1e.4xlarge,Tax for product code AmazonEC2 usage type USW2-BoxUsage:x1e.4xlarge operation RunInstances,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-CAN1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Canada (Central),Amazon Elastic Compute Cloud,0.0,0.0,4.8291999999999994e-06
+USW2-CAN1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Canada (Central),Amazon Simple Storage Service,0.0,0.0,0.001076168700000001
+USW2-CAN1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Canada (Central),Amazon Elastic Compute Cloud,2.044e-07,0.02,1.0237599999999998e-05
+USW2-CAN1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Canada (Central),Amazon Simple Storage Service,2.0903999999999953e-06,0.020000000000000014,0.00010445969999999971
+USW2-CPUCredits:t3a,$0.05 per vCPU-Hour of T3A CPU Credits,Amazon Elastic Compute Cloud,17.892391149999995,0.05000000000000003,357.84782299999983
+USW2-CPUCredits:t3a,Tax for product code AmazonEC2 usage type USW2-CPUCredits:t3a operation T3ACPUCredits,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-CW:AlarmMonitorUsage,$0.00 per alarm metric month - first 10 alarm metrics,AmazonCloudWatch,0.0,0.0,9.756496408399977
+USW2-CW:MetricMonitorUsage,$0.00 per metric-month - first 10 metrics,AmazonCloudWatch,0.0,0.0,10.000000370300006
+USW2-CW:MetricMonitorUsage,"$0.30 per metric-month for the first 10,000 metrics - US West (Oregon)",AmazonCloudWatch,3.0463709289000027,0.2999999999999998,10.154569621000002
+USW2-CW:MetricMonitorUsage,Tax for product code AmazonCloudWatch usage type USW2-CW:MetricMonitorUsage,AmazonCloudWatch,0.0,,1.0
+USW2-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,4097.0
+USW2-Catalog-Storage,$0 for AWS Glue Data Catalog storage under the free tier,AWS Glue,0.0,0.0,9.00000000479994
+USW2-CloudFront-In-Bytes,$0.00 per GB data transfer in to US West (Oregon) from CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,14.508435882299997
+USW2-CloudFront-Out-Bytes,$0.00 per GB data transfer out of US West (Oregon) to CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,0.08284924350000009
+USW2-CloudFront-Out-Bytes,$0.00 per GB data transfer out of US West (Oregon) to CloudFront,Amazon Simple Storage Service,0.0,0.0,0.002334498199999999
+USW2-DataProcessing-Bytes,$0.008 per GB Data Processed by the LoadBalancer,Amazon Elastic Compute Cloud,0.006336281699999991,0.008000000000000005,0.7920346893999984
+USW2-DataProcessing-Bytes,$0.50 per GB log data ingested - US West (Oregon),AmazonCloudWatch,25.0552837066,0.5,50.110567273300035
+USW2-DataProcessing-Bytes,First 5GB per month of log data ingested is free.,AmazonCloudWatch,0.0,0.0,4.999999999400001
+USW2-DataProcessing-Bytes,Tax for product code AmazonCloudWatch usage type USW2-DataProcessing-Bytes operation PutLogEvents,AmazonCloudWatch,0.0,,1.0
+USW2-DataProcessing-Bytes,Tax for product code AmazonEC2 usage type USW2-DataProcessing-Bytes operation LoadBalancing,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,AWS Lambda,0.0,0.0,2.3879218845999968
+USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Elastic Compute Cloud,0.0,0.0,554.5999460133004
+USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Relational Database Service,0.0,0.0,0.010843164400000002
+USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Simple Email Service,0.0,0.0,1.81171e-05
+USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Simple Notification Service,0.0,0.0,0.0001286909
+USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Simple Queue Service,0.0,0.0,0.44530925709999963
+USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Simple Storage Service,0.0,0.0,7.586966271500004
+USW2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,AWS Lambda,0.0,0.0,0.0022755546999999997
+USW2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon Elastic Compute Cloud,0.0,0.0,0.9627117203000002
+USW2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon Simple Queue Service,0.0,0.0,0.0350127103
+USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,AWS Elemental MediaStore,1.14e-08,0.09,1.267e-07
+USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,AWS Lambda,0.006055250599999997,0.09000000000000165,0.0672805693
+USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon EC2 Container Registry (ECR),0.04174529,0.09,0.4638365553
+USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Elastic Compute Cloud,56.82149686880005,0.09000000000000255,631.349965124801
+USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Relational Database Service,0.0011111464000000016,0.09000000000000172,0.012345937499999996
+USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Email Service,2.3832999999999997e-06,0.09000000000000001,2.64821e-05
+USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Notification Service,2.666089999999999e-05,0.08999999999999989,0.00029622349999999987
+USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Queue Service,0.06870569550000002,0.09000000000000168,0.7633966093999993
+USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Storage Service,44.141841733000085,0.0900000000000002,490.46490816259984
+USW2-DataTransfer-Out-Bytes,Tax for product code AWSDataTransfer usage type USW2-DataTransfer-Out-Bytes,AWS Data Transfer,0.0,,1.0
+USW2-DataTransfer-Regional-Bytes,$0.010 per GB - regional data transfer - in/out/between EC2 AZs or using elastic IPs or ELB,Amazon Elastic Compute Cloud,171.04996573190004,0.00999999999999945,17104.99655929041
+USW2-DataTransfer-Regional-Bytes,$0.010 per GB - regional data transfer - in/out/between EC2 AZs or using elastic IPs or ELB,Amazon Elasticsearch Service,0.05737787560000002,0.009999999999999846,5.737787564000001
+USW2-DataTransfer-Regional-Bytes,Tax for product code AWSDataTransfer usage type USW2-DataTransfer-Regional-Bytes,AWS Data Transfer,0.0,,1.0
+USW2-DeliveryAttempts-SMTP,"First 1,000 Amazon SNS Email/Email-JSON Notifications per month are free",Amazon Simple Notification Service,0.0,0.0,82.0
+USW2-EBS:SnapshotUsage,$0.05 per GB-Month of snapshot data stored - US West (Oregon),Amazon Elastic Compute Cloud,48.7112715252,0.050000000000000024,974.2254303945998
+USW2-EBS:SnapshotUsage,Tax for product code AmazonEC2 usage type USW2-EBS:SnapshotUsage,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-EBS:VolumeIOUsage,$0.05 per 1 million I/O requests - US West (Oregon),Amazon Elastic Compute Cloud,3.0730132000000046,5.000000000000093e-08,61460264.0
+USW2-EBS:VolumeIOUsage,Tax for product code AmazonEC2 usage type USW2-EBS:VolumeIOUsage,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-EBS:VolumeP-IOPS.piops,$0.065 per IOPS-month provisioned - US West (Oregon),Amazon Elastic Compute Cloud,32.36711693630006,0.0650000000000001,497.95564515930056
+USW2-EBS:VolumeP-IOPS.piops,Tax for product code AmazonEC2 usage type USW2-EBS:VolumeP-IOPS.piops,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-EBS:VolumeUsage,$0.05 per GB-month of Magnetic provisioned storage - US West (Oregon),Amazon Elastic Compute Cloud,65.00806422020047,0.05000000000000003,1300.1612906521912
+USW2-EBS:VolumeUsage,Tax for product code AmazonEC2 usage type USW2-EBS:VolumeUsage,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-EBS:VolumeUsage.gp2,$0.10 per GB-month of General Purpose SSD (gp2) provisioned storage - US West (Oregon),Amazon Elastic Compute Cloud,5129.408493799,0.10000000000000006,51294.08493933569
+USW2-EBS:VolumeUsage.gp2,Tax for product code AmazonEC2 usage type USW2-EBS:VolumeUsage.gp2,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-EBS:VolumeUsage.piops,$0.125 per GB-month of Provisioned IOPS SSD (io1) provisioned storage - US West (Oregon),Amazon Elastic Compute Cloud,46.68332773619994,0.125,373.46662186230077
+USW2-EBS:VolumeUsage.piops,Tax for product code AmazonEC2 usage type USW2-EBS:VolumeUsage.piops,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-EBS:VolumeUsage.st1,$0.045 per GB-month of Throughput Optimized HDD (st1) provisioned storage - US West (Oregon),Amazon Elastic Compute Cloud,22.500000012000143,0.04500000000000086,500.0000000351975
+USW2-EBS:VolumeUsage.st1,Tax for product code AmazonEC2 usage type USW2-EBS:VolumeUsage.st1,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-EBSOptimized:c4.8xlarge,$0.00 for 4000 Mbps per c4.8xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,39.722778000000005
+USW2-EBSOptimized:c5.24xlarge,$0.00 for 14000 Mbps per c5.24xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,25.939167
+USW2-EBSOptimized:c5.2xlarge,$0.00 for 1750 Mbps per c5.2xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,61.448889
+USW2-EBSOptimized:g4dn.xlarge,$0.00 for 700 Mbps per g4dn.xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,27.919446
+USW2-EBSOptimized:m5.24xlarge,$0.00 for 14000 Mbps per m5.24xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,71.73249999999999
+USW2-EBSOptimized:m5.2xlarge,$0.00 for 1700 Mbps per m5.2xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,122.89111000000001
+USW2-EBSOptimized:m5.8xlarge,$0.00 for 5000 Mbps per m5.8xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,19.139167
+USW2-EBSOptimized:m5.large,$0.00 for 480 Mbps per m5.large instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,66.647778
+USW2-EBSOptimized:m5a.4xlarge,$0.00 for 2120 Mbps per m5a.4xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,206.07749999999996
+USW2-EBSOptimized:p2.xlarge,$0.00 for 750 Mbps per p2.xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,622.141667
+USW2-EBSOptimized:p3.2xlarge,$0.00 for 1750 Mbps per p3.2xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,2.357222
+USW2-EBSOptimized:x1e.4xlarge,$0.00 for 1750 Mbps per x1e.4xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,241.4275
+USW2-ECS-EC2-GB-Hours,Amazon ECS - EC2 Launch Type - Memory GB hours  - US West (Oregon),Amazon EC2 Container Service,0.0,0.0,36080.93467834487
+USW2-ECS-EC2-vCPU-Hours,Amazon ECS - EC2 Launch Type - vCPU hours  - US West (Oregon),Amazon EC2 Container Service,0.0,0.0,18594.159691213263
+USW2-ES:GP2-Storage,$0.135 per GB-month of general purpose provisioned storage - USW2,Amazon Elasticsearch Service,555.189676086601,0.13500000000000145,4112.516119034959
+USW2-ES:GP2-Storage,Tax for product code AmazonES usage type USW2-ES:GP2-Storage operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-ES:PIOPS,$0.088 per IOPS-month provisioned - USW2,Amazon Elasticsearch Service,4662.935483872141,0.08800000000000047,52987.9032258526
+USW2-ES:PIOPS,Tax for product code AmazonES usage type USW2-ES:PIOPS operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-ES:PIOPS-Storage,$0.169 per GB-month of PIOPS provisioned storage - USW2,Amazon Elasticsearch Service,1279.4117745464966,0.1689999999999978,7570.483873164284
+USW2-ES:PIOPS-Storage,Tax for product code AmazonES usage type USW2-ES:PIOPS-Storage operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-ESInstance:c5.2xlarge,$0.502 per c5.2xlarge.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,2240.9279999999885,0.5020000000000057,4464.0
+USW2-ESInstance:c5.2xlarge,"Elasticsearch, c5.2xlarge.elasticsearch reserved instance applied",Amazon Elasticsearch Service,0.0,0.0,4464.0
+USW2-ESInstance:c5.2xlarge,Tax for product code AmazonES usage type USW2-ESInstance:c5.2xlarge operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-ESInstance:m5.large,$0.142 per m5.large.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,156.48400000000038,0.14200000000000035,1102.0
+USW2-ESInstance:m5.large,"Elasticsearch, m5.large.elasticsearch reserved instance applied",Amazon Elasticsearch Service,0.0,0.0,3306.0
+USW2-ESInstance:m5.large,Tax for product code AmazonES usage type USW2-ESInstance:m5.large operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-ESInstance:m5.xlarge,$0.283 per m5.xlarge.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,631.656000000002,0.28299999999999553,2232.0
+USW2-ESInstance:m5.xlarge,Tax for product code AmazonES usage type USW2-ESInstance:m5.xlarge operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-ESInstance:r5.12xlarge,$4.46 per r5.12xlarge.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,1297.8600000000042,4.4600000000000115,291.0
+USW2-ESInstance:r5.12xlarge,Tax for product code AmazonES usage type USW2-ESInstance:r5.12xlarge operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-ESInstance:r5.2xlarge,$0.743 per r5.2xlarge.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,3.715,0.743,5.0
+USW2-ESInstance:r5.2xlarge,Tax for product code AmazonES usage type USW2-ESInstance:r5.2xlarge operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-ESInstance:r5.4xlarge,$1.487 per r5.4xlarge.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,272.12099999999964,1.486999999999998,183.0
+USW2-ESInstance:r5.4xlarge,Tax for product code AmazonES usage type USW2-ESInstance:r5.4xlarge operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-ESInstance:r5.large,$0.186 per r5.large.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,299.08799999999997,0.18600000000000325,1608.0
+USW2-ESInstance:r5.large,Tax for product code AmazonES usage type USW2-ESInstance:r5.large operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-EU-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Ireland),Amazon Elastic Compute Cloud,0.0,0.0,0.0005925285999999966
+USW2-EU-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Ireland),Amazon Simple Storage Service,0.0,0.0,0.0011176904999999954
+USW2-EU-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Ireland),Amazon Elastic Compute Cloud,1.5473400000000003e-05,0.01999999999999999,0.0007737441
+USW2-EU-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Ireland),Amazon Simple Storage Service,2.131999999999996e-06,0.020000000000000014,0.0001065384999999997
+USW2-EUC1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Germany),Amazon Elastic Compute Cloud,0.0,0.0,0.0003041568000000003
+USW2-EUC1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Germany),Amazon Simple Storage Service,0.0,0.0,0.0010894527000000027
+USW2-EUC1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Germany),Amazon Elastic Compute Cloud,1.1412300000000114e-05,0.01999999999999968,0.0005708398000000016
+USW2-EUC1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Germany),Amazon Simple Storage Service,2.0799999999999953e-06,0.020000000000000014,0.00010393999999999969
+USW2-EUN1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in EU (Stockholm),Amazon Elastic Compute Cloud,0.0,0.0,4.856599999999997e-06
+USW2-EUN1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in EU (Stockholm),Amazon Simple Storage Service,0.0,0.0,0.0009607936000000013
+USW2-EUN1-AWS-Out-Bytes,USD 0.02 per GB for EUN1-AWS-Out-Bytes in EU (Stockholm),Amazon Elastic Compute Cloud,4.744999999999999e-07,0.019999999999999997,2.37562e-05
+USW2-EUN1-AWS-Out-Bytes,USD 0.02 per GB for EUN1-AWS-Out-Bytes in EU (Stockholm),Amazon Simple Storage Service,1.8511999999999968e-06,0.020000000000000014,9.25065999999998e-05
+USW2-EUS1-AWS-In-Bytes,USD 0 per GB for USW2-EUS1-AWS-In-Bytes in EU (Milan),Amazon Elastic Compute Cloud,0.0,0.0,3.1674e-06
+USW2-EUS1-AWS-In-Bytes,USD 0 per GB for USW2-EUS1-AWS-In-Bytes in EU (Milan),Amazon Simple Storage Service,0.0,0.0,0.0004970521000000004
+USW2-EUS1-AWS-Out-Bytes,USD 0.02 per GB for USW2-EUS1-AWS-Out-Bytes in EU (Milan),Amazon Elastic Compute Cloud,4.0809999999999996e-07,0.019999999999999997,2.04073e-05
+USW2-EUW2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (London),Amazon Elastic Compute Cloud,0.0,0.0,0.00010074209999999985
+USW2-EUW2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (London),Amazon Simple Storage Service,0.0,0.0,0.0010733324999999988
+USW2-EUW2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (London),Amazon Elastic Compute Cloud,1.0752799999999998e-05,0.020000000000000014,0.0005377331999999998
+USW2-EUW2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (London),Amazon Simple Storage Service,2.121599999999995e-06,0.020000000000000014,0.00010601879999999969
+USW2-EUW3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Paris),Amazon Elastic Compute Cloud,0.0,0.0,0.0003430028999999998
+USW2-EUW3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Paris),Amazon Simple Storage Service,0.0,0.0,0.0010711117999999977
+USW2-EUW3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Paris),Amazon Elastic Compute Cloud,4.4959e-06,0.02000000000000001,0.0002248151000000001
+USW2-EUW3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Paris),Amazon Simple Storage Service,2.0903999999999953e-06,0.020000000000000014,0.0001044596999999997
+USW2-ElasticIP:IdleAddress,$0.00 per Elastic IP address not attached to a running instance for the first hour,Amazon Elastic Compute Cloud,0.0,0.0,1.0
+USW2-ElasticIP:IdleAddress,$0.005 per Elastic IP address not attached to a running instance per hour (prorated),Amazon Elastic Compute Cloud,3.714999999999943,0.004999999999999923,743.0
+USW2-ElasticIP:IdleAddress,Tax for product code AmazonEC2 usage type USW2-ElasticIP:IdleAddress,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-FreeEventsRecorded,0.0 per free event recorded in US West (Oregon) region,AWS CloudTrail,0.0,0.0,4331880.0
+USW2-HeavyUsage:c5.2xlarge.elasticsearch,Tax for product code AmazonES usage type USW2-HeavyUsage:c5.2xlarge.elasticsearch operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-HeavyUsage:c5.2xlarge.elasticsearch,"USD 0.168 hourly fee per Elasticsearch, c5.2xlarge.elasticsearch instance",Amazon Elasticsearch Service,749.952,0.168,4464.0
+USW2-HeavyUsage:m5.large.elasticsearch,Tax for product code AmazonES usage type USW2-HeavyUsage:m5.large.elasticsearch operation ESDomain,Amazon Elasticsearch Service,0.0,,1.0
+USW2-HeavyUsage:m5.large.elasticsearch,"USD 0.048 hourly fee per Elasticsearch, m5.large.elasticsearch instance",Amazon Elasticsearch Service,214.272,0.048,4464.0
+USW2-InactivePipelines,1 per month per inactive pipeline,AWS Data Pipeline,4.99999992,1.0,4.99999992
+USW2-InactivePipelines,Tax for product code datapipeline usage type USW2-InactivePipelines,AWS Data Pipeline,0.0,,1.0
+USW2-IncludedTP-MiBpsHrs,USD $0.00 per MiBps-Mo for throughput included with Standard storage (USW2),Amazon Elastic File System,0.0,0.0,0.048828124800000185
+USW2-InstanceUsage:db.m4.xlarge,$0.365 per RDS db.m4.xlarge instance hour (or partial hour) running PostgreSQL,Amazon Relational Database Service,271.5600000000028,0.36500000000000377,744.0
+USW2-InstanceUsage:db.m4.xlarge,Tax for product code AmazonRDS usage type USW2-InstanceUsage:db.m4.xlarge operation CreateDBInstance:0014,Amazon Relational Database Service,0.0,,1.0
+USW2-InstanceUsage:db.t2.medium,$0.068 per RDS db.t2.medium instance hour (or partial hour) running MariaDB,Amazon Relational Database Service,50.59199999999967,0.06799999999999956,744.0
+USW2-InstanceUsage:db.t2.medium,$0.068 per RDS db.t2.medium instance hour (or partial hour) running MySQL,Amazon Relational Database Service,50.59199999999967,0.06799999999999956,744.0
+USW2-InstanceUsage:db.t2.medium,$0.073 per RDS db.t2.medium instance hour (or partial hour) running PostgreSQL,Amazon Relational Database Service,54.31200000000027,0.07300000000000036,744.0
+USW2-InstanceUsage:db.t2.medium,Tax for product code AmazonRDS usage type USW2-InstanceUsage:db.t2.medium operation CreateDBInstance:0002,Amazon Relational Database Service,0.0,,1.0
+USW2-InstanceUsage:db.t2.medium,Tax for product code AmazonRDS usage type USW2-InstanceUsage:db.t2.medium operation CreateDBInstance:0014,Amazon Relational Database Service,0.0,,1.0
+USW2-InstanceUsage:db.t2.medium,Tax for product code AmazonRDS usage type USW2-InstanceUsage:db.t2.medium operation CreateDBInstance:0018,Amazon Relational Database Service,0.0,,1.0
+USW2-InstanceUsage:db.t2.small,$0.036 per RDS db.t2.small instance hour (or partial hour) running PostgreSQL,Amazon Relational Database Service,26.784000000000276,0.03600000000000037,744.0
+USW2-InstanceUsage:db.t2.small,Tax for product code AmazonRDS usage type USW2-InstanceUsage:db.t2.small operation CreateDBInstance:0014,Amazon Relational Database Service,0.0,,1.0
+USW2-InstanceUsage:db.t2.xlarge,$0.290 per RDS db.t2.xlarge Single-AZ instance hour (or partial hour) running PostgreSQL,Amazon Relational Database Service,215.75999999999883,0.2899999999999984,744.0
+USW2-InstanceUsage:db.t2.xlarge,Tax for product code AmazonRDS usage type USW2-InstanceUsage:db.t2.xlarge operation CreateDBInstance:0014,Amazon Relational Database Service,0.0,,1.0
+USW2-LCUUsage,$0.006 per used Network load balancer capacity unit-hour (or partial hour),Amazon Elastic Compute Cloud,4.133952962400002,0.005999999999999929,688.9921600149004
+USW2-LCUUsage,$0.008 per used Application load balancer capacity unit-hour (or partial hour),Amazon Elastic Compute Cloud,0.0107826297,0.008000000000000005,1.3478274454999999
+USW2-LCUUsage,Tax for product code AmazonEC2 usage type USW2-LCUUsage operation LoadBalancing:Application,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-LCUUsage,Tax for product code AmazonEC2 usage type USW2-LCUUsage operation LoadBalancing:Network,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-Lambda-GB-Second,"AWS Lambda - Compute Free Tier - 400,000 GB-Seconds - US West (Oregon)",AWS Lambda,0.0,0.0,32969.38124999999
+USW2-LoadBalancerUsage,$0.0225 per Application LoadBalancer-hour (or partial hour),Amazon Elastic Compute Cloud,50.22000000000054,0.02250000000000043,2232.0
+USW2-LoadBalancerUsage,$0.0225 per Network LoadBalancer-hour (or partial hour),Amazon Elastic Compute Cloud,63.855000000001134,0.02250000000000043,2838.0
+USW2-LoadBalancerUsage,$0.025 per LoadBalancer-hour (or partial hour),Amazon Elastic Compute Cloud,93.0,0.025000000000000015,3720.0
+USW2-LoadBalancerUsage,Tax for product code AmazonEC2 usage type USW2-LoadBalancerUsage operation LoadBalancing,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-LoadBalancerUsage,Tax for product code AmazonEC2 usage type USW2-LoadBalancerUsage operation LoadBalancing:Application,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-LoadBalancerUsage,Tax for product code AmazonEC2 usage type USW2-LoadBalancerUsage operation LoadBalancing:Network,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-MES1-AWS-In-Bytes,USD0.0 per GB for  in Middle East (Bahrain),Amazon Elastic Compute Cloud,0.0,0.0,1.68609e-05
+USW2-MES1-AWS-In-Bytes,USD0.0 per GB for  in Middle East (Bahrain),Amazon Simple Storage Service,0.0,0.0,0.0004956557000000007
+USW2-MES1-AWS-Out-Bytes,USD0.02 per GB for  in Middle East (Bahrain),Amazon Elastic Compute Cloud,9.798000000000003e-07,0.02,4.89876e-05
+USW2-Multi-AZUsage:db.m5.xl,$0.712 per RDS db.m5.xlarge Multi-AZ instance hour (or partial hour) running PostgreSQL,Amazon Relational Database Service,529.7279999999943,0.7119999999999923,744.0
+USW2-Multi-AZUsage:db.m5.xl,Tax for product code AmazonRDS usage type USW2-Multi-AZUsage:db.m5.xl operation CreateDBInstance:0014,Amazon Relational Database Service,0.0,,1.0
+USW2-Multi-AZUsage:db.t2.medium,$0.146 per RDS db.t2.medium Multi-AZ instance hour (or partial hour) running PostgreSQL,Amazon Relational Database Service,108.62400000000054,0.1460000000000007,744.0
+USW2-Multi-AZUsage:db.t2.medium,Tax for product code AmazonRDS usage type USW2-Multi-AZUsage:db.t2.medium operation CreateDBInstance:0014,Amazon Relational Database Service,0.0,,1.0
+USW2-NatGateway-Bytes,$0.045 per GB Data Processed by NAT Gateways,Amazon Elastic Compute Cloud,34.39160205160003,0.04500000000000086,764.2578233578005
+USW2-NatGateway-Bytes,Tax for product code AmazonEC2 usage type USW2-NatGateway-Bytes operation NatGateway,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-NatGateway-Hours,$0.045 per NAT Gateway Hour,Amazon Elastic Compute Cloud,66.96000000000127,0.04500000000000086,1488.0
+USW2-NatGateway-Hours,Tax for product code AmazonEC2 usage type USW2-NatGateway-Hours operation NatGateway,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-Node:dc2.large,$0.250 per Redshift Dense Compute Large (DC2.L) Compute Node-hour (or partial hour),Amazon Redshift,1858.729165,0.25,7434.91666
+USW2-Node:dc2.large,Tax for product code AmazonRedshift usage type USW2-Node:dc2.large operation RunComputeNode:0001,Amazon Redshift,0.0,,1.0
+USW2-PaidEventsAnalyzed,$0.000004 per CloudTrail event analyzed in US West (Oregon) region,Amazon GuardDuty,12.694652000000003,4.0000000000000625e-06,3173663.0
+USW2-PaidEventsAnalyzed,Tax for product code AmazonGuardDuty usage type USW2-PaidEventsAnalyzed,Amazon GuardDuty,0.0,,1.0
+USW2-PaidEventsAnalyzed-Bytes,$1.00 per GB for the first 500 GB / month of data analyzed US West (Oregon) region,Amazon GuardDuty,42.82495561850002,1.0,42.82495561850002
+USW2-PaidEventsAnalyzed-Bytes,Tax for product code AmazonGuardDuty usage type USW2-PaidEventsAnalyzed-Bytes,Amazon GuardDuty,0.0,,1.0
+USW2-ProvisionedTP-MiBpsHrs,Tax for product code AmazonEFS usage type USW2-ProvisionedTP-MiBpsHrs,Amazon Elastic File System,0.0,,1.0
+USW2-ProvisionedTP-MiBpsHrs,USD $6.00 per MiBps-Mo for Provisioned Throughput (USW2),Amazon Elastic File System,599.7070314720045,6.0,99.9511719120012
+USW2-RDS:ChargedBackupUsage,$0.095 per additional GB-month of backup storage exceeding free allocation,Amazon Relational Database Service,23.8852917683,0.09500000000000006,251.42412387630003
+USW2-RDS:ChargedBackupUsage,Tax for product code AmazonRDS usage type USW2-RDS:ChargedBackupUsage,Amazon Relational Database Service,0.0,,1.0
+USW2-RDS:GP2-Storage,$0.115 per GB-month of provisioned GP2 storage,Amazon Relational Database Service,83.94999999600087,0.1149999999999992,730.0000000007967
+USW2-RDS:GP2-Storage,Tax for product code AmazonRDS usage type USW2-RDS:GP2-Storage operation CreateDBInstance,Amazon Relational Database Service,0.0,,1.0
+USW2-RDS:Multi-AZ-PIOPS,$0.20 per IOPS-month of Multi-AZ Provisioned IOPS,Amazon Relational Database Service,399.9999999984064,0.20000000000000012,1999.9999999919646
+USW2-RDS:Multi-AZ-PIOPS,Tax for product code AmazonRDS usage type USW2-RDS:Multi-AZ-PIOPS operation CreateDBInstance,Amazon Relational Database Service,0.0,,1.0
+USW2-RDS:Multi-AZ-PIOPS-Storage,$0.25 per GB-month of Multi-AZ Provisioned IOPS Storage,Amazon Relational Database Service,62.500000041600266,0.25,250.00000001759875
+USW2-RDS:Multi-AZ-PIOPS-Storage,Tax for product code AmazonRDS usage type USW2-RDS:Multi-AZ-PIOPS-Storage operation CreateDBInstance,Amazon Relational Database Service,0.0,,1.0
+USW2-RDS:PIOPS,$0.10 per IOPS-month of Provisioned IOPS,Amazon Relational Database Service,100.00000003679862,0.10000000000000006,999.9999999959823
+USW2-RDS:PIOPS,Tax for product code AmazonRDS usage type USW2-RDS:PIOPS operation CreateDBInstance,Amazon Relational Database Service,0.0,,1.0
+USW2-RDS:PIOPS-Storage,$0.125 per GB-month of Provisioned IOPS Storage,Amazon Relational Database Service,74.9999999903995,0.125,599.9999999975953
+USW2-RDS:PIOPS-Storage,Tax for product code AmazonRDS usage type USW2-RDS:PIOPS-Storage operation CreateDBInstance,Amazon Relational Database Service,0.0,,1.0
+USW2-Recipients,Cost per recipient of SendEmail or SendRawEmail USW2,Amazon Simple Email Service,0.0008,0.0001,8.0
+USW2-Request,"AWS Lambda - Requests Free Tier - 1,000,000 Requests - US West (Oregon)",AWS Lambda,0.0,0.0,864.0
+USW2-Requests-FIFO-Tier1,"$0.50 per 1,000,000 Amazon SQS FIFO Requests per month thereafter",Amazon Simple Queue Service,1.7817944999999986,5.000000000000071e-07,3563589.0
+USW2-Requests-FIFO-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,1000000.0
+USW2-Requests-FIFO-Tier1,Tax for product code AWSQueueService usage type USW2-Requests-FIFO-Tier1,Amazon Simple Queue Service,0.0,,1.0
+USW2-Requests-SIA-Tier2,"$0.01 per 10,000 GET and all other requests  to Standard-Infrequent Access",Amazon Simple Storage Service,4e-06,1e-06,4.0
+USW2-Requests-Tier1,"$0.005 per 1,000 PUT, COPY, POST, or LIST requests",Amazon Simple Storage Service,12.47033999999977,5.000000000000495e-06,2494068.0
+USW2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,0.7885620000000026,4.000000000000083e-07,1971405.0
+USW2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,530.0
+USW2-Requests-Tier1,Tax for product code AWSQueueService usage type USW2-Requests-Tier1,Amazon Simple Queue Service,0.0,,1.0
+USW2-Requests-Tier1,Tax for product code AmazonS3 usage type USW2-Requests-Tier1,Amazon Simple Storage Service,0.0,,1.0
+USW2-Requests-Tier2,"$0.004 per 10,000 GET and all other requests",Amazon Simple Storage Service,22.583956799999967,4.0000000000000824e-07,56459892.0
+USW2-Requests-Tier2,Tax for product code AmazonS3 usage type USW2-Requests-Tier2,Amazon Simple Storage Service,0.0,,1.0
+USW2-Requests-Tier3,"$0.050 per 1,000 Glacier requests",Amazon Simple Storage Service,0.4617999999999999,4.9999999999999975e-05,9236.0
+USW2-Requests-Tier3,Tax for product code AmazonS3 usage type USW2-Requests-Tier3 operation S3-GlacierTransition,Amazon Simple Storage Service,0.0,,1.0
+USW2-Requests-Tier4,"$0.01 per 1,000 transitions to Standard-Infrequent Access",Amazon Simple Storage Service,0.0015000000000000002,1.0000000000000004e-05,150.0
+USW2-Retrieval-SIA,$0.01 per GB - flat fee for all bytes retrieved in Standard-Infrequent Access,Amazon Simple Storage Service,0.0015995597,0.01,0.15995597279999998
+USW2-SAE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from South America (Sao Paulo),AWS Lambda,0.0,0.0,7.08e-08
+USW2-SAE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from South America (Sao Paulo),Amazon Elastic Compute Cloud,0.0,0.0,2.8545700000000004e-05
+USW2-SAE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from South America (Sao Paulo),Amazon Simple Storage Service,0.0,0.0,0.0010545222999999984
+USW2-SAE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to South America (Sao Paulo),AWS Lambda,1.4000000000000001e-09,0.02,7.08e-08
+USW2-SAE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to South America (Sao Paulo),Amazon Elastic Compute Cloud,2.3429e-06,0.02000000000000001,0.00011716790000000002
+USW2-SAE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to South America (Sao Paulo),Amazon Simple Storage Service,2.0383999999999956e-06,0.020000000000000014,0.00010186119999999971
+USW2-SpotUsage:p2.xlarge,Tax for product code AmazonEC2 usage type USW2-SpotUsage:p2.xlarge operation RunInstances:SV001,Amazon Elastic Compute Cloud,0.0,,1.0
+USW2-SpotUsage:p2.xlarge,p2.xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,93.26886999870008,,345.4402650000001
+USW2-TimedStorage-ByteHrs,$0.00 per GB-Month of storage for first 1 GB-Month,Amazon SimpleDB,0.0,0.0,4.1141999999999995e-06
+USW2-TimedStorage-ByteHrs,$0.023 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,716.2822937292002,0.022999999999999982,31142.708423344688
+USW2-TimedStorage-ByteHrs,$0.03 per GB-mo of log storage - US West (Oregon),AmazonCloudWatch,3.8715606957,0.03000000000000002,129.0520231097
+USW2-TimedStorage-ByteHrs,$0.10 per GB-month of data storage,Amazon EC2 Container Registry (ECR),79.95855339420005,0.10000000000000006,799.5855313714995
+USW2-TimedStorage-ByteHrs,First 5GB-mo per month of logs storage is free.,AmazonCloudWatch,0.0,0.0,4.9908469454
+USW2-TimedStorage-ByteHrs,Tax for product code AmazonCloudWatch usage type USW2-TimedStorage-ByteHrs,AmazonCloudWatch,0.0,,1.0
+USW2-TimedStorage-ByteHrs,Tax for product code AmazonECR usage type USW2-TimedStorage-ByteHrs,Amazon EC2 Container Registry (ECR),0.0,,1.0
+USW2-TimedStorage-ByteHrs,Tax for product code AmazonEFS usage type USW2-TimedStorage-ByteHrs,Amazon Elastic File System,0.0,,1.0
+USW2-TimedStorage-ByteHrs,Tax for product code AmazonS3 usage type USW2-TimedStorage-ByteHrs,Amazon Simple Storage Service,0.0,,1.0
+USW2-TimedStorage-ByteHrs,USD $0.30 per GB-Mo for Standard storage (USW2),Amazon Elastic File System,114.55855805259989,0.3000000000000037,381.86186018799975
+USW2-TimedStorage-GlacierByteHrs,$0.004 per GB / month of storage used - Amazon Glacier,Amazon Simple Storage Service,4.450908881199998,0.004000000000000003,1112.7272203721
+USW2-TimedStorage-GlacierByteHrs,Tax for product code AmazonS3 usage type USW2-TimedStorage-GlacierByteHrs,Amazon Simple Storage Service,0.0,,1.0
+USW2-TimedStorage-SIA-ByteHrs,$0.0125 per GB-Month of storage used in Standard-Infrequent Access,Amazon Simple Storage Service,25.206989544200006,0.012500000000000006,2016.5591635568
+USW2-TimedStorage-SIA-ByteHrs,Tax for product code AmazonS3 usage type USW2-TimedStorage-SIA-ByteHrs,Amazon Simple Storage Service,0.0,,1.0
+USW2-UGE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from AWS GovCloud (US),Amazon Elastic Compute Cloud,0.0,0.0,3.5402000000000004e-06
+USW2-UGE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to AWS GovCloud (US),Amazon Elastic Compute Cloud,4.665999999999999e-07,0.019999999999999997,2.33574e-05
+USW2-UGW1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from AWS GovCloud (US),Amazon Elastic Compute Cloud,0.0,0.0,2.8440000000000006e-06
+USW2-UGW1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to AWS GovCloud (US),Amazon Elastic Compute Cloud,2.8389999999999994e-07,0.019999999999999997,1.42088e-05
+USW2-USE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Northern Virginia),AWS Lambda,0.0,0.0,0.00018508419999999987
+USW2-USE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Northern Virginia),Amazon Elastic Compute Cloud,0.0,0.0,93.51769932419977
+USW2-USE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Northern Virginia),Amazon Simple Storage Service,0.0,0.0,3.909263598500001
+USW2-USE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Northern Virginia),AWS Lambda,1.7707000000000003e-06,0.020000000000000014,8.852180000000004e-05
+USW2-USE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Northern Virginia),Amazon Elastic Compute Cloud,12.621555381400006,0.02000000000000051,631.0777678445007
+USW2-USE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Northern Virginia),Amazon Simple Storage Service,0.3111581855999998,0.019999999999999674,15.55790635030001
+USW2-USE1-AWS-Out-Bytes,Tax for product code AWSDataTransfer usage type USW2-USE1-AWS-Out-Bytes,AWS Data Transfer,0.0,,1.0
+USW2-USE2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Ohio),Amazon Elastic Compute Cloud,0.0,0.0,0.0035593688000000027
+USW2-USE2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Ohio),Amazon Simple Storage Service,0.0,0.0,0.0012166398999999997
+USW2-USE2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Ohio),Amazon Elastic Compute Cloud,7.573199999999996e-05,0.020000000000000014,0.003786689500000002
+USW2-USE2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Ohio),Amazon Simple Storage Service,2.559599999999993e-06,0.019999999999999962,0.00012791869999999978
+USW2-USW1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US West (Northern California),AWS Lambda,0.0,0.0,0.22083636829999992
+USW2-USW1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US West (Northern California),Amazon Elastic Compute Cloud,0.0,0.0,32.91217875370004
+USW2-USW1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US West (Northern California),Amazon Simple Storage Service,0.0,0.0,0.001331614199999999
+USW2-USW1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US West (Northern California),AWS Lambda,2.5687599999999998e-05,0.020000000000000007,0.0012843740000000002
+USW2-USW1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US West (Northern California),Amazon Elastic Compute Cloud,0.0035084352000000025,0.019999999999999685,0.17542170279999997
+USW2-USW1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US West (Northern California),Amazon Simple Storage Service,4.15959999999999e-06,0.019999999999999876,0.00020793780000000005
+ZA-DataTransfer-Out-Bytes,$0.110 per GB - first 10 TB / month data transfer out,Amazon CloudFront,0.0007233645000000001,0.10999999999999961,0.006576057699999999
+ZA-Requests-Tier1,"$0.0090 per 10,000 HTTP Requests",Amazon CloudFront,9e-07,9e-07,1.0
+ZA-Requests-Tier2-HTTPS,"$0.0120 per 10,000 HTTPS Requests",Amazon CloudFront,0.0007463999999999991,1.1999999999999936e-06,622.0
+us-east-1-KMS-Requests,$0.00 per request - Monthly Global Free Tier for KMS requests,AWS Key Management Service,0.0,0.0,4.0
+us-west-2-KMS-Keys,$1 per customer managed KMS key version in US West (Oregon),AWS Key Management Service,13.999999776599871,1.0,13.999999776599871
+us-west-2-KMS-Keys,Tax for product code awskms usage type us-west-2-KMS-Keys,AWS Key Management Service,0.0,,1.0
+us-west-2-KMS-Requests,$0.00 per request - Monthly Global Free Tier for KMS requests,AWS Key Management Service,0.0,0.0,264.0

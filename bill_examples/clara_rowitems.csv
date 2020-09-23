@@ -1,0 +1,722 @@
+,lineItem/UsageType,lineItem/LineItemDescription,product/ProductName,lineItem/UnblendedCost,lineItem/UnblendedRate,lineItem/UsageAmount
+0,APN1-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+1,APN1-ConfigurationItemRecorded,$0.003 per  Configuration Item recorded in Asia Pacific (Tokyo) region,AWS Config,1.3200000000000005,0.0030000000000000014,440.0
+2,APN1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+3,APN1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,3.008999999999999e-06
+4,APN1-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,9.184330000000003e-05
+5,APN1-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Tokyo) region,AWS CloudTrail,0.0,0.0,180661.0
+6,APN1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.16e-05,4.0000000000000003e-07,29.0
+7,APN1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+8,APN1-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,4.0
+9,APN2-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+10,APN2-ConfigurationItemRecorded,$0.003 per Configuration Item recorded in Asia Pacific (Seoul) region,AWS Config,1.2570000000000003,0.003000000000000001,419.0
+11,APN2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+12,APN2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,4.274170000000001e-05
+13,APN2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,5.21106e-05
+14,APN2-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Seoul) region,AWS CloudTrail,0.0,0.0,180987.0
+15,APN2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.1199999999999998e-05,3.9999999999999993e-07,28.0
+16,APN2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+17,APN2-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,5.0
+18,APS1-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+19,APS1-ConfigurationItemRecorded,$0.003 per  Configuration Item recorded in Asia Pacific (Singapore) region,AWS Config,1.2840000000000003,0.0030000000000000005,428.0
+20,APS1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+21,APS1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,3.008999999999999e-06
+22,APS1-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,9.184330000000003e-05
+23,APS1-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Singapore) region,AWS CloudTrail,0.0,0.0,181076.0
+24,APS1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.16e-05,4.0000000000000003e-07,29.0
+25,APS1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+26,APS1-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,4.0
+27,APS2-APE1-AWS-In-Bytes,USD0.0 per GB for  in Asia Pacific (Hong Kong),Amazon Elastic Compute Cloud,0.0,0.0,2.194128830499999
+28,APS2-APE1-AWS-Out-Bytes,USD0.098 per GB for  in Asia Pacific (Hong Kong),Amazon Elastic Compute Cloud,0.0015007567999999996,0.0980000351838612,0.015313839399999996
+29,APS2-APN1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from Asia Pacific (Tokyo),Amazon Elastic Compute Cloud,0.0,0.0,0.654774638400001
+30,APS2-APN1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Asia Pacific (Tokyo),Amazon Elastic Compute Cloud,0.0007129673000000004,0.09800022402256765,0.007275159899999995
+31,APS2-APN1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Asia Pacific (Tokyo),Amazon Simple Storage Service,2.5908999999999718e-05,0.09833585476550508,0.00026347460000000175
+32,APS2-APN2-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from Asia Pacific (Seoul),Amazon Elastic Compute Cloud,0.0,0.0,3.6384000000000006e-06
+33,APS2-APN2-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Asia Pacific (Seoul),Amazon Elastic Compute Cloud,1.0164000000000001e-06,0.09802011707636968,1.03693e-05
+34,APS2-APN2-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Asia Pacific (Seoul),Amazon Simple Storage Service,2.5908999999999718e-05,0.09833585476550508,0.00026347460000000175
+35,APS2-APN3-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from Asia Pacific (Osaka-Local),Amazon Elastic Compute Cloud,0.0,0.0,4.1e-08
+36,APS2-APN3-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Asia Pacific (Osaka-Local),Amazon Elastic Compute Cloud,3.7e-09,0.09919571045576407,3.73e-08
+37,APS2-APS1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from Asia Pacific (Singapore),Amazon Elastic Compute Cloud,0.0,0.0,5.722376694999989
+38,APS2-APS1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Asia Pacific (Singapore),Amazon Elastic Compute Cloud,0.0035877092999999955,0.09799999296353296,0.03660928119999996
+39,APS2-APS1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Asia Pacific (Singapore),Amazon Simple Storage Service,2.692279999999969e-05,0.09832309362693578,0.00027381970000000226
+40,APS2-APS3-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from Asia Pacific (Mumbai),Amazon Elastic Compute Cloud,0.0,0.0,9.238300000000003e-05
+41,APS2-APS3-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Asia Pacific (Mumbai),Amazon Elastic Compute Cloud,1.9892900000000004e-05,0.09800380232819936,0.00020298090000000002
+42,APS2-APS3-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Asia Pacific (Mumbai),Amazon Simple Storage Service,3.172959999999967e-05,0.09827659154023743,0.0003228602000000031
+43,APS2-AWS-In-Bytes,$0.00 per GB - Data transfer to Asia Pacific (Sydney),Amazon Elastic Compute Cloud,0.0,0.0,31.765994731801243
+44,APS2-AWS-In-Bytes,$0.00 per GB - Data transfer to Asia Pacific (Sydney),Amazon Relational Database Service,0.0,0.0,0.28612788920000215
+45,APS2-AWS-Out-Bytes,$0.0980 per GB - Data transfer from Asia Pacific (Sydney),Amazon Elastic Compute Cloud,2.1674209938000213,0.09800000837322638,22.116538863400354
+46,APS2-AWS-Out-Bytes,$0.0980 per GB - Data transfer from Asia Pacific (Sydney),Amazon Relational Database Service,0.03690179070000019,0.09799993235730255,0.3765491446000005
+47,APS2-AWSSecretsManager-Secrets,$0.40 per Secret,AWS Secrets Manager,7.600000027200043,0.400000001566318,18.999999993600003
+48,APS2-AWSSecretsManagerAPIRequest,$0.05 per 10000 API Requests,AWS Secrets Manager,0.053679999999999284,4.9999999999999335e-06,10736.0
+49,APS2-BoxUsage,$0.00 per Compute-Hour consumed first 25 hours per month,Amazon SimpleDB,0.0,0.0,1.372e-05
+50,APS2-BoxUsage:m4.2xlarge,$0.12 per hour for EMR m4.2xlarge,Amazon Elastic MapReduce,390.7983890400048,0.1200000000000015,3256.6532419999994
+51,APS2-BoxUsage:m4.2xlarge,$0.5 per On Demand Linux m4.2xlarge Instance Hour,Amazon Elastic Compute Cloud,1710.8177081249996,0.49999999999999994,3421.6354162499997
+52,APS2-BoxUsage:m4.2xlarge,$0.50 per On Demand Linux m4.2xlarge Instance Hour,Amazon Elastic Compute Cloud,4.836458375,0.5,9.67291675
+53,APS2-BoxUsage:m4.4xlarge,$1.0 per On Demand Linux m4.4xlarge Instance Hour,Amazon Elastic Compute Cloud,632.9461462500001,1.0,632.9461462500001
+54,APS2-BoxUsage:m4.4xlarge,$1.00 per On Demand Linux m4.4xlarge Instance Hour,Amazon Elastic Compute Cloud,111.05385375,1.0,111.05385375
+55,APS2-BoxUsage:m4.large,$0.03 per hour for EMR m4.large,Amazon Elastic MapReduce,0.03195426,0.03,1.065142
+56,APS2-BoxUsage:m4.large,$0.125 per On Demand Linux m4.large Instance Hour,Amazon Elastic Compute Cloud,465.249548625,0.125,3721.996389
+57,APS2-BoxUsage:m4.xlarge,$0.06 per hour for EMR m4.xlarge,Amazon Elastic MapReduce,347.8977702000042,0.060000000000000726,5798.29617
+58,APS2-BoxUsage:m4.xlarge,$0.25 per On Demand Linux m4.xlarge Instance Hour,Amazon Elastic Compute Cloud,1449.09513925,0.25,5796.380557
+59,APS2-BoxUsage:m4.xlarge,$0.434 per On Demand Windows m4.xlarge Instance Hour,Amazon Elastic Compute Cloud,322.89599999999876,0.43399999999999833,744.0
+60,APS2-BoxUsage:r4.4xlarge,$1.2768 per On Demand Linux r4.4xlarge Instance Hour,Amazon Elastic Compute Cloud,949.9391999998006,1.276799999999732,744.0
+61,APS2-BoxUsage:r4.xlarge,$0.067 per hour for EMR r4.xlarge,Amazon Elastic MapReduce,323.67520875499315,0.06699999999999857,4830.9732650000005
+62,APS2-BoxUsage:r4.xlarge,$0.3192 per On Demand Linux r4.xlarge Instance Hour,Amazon Elastic Compute Cloud,40.82470452499997,0.3192000000015636,127.89694399999998
+63,APS2-BoxUsage:r4.xlarge,$0.5032 per On Demand Windows r4.xlarge Instance Hour,Amazon Elastic Compute Cloud,374.3808000000022,0.503200000000003,744.0
+64,APS2-BoxUsage:t2.2xlarge,$0.5292 per On Demand Windows t2.2xlarge Instance Hour,Amazon Elastic Compute Cloud,393.7248000000015,0.529200000000002,744.0
+65,APS2-BoxUsage:t2.large,$0.1168 per On Demand Linux t2.large Instance Hour,Amazon Elastic Compute Cloud,30.661038118399933,0.11679999999999974,262.508888
+66,APS2-BoxUsage:t2.medium,$0.0584 per On Demand Linux t2.medium Instance Hour,Amazon Elastic Compute Cloud,695.1351999996344,0.05839999999996929,11903.0
+67,APS2-BoxUsage:t2.micro,$0.0146 per On Demand Linux t2.micro Instance Hour,Amazon Elastic Compute Cloud,184.63151077941342,0.01460000000000106,12645.993889000001
+68,APS2-BoxUsage:t2.small,$0.0292 per On Demand Linux t2.small Instance Hour,Amazon Elastic Compute Cloud,43.44960000000015,0.029200000000000104,1488.0
+69,APS2-BoxUsage:t3.large,$0.1056 per On Demand Linux t3.large Instance Hour,Amazon Elastic Compute Cloud,0.192984,0.1056,1.8275
+70,APS2-CAN1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from Canada (Central),Amazon Elastic Compute Cloud,0.0,0.0,1.5236399999999997e-05
+71,APS2-CAN1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Canada (Central),Amazon Elastic Compute Cloud,1.6620000000000008e-06,0.09795600820425775,1.6966800000000005e-05
+72,APS2-CAN1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to Canada (Central),Amazon Simple Storage Service,2.5908999999999718e-05,0.09833585476550508,0.00026347460000000175
+73,APS2-CW:AlarmMonitorUsage,$0.00 per alarm metric month - first 10 alarm metrics,AmazonCloudWatch,0.0,0.0,0.8387096783999997
+74,APS2-CW:AlarmMonitorUsage,$0.10 per alarm metric month (standard resolution) - Asia Pacific (Sydney),AmazonCloudWatch,1.2264000701999977,0.09999999831457954,12.264000908699959
+75,APS2-CW:GMD-Metrics,"$0.01 per 1,000 metrics requested using GetMetricData API - Asia Pacific (Sydney)",AmazonCloudWatch,3.70308,9.999999999999999e-06,370308.0
+76,APS2-CW:MetricMonitorUsage,"$0.30 per metric-month for the first 10,000 metrics - Asia Pacific (Sydney)",AmazonCloudWatch,7.437903225800001,0.2999999999959667,24.793010752999997
+77,APS2-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.10246000000000001,1e-05,10246.0
+78,APS2-Catalog-Request,$0 for AWS Glue Data Catalog requests under the free tier,AWS Glue,0.0,0.0,96999.0
+79,APS2-Catalog-Storage,$0 for AWS Glue Data Catalog storage under the free tier,AWS Glue,0.0,0.0,7055.479838706508
+80,APS2-CloudFront-In-Bytes,$0.00 per GB data transfer in to Asia Pacific (Sydney) from CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,0.4137364495000012
+81,APS2-CloudFront-Out-Bytes,$0.00 per GB data transfer out of Asia Pacific (Sydney) to CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,0.17945888209999994
+82,APS2-ConfigRuleEvaluations,"$0.001 for the first 100,000 evaluations in Asia Pacific (Sydney) region",AWS Config,8.845999999999998,0.0009999999999999998,8846.0
+83,APS2-ConfigurationItemRecorded,$0.003 per  Configuration Item recorded in Asia Pacific (Sydney) region,AWS Config,74.87100000000004,0.0030000000000000014,24957.0
+84,APS2-DataEventsRecorded,0.000001 per data event recorded in Asia Pacific (Sydney) region,AWS CloudTrail,43.03808400000001,1.0000000000000004e-06,43038084.0
+85,APS2-DataProcessing-Bytes,$0.008 per GB Data Processed by the LoadBalancer,Amazon Elastic Compute Cloud,0.017010841199999974,0.007999994724497141,2.1263565522000056
+86,APS2-DataProcessing-Bytes,First 5GB per month of log data ingested is free.,AmazonCloudWatch,0.0,0.0,3.5171761291
+87,APS2-DataScannedInTB,Data scanned per query in Terabytes,Amazon Athena,0.19359500000000004,5.000000000000001,0.038719
+88,APS2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,AWS Lambda,0.0,0.0,1.2362259795
+89,APS2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+90,APS2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Elastic Compute Cloud,0.0,0.0,13.995863756999995
+91,APS2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Relational Database Service,0.0,0.0,0.00880802900000005
+92,APS2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Simple Notification Service,0.0,0.0,3.33733e-05
+93,APS2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Simple Storage Service,0.0,0.0,1.1473119116999997
+94,APS2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,AWS Lambda,0.0,0.0,0.0016050273
+95,APS2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,1.4582500000000006e-05
+96,APS2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Elastic Compute Cloud,0.0,0.0,0.9416545680999988
+97,APS2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Relational Database Service,0.0,0.0,0.0018159380999999948
+98,APS2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Simple Notification Service,0.0,0.0,1.9966300000000002e-05
+99,APS2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Simple Storage Service,0.0,0.0,0.0548899174
+100,APS2-DataTransfer-Out-Bytes,$0.114 per GB - first 10 TB / month data transfer out beyond the global free tier,AWS Lambda,0.00015590380000000002,0.1139999744073005,0.0013675775000000002
+101,APS2-DataTransfer-Out-Bytes,$0.114 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon DynamoDB,9.123999999999967e-06,0.11366665919187496,8.026980000000002e-05
+102,APS2-DataTransfer-Out-Bytes,$0.114 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Elastic Compute Cloud,0.7701437099000006,0.1139999995084411,6.755646607199989
+103,APS2-DataTransfer-Out-Bytes,$0.114 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Relational Database Service,0.0010797022999999915,0.1140022882977938,0.009470882700000034
+104,APS2-DataTransfer-Out-Bytes,$0.114 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Notification Service,3.2192500000000014e-05,0.11399848651228903,0.00028239410000000014
+105,APS2-DataTransfer-Out-Bytes,$0.114 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Queue Service,7.620000000000001e-08,0.11395244504262,6.687e-07
+106,APS2-DataTransfer-Out-Bytes,$0.114 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Storage Service,0.09363540630000002,0.11399999927242911,0.8213632183999998
+107,APS2-DataTransfer-Out-Bytes,$0.1140 per GB - up to 10 TB / month data transfer out,Amazon Elastic Compute Cloud,0.019377499999999995,0.1140007801848052,0.16997690689999997
+108,APS2-DataTransfer-Regional-Bytes,$0.010 per GB - regional data transfer - in/out/between EC2 AZs or using elastic IPs or ELB,Amazon Elastic Compute Cloud,117.38608773279853,0.010000000003015935,11738.608769739565
+109,APS2-DeliveryAttempts-SMTP,"First 1,000 Amazon SNS Email/Email-JSON Notifications per month are free",Amazon Simple Notification Service,0.0,0.0,143.0
+110,APS2-EBS:SnapshotUsage,$0.055 per GB-Month of snapshot data stored - Asia Pacific (Sydney),Amazon Elastic Compute Cloud,19.36555909320002,0.05499999993828637,352.10107481689914
+111,APS2-EBS:VolumeUsage.gp2,$0.12 per GB-month of General Purpose SSD (gp2) provisioned storage  - Asia Pacific (Sydney),Amazon Elastic Compute Cloud,677.734171066739,0.11999999888416193,5647.784811406269
+112,APS2-EBSOptimized:m4.2xlarge,$0.000 for 1000 Mbps per m4.2xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,1044.613611
+113,APS2-EBSOptimized:m4.4xlarge,$0.000 for 2000 Mbps per m4.4xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,744.0
+114,APS2-EBSOptimized:m4.large,$0.000 for 450 Mbps per m4.large instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,3722.0577780000003
+115,APS2-EBSOptimized:m4.xlarge,$0.000 for 750 Mbps per m4.xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,2234.612223
+116,APS2-ETL-DPU-Hour,$0.44 per Data Processing Unit-Hour for AWS Glue ETL job,AWS Glue,87.14200748000002,0.4400000000000002,198.05001699999994
+117,APS2-EU-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from EU (Ireland),Amazon Elastic Compute Cloud,0.0,0.0,0.014977433699999994
+118,APS2-EU-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to EU (Ireland),Amazon Elastic Compute Cloud,0.0004900730000000006,0.0980029004137486,0.005000596900000006
+119,APS2-EU-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to EU (Ireland),Amazon Simple Storage Service,2.5908999999999718e-05,0.09833585476550508,0.00026347460000000175
+120,APS2-EUC1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from EU (Germany),Amazon Elastic Compute Cloud,0.0,0.0,0.00021949979999999963
+121,APS2-EUC1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to EU (Germany),Amazon Elastic Compute Cloud,3.531179999999997e-05,0.09797207313987416,0.00036042719999999917
+122,APS2-EUC1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to EU (Germany),Amazon Simple Storage Service,2.5908999999999718e-05,0.09833585476550508,0.00026347460000000175
+123,APS2-EUN1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in EU (Stockholm),Amazon Elastic Compute Cloud,0.0,0.0,2.933e-06
+124,APS2-EUN1-AWS-Out-Bytes,USD 0.098 per GB for EUN1-AWS-Out-Bytes in EU (Stockholm),Amazon Elastic Compute Cloud,1.0824000000000002e-06,0.09802660773961001,1.1041900000000003e-05
+125,APS2-EUS1-AWS-In-Bytes,USD 0 per GB for APS2-EUS1-AWS-In-Bytes in EU (Milan),Amazon Elastic Compute Cloud,0.0,0.0,2.3848000000000004e-06
+126,APS2-EUS1-AWS-Out-Bytes,USD 0.098 per GB for APS2-EUS1-AWS-Out-Bytes in EU (Milan),Amazon Elastic Compute Cloud,9.906e-07,0.09801127931136834,1.0107000000000003e-05
+127,APS2-EUW2-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from EU (London),Amazon Elastic Compute Cloud,0.0,0.0,1.8100700000000035e-05
+128,APS2-EUW2-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to EU (London),Amazon Elastic Compute Cloud,8.200700000000008e-06,0.0980136012143089,8.366899999999996e-05
+129,APS2-EUW2-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to EU (London),Amazon Simple Storage Service,2.5908999999999718e-05,0.09833585476550508,0.00026347460000000175
+130,APS2-EUW3-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from EU (Paris),Amazon Elastic Compute Cloud,0.0,0.0,3.564e-06
+131,APS2-EUW3-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to EU (Paris),Amazon Elastic Compute Cloud,1.1789000000000003e-06,0.09802519436244966,1.2026499999999994e-05
+132,APS2-EUW3-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to EU (Paris),Amazon Simple Storage Service,2.5908999999999718e-05,0.09833585476550508,0.00026347460000000175
+133,APS2-ElasticIP:IdleAddress,$0.005 per Elastic IP address not attached to a running instance per hour on a pro rata basis,Amazon Elastic Compute Cloud,7.439999999999975,0.004999999999999983,1488.0
+134,APS2-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Sydney) region,AWS CloudTrail,0.0,0.0,3421788.0
+135,APS2-InstanceUsage:db.t2.medium,USD 0.104 per db.t2.medium instance hour (or partial hour) running MySQL,Amazon Relational Database Service,66.6144555439997,0.10399999999999954,640.523611
+136,APS2-InstanceUsage:db.t2.small,USD 0.052 per db.t2.small instance hour (or partial hour) running MySQL,Amazon Relational Database Service,149.37121331599894,0.05199999999999963,2872.523333
+137,APS2-LCUUsage,$0.008 per used Application load balancer capacity unit-hour (or partial hour),Amazon Elastic Compute Cloud,0.0339498835,0.008000000071635,4.243735399500002
+138,APS2-Lambda-GB-Second,"AWS Lambda - Compute Free Tier - 400,000 GB-Seconds - Asia Pacific (Sydney)",AWS Lambda,0.0,0.0,1975.8374999999996
+139,APS2-LoadBalancerUsage,$0.0252 per Application LoadBalancer-hour (or partial hour),Amazon Elastic Compute Cloud,37.49759999999985,0.0251999999999999,1488.0
+140,APS2-LoadBalancerUsage,$0.028 per LoadBalancer-hour (or partial hour),Amazon Elastic Compute Cloud,83.32799999999858,0.027999999999999522,2976.0
+141,APS2-MES1-AWS-In-Bytes,USD0.0 per GB for  in Middle East (Bahrain),Amazon Elastic Compute Cloud,0.0,0.0,2.2578e-06
+142,APS2-MES1-AWS-Out-Bytes,USD0.098 per GB for  in Middle East (Bahrain),Amazon Elastic Compute Cloud,5.591e-07,0.09801206086529696,5.7044e-06
+143,APS2-Multi-AZUsage:db.m4.large,USD 0.492 per db.m4.large Multi-AZ instance hour (or partial hour) running MySQL,Amazon Relational Database Service,366.0480000000011,0.49200000000000144,744.0
+144,APS2-Multi-AZUsage:db.t2.medium,USD 0.208 per db.t2.medium Multi-AZ instance hour (or partial hour) running MySQL,Amazon Relational Database Service,154.7519999999992,0.20799999999999894,744.0
+145,APS2-Multi-AZUsage:db.t2.small,USD 0.104 per db.t2.small Multi-AZ instance hour (or partial hour) running MySQL,Amazon Relational Database Service,154.75199999999904,0.10399999999999936,1488.0
+146,APS2-NatGateway-Bytes,$0.059 per GB Data Processed by NAT Gateways,Amazon Elastic Compute Cloud,360.3119360995992,0.05900000000085523,6106.981967701294
+147,APS2-NatGateway-Hours,$0.059 per NAT Gateway Hour,Amazon Elastic Compute Cloud,175.58399999999722,0.05899999999999907,2976.0
+148,APS2-NodeUsage:cache.t2.micro,$0.022 per T2 Micro Cache node-hour (or partial hour) running Memcached,Amazon ElastiCache,49.10400000000018,0.02200000000000008,2232.0
+149,APS2-RDS:GP2-Storage,USD 0.138 per GB-month of provisioned GP2 storage,Amazon Relational Database Service,17.939997919999627,0.13799999992880946,129.99998499459707
+150,APS2-RDS:Multi-AZ-GP2-Storage,USD 0.276 per GB-month of provisioned Multi-AZ GP2 storage,Amazon Relational Database Service,55.19999993519941,0.2759999996771043,199.99999999919763
+151,APS2-Request,"AWS Lambda - Requests Free Tier - 1,000,000 Requests - Asia Pacific (Sydney)",AWS Lambda,0.0,0.0,1759.0
+152,APS2-Request,Price per HTTP request,AWS WAF,0.15432540000000006,6.000000000000002e-07,257209.0
+153,APS2-Requests-Tier1,"$0.0055 per 1,000 PUT, COPY, POST, or LIST requests",Amazon Simple Storage Service,306.1628515000022,5.50000000000004e-06,55665973.0
+154,APS2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,0.25020040000000254,4.0000000000000406e-07,625501.0
+155,APS2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,934.0
+156,APS2-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,97082.0
+157,APS2-Requests-Tier2,"$0.0044 per 10,000 GET and all other requests",Amazon Simple Storage Service,7.954347719999177,4.399999999999545e-07,18078063.0
+158,APS2-Requests-Tier4,"$0.01 per 1,000 transitions to Standard-Infrequent Access",Amazon Simple Storage Service,0.00753,1e-05,753.0
+159,APS2-Rule,Price per Rule,AWS WAF,0.9274193400000006,1.0,0.9274193400000006
+160,APS2-SAE1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from South America (Sao Paulo),Amazon Elastic Compute Cloud,0.0,0.0,2.7172000000000003e-05
+161,APS2-SAE1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to South America (Sao Paulo),Amazon Elastic Compute Cloud,5.245999999999995e-06,0.0979956288644388,5.353299999999993e-05
+162,APS2-SAE1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to South America (Sao Paulo),Amazon Simple Storage Service,2.5908999999999718e-05,0.09833585476550508,0.00026347460000000175
+163,APS2-Select-Returned-Bytes,$0.0008 per GB - for bytes returned by S3 Select in Standard,Amazon Simple Storage Service,7.75e-08,0.0007992920850488032,9.69608e-05
+164,APS2-Select-Scanned-Bytes,$0.00225 per GB - for bytes scanned by S3 Select in Standard,Amazon Simple Storage Service,8.6575e-06,0.002250019050117975,0.0038477452000000006
+165,APS2-SpotUsage:m4.2xlarge,m4.2xlarge Linux/UNIX Spot Instance-hour in Asia Pacific (Sydney) in VPC Zone #5,Amazon Elastic Compute Cloud,17.860016000100018,0.13935476461081917,128.16222
+166,APS2-SpotUsage:m4.large,m4.large Linux/UNIX Spot Instance-hour in Asia Pacific (Sydney) in VPC Zone #5,Amazon Elastic Compute Cloud,0.002247,0.036602648682988806,0.061389
+167,APS2-SpotUsage:r4.2xlarge,r4.2xlarge Linux/UNIX Spot Instance-hour in Asia Pacific (Sydney) in VPC Zone #5,Amazon Elastic Compute Cloud,0.594385,0.4469994480049214,1.3297219999999998
+168,APS2-SpotUsage:r4.2xlarge,r4.2xlarge Linux/UNIX Spot Instance-hour in Asia Pacific (Sydney) in VPC Zone #52,Amazon Elastic Compute Cloud,5.8596750001,0.4470001233590428,13.108889000000001
+169,APS2-SpotUsage:r4.xlarge,r4.xlarge Linux/UNIX Spot Instance-hour in Asia Pacific (Sydney) in VPC Zone #5,Amazon Elastic Compute Cloud,337.38348700420124,0.08192701658717966,4118.098047000001
+170,APS2-SpotUsage:r4.xlarge,r4.xlarge Linux/UNIX Spot Instance-hour in Asia Pacific (Sydney) in VPC Zone #52,Amazon Elastic Compute Cloud,56.122799999999955,0.07543387096774187,744.0
+171,APS2-SpotUsage:t2.medium,t2.medium Linux/UNIX Spot Instance-hour in Asia Pacific (Sydney) in VPC Zone #5,Amazon Elastic Compute Cloud,26.04000000000009,0.01750000000000006,1488.0
+172,APS2-TimedStorage-ByteHrs,$0.025 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,36.06784489450001,0.024999999999161342,1442.7137958283981
+173,APS2-TimedStorage-ByteHrs,First 5GB-mo per month of logs storage is free.,AmazonCloudWatch,0.0,0.0,0.3516700466000001
+174,APS2-TimedStorage-ByteHrs,USD $0.36 per GB-Mo for Standard storage (APS2),Amazon Elastic File System,8.910161633799953,0.3599999983269768,24.75044909780008
+175,APS2-TimedStorage-GlacierByteHrs,$0.005 per GB / month of storage used - Amazon Glacier,Amazon Simple Storage Service,0.0280087263,0.004999999687329608,5.601745610299999
+176,APS2-TimedStorage-SIA-ByteHrs,$0.019 per GB-Month of storage used in Standard-Infrequent Access,Amazon Simple Storage Service,4.1952104802,0.018999999999403987,220.8005515964
+177,APS2-UGE1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from AWS GovCloud (US),Amazon Elastic Compute Cloud,0.0,0.0,1.8636000000000007e-06
+178,APS2-UGE1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to AWS GovCloud (US),Amazon Elastic Compute Cloud,1.2049999999999997e-06,0.09801848116092919,1.2293600000000005e-05
+179,APS2-UGW1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from AWS GovCloud (US),Amazon Elastic Compute Cloud,0.0,0.0,1.4313999999999998e-06
+180,APS2-UGW1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to AWS GovCloud (US),Amazon Elastic Compute Cloud,7.136000000000001e-07,0.09802871076310192,7.279499999999997e-06
+181,APS2-USE1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from US East (Northern Virginia),Amazon Elastic Compute Cloud,0.0,0.0,105.48179810980017
+182,APS2-USE1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from US East (Northern Virginia),Amazon Simple Storage Service,0.0,0.0,1.06608e-05
+183,APS2-USE1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to US East (Northern Virginia),Amazon Elastic Compute Cloud,5.048654908799983,0.09800000008995882,51.51688677719984
+184,APS2-USE1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to US East (Northern Virginia),Amazon Simple Storage Service,0.002699474799999925,0.09802409325796146,0.027538890799999063
+185,APS2-USE2-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from US East (Ohio),Amazon Elastic Compute Cloud,0.0,0.0,0.00020706709999999978
+186,APS2-USE2-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to US East (Ohio),Amazon Elastic Compute Cloud,5.7067199999999934e-05,0.09800164380192908,0.0005823085999999994
+187,APS2-USE2-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to US East (Ohio),Amazon Simple Storage Service,2.5908999999999718e-05,0.09833585476550508,0.00026347460000000175
+188,APS2-USW1-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from US West (Northern California),Amazon Elastic Compute Cloud,0.0,0.0,0.3411594735999995
+189,APS2-USW1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to US West (Northern California),Amazon Elastic Compute Cloud,0.0004804475999999996,0.0979994608931855,0.004902553499999999
+190,APS2-USW1-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to US West (Northern California),Amazon Simple Storage Service,2.818469999999969e-05,0.09831006735802254,0.0002866919000000023
+191,APS2-USW2-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from US West (Oregon),AWS Lambda,0.0,0.0,0.0002085725
+192,APS2-USW2-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from US West (Oregon),Amazon Elastic Compute Cloud,0.0,0.0,42.67671507619994
+193,APS2-USW2-AWS-In-Bytes,$0.00 per GB - Asia Pacific (Sydney) data transfer from US West (Oregon),Amazon Simple Storage Service,0.0,0.0,5.160347591199999
+194,APS2-USW2-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to US West (Oregon),AWS Lambda,0.0001999641,0.09799997598569532,0.0020404505
+195,APS2-USW2-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to US West (Oregon),Amazon Elastic Compute Cloud,4.334108670900001,0.09799999992677093,44.2255987157
+196,APS2-USW2-AWS-Out-Bytes,$0.098 per GB - Asia Pacific (Sydney) data transfer to US West (Oregon),Amazon Simple Storage Service,0.2645019007999977,0.09800003181298882,2.6989981116000097
+197,APS2-WebACL,Price per WebACL,AWS WAF,4.637096700000027,5.000000000000027,0.9274193400000006
+198,APS2-agent-assessments,First 250 agent-assessments,Amazon Inspector,48.3,0.3,161.0
+199,APS2-network-assessments,First 250 instance-assessments,Amazon Inspector,6.6,0.15,44.0
+200,APS3-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+201,APS3-ConfigurationItemRecorded,$0.003 per Configuration Item recorded in Asia Pacific (Mumbai) region,AWS Config,1.0350000000000001,0.0030000000000000005,345.0
+202,APS3-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+203,APS3-DataTransfer-Out-Bytes,$0.1093 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon DynamoDB,1.0336200000000049e-05,0.10897152731140991,9.485230000000003e-05
+204,APS3-FreeEventsRecorded,0.0 per free event recorded in Asia Pacific (Mumbai) region,AWS CloudTrail,0.0,0.0,181338.0
+205,APS3-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.16e-05,4.0000000000000003e-07,29.0
+206,APS3-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+207,APS3-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,4.0
+208,AWS-Auto-Steps-Tier1,"Free Tier Automation Steps 100,000 in AWS Commercial Regions",AWS Systems Manager,0.0,0.0,2106.0
+209,BoxUsage:t2.large,$0.0928 per On Demand Linux t2.large Instance Hour,Amazon Elastic Compute Cloud,2.209284403,0.09279999999159907,23.806944
+210,BoxUsage:t2.medium,$0.0464 per On Demand Linux t2.medium Instance Hour,Amazon Elastic Compute Cloud,11.425291146000022,0.046399999995126694,246.23472299999997
+211,CAN1-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+212,CAN1-ConfigurationItemRecorded,$0.003 per  Configuration Item recorded in Canada (Central) region,AWS Config,1.3050000000000002,0.0030000000000000005,435.0
+213,CAN1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.092000000000017e-06
+214,CAN1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,4.272580000000001e-05
+215,CAN1-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,5.21106e-05
+216,CAN1-FreeEventsRecorded,0.0 per free event recorded in Canada (Central) region,AWS CloudTrail,0.0,0.0,180985.0
+217,CAN1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.1200000000000001e-05,4.0000000000000003e-07,28.0
+218,CAN1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+219,CAN1-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,5.0
+220,CW:GMD-Metrics,"$0.01 per 1,000 metrics requested using GetMetricData API - US East (Northern Virginia)",AmazonCloudWatch,0.90856,1e-05,90856.0
+221,CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.004130000000000007,1.0000000000000016e-05,413.0
+222,ConfigurationItemRecorded,$0.003 per Configuration Item recorded in US East (N.Virginia) region,AWS Config,2.0280000000000005,0.0030000000000000005,676.0
+223,DashboardsUsageHour,$3.00 per Dashboard per Month (>50 metrics),AmazonCloudWatch,2.9999999519999885,2.999999999999983,0.9999999840000018
+224,DashboardsUsageHour-Basic,$3.00 per Dashboard per Month,AmazonCloudWatch,12.000000105000025,2.999999998500016,4.000000036999987
+225,DashboardsUsageHour-Basic,First 3 Dashboards per month are free.,AmazonCloudWatch,0.0,0.0,2.9999999996000017
+226,DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Elastic Compute Cloud,0.0,0.0,0.011036726099999991
+227,DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Relational Database Service,0.0,0.0,0.0014897731999999994
+228,DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Elastic Compute Cloud,0.0,0.0,0.0009490593999999981
+229,DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Relational Database Service,0.0,0.0,0.0015538915999999976
+230,DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Simple Notification Service,0.0,0.0,2.9868e-06
+231,DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Simple Queue Service,0.0,0.0,1.173e-07
+232,DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Simple Storage Service,0.0,0.0,7.037349999999998e-05
+233,DataTransfer-Regional-Bytes,$0.010 per GB - regional data transfer - in/out/between EC2 AZs or using elastic IPs or ELB,Amazon Elastic Compute Cloud,17.557715100300022,0.01000000000007861,1755.7715100162004
+234,DataTransfer-Regional-Bytes,$0.010 per GB - regional data transfer - in/out/between EC2 AZs or using elastic IPs or ELB,Amazon Elasticsearch Service,0.007678772700000001,0.01000000007162603,0.7678772645
+235,DeliveryAttempts-SMTP,"First 1,000 Amazon SNS Email/Email-JSON Notifications per month are free",Amazon Simple Notification Service,0.0,0.0,3.0
+236,Dollar,AWS Support Costs,AWS Support (Business),4427.676258096988,4427.676258096988,1.0
+237,EBS:SnapshotUsage,$0.05 per GB-Month of snapshot data stored - US East (Northern Virginia),Amazon Elastic Compute Cloud,13.749194347299998,0.05000000003832948,274.98388673520014
+238,EBS:VolumeUsage.gp2,$0.10 per GB-month of General Purpose SSD (gp2) provisioned storage - US East (Northern Virginia),Amazon Elastic Compute Cloud,112.59946168001417,0.09999999957053089,1125.9946216359408
+239,ES:GP2-Storage,$0.135 per GB-month of general purpose provisioned storage,Amazon Elasticsearch Service,1.3481854622999976,0.1349999979912005,9.986559128599945
+240,ESInstance:m4.2xlarge,$0.603 per m4.2xlarge.elasticsearch instance hour (or partial hour),Amazon Elasticsearch Service,448.02899999999954,0.6029999999999994,743.0
+241,EU-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+242,EU-ConfigurationItemRecorded,$0.003 per Configuration Item recorded in EU (Ireland) region,AWS Config,1.2960000000000003,0.0030000000000000005,432.0
+243,EU-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+244,EU-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,9.485230000000003e-05
+245,EU-FreeEventsRecorded,0.0 per free event recorded in EU (Dublin) region,AWS CloudTrail,0.0,0.0,185765.0
+246,EU-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.16e-05,4.0000000000000003e-07,29.0
+247,EU-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+248,EU-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,4.0
+249,EUC1-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+250,EUC1-ConfigurationItemRecorded,$0.003 per  Configuration Item recorded in EU (Frankfurt) region,AWS Config,1.3080000000000003,0.0030000000000000005,436.0
+251,EUC1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.092000000000017e-06
+252,EUC1-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,9.483640000000003e-05
+253,EUC1-FreeEventsRecorded,0.0 per free event recorded in EU (Frankfurt) region,AWS CloudTrail,0.0,0.0,179202.0
+254,EUC1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.16e-05,4.0000000000000003e-07,29.0
+255,EUC1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+256,EUC1-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,4.0
+257,EUN1-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+258,EUN1-DataTransfer-In-Bytes,USD 0.0 per GB for DataTransfer-In-Bytes in EU (Stockholm),Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+259,EUN1-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,5.804950000000001e-05
+260,EUN1-DataTransfer-Out-Bytes,USD 0.0 per GB for DataTransfer-Out-Bytes in EU (Stockholm),Amazon DynamoDB,0.0,0.0,3.6802800000000006e-05
+261,EUN1-FreeEventsRecorded,0.0 per free event recorded in EU (Stockholm) region,AWS CloudTrail,0.0,0.0,168502.0
+262,EUN1-Requests-Tier1,USD 0.0 per Requests for Requests-Tier1 in EU (Stockholm),Amazon Simple Notification Service,0.0,0.0,59.0
+263,EUN1-Requests-Tier1,USD 4.0E-7 per Requests for Requests-Tier1 in EU (Stockholm),Amazon Simple Queue Service,8e-07,4e-07,2.0
+264,EUW2-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+265,EUW2-ConfigurationItemRecorded,$0.003 per Configuration Item recorded in EU (London) region,AWS Config,1.2750000000000004,0.003000000000000001,425.0
+266,EUW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+267,EUW2-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,3.008999999999999e-06
+268,EUW2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,9.184330000000003e-05
+269,EUW2-FreeEventsRecorded,0.0 per free event recorded in EU (London) region,AWS CloudTrail,0.0,0.0,181156.0
+270,EUW2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.1599999999999997e-05,3.9999999999999993e-07,29.0
+271,EUW2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+272,EUW2-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,4.0
+273,EUW3-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+274,EUW3-ConfigurationItemRecorded,$0.003 per Configuration Item recorded in EU (Paris) region,AWS Config,1.2990000000000004,0.003000000000000001,433.0
+275,EUW3-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+276,EUW3-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,9.042899999999998e-06
+277,EUW3-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,8.580940000000002e-05
+278,EUW3-FreeEventsRecorded,0.0 per free event recorded in EU (Paris) region,AWS CloudTrail,0.0,0.0,180398.0
+279,EUW3-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.1200000000000001e-05,4.0000000000000003e-07,28.0
+280,EUW3-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+281,EUW3-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,5.0
+282,ElasticIP:IdleAddress,$0.005 per Elastic IP address not attached to a running instance per hour (prorated),Amazon Elastic Compute Cloud,7.439999999999975,0.004999999999999983,1488.0
+283,HostedZone,$0.50 per Hosted Zone for the first 25 Hosted Zones,Amazon Route 53,5.5,0.5,11.0
+284,InstanceUsage:db.m4.large,$0.175 per RDS db.m4.large Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,53.725000000000094,0.1750000000000003,307.0
+285,InstanceUsage:db.m4.large,$0.175 per RDS db.m4.large instance hour (or partial hour) running MySQL,Amazon Relational Database Service,76.4750000000002,0.17500000000000043,437.0
+286,InstanceUsage:db.t2.medium,$0.068 per RDS db.t2.medium Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,50.59199999999997,0.06799999999999996,744.0
+287,Lambda-GB-Second,"AWS Lambda - Compute Free Tier - 400,000 GB-Seconds - US East (N. Virginia)",AWS Lambda,0.0,0.0,5.0
+288,NatGateway-Bytes,$0.045 per GB Data Processed by NAT Gateways,Amazon Elastic Compute Cloud,39.65083946540007,0.04500000000620401,881.1297657763007
+289,NatGateway-Hours,$0.045 per NAT Gateway Hour,Amazon Elastic Compute Cloud,33.479999999999954,0.044999999999999936,744.0
+290,NodeUsage:cache.t2.micro,$0.017 per T2 Micro Cache node-hour (or partial hour) running Memcached,Amazon ElastiCache,12.64799999999997,0.01699999999999996,744.0
+291,RDS:GP2-Storage,$0.115 per GB-month of provisioned GP2 storage,Amazon Relational Database Service,70.72500002159968,0.11500000003871232,614.9999999807966
+292,Request,"AWS Lambda - Requests Free Tier - 1,000,000 Requests - US East (N. Virginia)",AWS Lambda,0.0,0.0,4.0
+293,Request,"AWS Lambda - Requests Free Tier - 1,000,000 Requests - US East (Northern Virginia)",AWS Lambda,0.0,0.0,32.0
+294,Requests-RBP,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,3.199999999999998e-05,3.999999999999997e-07,80.0
+295,Requests-RBP,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,15.0
+296,Requests-Tier1,"$0.005 per 1,000 PUT, COPY, POST, or LIST requests",Amazon Simple Storage Service,1.135724999999998,4.999999999999992e-06,227145.0
+297,Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,422.0
+298,Requests-Tier2,"$0.004 per 10,000 GET and all other requests",Amazon Simple Storage Service,0.6891836000002964,4.0000000000017204e-07,1722959.0
+299,SAE1-CW:Requests,"$0.00 per request - first 1,000,000 requests",AmazonCloudWatch,0.0,0.0,30.0
+300,SAE1-CW:Requests,"$0.014 per 1,000 requests",AmazonCloudWatch,7e-05,1.3999999999999998e-05,5.0
+301,SAE1-ConfigurationItemRecorded,$0.003 per  Configuration Item recorded in South America (Sao Paulo) region,AWS Config,1.2810000000000004,0.003000000000000001,427.0
+302,SAE1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+303,SAE1-DataTransfer-Out-Bytes,$0.000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,3.6802800000000006e-05
+304,SAE1-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,5.804950000000001e-05
+305,SAE1-FreeEventsRecorded,0.0 per free event recorded in South America(Sao Paulo) region,AWS CloudTrail,0.0,0.0,180461.0
+306,SAE1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.1200000000000001e-05,4.0000000000000003e-07,28.0
+307,SAE1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,90.0
+308,SAE1-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,5.0
+309,Snowball-Extra-Day-Charge,Snowball Extra Day Fee - US-East-1 - N. Virginia,AWS Snowball Extra Days,450.0,15.0,30.0
+310,TimedStorage-ByteHrs,$0.023 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,0.2850351051,0.02299999999669971,12.3928306583
+311,TimedStorage-ByteHrs,$0.0230 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,5.000912099999998,0.022999988944765095,217.43106538050006
+312,USE1-APE1-AWS-In-Bytes,USD0.0 per GB for  in Asia Pacific (Hong Kong),Amazon Elastic Compute Cloud,0.0,0.0,4.1e-08
+313,USE1-APE1-AWS-Out-Bytes,USD0.02 per GB for  in Asia Pacific (Hong Kong),Amazon Elastic Compute Cloud,7.000000000000001e-10,0.01876675603217158,3.73e-08
+314,USE1-APN1-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from Asia Pacific (Tokyo),Amazon Elastic Compute Cloud,0.0,0.0,1.9376000000000003e-06
+315,USE1-APN1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to Asia Pacific (Tokyo),Amazon Simple Storage Service,9.052020000000296e-05,0.02000879836998208,0.004524019799999815
+316,USE1-APN2-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to Asia Pacific (Seoul),Amazon Simple Storage Service,9.055400000000297e-05,0.02000878182106622,0.004525712799999814
+317,USE1-APS1-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from Asia Pacific (Singapore),Amazon Elastic Compute Cloud,0.0,0.0,6.002000000000001e-07
+318,USE1-APS1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to Asia Pacific (Singapore),Amazon Elastic Compute Cloud,1.4000000000000001e-09,0.01876675603217158,7.46e-08
+319,USE1-APS1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to Asia Pacific (Singapore),Amazon Simple Storage Service,9.057070000000304e-05,0.02000881512167974,0.004526539899999817
+320,USE1-APS2-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from Asia Pacific (Sydney),Amazon Elastic Compute Cloud,0.0,0.0,0.0109083244
+321,USE1-APS2-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to Asia Pacific (Sydney),Amazon Elastic Compute Cloud,5.3369000000000005e-06,0.019999977515062103,0.0002668453
+322,USE1-APS2-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to Asia Pacific (Sydney),Amazon Simple Storage Service,0.0018620612000000438,0.02000024916784728,0.09310190010000091
+323,USE1-APS3-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from Asia Pacific (Mumbai),Amazon Elastic Compute Cloud,0.0,0.0,2.7970000000000005e-07
+324,USE1-APS3-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from Asia Pacific (Mumbai),Amazon Simple Storage Service,0.0,0.0,5.346e-07
+325,USE1-APS3-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to Asia Pacific (Mumbai),Amazon Simple Storage Service,9.065730000000299e-05,0.020008783292024192,0.004530875199999811
+326,USE1-AWS-In-Bytes,$0.00 per GB - Data transfer to US East (N. Virginia),Amazon Elastic Compute Cloud,0.0,0.0,0.5118341898000001
+327,USE1-AWS-Out-Bytes,$0.020 per GB - Data transfer from US East (N. Virginia),Amazon Elastic Compute Cloud,0.0007319037000000001,0.019999996994140533,0.0365951905
+328,USE1-AWSSecretsManager-Secrets,$0.40 per Secret,AWS Secrets Manager,3.6000000168,0.40000000165333105,9.000000004800052
+329,USE1-AWSSecretsManagerAPIRequest,$0.05 per 10000 API Requests,AWS Secrets Manager,2e-05,5e-06,4.0
+330,USE1-CAN1-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from Canada (Central),Amazon Elastic Compute Cloud,0.0,0.0,3.73e-08
+331,USE1-CAN1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to Canada (Central),Amazon Simple Storage Service,9.058240000000292e-05,0.020008797629474596,0.004527128599999814
+332,USE1-Catalog-Request,$0 for AWS Glue Data Catalog requests under the free tier,AWS Glue,0.0,0.0,20.0
+333,USE1-Catalog-Storage,$0 for AWS Glue Data Catalog storage under the free tier,AWS Glue,0.0,0.0,9.986559128599943
+334,USE1-CloudFront-In-Bytes,$0.00 per GB data transfer in to US East (Northern Virginia) from CloudFront,AWS Lambda,0.0,0.0,6.901560000000002e-05
+335,USE1-CloudFront-In-Bytes,$0.00 per GB data transfer in to US East (Northern Virginia) from CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,1.7167200000000004e-05
+336,USE1-CloudFront-Out-Bytes,$0.00 per GB data transfer out of US East (Northern Virginia) to CloudFront,AWS Lambda,0.0,0.0,9.5851e-06
+337,USE1-CloudFront-Out-Bytes,$0.00 per GB data transfer out of US East (Northern Virginia) to CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,2.8703999999999997e-06
+338,USE1-DataEventsRecorded,0.000001 per data event recorded in US East (N.Virginia) region,AWS CloudTrail,0.4544929999999996,9.999999999999991e-07,454493.0
+339,USE1-DataProcessing-Bytes,First 5GB per month of log data ingested is free.,AmazonCloudWatch,0.0,0.0,3.9097900000000004e-05
+340,USE1-EU-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from EU (Ireland),Amazon Elastic Compute Cloud,0.0,0.0,1.3080400000000011e-05
+341,USE1-EU-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to EU (Ireland),Amazon Elastic Compute Cloud,7.000000000000001e-10,0.01876675603217158,3.73e-08
+342,USE1-EU-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to EU (Ireland),Amazon Simple Storage Service,9.054610000000293e-05,0.02000881088536949,0.004525311399999814
+343,USE1-EUC1-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from EU (Germany),Amazon Elastic Compute Cloud,0.0,0.0,9.343299999999999e-06
+344,USE1-EUC1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to EU (Germany),Amazon Elastic Compute Cloud,1.4000000000000001e-09,0.01876675603217158,7.46e-08
+345,USE1-EUC1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to EU (Germany),Amazon Simple Storage Service,9.052480000000293e-05,0.020008793942388435,0.004524250699999815
+346,USE1-EUN1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in EU (Stockholm),Amazon Elastic Compute Cloud,0.0,0.0,1.1190000000000002e-07
+347,USE1-EUN1-AWS-Out-Bytes,USD 0.02 per GB for EUN1-AWS-Out-Bytes in EU (Stockholm),Amazon Simple Storage Service,5.019600000000002e-06,0.019998055810973837,0.0002510044
+348,USE1-EUW2-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from EU (London),Amazon Elastic Compute Cloud,0.0,0.0,7.46e-08
+349,USE1-EUW2-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to EU (London),Amazon Simple Storage Service,9.057130000000301e-05,0.02000865018727641,0.004526607199999814
+350,USE1-EUW3-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from EU (Paris),Amazon Elastic Compute Cloud,0.0,0.0,1.492e-07
+351,USE1-EUW3-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to EU (Paris),Amazon Simple Storage Service,9.053030000000294e-05,0.020008808001482466,0.004524522399999814
+352,USE1-FreeEventsRecorded,0.0 per free event recorded in US East (N.Virginia) region,AWS CloudTrail,0.0,0.0,1516875.0
+353,USE1-MES1-AWS-In-Bytes,USD0.0 per GB for  in Middle East (Bahrain),Amazon Elastic Compute Cloud,0.0,0.0,8.199999999999999e-08
+354,USE1-SAE1-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from South America (Sao Paulo),Amazon Elastic Compute Cloud,0.0,0.0,2.275e-07
+355,USE1-SAE1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to South America (Sao Paulo),Amazon Elastic Compute Cloud,7.000000000000001e-10,0.01876675603217158,3.73e-08
+356,USE1-SAE1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to South America (Sao Paulo),Amazon Simple Storage Service,9.059330000000295e-05,0.02000884341436336,0.004527662999999815
+357,USE1-TimedStorage-ByteHrs,First 5GB-mo per month of logs storage is free.,AmazonCloudWatch,0.0,0.0,0.2912830471000003
+358,USE1-UGW1-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from AWS GovCloud (US),Amazon Elastic Compute Cloud,0.0,0.0,3.73e-08
+359,USE1-USE2-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from US East (Ohio),Amazon Elastic Compute Cloud,0.0,0.0,9.104000000000001e-07
+360,USE1-USE2-AWS-Out-Bytes,$0.01 per GB - US East (Northern Virginia) data transfer to US East (Ohio),Amazon Elastic Compute Cloud,1.2e-09,0.010723860589812331,1.1190000000000002e-07
+361,USE1-USE2-AWS-Out-Bytes,$0.01 per GB - US East (Northern Virginia) data transfer to US East (Ohio),Amazon Simple Storage Service,4.530720000000149e-05,0.010005223088968947,0.004528354799999813
+362,USE1-USW1-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from US West (Northern California),Amazon Elastic Compute Cloud,0.0,0.0,0.003872431100000001
+363,USE1-USW1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to US West (Northern California),Amazon Elastic Compute Cloud,3.221e-07,0.02000422318278929,1.61016e-05
+364,USE1-USW1-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to US West (Northern California),Amazon Simple Storage Service,9.04821000000029e-05,0.020008788802451487,0.004522117799999817
+365,USE1-USW2-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from US West (Oregon),AWS Lambda,0.0,0.0,0.0001187315
+366,USE1-USW2-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from US West (Oregon),Amazon Elastic Compute Cloud,0.0,0.0,0.02935526270000002
+367,USE1-USW2-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from US West (Oregon),Amazon Relational Database Service,0.0,0.0,32.66022133940001
+368,USE1-USW2-AWS-In-Bytes,$0.00 per GB - US East (Northern Virginia) data transfer from US West (Oregon),Amazon Simple Storage Service,0.0,0.0,443.4419510629
+369,USE1-USW2-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to US West (Oregon),AWS Lambda,1.1011e-06,0.02000029062269545,5.50542e-05
+370,USE1-USW2-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to US West (Oregon),Amazon Elastic Compute Cloud,0.0001610073,0.019999964473723618,0.0080503793
+371,USE1-USW2-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to US West (Oregon),Amazon Relational Database Service,0.050773110800000014,0.020000000895749773,2.5386554262999996
+372,USE1-USW2-AWS-Out-Bytes,$0.02 per GB - US East (Northern Virginia) data transfer to US West (Oregon),Amazon Simple Storage Service,0.02179795949999968,0.020000057702814614,1.0898948305000162
+373,USE1-en-US-TextToText-Req,Processed text to text request in us-east-1 for en-US,Amazon Lex,0.0525,0.00075,70.0
+374,USE2-APN1-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to Asia Pacific (Tokyo),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+375,USE2-APN2-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to Asia Pacific (Seoul),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+376,USE2-APS1-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to Asia Pacific (Singapore),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+377,USE2-APS2-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to Asia Pacific (Sydney),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+378,USE2-APS3-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to Asia Pacific (Mumbai),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+379,USE2-CAN1-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to Canada (Central),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+380,USE2-CW:GMD-Metrics,"$0.01 per 1,000 metrics requested using GetMetricData API - US East (Ohio)",AmazonCloudWatch,0.00062,1e-05,62.0
+381,USE2-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+382,USE2-Catalog-Request,$0 for AWS Glue Data Catalog requests under the free tier,AWS Glue,0.0,0.0,19.0
+383,USE2-Catalog-Storage,$0 for AWS Glue Data Catalog storage under the free tier,AWS Glue,0.0,0.0,3.000000026399992
+384,USE2-ConfigurationItemRecorded,$0.003 per  Configuration Item recorded in US East (Ohio) region,AWS Config,1.2900000000000003,0.0030000000000000005,430.0
+385,USE2-DataEventsRecorded,0.000001 per data event recorded in US East (Ohio) region,AWS CloudTrail,4.500000000000001e-05,1.0000000000000002e-06,45.0
+386,USE2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,8.093900000000016e-06
+387,USE2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,9.485230000000003e-05
+388,USE2-EU-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to EU (Ireland),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+389,USE2-EUC1-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to EU (Germany),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+390,USE2-EUW2-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to EU (London),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+391,USE2-EUW3-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to EU (Paris),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+392,USE2-FreeEventsRecorded,0.0 per free event recorded in US East (Ohio) region,AWS CloudTrail,0.0,0.0,185334.0
+393,USE2-Requests-Tier1,"$0.005 per 1,000 PUT, COPY, POST, or LIST requests",Amazon Simple Storage Service,9.999999999999999e-05,4.9999999999999996e-06,20.0
+394,USE2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.1199999999999998e-05,3.9999999999999993e-07,28.0
+395,USE2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,91.0
+396,USE2-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,5.0
+397,USE2-Requests-Tier2,"$0.004 per 10,000 GET and all other requests",Amazon Simple Storage Service,0.0014616000000000104,4.0000000000000284e-07,3654.0
+398,USE2-SAE1-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to South America (Sao Paulo),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+399,USE2-TimedStorage-ByteHrs,$0.023 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,4.34e-08,0.02352941176470588,1.8445000000000003e-06
+400,USE2-TimedStorage-ByteHrs,First 5GB-mo per month of logs storage is free.,AmazonCloudWatch,0.0,0.0,0.00013293420000000004
+401,USE2-USE1-AWS-Out-Bytes,$0.01 per GB - US East (Ohio) data transfer to US East (Northern Virginia),Amazon Simple Storage Service,5.572199999999998e-06,0.00999432503420402,0.0005575364000000012
+402,USE2-USW1-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to US West (Northern California),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+403,USE2-USW2-AWS-Out-Bytes,$0.02 per GB - US East (Ohio) data transfer to US West (Oregon),Amazon Simple Storage Service,1.6119999999999993e-07,0.020376175548589334,7.9112e-06
+404,USW1-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.00035,9.999999999999999e-06,35.0
+405,USW1-Catalog-Request,$0 for AWS Glue Data Catalog requests under the free tier,AWS Glue,0.0,0.0,28.0
+406,USW1-Catalog-Storage,$0 for AWS Glue Data Catalog storage under the free tier,AWS Glue,0.0,0.0,1.0000000088000005
+407,USW1-ConfigurationItemRecorded,$0.003 per Configuration Item recorded in US West (N. California) region,AWS Config,1.2750000000000004,0.003000000000000001,425.0
+408,USW1-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,7.861200000000015e-06
+409,USW1-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,9.291520000000001e-05
+410,USW1-FreeEventsRecorded,0.0 per free event recorded in US West (N.California) region,AWS CloudTrail,0.0,0.0,186587.0
+411,USW1-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.1599999999999997e-05,3.9999999999999993e-07,29.0
+412,USW1-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,91.0
+413,USW1-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,4.0
+414,USW1-TimedStorage-ByteHrs,First 5GB-mo per month of logs storage is free.,AmazonCloudWatch,0.0,0.0,2.4396999999999997e-06
+415,USW2-AFS1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in Africa (Cape Town),Amazon Simple Storage Service,0.0,0.0,0.00038258349999999993
+416,USW2-APE1-AWS-In-Bytes,USD0.0 per GB for  in Asia Pacific (Hong Kong),Amazon Elastic Compute Cloud,0.0,0.0,6.784260000000009e-05
+417,USW2-APE1-AWS-In-Bytes,USD0.0 per GB for  in Asia Pacific (Hong Kong),Amazon Simple Storage Service,0.0,0.0,0.0005154367999999992
+418,USW2-APE1-AWS-Out-Bytes,USD0.02 per GB for  in Asia Pacific (Hong Kong),Amazon Elastic Compute Cloud,2.5398000000000023e-06,0.020115347634834913,0.00012626180000000018
+419,USW2-APN1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Tokyo),Amazon Elastic Compute Cloud,0.0,0.0,0.0004290716999999989
+420,USW2-APN1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Tokyo),Amazon Simple Storage Service,0.0,0.0,0.027387152500000005
+421,USW2-APN1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Tokyo),Amazon Elastic Compute Cloud,9.26490000000002e-06,0.01998425831717582,0.00046360989999999844
+422,USW2-APN1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Tokyo),Amazon Simple Storage Service,5.8056899999999996e-05,0.020123313347705875,0.002885056700000086
+423,USW2-APN2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Seoul),Amazon Elastic Compute Cloud,0.0,0.0,0.00012139390000000011
+424,USW2-APN2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Seoul),Amazon Simple Storage Service,0.0,0.0,0.026531801799999997
+425,USW2-APN2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Seoul),Amazon Elastic Compute Cloud,5.448100000000006e-06,0.019987174398102926,0.0002725797999999995
+426,USW2-APN2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Seoul),Amazon Simple Storage Service,5.7270200000000094e-05,0.02012527032146139,0.0028456860000000955
+427,USW2-APN3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Osaka-Local),Amazon Elastic Compute Cloud,0.0,0.0,3.73e-08
+428,USW2-APN3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Osaka-Local),Amazon Simple Storage Service,0.0,0.0,0.0005249595000000003
+429,USW2-APN3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Osaka-Local),Amazon Elastic Compute Cloud,4.9e-09,0.019926799511996746,2.459e-07
+430,USW2-APN3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Osaka-Local),Amazon Simple Storage Service,1.352e-07,0.020011545122185878,6.7560999999999996e-06
+431,USW2-APS1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Singapore),Amazon Elastic Compute Cloud,0.0,0.0,0.003338936799999993
+432,USW2-APS1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Singapore),Amazon Simple Storage Service,0.0,0.0,0.026806330400000015
+433,USW2-APS1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Singapore),Amazon Elastic Compute Cloud,1.3482500000000019e-05,0.019989778636460755,0.0006744696999999963
+434,USW2-APS1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Singapore),Amazon Simple Storage Service,5.926329999999962e-05,0.020121042073417368,0.002945339500000077
+435,USW2-APS2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Sydney),Amazon Elastic Compute Cloud,0.0,0.0,22.749650177300026
+436,USW2-APS2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Sydney),Amazon Simple Storage Service,0.0,0.0,6.465560006600002
+437,USW2-APS2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Sydney),Amazon Elastic Compute Cloud,0.24277878080000037,0.0199999995693199,12.138939301399997
+438,USW2-APS2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Sydney),Amazon Simple Storage Service,0.3161860753999821,0.020000021408301975,15.809286847499763
+439,USW2-APS3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Mumbai),Amazon Elastic Compute Cloud,0.0,0.0,0.008688803300000002
+440,USW2-APS3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Asia Pacific (Mumbai),Amazon Simple Storage Service,0.0,0.0,0.02667417509999999
+441,USW2-APS3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Mumbai),Amazon Elastic Compute Cloud,0.0012063500000000012,0.019999936370244293,0.06031769190000008
+442,USW2-APS3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Asia Pacific (Mumbai),Amazon Simple Storage Service,0.000128445499999997,0.020055798137634508,0.006404407300000208
+443,USW2-AWS-In-Bytes,$0.00 per GB - Data transfer to US West (Oregon),Amazon Elastic Compute Cloud,0.0,0.0,22.52918563000002
+444,USW2-AWS-Out-Bytes,$0.020 per GB - Data transfer from US West (Oregon),Amazon Elastic Compute Cloud,0.6512999434000006,0.02000000015003842,32.5649969257
+445,USW2-AWSSecretsManager-Secrets,$0.40 per Secret,AWS Secrets Manager,13.600000005599917,0.4000000004376451,33.999999976799955
+446,USW2-AWSSecretsManagerAPIRequest,$0.05 per 10000 API Requests,AWS Secrets Manager,0.12743000000000282,5.0000000000001105e-06,25486.0
+447,USW2-ApiGatewayCacheUsage:0.5GB,API Gateway Dedicated Cache: 0.5GB - US West (Oregon),Amazon API Gateway,29.7607406833,0.02000000000000806,1488.0370341644002
+448,USW2-ApiGatewayCacheUsage:1.55GB,API Gateway Dedicated Cache: 1.55GB - US West (Oregon),Amazon API Gateway,28.272703508800003,0.03799999999957984,744.0185133977002
+449,USW2-ApiGatewayRequest,$3.50/million requests - first 333 million requests/month,Amazon API Gateway,0.001984500000000001,3.5000000000000016e-06,567.0
+450,USW2-AsyncTextPagesProcessed,"AsyncPagesProcessed: 0 - 1M DetectDocumentText pages processed USD per month, $1.50 USD per 1000 pages",Amazon Textract,1500.0,0.0015,1000000.0
+451,USW2-AsyncTextPagesProcessed,"AsyncPagesProcessed: 1M+ DetectDocumentText pages processed USD per month, $0.60 USD per 1000 pages",Amazon Textract,339.59220000000005,0.0006000000000000001,565987.0
+452,USW2-Aurora:BackupUsage,USD 0.021 per GB-month of backup storage exceeding free allocation for Aurora MySQL,Amazon Relational Database Service,0.0005059943999999999,0.021001176510549915,0.024093621600000087
+453,USW2-Aurora:StorageIOUsage,$0.20 per 1 million I/O requests (Aurora PostgreSQL),Amazon Relational Database Service,23.256925199999994,1.9999999999999994e-07,116284626.0
+454,USW2-Aurora:StorageUsage,$0.10 per GB-month of consumed storage (Aurora PostgreSQL),Amazon Relational Database Service,454.5276640152999,0.10000000000054567,4545.276640128197
+455,USW2-BatchOperations-Jobs,$0.25 per job fee for Batch Operations,Amazon Simple Storage Service,9.5,0.25,38.0
+456,USW2-BatchOperations-Objects,$1.00 per 1 million object operations performed by Batch Operations,Amazon Simple Storage Service,0.24500099999999997,1e-06,245001.0
+457,USW2-BoxUsage,$0.00 per Compute-Hour consumed first 25 hours per month,Amazon SimpleDB,0.0,0.0,0.00016464
+458,USW2-BoxUsage:g3.4xlarge,$1.14 per On Demand Linux g3.4xlarge Instance Hour,Amazon Elastic Compute Cloud,146.18885190000006,1.1400000000000003,128.235835
+459,USW2-BoxUsage:g4dn.4xlarge,$1.204 per On Demand Linux g4dn.4xlarge Instance Hour,Amazon Elastic Compute Cloud,1.7906152880000001,1.204,1.487222
+460,USW2-BoxUsage:g4dn.xlarge,$0.526 per On Demand Linux g4dn.xlarge Instance Hour,Amazon Elastic Compute Cloud,1.5458550880000002,0.526,2.938888
+461,USW2-BoxUsage:m1.xlarge,$0.350 per On Demand Linux m1.xlarge Instance Hour,Amazon Elastic Compute Cloud,2.1338338,0.35000000000000003,6.096668
+462,USW2-BoxUsage:m2.2xlarge,$0.123 per hour for EMR m2.2xlarge,Amazon Elastic MapReduce,0.5131500960000001,0.12300000000000001,4.171952
+463,USW2-BoxUsage:m2.2xlarge,$0.490 per On Demand Linux m2.2xlarge Instance Hour,Amazon Elastic Compute Cloud,2.88569183,0.49,5.889167
+464,USW2-BoxUsage:m3.medium,$0.067 per On Demand Linux m3.medium Instance Hour,Amazon Elastic Compute Cloud,49.781000000000105,0.06700000000000014,743.0
+465,USW2-BoxUsage:m4.2xlarge,$0.12 per hour for EMR m4.2xlarge,Amazon Elastic MapReduce,1629.5871302400287,0.12000000000000212,13579.892752
+466,USW2-BoxUsage:m4.2xlarge,$0.4 per On Demand Linux m4.2xlarge Instance Hour,Amazon Elastic Compute Cloud,329.73705570000067,0.4000000000000008,824.34263925
+467,USW2-BoxUsage:m4.2xlarge,$0.40 per On Demand Linux m4.2xlarge Instance Hour,Amazon Elastic Compute Cloud,4442.235943901598,0.40000000000014485,11105.589859749974
+468,USW2-BoxUsage:m4.2xlarge,$0.768 per On Demand Windows m4.2xlarge Instance Hour,Amazon Elastic Compute Cloud,571.3920000000003,0.7680000000000003,744.0
+469,USW2-BoxUsage:m4.4xlarge,$0.80 per On Demand Linux m4.4xlarge Instance Hour,Amazon Elastic Compute Cloud,2380.8000000017773,0.8000000000005971,2976.0000000000005
+470,USW2-BoxUsage:m4.4xlarge,$1.536 per On Demand Windows m4.4xlarge Instance Hour,Amazon Elastic Compute Cloud,1142.784000000001,1.5360000000000014,744.0
+471,USW2-BoxUsage:m4.large,$0.03 per hour for EMR m4.large,Amazon Elastic MapReduce,111.2147196300003,0.030000000000000086,3707.1573209999997
+472,USW2-BoxUsage:m4.large,$0.1 per On Demand Linux m4.large Instance Hour,Amazon Elastic Compute Cloud,1064.6688051000365,0.10000000000000343,10646.688051
+473,USW2-BoxUsage:m4.xlarge,$0.06 per hour for EMR m4.xlarge,Amazon Elastic MapReduce,181.02978191999858,0.05999999999999953,3017.163032
+474,USW2-BoxUsage:m4.xlarge,$0.2 per On Demand Linux m4.xlarge Instance Hour,Amazon Elastic Compute Cloud,2184.815111400104,0.2000000000000095,10924.075557
+475,USW2-BoxUsage:m4.xlarge,$0.384 per On Demand Windows m4.xlarge Instance Hour,Amazon Elastic Compute Cloud,571.3919999999935,0.3839999999999956,1488.0
+476,USW2-BoxUsage:m5.2xlarge,$0.384 per On Demand Linux m5.2xlarge Instance Hour,Amazon Elastic Compute Cloud,22.688747520000003,0.38400000000000006,59.08528
+477,USW2-BoxUsage:m5.4xlarge,$0.768 per On Demand Linux m5.4xlarge Instance Hour,Amazon Elastic Compute Cloud,194.68245657599994,0.7679999999999997,253.492782
+478,USW2-BoxUsage:m5n.8xlarge,$1.904 per On Demand Linux m5n.8xlarge Instance Hour,Amazon Elastic Compute Cloud,52.019397247999976,1.9039999999999988,27.321112000000003
+479,USW2-BoxUsage:p2.xlarge,$0.9 per On Demand Linux p2.xlarge Instance Hour,Amazon Elastic Compute Cloud,2.2929993,0.9,2.547777
+480,USW2-BoxUsage:p3.2xlarge,$3.06 per On Demand Linux p3.2xlarge Instance Hour,Amazon Elastic Compute Cloud,107.40345102000003,3.060000000000001,35.099167
+481,USW2-BoxUsage:r3.2xlarge,$0.665 per On Demand Linux r3.2xlarge Instance Hour,Amazon Elastic Compute Cloud,47.376446707000014,0.6650000000280731,71.242777
+482,USW2-BoxUsage:r3.xlarge,$0.333 per On Demand Linux r3.xlarge Instance Hour,Amazon Elastic Compute Cloud,117.51125744699975,0.33299999999999924,352.88665900000007
+483,USW2-BoxUsage:r4.2xlarge,$0.133 per hour for EMR r4.2xlarge,Amazon Elastic MapReduce,472.59695487899876,0.13299999999999967,3553.3605629999997
+484,USW2-BoxUsage:r4.2xlarge,$0.532 per On Demand Linux r4.2xlarge Instance Hour,Amazon Elastic Compute Cloud,787.7171800121018,0.5320000000000688,1480.671391
+485,USW2-BoxUsage:r4.2xlarge,$0.9 per On Demand Windows r4.2xlarge Instance Hour,Amazon Elastic Compute Cloud,1339.199999999989,0.8999999999999926,1488.0
+486,USW2-BoxUsage:r4.4xlarge,$1.064 per On Demand Linux r4.4xlarge Instance Hour,Amazon Elastic Compute Cloud,1220.9225589119999,1.0639999999999998,1147.483608
+487,USW2-BoxUsage:r4.large,$0.133 per On Demand Linux r4.large Instance Hour,Amazon Elastic Compute Cloud,1.990566578,0.133,14.966666
+488,USW2-BoxUsage:r4.large,$0.225 per On Demand Windows r4.large Instance Hour,Amazon Elastic Compute Cloud,167.4000000000007,0.22500000000000092,744.0
+489,USW2-BoxUsage:r4.xlarge,$0.067 per hour for EMR r4.xlarge,Amazon Elastic MapReduce,573.6584839749978,0.06699999999999975,8562.066925
+490,USW2-BoxUsage:r4.xlarge,$0.266 per On Demand Linux r4.xlarge Instance Hour,Amazon Elastic Compute Cloud,148.45770315600035,0.2660000000000007,558.1116659999999
+491,USW2-BoxUsage:r5.large,$0.126 per On Demand Linux r5.large Instance Hour,Amazon Elastic Compute Cloud,19.233270000000005,0.12600000000000003,152.645
+492,USW2-BoxUsage:r5dn.2xlarge,$0.668 per On Demand Linux r5dn.2xlarge Instance Hour,Amazon Elastic Compute Cloud,38.14372851999998,0.6679999999999996,57.10139000000001
+493,USW2-BoxUsage:r5dn.8xlarge,$2.672 per On Demand Linux r5dn.8xlarge Instance Hour,Amazon Elastic Compute Cloud,1.4621771840000002,2.6720000000000006,0.547222
+494,USW2-BoxUsage:r5dn.xlarge,$0.334 per On Demand Linux r5dn.xlarge Instance Hour,Amazon Elastic Compute Cloud,13.213503257999998,0.33399999999999996,39.561386999999996
+495,USW2-BoxUsage:t2.large,$0.0928 per On Demand Linux t2.large Instance Hour,Amazon Elastic Compute Cloud,287.4858159989948,0.0927999999996755,3097.9075000000003
+496,USW2-BoxUsage:t2.medium,$0.0464 per On Demand Linux t2.medium Instance Hour,Amazon Elastic Compute Cloud,946.7210079080799,0.04640000000004312,20403.469998
+497,USW2-BoxUsage:t2.medium,$0.0644 per On Demand Windows t2.medium Instance Hour,Amazon Elastic Compute Cloud,47.913599999999676,0.06439999999999957,744.0
+498,USW2-BoxUsage:t2.micro,$0.0116 per On Demand Linux t2.micro Instance Hour,Amazon Elastic Compute Cloud,202.04531034881725,0.011600000000000991,17417.699168
+499,USW2-BoxUsage:t2.small,$0.023 per On Demand Linux t2.small Instance Hour,Amazon Elastic Compute Cloud,184.09147610601076,0.023000000000001346,8003.9772219999995
+500,USW2-BoxUsage:t3.large,$0.0832 per On Demand Linux t3.large Instance Hour,Amazon Elastic Compute Cloud,0.15193243499999998,0.08319999989047762,1.826111
+501,USW2-BoxUsage:t3.medium,$0.0416 per On Demand Linux t3.medium Instance Hour,Amazon Elastic Compute Cloud,5.610095128999998,0.041599999995550856,134.858056
+502,USW2-CAN1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Canada (Central),Amazon Elastic Compute Cloud,0.0,0.0,3.732370000000001e-05
+503,USW2-CAN1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from Canada (Central),Amazon Simple Storage Service,0.0,0.0,0.026465309999999992
+504,USW2-CAN1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Canada (Central),Amazon Elastic Compute Cloud,3.2540000000000014e-06,0.01999529305639791,0.00016273830000000005
+505,USW2-CAN1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to Canada (Central),Amazon Simple Storage Service,5.702990000000017e-05,0.02012630789027765,0.0028335997000000887
+506,USW2-CW:AlarmMonitorUsage,$0.10 per alarm metric month (standard resolution) - US West (Oregon),AmazonCloudWatch,2.565759440800007,0.10000000126824053,25.657594082600063
+507,USW2-CW:GMD-Metrics,"$0.01 per 1,000 metrics requested using GetMetricData API - US West (Oregon)",AmazonCloudWatch,7.77622,1e-05,777622.0
+508,USW2-CW:MetricMonitorUsage,"$0.30 per metric-month for the first 10,000 metrics - US West (Oregon)",AmazonCloudWatch,3.7693548291999956,0.29999999936806043,12.564516123800034
+509,USW2-CW:Requests,"$0.01 per 1,000 requests",AmazonCloudWatch,0.06703,1e-05,6703.0
+510,USW2-Catalog-Request,$0 for AWS Glue Data Catalog requests under the free tier,AWS Glue,0.0,0.0,718526.0
+511,USW2-Catalog-Storage,$0 for AWS Glue Data Catalog storage under the free tier,AWS Glue,0.0,0.0,25845.3145161301
+512,USW2-CloudFront-In-Bytes,$0.00 per GB data transfer in to US West (Oregon) from CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,572.3896764978022
+513,USW2-CloudFront-Out-Bytes,$0.00 per GB data transfer out of US West (Oregon) to CloudFront,Amazon Elastic Compute Cloud,0.0,0.0,3.231726386100003
+514,USW2-ConfigRuleEvaluations,"$0.0008 for the next 400,000 evaluations in US West (Oregon) region",AWS Config,8.8392,0.0008,11049.0
+515,USW2-ConfigRuleEvaluations,"$0.001 for the first 100,000 evaluations in  US West (Oregon) region",AWS Config,23.958,0.001,23958.0
+516,USW2-ConfigurationItemRecorded,$0.003 per Configuration Item recorded in US West (Oregon) region,AWS Config,297.5340000000002,0.0030000000000000022,99178.0
+517,USW2-DataEventsRecorded,0.000001 per data event recorded in US West (Oregon) region,AWS CloudTrail,385.73336299999994,9.999999999999997e-07,385733363.0
+518,USW2-DataProcessing-Bytes,$0.008 per GB Data Processed by the LoadBalancer,Amazon Elastic Compute Cloud,0.18693092230000063,0.008000000221446556,23.36636464069996
+519,USW2-DataProcessing-Bytes,$0.50 per GB log data ingested - US West (Oregon),AmazonCloudWatch,198.8479488165001,0.5000000001526326,397.6958975115975
+520,USW2-DataProcessing-Bytes,First 5GB per month of log data ingested is free.,AmazonCloudWatch,0.0,0.0,5.000000000399999
+521,USW2-DataScanned-Bytes,$0.005 per GB log data scanned by CloudWatch Logs Insights queries - US West (Oregon),AmazonCloudWatch,0.008076673099999997,0.005000001773626949,1.615334047
+522,USW2-DataScannedInTB,Data scanned per query in Terabytes,Amazon Athena,21.632409999999997,4.999999999999999,4.326482
+523,USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,AWS Lambda,0.0,0.0,0.12848683160000002
+524,USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon DynamoDB,0.0,0.0,0.001685040399999998
+525,USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Elastic Compute Cloud,0.0,0.0,461.1753843135997
+526,USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Relational Database Service,0.0,0.0,0.025953452199999852
+527,USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Simple Notification Service,0.0,0.0,5.22502e-05
+528,USW2-DataTransfer-In-Bytes,$0.000 per GB - data transfer in per month,Amazon Simple Storage Service,0.0,0.0,1.2488749725
+529,USW2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon DynamoDB,0.0,0.0,0.0009521924000000008
+530,USW2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Elastic Compute Cloud,0.0,0.0,0.9866517289999994
+531,USW2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Relational Database Service,0.0,0.0,0.0012621544000000018
+532,USW2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Simple Notification Service,0.0,0.0,9.751129999999999e-05
+533,USW2-DataTransfer-Out-Bytes,$0.0000 per GB - first 1 GB of data transferred out per month,Amazon Simple Storage Service,0.0,0.0,0.0110364127
+534,USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon API Gateway,6.186e-07,0.09000305538985319,6.8731e-06
+535,USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon DynamoDB,3.7651199999999976e-05,0.09000083185368542,0.0004183428000000003
+536,USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Elastic Compute Cloud,0.6118218984999996,0.09000000037128442,6.798021066400003
+537,USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Relational Database Service,8.994620000000006e-05,0.0900049282156608,0.0009993474999999998
+538,USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Notification Service,1.1363599999999999e-05,0.08999973071994397,0.00012626260000000002
+539,USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Queue Service,4.211e-07,0.0899997862745517,4.6789e-06
+540,USW2-DataTransfer-Out-Bytes,$0.090 per GB - first 10 TB / month data transfer out beyond the global free tier,Amazon Simple Storage Service,0.010158621899999998,0.0899999997342159,0.112873577
+541,USW2-DataTransfer-Out-Bytes,$0.0900 per GB - up to 10 TB / month data transfer out,AWS Lambda,0.22288750000000002,0.09000005211614256,2.4765263437000002
+542,USW2-DataTransfer-Out-Bytes,$0.0900 per GB - up to 10 TB / month data transfer out,Amazon API Gateway,0.0041342,0.09000396387976474,0.045933532500000006
+543,USW2-DataTransfer-Out-Bytes,$0.0900 per GB - up to 10 TB / month data transfer out,Amazon DynamoDB,0.0017060000000000035,0.09043670250903994,0.01886402259999997
+544,USW2-DataTransfer-Out-Bytes,$0.0900 per GB - up to 10 TB / month data transfer out,Amazon Elastic Compute Cloud,7.9244298999999625,0.09000000212108591,88.04921903600005
+545,USW2-DataTransfer-Out-Bytes,$0.0900 per GB - up to 10 TB / month data transfer out,Amazon Relational Database Service,0.002627099999999931,0.09407935192787663,0.027924299500000017
+546,USW2-DataTransfer-Out-Bytes,$0.0900 per GB - up to 10 TB / month data transfer out,Amazon Simple Notification Service,0.07708570000000006,0.09000474364067837,0.8564626360999995
+547,USW2-DataTransfer-Out-Bytes,$0.0900 per GB - up to 10 TB / month data transfer out,Amazon Simple Queue Service,3.4800000000000006e-05,0.08950753110708212,0.00038879410000000007
+548,USW2-DataTransfer-Out-Bytes,$0.0900 per GB - up to 10 TB / month data transfer out,Amazon Simple Storage Service,0.6413226000000001,0.08999961163427703,7.125837415899999
+549,USW2-DataTransfer-Regional-Bytes,$0.010 per GB - regional data transfer - in/out/between EC2 AZs or using elastic IPs or ELB,Amazon Elastic Compute Cloud,984.2769842706832,0.010000000000434313,98427.69842279349
+550,USW2-DataTransfer-Regional-Bytes,$0.010 per GB - regional data transfer - in/out/between EC2 AZs or using elastic IPs or ELB,Amazon Elasticsearch Service,0.04788196920000002,0.010000000241218165,4.788196804499997
+551,USW2-DeliveryAttempts-LAMBDA,There is no charge for Lambda Notifications,Amazon Simple Notification Service,0.0,0.0,399612.0
+552,USW2-DeliveryAttempts-SMTP,"$2.00 per 100,000 Amazon SNS Email/Email-JSON Notifications thereafter",Amazon Simple Notification Service,0.025700000000000018,2.0000000000000015e-05,1285.0
+553,USW2-DeliveryAttempts-SMTP,"First 1,000 Amazon SNS Email/Email-JSON Notifications per month are free",Amazon Simple Notification Service,0.0,0.0,1000.0
+554,USW2-DeliveryAttempts-SQS,There is no charge for SQS Notifications,Amazon Simple Notification Service,0.0,0.0,244942.0
+555,USW2-EBS:SnapshotUsage,$0.05 per GB-Month of snapshot data stored - US West (Oregon),Amazon Elastic Compute Cloud,230.07439561251044,0.05000000007783372,4601.4879050871905
+556,USW2-EBS:VolumeUsage.gp2,$0.10 per GB-month of General Purpose SSD (gp2) provisioned storage - US West (Oregon),Amazon Elastic Compute Cloud,2296.905161928276,0.09999999979311892,22969.05166680138
+557,USW2-EBSOptimized:g3.4xlarge,$00 for 3500 Mbps per g3.4xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,96.380556
+558,USW2-EBSOptimized:g4dn.4xlarge,$0.00 for 1700 Mbps per g4dn.4xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,1.487222
+559,USW2-EBSOptimized:m2.2xlarge,$0.025 for 500 Mbps per m2.2xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.11513195,0.024999999999999998,4.605278
+560,USW2-EBSOptimized:m4.2xlarge,$0.000 for 1000 Mbps per m4.2xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,17327.886112999997
+561,USW2-EBSOptimized:m4.4xlarge,$0.000 for 2000 Mbps per m4.4xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,3720.0
+562,USW2-EBSOptimized:m4.large,$0.000 for 450 Mbps per m4.large instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,10412.913611999998
+563,USW2-EBSOptimized:m4.xlarge,$0.000 for 750 Mbps per m4.xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,11667.578056999999
+564,USW2-EBSOptimized:p3.2xlarge,$0.00 for 1750 Mbps per p3.2xlarge instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,34.302222
+565,USW2-EBSOptimized:r5.large,$0.00 for 425 Mbps per r5.large instance-hour (or partial hour),Amazon Elastic Compute Cloud,0.0,0.0,152.645
+566,USW2-ES:GP2-Storage,$0.135 per GB-month of general purpose provisioned storage - USW2,Amazon Elasticsearch Service,230.66854856219865,0.13500000001279502,1708.6559151136028
+567,USW2-ESInstance:m4.2xlarge,$0.603 per m4.2xlarge.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,448.6319999999995,0.6029999999999993,744.0
+568,USW2-ESInstance:m4.xlarge,$0.301 per m4.xlarge.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,446.68400000000116,0.30100000000000077,1484.0
+569,USW2-ESInstance:r4.large,$0.196 per r4.large.elasticsearch instance hour (or partial hour) - USW2,Amazon Elasticsearch Service,145.82399999999978,0.1959999999999997,744.0
+570,USW2-ETL-DPU-Hour,$0.44 per Data Processing Unit-Hour for AWS Glue ETL job,AWS Glue,435.3964991199995,0.43999999999999906,989.5374980000009
+571,USW2-EU-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Ireland),Amazon Elastic Compute Cloud,0.0,0.0,0.030913808600000384
+572,USW2-EU-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Ireland),Amazon Simple Storage Service,0.0,0.0,0.034751696400000004
+573,USW2-EU-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Ireland),Amazon Elastic Compute Cloud,0.0002471479999999993,0.019999365744296026,0.012357791900000019
+574,USW2-EU-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Ireland),Amazon Simple Storage Service,5.7607300000000495e-05,0.020125074062066536,0.002862464000000063
+575,USW2-EUC1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Germany),Amazon Elastic Compute Cloud,0.0,0.0,0.0003579560999999998
+576,USW2-EUC1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Germany),Amazon Simple Storage Service,0.0,0.0,0.0300584755
+577,USW2-EUC1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Germany),Amazon Elastic Compute Cloud,2.6187800000000034e-05,0.01999856890162138,0.0013094836999999967
+578,USW2-EUC1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Germany),Amazon Simple Storage Service,5.792509999999993e-05,0.02012410952054716,0.002878393200000086
+579,USW2-EUN1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in EU (Stockholm),Amazon Elastic Compute Cloud,0.0,0.0,7.383499999999992e-06
+580,USW2-EUN1-AWS-In-Bytes,USD 0.0 per GB for EUN1-AWS-In-Bytes in EU (Stockholm),Amazon Simple Storage Service,0.0,0.0,0.0233638851
+581,USW2-EUN1-AWS-Out-Bytes,USD 0.02 per GB for EUN1-AWS-Out-Bytes in EU (Stockholm),Amazon Elastic Compute Cloud,7.116000000000005e-07,0.019944616971422826,3.567879999999999e-05
+582,USW2-EUN1-AWS-Out-Bytes,USD 0.02 per GB for EUN1-AWS-Out-Bytes in EU (Stockholm),Amazon Simple Storage Service,3.595569999999989e-05,0.020008310340408387,0.0017970382999999992
+583,USW2-EUS1-AWS-In-Bytes,USD 0 per GB for USW2-EUS1-AWS-In-Bytes in EU (Milan),Amazon Elastic Compute Cloud,0.0,0.0,4.956099999999995e-06
+584,USW2-EUS1-AWS-In-Bytes,USD 0 per GB for USW2-EUS1-AWS-In-Bytes in EU (Milan),Amazon Simple Storage Service,0.0,0.0,0.0004982707999999995
+585,USW2-EUS1-AWS-Out-Bytes,USD 0.02 per GB for USW2-EUS1-AWS-Out-Bytes in EU (Milan),Amazon Elastic Compute Cloud,5.061000000000001e-07,0.019972454508502394,2.5339900000000015e-05
+586,USW2-EUW2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (London),Amazon Elastic Compute Cloud,0.0,0.0,8.14006000000003e-05
+587,USW2-EUW2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (London),Amazon Simple Storage Service,0.0,0.0,0.027163458500000008
+588,USW2-EUW2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (London),Amazon Elastic Compute Cloud,6.808799999999998e-06,0.019990499169411344,0.00034060179999999946
+589,USW2-EUW2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (London),Amazon Simple Storage Service,5.3169100000000995e-05,0.020136659676472362,0.0026404131000000797
+590,USW2-EUW3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Paris),Amazon Elastic Compute Cloud,0.0,0.0,1.7503499999999993e-05
+591,USW2-EUW3-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from EU (Paris),Amazon Simple Storage Service,0.0,0.0,0.02624131670000001
+592,USW2-EUW3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Paris),Amazon Elastic Compute Cloud,9.101000000000002e-07,0.019948009363574985,4.562360000000002e-05
+593,USW2-EUW3-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to EU (Paris),Amazon Simple Storage Service,5.8217699999999976e-05,0.02012311533202371,0.0028930759000000833
+594,USW2-ElasticIP:IdleAddress,$0.005 per Elastic IP address not attached to a running instance per hour (prorated),Amazon Elastic Compute Cloud,29.760999999999893,0.004999999999999982,5952.2
+595,USW2-EventsProcessing,$4 per 1 million CloudTrail events processed by Macie Classic,Amazon Macie,1590.1040079999998,4e-06,397526002.0
+596,USW2-EventsProcessing,"First 100,000 CloudTrail events processed by Macie Classic are free",Amazon Macie,0.0,0.0,36239.0
+597,USW2-FreeEventsRecorded,0.0 per free event recorded in US West (Oregon) region,AWS CloudTrail,0.0,0.0,10444656.0
+598,USW2-InstanceUsage:db.m4.large,$0.175 per RDS db.m4.large Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,130.1999999999997,0.1749999999999996,744.0
+599,USW2-InstanceUsage:db.m4.xlarge,$0.35 per RDS db.m4.xlarge Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,520.7999999999998,0.34999999999999987,1488.0
+600,USW2-InstanceUsage:db.r5.4xl,USD 2.32 per RDS db.r5.4xlarge Single-AZ instance hour (or partial hour) running Aurora PostgreSQL,Amazon Relational Database Service,7.2699752,2.32,3.13361
+601,USW2-InstanceUsage:db.r5.large,USD 0.29 per RDS db.r5.large Single-AZ instance hour (or partial hour) running Aurora PostgreSQL,Amazon Relational Database Service,214.85093033000004,0.29000000000000004,740.865277
+602,USW2-InstanceUsage:db.t2.medium,$0.068 per RDS db.t2.medium Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,50.59199999999988,0.06799999999999984,744.0
+603,USW2-InstanceUsage:db.t2.micro,$0.022 per RDS db.t2.micro instance hour (or partial hour) running SQL Server Express (LI),Amazon Relational Database Service,16.367999999999995,0.021999999999999992,744.0
+604,USW2-InstanceUsage:db.t2.small,$0.034 per RDS db.t2.small Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,126.47999999999789,0.03399999999999943,3720.0
+605,USW2-Inventory-ObjectsListed,$0.0025 per 1 million objects listed in S3 Inventory,Amazon Simple Storage Service,0.9417849599999999,2.4999999999999996e-09,376713984.0
+606,USW2-LCUUsage,$0.008 per used Application load balancer capacity unit-hour (or partial hour),Amazon Elastic Compute Cloud,0.18152900960000004,0.008000000080560116,22.691125971500036
+607,USW2-Lambda-GB-Second,"AWS Lambda - Compute Free Tier - 400,000 GB-Seconds - US West (Oregon)",AWS Lambda,0.0,0.0,400000.0
+608,USW2-Lambda-GB-Second,AWS Lambda - Total Compute - US West (Oregon),AWS Lambda,45.77682919999982,1.667000468123002e-05,2746059.7687499933
+609,USW2-LoadBalancerUsage,$0.0225 per Application LoadBalancer-hour (or partial hour),Amazon Elastic Compute Cloud,50.22000000000095,0.022500000000000426,2232.0
+610,USW2-LoadBalancerUsage,$0.025 per LoadBalancer-hour (or partial hour),Amazon Elastic Compute Cloud,130.1999999999958,0.024999999999999196,5208.0
+611,USW2-MES1-AWS-In-Bytes,USD0.0 per GB for  in Middle East (Bahrain),Amazon Elastic Compute Cloud,0.0,0.0,4.9486900000000016e-05
+612,USW2-MES1-AWS-In-Bytes,USD0.0 per GB for  in Middle East (Bahrain),Amazon Simple Storage Service,0.0,0.0,0.0005082403999999998
+613,USW2-MES1-AWS-Out-Bytes,USD0.02 per GB for  in Middle East (Bahrain),Amazon Elastic Compute Cloud,3.2025999999999996e-06,0.019998326499874475,0.00016014340000000007
+614,USW2-Multi-AZUsage:db.m4.2xlarge,$1.4 per RDS db.m4.2xlarge Multi-AZ Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,330.3241672499995,1.3999999999999977,235.94583375000002
+615,USW2-Multi-AZUsage:db.m4.2xlarge,$1.400 per RDS db.m4.2xlarge Multi-AZ instance hour (or partial hour) running MySQL,Amazon Relational Database Service,711.2758327499994,1.3999999999999988,508.05416625
+616,USW2-Multi-AZUsage:db.m4.large,$0.35 per RDS db.m4.large Multi-AZ Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,520.7999999999998,0.34999999999999987,1488.0
+617,USW2-Multi-AZUsage:db.t2.medium,$0.136 per RDS db.t2.medium Multi-AZ Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,101.18400000000032,0.13600000000000043,744.0
+618,USW2-Multi-AZUsage:db.t2.small,$0.068 per RDS db.t2.small Multi-AZ Instance hour (or partial hour) running MySQL - BYOL,Amazon Relational Database Service,50.59199999999988,0.06799999999999984,744.0
+619,USW2-NatGateway-Bytes,$0.045 per GB Data Processed by NAT Gateways,Amazon Elastic Compute Cloud,2189.490436901999,0.045000000000054496,48655.34304220772
+620,USW2-NatGateway-Hours,$0.045 per NAT Gateway Hour,Amazon Elastic Compute Cloud,200.8800000000057,0.04500000000000128,4464.0
+621,USW2-NodeUsage:cache.t2.micro,$0.017 per T2 Micro Cache node-hour (or partial hour) running Memcached,Amazon ElastiCache,50.59199999999935,0.016999999999999783,2976.0
+622,USW2-PaidEventsAnalyzed,$0.000004 per CloudTrail event analyzed in US West (Oregon) region,Amazon GuardDuty,36.86798,4.000000000000001e-06,9216995.0
+623,USW2-PaidEventsAnalyzed-Bytes,$1.00 per GB for the first 500 GB / month of data analyzed US West (Oregon) region,Amazon GuardDuty,95.05171748609999,1.0,95.05171748609999
+624,USW2-RDS:ChargedBackupUsage,$0.095 per additional GB-month of backup storage exceeding free allocation,Amazon Relational Database Service,208.3632974087,0.09499999999993503,2193.2978674615
+625,USW2-RDS:GP2-Storage,$0.115 per GB-month of provisioned GP2 storage,Amazon Relational Database Service,96.59999971919618,0.11499999968246187,839.9999998776366
+626,USW2-RDS:Multi-AZ-GP2-Storage,$0.230 per GB-month of provisioned GP2 storage for Multi-AZ deployments,Amazon Relational Database Service,173.64999997439864,0.22999999997437487,754.999999972807
+627,USW2-ReadCapacityUnit-Hrs,$0.00 per hour for 25 units of read capacity for a month (free tier),Amazon DynamoDB,0.0,0.0,7488.0
+628,USW2-ReadCapacityUnit-Hrs,$0.00013 per hour for units of read capacity beyond the free tier,Amazon DynamoDB,29.994250000000108,0.00013000000000000048,230725.0
+629,USW2-Request,"AWS Lambda - Requests Free Tier - 1,000,000 Requests - US West (Oregon)",AWS Lambda,0.0,0.0,1000000.0
+630,USW2-Request,AWS Lambda - Total Requests - US West (Oregon),AWS Lambda,0.06105999999999931,1.9999999999999774e-07,305300.0
+631,USW2-Request,Price per HTTP request,AWS WAF,0.009169199999999999,6e-07,15282.0
+632,USW2-Requests-Tier1,"$0.005 per 1,000 PUT, COPY, POST, or LIST requests",Amazon Simple Storage Service,812.0446149999844,4.999999999999904e-06,162408923.0
+633,USW2-Requests-Tier1,"$0.40 per 1,000,000 Amazon SQS Requests per month thereafter",Amazon Simple Queue Service,1.976358000000054,4.0000000000001094e-07,4940895.0
+634,USW2-Requests-Tier1,"First 1,000,000 Amazon SNS API Requests per month are free",Amazon Simple Notification Service,0.0,0.0,325038.0
+635,USW2-Requests-Tier1,"First 1,000,000 Amazon SQS Requests per month are free",Amazon Simple Queue Service,0.0,0.0,902850.0
+636,USW2-Requests-Tier2,"$0.004 per 10,000 GET and all other requests",Amazon Simple Storage Service,124.87838399999936,3.999999999999979e-07,312195960.0
+637,USW2-Rule,Price per Rule,AWS WAF,1.9946236240000181,1.0,1.9946236240000181
+638,USW2-S3-Egress-Bytes,$0.25 per GB of log data delivered to S3 for the first 10TB - US West (Oregon),AmazonCloudWatch,29.5927732322,0.2500000000821569,118.37109288989998
+639,USW2-SAE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from South America (Sao Paulo),Amazon Elastic Compute Cloud,0.0,0.0,0.00028216159999999994
+640,USW2-SAE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from South America (Sao Paulo),Amazon Simple Storage Service,0.0,0.0,0.02650611749999999
+641,USW2-SAE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to South America (Sao Paulo),Amazon Elastic Compute Cloud,8.448700000000001e-06,0.020019857067030668,0.00042201599999999934
+642,USW2-SAE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to South America (Sao Paulo),Amazon Simple Storage Service,5.822709999999999e-05,0.020123065430141255,0.0028935502000000833
+643,USW2-Select-Returned-Bytes,$0.0007 per GB - for bytes returned by S3 Select in Standard,Amazon Simple Storage Service,6.399999999999999e-08,0.0007069159576336431,9.053409999999998e-05
+644,USW2-Select-Scanned-Bytes,$0.00200 per GB - for bytes scanned by S3 Select in Standard,Amazon Simple Storage Service,1.4431000000000002e-06,0.0019999855866883096,0.0007215551999999999
+645,USW2-SpotUsage:m4.2xlarge,m4.2xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,1083.144636997797,0.14173631615608068,7641.969725000002
+646,USW2-SpotUsage:m4.2xlarge,m4.2xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #2,Amazon Elastic Compute Cloud,226.8259999995002,0.14247864321576645,1592.0
+647,USW2-SpotUsage:m4.large,m4.large Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,42.07208600010017,0.03257427030334406,1291.5741659999999
+648,USW2-SpotUsage:m4.large,m4.large Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #2,Amazon Elastic Compute Cloud,132.0740000011991,0.03427822476023854,3853.0
+649,USW2-SpotUsage:m4.xlarge,m4.xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,105.02419999999984,0.07058077956989237,1488.0
+650,USW2-SpotUsage:m5.2xlarge,m5.2xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,7.958983000000001,0.1583579627016559,50.259443000000005
+651,USW2-SpotUsage:m5.4xlarge,m5.4xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,64.4167239998,0.318768857407607,202.07972799999996
+652,USW2-SpotUsage:m5n.8xlarge,m5n.8xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,29.898535000000035,0.549611030039002,54.39944499999999
+653,USW2-SpotUsage:r3.2xlarge,r3.2xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,4.516143000099998,0.1630180324180475,27.703334
+654,USW2-SpotUsage:r3.xlarge,r3.xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,0.654577,0.0650098536194013,10.068889
+655,USW2-SpotUsage:r4.2xlarge,r4.2xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,515.0722000004038,0.14223719086833375,3621.220279
+656,USW2-SpotUsage:r4.large,r4.large Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,51.714844,0.03504280244409184,1475.7622219999998
+657,USW2-SpotUsage:r4.large,r4.large Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #2,Amazon Elastic Compute Cloud,40.878472000000016,0.03572550459874784,1144.2377780000002
+658,USW2-SpotUsage:r4.xlarge,r4.xlarge Linux/UNIX Spot Instance-hour in US West (Oregon) in VPC Zone #1,Amazon Elastic Compute Cloud,634.2267670174898,0.07134109447545312,8890.062195999995
+659,USW2-Streams-Requests,$0.00 for 2.5 million DynamoDB Streams read request units for a month (free tier) (US West (Oregon)),Amazon DynamoDB,0.0,0.0,3.0
+660,USW2-SyncFormsPagesProcessed,"SyncPagesProcessed: 0-1M pages of AnalyzeDocument Forms, $50 USD per 1000 pages",Amazon Textract,0.15000000000000002,0.05000000000000001,3.0
+661,USW2-SyncTablesPagesProcessed,"SyncPagesProcessed: 0-1M pages of AnalyzeDocument Tables, $15 USD per 1000 pages",Amazon Textract,0.045,0.015,3.0
+662,USW2-TimedStorage-ByteHrs,$0.00 per GB-Month of storage for first 25 free GB-Months,Amazon DynamoDB,0.0,0.0,21.573589902600006
+663,USW2-TimedStorage-ByteHrs,$0.0220 per GB - next 450 TB / month of storage used,Amazon Simple Storage Service,109.70469899999996,0.021999999780671933,4986.577276986196
+664,USW2-TimedStorage-ByteHrs,$0.023 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,38.6521055926,0.02299999999987194,1680.5263301224006
+665,USW2-TimedStorage-ByteHrs,$0.0230 per GB - first 50 TB / month of storage used,Amazon Simple Storage Service,1138.9478895000013,0.022999999900903755,49519.473669878054
+666,USW2-TimedStorage-ByteHrs,$0.03 per GB-mo of log storage - US West (Oregon),AmazonCloudWatch,76.3286453468998,0.02999999999857555,2544.2881783508005
+667,USW2-TimedStorage-ByteHrs,$0.25 per GB-Month of storage used beyond first 25 free GB-Months,Amazon DynamoDB,2.2135957438,0.2500000001976422,8.854382968200001
+668,USW2-TimedStorage-ByteHrs,First 5GB-mo per month of logs storage is free.,AmazonCloudWatch,0.0,0.0,5.0000000003
+669,USW2-TimedStorage-ByteHrs,USD $0.30 per GB-Mo for Standard storage (USW2),Amazon Elastic File System,706.4128191959998,0.2999999999782409,2354.709397490787
+670,USW2-UGE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from AWS GovCloud (US),Amazon Elastic Compute Cloud,0.0,0.0,5.887599999999994e-06
+671,USW2-UGE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to AWS GovCloud (US),Amazon Elastic Compute Cloud,7.67300000000001e-07,0.019983436119676675,3.8396799999999984e-05
+672,USW2-UGW1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from AWS GovCloud (US),Amazon Elastic Compute Cloud,0.0,0.0,2.5719000000000003e-06
+673,USW2-UGW1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to AWS GovCloud (US),Amazon Elastic Compute Cloud,2.954e-07,0.01996849925304022,1.4793300000000006e-05
+674,USW2-USE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Northern Virginia),AWS Lambda,0.0,0.0,3.59611e-05
+675,USW2-USE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Northern Virginia),Amazon Elastic Compute Cloud,0.0,0.0,329.8242069848989
+676,USW2-USE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Northern Virginia),Amazon Relational Database Service,0.0,0.0,2.538588302100009
+677,USW2-USE1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Northern Virginia),Amazon Simple Storage Service,0.0,0.0,0.8305280836999998
+678,USW2-USE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Northern Virginia),AWS Lambda,3.4410000000000007e-07,0.01999221459820936,1.72117e-05
+679,USW2-USE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Northern Virginia),Amazon Elastic Compute Cloud,14.460076108900068,0.020000000004716474,723.0038052745019
+680,USW2-USE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Northern Virginia),Amazon Relational Database Service,0.6534162184999969,0.01999999841864961,32.67081350820003
+681,USW2-USE1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Northern Virginia),Amazon Simple Storage Service,2.2071895124993226,0.020000024655802397,110.35933957506268
+682,USW2-USE2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Ohio),Amazon Elastic Compute Cloud,0.0,0.0,0.0012695259999999987
+683,USW2-USE2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Ohio),Amazon Relational Database Service,0.0,0.0,0.0006559088999999968
+684,USW2-USE2-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US East (Ohio),Amazon Simple Storage Service,0.0,0.0,0.0297143982
+685,USW2-USE2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Ohio),Amazon Elastic Compute Cloud,6.232480000000004e-05,0.019998782581233904,0.003116429700000002
+686,USW2-USE2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Ohio),Amazon Relational Database Service,9.565299999999946e-06,0.01995055171504694,0.0004794504000000002
+687,USW2-USE2-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US East (Ohio),Amazon Simple Storage Service,5.8348600000000006e-05,0.02012297623441842,0.0028996009000000866
+688,USW2-USW1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US West (Northern California),AWS Lambda,0.0,0.0,5.4417e-06
+689,USW2-USW1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US West (Northern California),Amazon Elastic Compute Cloud,0.0,0.0,23.607173072000055
+690,USW2-USW1-AWS-In-Bytes,$0.00 per GB - US West (Oregon) data transfer from US West (Northern California),Amazon Simple Storage Service,0.0,0.0,0.0273385236
+691,USW2-USW1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US West (Northern California),AWS Lambda,1.57e-08,0.01994917407878018,7.87e-07
+692,USW2-USW1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US West (Northern California),Amazon Elastic Compute Cloud,0.0023945489000000075,0.019999971836071107,0.11972761360000017
+693,USW2-USW1-AWS-Out-Bytes,$0.02 per GB - US West (Oregon) data transfer to US West (Northern California),Amazon Simple Storage Service,5.8645900000000055e-05,0.020124134614582265,0.002914207300000086
+694,USW2-VendedLog-Bytes,$0.50 per GB log data ingested for the first 10TB - US West (Oregon),AmazonCloudWatch,72.61306526770002,0.5000000001260103,145.22613049880007
+695,USW2-WarmStorage-ByteHrs-EFS,$.05 per GB/month of warm backup storage,AWS Backup,121.30373242900002,0.05000000000002886,2426.0746485786
+696,USW2-WebACL,Price per WebACL,AWS WAF,4.986559060000032,5.000000000000024,0.9973118120000017
+697,USW2-WriteCapacityUnit-Hrs,$0.00 per hour for 25 units of write capacity for a month (free tier),Amazon DynamoDB,0.0,0.0,6608.0
+698,USW2-WriteCapacityUnit-Hrs,$0.00065 per hour for units of write capacity beyond the free tier,Amazon DynamoDB,967.8272499999944,0.0006499999999999962,1488965.0
+699,USW2-agent-assessments,First 250 agent-assessments,Amazon Inspector,74.10000000000002,0.3000000000000001,247.0
+700,USW2-network-assessments,First 250 instance-assessments,Amazon Inspector,37.5,0.15,250.0
+701,USW2-network-assessments,Next 750 instance-assessments,Amazon Inspector,2.21,0.13,17.0
+702,ap-northeast-1-KMS-Requests,$0.00 per request - Monthly Global Free Tier for KMS requests,AWS Key Management Service,0.0,0.0,31.0
+703,ap-northeast-2-KMS-Requests,$0.00 per request - Monthly Global Free Tier for KMS requests,AWS Key Management Service,0.0,0.0,31.0
+704,ap-south-1-KMS-Requests,$0.00 per request - Monthly Global Free Tier for KMS requests,AWS Key Management Service,0.0,0.0,24.0
+705,ap-south-1-KMS-Requests,$0.03 per 10000 KMS requests in Asia Pacific (Mumbai),AWS Key Management Service,2.1000000000000002e-05,3.0000000000000005e-06,7.0
+706,ap-southeast-1-KMS-Requests,$0.03 per 10000 KMS requests in Asia Pacific (Singapore),AWS Key Management Service,9.300000000000001e-05,3.0000000000000005e-06,31.0
+707,ap-southeast-2-KMS-Keys,$1 per customer managed KMS key version in Asia Pacific (Sydney),AWS Key Management Service,14.999999759999241,1.0,14.999999759999241
+708,ap-southeast-2-KMS-Requests,$0.03 per 10000 KMS requests in Asia Pacific (Sydney),AWS Key Management Service,0.011510999999999917,2.9999999999999785e-06,3837.0
+709,ca-central-1-KMS-Requests,$0.03 per 10000 KMS requests in Canada (Central),AWS Key Management Service,9.3e-05,3e-06,31.0
+710,eu-central-1-KMS-Requests,$0.03 per 10000 KMS requests in EU (Frankfurt),AWS Key Management Service,9.300000000000001e-05,3.0000000000000005e-06,31.0
+711,eu-west-1-KMS-Requests,$0.03 per 10000 KMS requests in EU (Ireland),AWS Key Management Service,9.3e-05,3e-06,31.0
+712,eu-west-2-KMS-Requests,$0.03 per 10000 KMS requests in EU (London),AWS Key Management Service,0.0002790000000000001,3.0000000000000013e-06,93.0
+713,eu-west-3-KMS-Requests,$0.03 per 10000 KMS requests in EU (Paris),AWS Key Management Service,0.00027900000000000006,3.0000000000000005e-06,93.0
+714,sa-east-1-KMS-Requests,$0.03 per 10000 KMS requests in South America (Sao Paulo),AWS Key Management Service,9.3e-05,3e-06,31.0
+715,us-east-1-KMS-Keys,$1 per customer managed KMS key version in US East (N. Virginia),AWS Key Management Service,3.9999999373000508,1.0,3.9999999373000508
+716,us-east-1-KMS-Requests,$0.03 per 10000 KMS requests in US East (N. Virginia),AWS Key Management Service,0.004478999999999969,2.9999999999999793e-06,1493.0
+717,us-east-2-KMS-Requests,$0.03 per 10000 KMS requests in US East (Ohio),AWS Key Management Service,9.3e-05,3e-06,31.0
+718,us-west-1-KMS-Requests,$0.03 per 10000 KMS requests in US West (N. California),AWS Key Management Service,0.0008369999999999999,2.9999999999999997e-06,279.0
+719,us-west-2-KMS-Keys,$1 per customer managed KMS key version in US West (Oregon),AWS Key Management Service,31.95698881149452,1.0,31.95698881149452
+720,us-west-2-KMS-Requests,$0.03 per 10000 KMS requests in US West (Oregon),AWS Key Management Service,0.05072699999999908,2.9999999999999454e-06,16909.0

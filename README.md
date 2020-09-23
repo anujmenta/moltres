@@ -32,3 +32,10 @@ The services here are categorized into the following states:
 
 
 Disclaimer: This project is not associated with any cloud platforms. 
+
+Setup instructions:
+
+1. Install Anaconda
+2. Create virtual environment using this command "conda env create --file requirements.txt "
+3. Activate virtual environment using "conda activate env"
+4. Run the file 'main.py' and follow the instructions
