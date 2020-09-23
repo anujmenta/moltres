@@ -17,7 +17,7 @@ The services here are categorized into the following states:
 | -------- | -------- | -------- |------ |
 | Compute     | Compute Engine : Premptible VMS     | Elastic Compute cloud:Spot usage     |Testing |
 | Compute     | Compute Engine : Regular VMS     | Elastic Compute cloud:Box usage     |Testing |
-| Storage     | Persistent Disk     | Elastic Block Storage     | Icebox |
+| Storage     | Persistent Disk     | Elastic Block Storage     | Testing |
 | Storage     | Cloud Storage     | Simple Storage Services(S3)     | Icebox |
 | Storage     | Filestore     | Elastic File storage     | Icebox |
 | Networking     | Network Egress     | Data Transfer     | Icebox |

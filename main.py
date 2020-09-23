@@ -4,29 +4,33 @@ import re
 machines = pd.read_csv('TCO reference - C-Machines.csv')
 rates = pd.read_csv('TCO reference - O-Rates.csv')
 
-csv_to_read = input('path to csv file: ')
-df = pd.read_csv(csv_to_read)
+# csv_to_read = input('path to csv file: ')
+# df = pd.read_csv(csv_to_read)
+
+#provisional test on Alphasense
+df = pd.read_csv('bill_examples/alphasense_rowitems.csv')
 
 #function to detect column names
 def detect_column_names(dataframe):
   usage_options = ['lineItem/UsageType', 'UsageType']
   cost_options = ['lineItem/UnblendedCost', 'TotalCost']
-  rate_options = ['UnblendedRate']
+  rate_options = ['BlendedRate', 'UnblendedRate', 'lineItem/UnblendedRate']
   description_options = ['lineItem/LineItemDescription', 'ItemDescription']
   quantity_options = ['lineItem/UsageAmount', 'UsageQuantity']
   productname_options = ['product/ProductName', 'ProductCode']
   type_options = ['ItemType']
 
   columnnames = {
-  'usage': set(usage_options).intersection(set(dataframe.columns)),
-  'cost': set(cost_options).intersection(set(dataframe.columns)),
-  'rate': set(rate_options).intersection(set(dataframe.columns)),
-  'description': set(description_options).intersection(set(dataframe.columns)),
-  'quantity': set(quantity_options).intersection(set(dataframe.columns)),
-  'productname': set(productname_options).intersection(set(dataframe.columns)),
-  'type': set(type_options).intersection(set(dataframe.columns)),
+  'usage': list(set(usage_options).intersection(set(dataframe.columns)))[0],
+  'cost': list(set(cost_options).intersection(set(dataframe.columns)))[0],
+  'rate': list(set(rate_options).intersection(set(dataframe.columns)))[0],
+  'description': list(set(description_options).intersection(set(dataframe.columns)))[0],
+  'quantity': list(set(quantity_options).intersection(set(dataframe.columns)))[0],
+  'productname': list(set(productname_options).intersection(set(dataframe.columns)))[0],
+  # 'type': set(type_options).intersection(set(dataframe.columns)))[0],
   }
   return columnnames
+
 
 #Main component
 def sud(nunits, rate):
@@ -107,6 +111,7 @@ def get_usagetype(row):
   return usagetype
 
 def parsecompute(row):
+  val = row[columnnames['usage']]
   usagetype = get_usagetype(row)
   try:
     region, rest = val.split('-')
@@ -154,7 +159,7 @@ columnnames = detect_column_names(df)
 # for key in columnnames:
 # 	columnnames[key] = input('Enter column name for {}: '.format(key))
 
-df['UnblendedRate'] = df[columnnames['cost']]/df[columnnames['quantity']]
+df[columnnames['rate']] = df[columnnames['cost']]/df[columnnames['quantity']]
 grouped = df.groupby([columnnames['usage'], columnnames['description'], columnnames['productname']]).agg({columnnames['cost']:'sum', columnnames['rate']:'mean', columnnames['quantity']:'sum'}).reset_index()
 boxusage = grouped[grouped[columnnames['usage']].str.contains('BoxUsage')].sort_values(columnnames['usage'])
 heavyusage = grouped[grouped[columnnames['usage']].str.contains('HeavyUsage')].sort_values(columnnames['usage'])
@@ -168,3 +173,33 @@ if len(heavyusage):
 if len(spotusage):
   spotusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = spotusage.apply(parsecompute, axis=1)
   print('Spotusage', sum(spotusage[columnnames['cost']]), sum(spotusage['gcp_cost']))
+
+######################################################################################################################################################
+
+persistentdisk = grouped[(grouped[columnnames['usage']].str.contains('VolumeUsage.gp2')) | (grouped[columnnames['usage']].str.contains('SnapshotUsage')) | ((grouped[columnnames['usage']].str.contains('VolumeUsage'))&(grouped[columnnames['description']].str.contains('Magnetic provisioned storage')))].sort_values(columnnames['usage'])
+
+
+pd_sample_rates = {
+  'snapshot': 0.029,
+  'gp2': 0.110,
+  'magnetic': 0.044,
+}
+
+def parsepd(row):
+  value = row[columnnames['usage']]
+  if not value.startswith('EBS'):
+    region, cat = value.split('-EBS:')
+  else:
+    region, cat = 'USE1', value.replace('EBS:', '')
+  if cat=='SnapshotUsage':
+    return pd.Series([pd_sample_rates['snapshot'], row[columnnames['quantity']]*pd_sample_rates['snapshot']])
+  elif cat=='VolumeUsage.gp2':
+    return pd.Series([pd_sample_rates['gp2'], row[columnnames['quantity']]*pd_sample_rates['gp2']])
+  elif 'Magnetic provisioned storage' in row[columnnames['description']]:
+    return pd.Series([pd_sample_rates['magnetic'], row[columnnames['quantity']]*pd_sample_rates['magnetic']])
+
+
+persistentdisk[['GCP_rate', 'GCP_cost']] = persistentdisk.apply(parsepd, axis=1)
+
+print("PD AWS: ", sum(persistentdisk['TotalCost']), " PD GCP: ", sum(persistentdisk['GCP_cost']))
+######################################################################################################################################################
