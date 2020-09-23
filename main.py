@@ -105,7 +105,9 @@ def get_usagetype(row):
     usagetype = 'spot'
 
   return usagetype
-def parseusage(row):
+
+def parsecompute(row):
+  usagetype = get_usagetype(row)
   try:
     region, rest = val.split('-')
   except:
@@ -158,11 +160,11 @@ boxusage = grouped[grouped[columnnames['usage']].str.contains('BoxUsage')].sort_
 heavyusage = grouped[grouped[columnnames['usage']].str.contains('HeavyUsage')].sort_values(columnnames['usage'])
 spotusage = grouped[grouped[columnnames['usage']].str.contains('SpotUsage')].sort_values(columnnames['usage'])
 if len(boxusage):
-  boxusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = boxusage.apply(parseusage, axis=1)
+  boxusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = boxusage.apply(parsecompute, axis=1)
   print('Boxusage', sum(boxusage[columnnames['cost']]), sum(boxusage['gcp_cost']))
 if len(heavyusage):
-  heavyusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = heavyusage.apply(parseusage, axis=1)
+  heavyusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = heavyusage.apply(parsecompute, axis=1)
   print('Heavyusage', sum(heavyusage[columnnames['cost']]), sum(heavyusage['gcp_cost']))
 if len(spotusage):
-  spotusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = spotusage.apply(parseusage, axis=1)
+  spotusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = spotusage.apply(parsecompute, axis=1)
   print('Spotusage', sum(spotusage[columnnames['cost']]), sum(spotusage['gcp_cost']))
