@@ -81,9 +81,29 @@ gpu_rates = {
 }
 
 region_dict = {
-    'USW2' : 'us-west1',
-    'APS2' : 'australia-southeast1',
-    'USE1' : 'us-east-1'
+  'USE1' : 'us-east4',
+  'USE2' : 'us-central1',
+  'USW1' : 'us-west1',
+  'USW2' : 'us-west1',
+  'UGE1' : 'us-east1',
+  'UGW1' : 'us-west1',
+  'CPT' : 'us-central1',
+  'APE1' : 'asia-east2',
+  'APN1' : 'asia-northeast1',
+  'APN2' : 'asia-northeast3',
+  'APN3' : 'asia-northeast2',
+  'APS1' : 'asia-southeast1',
+  'APS2' : 'australia-southeast1',
+  'APS3' : 'asia-south1',
+  'CAN1' : 'us-central1',
+  'EUC1' : 'europe-west3',
+  'EUW1' : 'europe-west2',
+  'EUW2' : 'europe-west2',
+  'EUW3' : 'europe-west1',
+  'EUN1' : 'europe-north1',
+  'EUS1' : 'europe-west3',
+  'MES1' : 'us-central1',
+  'SAE1' : 'southamerica-east1',
 }
 
 testmode = False
@@ -180,10 +200,105 @@ persistentdisk = grouped[(grouped[columnnames['usage']].str.contains('VolumeUsag
 
 
 pd_sample_rates = {
-  'snapshot': 0.029,
-  'gp2': 0.110,
-  'magnetic': 0.044,
+  'snapshot': {
+      "us": 0.026,
+      "us-central1": 0.026,
+      "us-east1": 0.026,
+      "us-east4": 0.029,
+      "us-west4": 0.029,
+      "us-west1": 0.026,
+      "us-west2": 0.031,
+      "us-west3": 0.031,
+      "europe": 0.026,
+      "europe-west1": 0.026,
+      "europe-west2": 0.031,
+      "europe-west3": 0.031,
+      "europe-west4": 0.029,
+      "europe-west6": 0.034,
+      "europe-north1": 0.029,
+      "northamerica-northeast1": 0.029,
+      "asia-east": 0.026,
+      "asia-east1": 0.026,
+      "asia-east2": 0.032,
+      "asia-northeast": 0.034,
+      "asia-northeast1": 0.034,
+      "asia-northeast2": 0.034,
+      "asia-northeast3": 0.034,
+      "asia-southeast": 0.029,
+      "asia-southeast1": 0.029,
+      "australia-southeast1": 0.035,
+      "australia": 0.035,
+      "southamerica-east1": 0.039,
+      "asia-south1": 0.031,
+      "asia-southeast2": 0.034
+    },
+  'gp2': {
+      "us": 0.1,
+      "us-central1": 0.1,
+      "us-east1": 0.1,
+      "us-east4": 0.11,
+      "us-west4": 0.11,
+      "us-west1": 0.1,
+      "us-west2": 0.12,
+      "us-west3": 0.12,
+      "europe": 0.1,
+      "europe-west1": 0.1,
+      "europe-west2": 0.12,
+      "europe-west3": 0.12,
+      "europe-west4": 0.11,
+      "europe-west6": 0.12,
+      "europe-north1": 0.11,
+      "northamerica-northeast1": 0.11,
+      "asia-east": 0.1,
+      "asia-east1": 0.1,
+      "asia-east2": 0.11,
+      "asia-northeast": 0.13,
+      "asia-northeast1": 0.13,
+      "asia-northeast2": 0.13,
+      "asia-northeast3": 0.13,
+      "asia-southeast": 0.11,
+      "asia-southeast1": 0.11,
+      "australia-southeast1": 0.135,
+      "australia": 0.135,
+      "southamerica-east1": 0.15,
+      "asia-south1": 0.12,
+      "asia-southeast2": 0.13,
+    },
+  'magnetic': {
+      "us": 0.04,
+      "us-central1": 0.04,
+      "us-east1": 0.04,
+      "us-east4": 0.044,
+      "us-west4": 0.044,
+      "us-west1": 0.04,
+      "us-west2": 0.048,
+      "us-west3": 0.048,
+      "europe": 0.04,
+      "europe-west1": 0.04,
+      "europe-west2": 0.048,
+      "europe-west3": 0.048,
+      "europe-west4": 0.044,
+      "europe-west6": 0.052,
+      "europe-north1": 0.044,
+      "northamerica-northeast1": 0.044,
+      "asia-east": 0.04,
+      "asia-east1": 0.04,
+      "asia-east2": 0.05,
+      "asia-northeast": 0.052,
+      "asia-northeast1": 0.052,
+      "asia-northeast2": 0.052,
+      "asia-northeast3": 0.052,
+      "asia-southeast": 0.044,
+      "asia-southeast1": 0.044,
+      "australia-southeast1": 0.054,
+      "australia": 0.054,
+      "southamerica-east1": 0.06,
+      "asia-south1": 0.048,
+      "asia-southeast2": 0.052
+    },
 }
+
+
 
 def parsepd(row):
   value = row[columnnames['usage']]
@@ -192,11 +307,11 @@ def parsepd(row):
   else:
     region, cat = 'USE1', value.replace('EBS:', '')
   if cat=='SnapshotUsage':
-    return pd.Series([pd_sample_rates['snapshot'], row[columnnames['quantity']]*pd_sample_rates['snapshot']])
+    return pd.Series([pd_sample_rates['snapshot'][region_dict[region]], row[columnnames['quantity']]*pd_sample_rates['snapshot'][region_dict[region]]])
   elif cat=='VolumeUsage.gp2':
-    return pd.Series([pd_sample_rates['gp2'], row[columnnames['quantity']]*pd_sample_rates['gp2']])
+    return pd.Series([pd_sample_rates['gp2'][region_dict[region]], row[columnnames['quantity']]*pd_sample_rates['gp2'][region_dict[region]]])
   elif 'Magnetic provisioned storage' in row[columnnames['description']]:
-    return pd.Series([pd_sample_rates['magnetic'], row[columnnames['quantity']]*pd_sample_rates['magnetic']])
+    return pd.Series([pd_sample_rates['magnetic'][region_dict[region]], row[columnnames['quantity']]*pd_sample_rates['magnetic'][region_dict[region]]])
 
 
 persistentdisk[['GCP_rate', 'GCP_cost']] = persistentdisk.apply(parsepd, axis=1)
