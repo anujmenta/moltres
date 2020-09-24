@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+from ratecard import *
 
 machines = pd.read_csv('TCO reference - C-Machines.csv')
 rates = pd.read_csv('TCO reference - O-Rates.csv')
@@ -199,107 +200,6 @@ if len(spotusage):
 persistentdisk = grouped[(grouped[columnnames['usage']].str.contains('VolumeUsage.gp2')) | (grouped[columnnames['usage']].str.contains('SnapshotUsage')) | ((grouped[columnnames['usage']].str.contains('VolumeUsage'))&(grouped[columnnames['description']].str.contains('Magnetic provisioned storage')))].sort_values(columnnames['usage'])
 
 
-pd_sample_rates = {
-  'snapshot': {
-      "us": 0.026,
-      "us-central1": 0.026,
-      "us-east1": 0.026,
-      "us-east4": 0.029,
-      "us-west4": 0.029,
-      "us-west1": 0.026,
-      "us-west2": 0.031,
-      "us-west3": 0.031,
-      "europe": 0.026,
-      "europe-west1": 0.026,
-      "europe-west2": 0.031,
-      "europe-west3": 0.031,
-      "europe-west4": 0.029,
-      "europe-west6": 0.034,
-      "europe-north1": 0.029,
-      "northamerica-northeast1": 0.029,
-      "asia-east": 0.026,
-      "asia-east1": 0.026,
-      "asia-east2": 0.032,
-      "asia-northeast": 0.034,
-      "asia-northeast1": 0.034,
-      "asia-northeast2": 0.034,
-      "asia-northeast3": 0.034,
-      "asia-southeast": 0.029,
-      "asia-southeast1": 0.029,
-      "australia-southeast1": 0.035,
-      "australia": 0.035,
-      "southamerica-east1": 0.039,
-      "asia-south1": 0.031,
-      "asia-southeast2": 0.034
-    },
-  'gp2': {
-      "us": 0.1,
-      "us-central1": 0.1,
-      "us-east1": 0.1,
-      "us-east4": 0.11,
-      "us-west4": 0.11,
-      "us-west1": 0.1,
-      "us-west2": 0.12,
-      "us-west3": 0.12,
-      "europe": 0.1,
-      "europe-west1": 0.1,
-      "europe-west2": 0.12,
-      "europe-west3": 0.12,
-      "europe-west4": 0.11,
-      "europe-west6": 0.12,
-      "europe-north1": 0.11,
-      "northamerica-northeast1": 0.11,
-      "asia-east": 0.1,
-      "asia-east1": 0.1,
-      "asia-east2": 0.11,
-      "asia-northeast": 0.13,
-      "asia-northeast1": 0.13,
-      "asia-northeast2": 0.13,
-      "asia-northeast3": 0.13,
-      "asia-southeast": 0.11,
-      "asia-southeast1": 0.11,
-      "australia-southeast1": 0.135,
-      "australia": 0.135,
-      "southamerica-east1": 0.15,
-      "asia-south1": 0.12,
-      "asia-southeast2": 0.13,
-    },
-  'magnetic': {
-      "us": 0.04,
-      "us-central1": 0.04,
-      "us-east1": 0.04,
-      "us-east4": 0.044,
-      "us-west4": 0.044,
-      "us-west1": 0.04,
-      "us-west2": 0.048,
-      "us-west3": 0.048,
-      "europe": 0.04,
-      "europe-west1": 0.04,
-      "europe-west2": 0.048,
-      "europe-west3": 0.048,
-      "europe-west4": 0.044,
-      "europe-west6": 0.052,
-      "europe-north1": 0.044,
-      "northamerica-northeast1": 0.044,
-      "asia-east": 0.04,
-      "asia-east1": 0.04,
-      "asia-east2": 0.05,
-      "asia-northeast": 0.052,
-      "asia-northeast1": 0.052,
-      "asia-northeast2": 0.052,
-      "asia-northeast3": 0.052,
-      "asia-southeast": 0.044,
-      "asia-southeast1": 0.044,
-      "australia-southeast1": 0.054,
-      "australia": 0.054,
-      "southamerica-east1": 0.06,
-      "asia-south1": 0.048,
-      "asia-southeast2": 0.052
-    },
-}
-
-
-
 def parsepd(row):
   value = row[columnnames['usage']]
   if not value.startswith('EBS'):
@@ -307,14 +207,14 @@ def parsepd(row):
   else:
     region, cat = 'USE1', value.replace('EBS:', '')
   if cat=='SnapshotUsage':
-    return pd.Series([pd_sample_rates['snapshot'][region_dict[region]], row[columnnames['quantity']]*pd_sample_rates['snapshot'][region_dict[region]]])
+    return pd.Series([persistentdisk_ratecard['snapshot'][region_dict[region]], row[columnnames['quantity']]*persistentdisk_ratecard['snapshot'][region_dict[region]]])
   elif cat=='VolumeUsage.gp2':
-    return pd.Series([pd_sample_rates['gp2'][region_dict[region]], row[columnnames['quantity']]*pd_sample_rates['gp2'][region_dict[region]]])
+    return pd.Series([persistentdisk_ratecard['gp2'][region_dict[region]], row[columnnames['quantity']]*persistentdisk_ratecard['gp2'][region_dict[region]]])
   elif 'Magnetic provisioned storage' in row[columnnames['description']]:
-    return pd.Series([pd_sample_rates['magnetic'][region_dict[region]], row[columnnames['quantity']]*pd_sample_rates['magnetic'][region_dict[region]]])
+    return pd.Series([persistentdisk_ratecard['magnetic'][region_dict[region]], row[columnnames['quantity']]*persistentdisk_ratecard['magnetic'][region_dict[region]]])
 
 
 persistentdisk[['GCP_rate', 'GCP_cost']] = persistentdisk.apply(parsepd, axis=1)
 
-print("PD AWS: ", sum(persistentdisk['TotalCost']), " PD GCP: ", sum(persistentdisk['GCP_cost']))
+print("PD AWS: ", sum(persistentdisk[columnnames['cost']]), " PD GCP: ", sum(persistentdisk['GCP_cost']))
 ######################################################################################################################################################
