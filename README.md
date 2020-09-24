@@ -8,16 +8,18 @@ At the moment, we are only focusing on AWS to GCP, meaning the tool will let the
 Service status:
 
 The services here are categorized into the following states:
-1. Finished : Testing and merging to master done
-2. Testing : The coding is done but tests are not done yet
-3. In progress : Branch created and code being written
-4. Icebox : Up next
+1. Plolyd : Plotted graphs on Plotly and integrated into report
+2. Visualized : Generating output into a Excel sheet
+3. Finished : Testing and merging to master done
+4. Testing : The coding is done but tests are not done yet
+5. In progress : Branch created and code being written
+6. Icebox : Up next 
 
 | Category | Sub-category(GCP) |Sub-category(AWS)| Status |
 | -------- | -------- | -------- |------ |
 | Compute     | Compute Engine : Premptible VMS     | Elastic Compute cloud:Spot usage     |Testing |
 | Compute     | Compute Engine : Regular VMS     | Elastic Compute cloud:Box usage     |Testing |
-| Storage     | Persistent Disk     | Elastic Block Storage     | Icebox |
+| Storage     | Persistent Disk     | Elastic Block Storage     | Testing |
 | Storage     | Cloud Storage     | Simple Storage Services(S3)     | Icebox |
 | Storage     | Filestore     | Elastic File storage     | Icebox |
 | Networking     | Network Egress     | Data Transfer     | Icebox |
@@ -31,7 +33,7 @@ The services here are categorized into the following states:
 | Support     | GCP Support     | AWS Support     |Icebox |
 
 
-Disclaimer: This project is not associated with any cloud platforms. 
+Disclaimer: This project is not in collaboration/associated/sponsored with/by any cloud platforms. 
 
 Setup instructions:
 
