@@ -33,7 +33,7 @@ The services here are categorized into the following states:
 | Support     | GCP Support     | AWS Support     |Icebox |
 
 
-Disclaimer: This project is not associated with any cloud platforms. 
+Disclaimer: This project is not in collaboration/associated/sponsored with/by any cloud platforms. 
 
 Setup instructions:
 
