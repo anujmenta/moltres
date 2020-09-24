@@ -8,10 +8,12 @@ At the moment, we are only focusing on AWS to GCP, meaning the tool will let the
 Service status:
 
 The services here are categorized into the following states:
-1. Finished : Testing and merging to master done
-2. Testing : The coding is done but tests are not done yet
-3. In progress : Branch created and code being written
-4. Icebox : Up next
+1. Plolyd : Plotted graphs on Plotly and integrated into report
+2. Visualized : Generating output into a Excel sheet
+3. Finished : Testing and merging to master done
+4. Testing : The coding is done but tests are not done yet
+5. In progress : Branch created and code being written
+6. Icebox : Up next 
 
 | Category | Sub-category(GCP) |Sub-category(AWS)| Status |
 | -------- | -------- | -------- |------ |
