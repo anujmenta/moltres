@@ -1,3 +1,29 @@
+region_dict = {
+  'USE1' : 'us-east4',
+  'USE2' : 'us-central1',
+  'USW1' : 'us-west1',
+  'USW2' : 'us-west1',
+  'UGE1' : 'us-east1',
+  'UGW1' : 'us-west1',
+  'CPT' : 'us-central1',
+  'APE1' : 'asia-east2',
+  'APN1' : 'asia-northeast1',
+  'APN2' : 'asia-northeast3',
+  'APN3' : 'asia-northeast2',
+  'APS1' : 'asia-southeast1',
+  'APS2' : 'australia-southeast1',
+  'APS3' : 'asia-south1',
+  'CAN1' : 'us-central1',
+  'EUC1' : 'europe-west3',
+  'EUW1' : 'europe-west2',
+  'EUW2' : 'europe-west2',
+  'EUW3' : 'europe-west1',
+  'EUN1' : 'europe-north1',
+  'EUS1' : 'europe-west3',
+  'MES1' : 'us-central1',
+  'SAE1' : 'southamerica-east1',
+}
+
 compute_ratecard = {
 	'box':{
 		'n1-predefined-vcpus':{
