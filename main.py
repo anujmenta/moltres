@@ -196,6 +196,34 @@ if len(spotusage):
   print('Spotusage', sum(spotusage[columnnames['cost']]), sum(spotusage['gcp_cost']))
 
 ######################################################################################################################################################
+cloudstorage = df[columnnames['productname']=='Amazon Simple Storage Service'] 
+
+cloudstorage_pricing = {
+  'classa':0.000005,
+  'classb':0.0000004
+}
+
+def parsecloudstorage(row):
+  value = row[columnnames['usage']]
+  region, typ, cat = value.split('-')
+  desc = row[columnnames['description']]
+  if cat=='Tier 1':
+    return pd.Series([value*cloudstorage_pricing['classa']])
+  elif cat=='Tier 2':
+    return pd.Series([value*cloudstorage_pricing['classb']])
+  elif typ=='TimedStorage' and cat=='ByteHours':
+    return pd.Series([])
+
+
+
+
+
+
+
+
+
+
+######################################################################################################################################################
 
 persistentdisk = grouped[(grouped[columnnames['usage']].str.contains('VolumeUsage.gp2')) | (grouped[columnnames['usage']].str.contains('SnapshotUsage')) | ((grouped[columnnames['usage']].str.contains('VolumeUsage'))&(grouped[columnnames['description']].str.contains('Magnetic provisioned storage')))].sort_values(columnnames['usage'])
 
