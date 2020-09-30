@@ -135,23 +135,25 @@ def parsecompute(row):
   val = row[columnnames['usage']]
   usagetype = get_usagetype(row)
   try:
-    region, rest = val.split('-')
+    region_aws, rest = val.split('-')
   except:
-    region, rest = 'USE1', val
+    region_aws, rest = 'USE1', val
     return pd.Series([0]*8)
   try:
     usage, machine = rest.split(':')
   except:
     usage, machine = rest, ''
     return pd.Series([0]*8)
+  region_gcp = region_dict[region_aws]
   machine = machine.replace('.elasticsearch', '')
   gcpmachine = machines[machines['API Name']==machine].iloc[0]
-  gcpmachine_name = [gcpmachine['Family'].upper(), gcpmachine['Type'].capitalize(), gcpmachine['Memory'], gcpmachine['vCPUs']]
+  gcpmachine_name = [gcpmachine['Family'].lower(), gcpmachine['Type'].lower(), gcpmachine['Memory'], gcpmachine['vCPUs']]
   if gcpmachine_name[1]=='Standard' or gcpmachine_name[1]=='Highmem' or gcpmachine_name[1]=='Highcpu':
     gcpmachine_name[1] = 'Predefined'
-  if gcpmachine_name[1] not in ['Small', 'Micro', 'Medium']:
-    rates_cpu = rates[(rates['Family']==gcpmachine_name[0])&(rates['Type']==gcpmachine_name[1])&(rates['Metric']=='vCPUs')&(rates['Code']==region_dict[region])].iloc[0][ratedict[usagetype]].replace('$', '')
-    rates_mem = rates[(rates['Family']==gcpmachine_name[0])&(rates['Type']==gcpmachine_name[1])&(rates['Metric']=='Memory')&(rates['Code']==region_dict[region])].iloc[0][ratedict[usagetype]].replace('$', '')
+  if gcpmachine_name[1] not in ['small', 'micro', 'medium']:
+    machine_id = '{}-{}'.format(gcpmachine_name[0],gcpmachine_name[1])
+    rates_cpu = compute_ratecard[usagetype]['{}-vcpus'.format(machine_id)][region_gcp]
+    rates_mem = compute_ratecard[usagetype]['{}-memory'.format(machine_id)][region_gcp]
     gcp_rate = gcpmachine_name[2]*float(rates_mem)+gcpmachine_name[3]*float(rates_cpu)
     if machine.startswith('p'):
       if gcpmachine['GPU model']=='NVIDIA Tesla K80':
@@ -159,7 +161,8 @@ def parsecompute(row):
       elif gcpmachine['GPU model']=='NVIDIA Tesla V100':
         gcp_rate+=int(gcpmachine['GPUs'])*gpu_rates['NVIDIA Tesla V100'][usagetype]
   else:
-    gcp_rate = float(rates[(rates['Family']==gcpmachine_name[0])&(rates['Type']==gcpmachine_name[1])].iloc[0][ratedict[usagetype]].replace('$', ''))
+    machine_id = '{}-{}'.format(gcpmachine_name[0],gcpmachine_name[1])
+    gcp_rate = compute_ratecard[usagetype][machine_id][region_gcp]
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
