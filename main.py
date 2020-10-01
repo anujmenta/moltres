@@ -226,12 +226,22 @@ def nat_gateway_cost(dataframe):
   ninstances = sum(nat_gateway_hours['ninstances'])
   ngb = sum(nat_gateway_bytes[columnnames['quantity']])
   if ninstances<=32:
-    cost = ninstances*nat_gateway_ratecard['us-vm-low']['us']*720+ngb*nat_gateway_ratecard['us-bytes']['us']
+    cost = ninstances*nat_gateway_ratecard['us-vm-low']*720+ngb*nat_gateway_ratecard['us-bytes']
   else:
-    cost = nat_gateway_ratecard['us-vm-high']['us']*720+ngb*nat_gateway_ratecard['us-bytes']['us']
+    cost = nat_gateway_ratecard['us-vm-high']*720+ngb*nat_gateway_ratecard['us-bytes']
   return [cost, sum(nat_gateway_bytes[columnnames['cost']])+sum(nat_gateway_hours[columnnames['cost']])]
 
 nat_gcp, nat_aws = nat_gateway_cost(grouped)#df is the grouped dataframe
 
 #feed this input into the viz tool
+######################################################################################################################################################
+
+idleaddress = grouped[grouped[columnnames['usage']].str.contains('ElasticIP:IdleAddress')]
+
+def idle_addresses_cost(row):
+  ninstances = int(row[columnnames['quantity']]/720)
+  return pd.Series([ninstances*idle_addresses_ratecard['us']*720, row[columnnames['cost']]])
+
+idleaddress[['gcp_cost', 'gcp_aws']] = idleaddress.apply(idle_addresses_cost, axis=1)
+
 ######################################################################################################################################################
