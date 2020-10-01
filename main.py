@@ -197,6 +197,35 @@ def parsepd(row):
 persistentdisk[['GCP_rate', 'GCP_cost']] = persistentdisk.apply(parsepd, axis=1)
 
 print("PD AWS: ", sum(persistentdisk[columnnames['cost']]), " PD GCP: ", sum(persistentdisk['GCP_cost']))
+
+
+######################################################################################################################################################
+
+def nat_gateway_cost(dataframe):
+  nat_gateway_bytes = dataframe[dataframe[columnnames['usage']].str.contains('NatGateway-Bytes')].copy()
+  nat_gateway_hours = dataframe[dataframe[columnnames['usage']].str.contains('NatGateway-Hours')].copy()
+  nat_gateway_hours['ninstances'] = nat_gateway_hours[columnnames['quantity']]/720
+  ninstances = sum(nat_gateway_hours['ninstances'])
+  ngb = sum(nat_gateway_bytes[columnnames['quantity']])
+  if ninstances<=32:
+    cost = ninstances*nat_gateway_ratecard['us-vm-low']*720+ngb*nat_gateway_ratecard['us-bytes']
+  else:
+    cost = nat_gateway_ratecard['us-vm-high']*720+ngb*nat_gateway_ratecard['us-bytes']
+  return [cost, sum(nat_gateway_bytes[columnnames['cost']])+sum(nat_gateway_hours[columnnames['cost']])]
+
+nat_gcp, nat_aws = nat_gateway_cost(grouped)#df is the grouped dataframe
+
+#feed this input into the viz tool
+######################################################################################################################################################
+
+idleaddress = grouped[grouped[columnnames['usage']].str.contains('ElasticIP:IdleAddress')]
+
+def idle_addresses_cost(row):
+  ninstances = int(row[columnnames['quantity']]/720)
+  return pd.Series([ninstances*idle_addresses_ratecard['us']*720, row[columnnames['cost']]])
+
+idleaddress[['gcp_cost', 'gcp_aws']] = idleaddress.apply(idle_addresses_cost, axis=1)
+
 ######################################################################################################################################################
 
 wb = Workbook()
@@ -253,5 +282,3 @@ ws_summary.append(['', '', '', '', '', ''])
 ws_summary.append(['', 'GCP Monthly ', '', 'AWS Monthly', '', ''])
 
 wb.save(filename=report_filename)
-
-######################################################################################################################################################
