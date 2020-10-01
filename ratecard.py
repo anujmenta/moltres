@@ -147,3 +147,9 @@ persistentdisk_ratecard = {
       "asia-southeast2": 0.052
     },
 }
+
+nat_gateway_ratecard = {
+	'us-vm-low' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-GATEWAY-UPTIME-LOW-VM-NUMBER"],
+	'us-vm-high' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-GATEWAY-UPTIME-HIGH-VM-NUMBER"],
+	'us-bytes' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-TRAFFIC"],
+}
