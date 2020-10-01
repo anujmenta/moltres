@@ -1,6 +1,9 @@
 import pandas as pd
 import re
 from ratecard import *
+from openpyxl import Workbook
+from openpyxl.utils.dataframe import dataframe_to_rows
+from openpyxl.styles import Alignment
 
 machines = pd.read_csv('TCO reference - C-Machines.csv')
 rates = pd.read_csv('TCO reference - O-Rates.csv')
@@ -81,31 +84,6 @@ gpu_rates = {
     # }
 }
 
-region_dict = {
-  'USE1' : 'us-east4',
-  'USE2' : 'us-central1',
-  'USW1' : 'us-west1',
-  'USW2' : 'us-west1',
-  'UGE1' : 'us-east1',
-  'UGW1' : 'us-west1',
-  'CPT' : 'us-central1',
-  'APE1' : 'asia-east2',
-  'APN1' : 'asia-northeast1',
-  'APN2' : 'asia-northeast3',
-  'APN3' : 'asia-northeast2',
-  'APS1' : 'asia-southeast1',
-  'APS2' : 'australia-southeast1',
-  'APS3' : 'asia-south1',
-  'CAN1' : 'us-central1',
-  'EUC1' : 'europe-west3',
-  'EUW1' : 'europe-west2',
-  'EUW2' : 'europe-west2',
-  'EUW3' : 'europe-west1',
-  'EUN1' : 'europe-north1',
-  'EUS1' : 'europe-west3',
-  'MES1' : 'us-central1',
-  'SAE1' : 'southamerica-east1',
-}
 
 testmode = False
 
@@ -137,8 +115,8 @@ def parsecompute(row):
   try:
     region, rest = val.split('-')
   except:
-    region, rest = 'USE1', val
-    return pd.Series([0]*8)
+    region, rest = 'USW2', val
+    # return pd.Series([0]*8)
   try:
     usage, machine = rest.split(':')
   except:
@@ -149,6 +127,7 @@ def parsecompute(row):
   gcpmachine_name = [gcpmachine['Family'].upper(), gcpmachine['Type'].capitalize(), gcpmachine['Memory'], gcpmachine['vCPUs']]
   if gcpmachine_name[1]=='Standard' or gcpmachine_name[1]=='Highmem' or gcpmachine_name[1]=='Highcpu':
     gcpmachine_name[1] = 'Predefined'
+  #Needs restructuring to accommodate for all regions and pull rate from the new JSON
   if gcpmachine_name[1] not in ['Small', 'Micro', 'Medium']:
     rates_cpu = rates[(rates['Family']==gcpmachine_name[0])&(rates['Type']==gcpmachine_name[1])&(rates['Metric']=='vCPUs')&(rates['Code']==region_dict[region])].iloc[0][ratedict[usagetype]].replace('$', '')
     rates_mem = rates[(rates['Family']==gcpmachine_name[0])&(rates['Type']==gcpmachine_name[1])&(rates['Metric']=='Memory')&(rates['Code']==region_dict[region])].iloc[0][ratedict[usagetype]].replace('$', '')
@@ -160,6 +139,7 @@ def parsecompute(row):
         gcp_rate+=int(gcpmachine['GPUs'])*gpu_rates['NVIDIA Tesla V100'][usagetype]
   else:
     gcp_rate = float(rates[(rates['Family']==gcpmachine_name[0])&(rates['Type']==gcpmachine_name[1])].iloc[0][ratedict[usagetype]].replace('$', ''))
+
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
@@ -183,17 +163,17 @@ columnnames = detect_column_names(df)
 df[columnnames['rate']] = df[columnnames['cost']]/df[columnnames['quantity']]
 grouped = df.groupby([columnnames['usage'], columnnames['description'], columnnames['productname']]).agg({columnnames['cost']:'sum', columnnames['rate']:'mean', columnnames['quantity']:'sum'}).reset_index()
 boxusage = grouped[grouped[columnnames['usage']].str.contains('BoxUsage')].sort_values(columnnames['usage'])
-heavyusage = grouped[grouped[columnnames['usage']].str.contains('HeavyUsage')].sort_values(columnnames['usage'])
+heavyusage = grouped[(grouped[columnnames['usage']].str.contains('HeavyUsage'))&(~grouped[columnnames['usage']].str.contains('HeavyUsage:db'))].sort_values(columnnames['usage'])
 spotusage = grouped[grouped[columnnames['usage']].str.contains('SpotUsage')].sort_values(columnnames['usage'])
 if len(boxusage):
   boxusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = boxusage.apply(parsecompute, axis=1)
-  print('Boxusage', sum(boxusage[columnnames['cost']]), sum(boxusage['gcp_cost']))
+  # print('Boxusage', sum(boxusage[columnnames['cost']]), sum(boxusage['gcp_cost']))
 if len(heavyusage):
   heavyusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = heavyusage.apply(parsecompute, axis=1)
-  print('Heavyusage', sum(heavyusage[columnnames['cost']]), sum(heavyusage['gcp_cost']))
+  # print('Heavyusage', sum(heavyusage[columnnames['cost']]), sum(heavyusage['gcp_cost']))
 if len(spotusage):
   spotusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = spotusage.apply(parsecompute, axis=1)
-  print('Spotusage', sum(spotusage[columnnames['cost']]), sum(spotusage['gcp_cost']))
+  # print('Spotusage', sum(spotusage[columnnames['cost']]), sum(spotusage['gcp_cost']))
 
 ######################################################################################################################################################
 
@@ -217,6 +197,8 @@ def parsepd(row):
 persistentdisk[['GCP_rate', 'GCP_cost']] = persistentdisk.apply(parsepd, axis=1)
 
 print("PD AWS: ", sum(persistentdisk[columnnames['cost']]), " PD GCP: ", sum(persistentdisk['GCP_cost']))
+
+
 ######################################################################################################################################################
 
 def nat_gateway_cost(dataframe):
@@ -245,3 +227,58 @@ def idle_addresses_cost(row):
 idleaddress[['gcp_cost', 'gcp_aws']] = idleaddress.apply(idle_addresses_cost, axis=1)
 
 ######################################################################################################################################################
+
+wb = Workbook()
+
+report_filename = 'tco_report.xlsx'
+
+ws_summary = wb.active
+ws_summary.title = 'Summary'
+
+ws_summary.append([''])
+ws_summary.append(['', 'Summarized View - Total Cost of Ownership on GCP'])
+center = ws_summary['B2']
+center.alignment = Alignment(horizontal='center')
+ws_summary.merge_cells(start_row=2, start_column=2, end_row=2, end_column=7)
+ws_summary.append(['', 'Compute', 'GCE - Preemptible VMs', '${}'.format(round(sum(spotusage['gcp_cost']), 2)), 'EC2 - Spot Usage', '${}'.format(round(sum(spotusage[columnnames['cost']]), 2))])
+ws_summary.append(['', 'Compute', 'GCE - Regular VMs', '${}'.format(round(sum(boxusage['gcp_cost'])+sum(heavyusage['gcp_cost']), 2)), 'EC2 - Spot Usage', '${}'.format(round(sum(boxusage[columnnames['cost']])+sum(heavyusage[columnnames['cost']]), 2))])
+
+ws_box = wb.create_sheet(title='BoxUsage')
+box_pyxl = dataframe_to_rows(boxusage)
+for r_idx, row in enumerate(box_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+         ws_box.cell(row=r_idx, column=c_idx, value=value)
+
+ws_heavy = wb.create_sheet(title='HeavyUsage')
+heavy_pyxl = dataframe_to_rows(heavyusage)
+for r_idx, row in enumerate(heavy_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+         ws_heavy.cell(row=r_idx, column=c_idx, value=value)
+
+ws_spot = wb.create_sheet(title='SpotUsage')
+spot_pyxl = dataframe_to_rows(spotusage)
+for r_idx, row in enumerate(spot_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+         ws_spot.cell(row=r_idx, column=c_idx, value=value)
+
+ws_summary.append(['', '', '', '${}'.format(round(sum(spotusage['gcp_cost'])+sum(boxusage['gcp_cost'])+sum(heavyusage['gcp_cost']), 2)), '', '${}'.format(round(sum(spotusage[columnnames['cost']])+sum(boxusage[columnnames['cost']])+sum(heavyusage[columnnames['cost']]), 2))])
+ws_summary.append(['', 'Storage', 'Persistent Disk', '', 'Elastic Block Storage', ''])
+ws_summary.append(['', 'Storage', 'Cloud Storage', '', 'Simple Storage Service(S3)', ''])
+ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
+ws_summary.append(['', '', '', '', '', ''])
+ws_summary.append(['', 'Networking', 'Cloud NAT', '', 'NAT Gateway', ''])
+ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '', 'Elastic Load Balancer', ''])
+ws_summary.append(['', 'Networking', 'Network Egress', '', 'Data Transfer', ''])
+ws_summary.append(['', 'Networking', 'Idle Addresseses', '', 'Idle Addresses', ''])
+ws_summary.append(['', '', '', '', '', ''])
+ws_summary.append(['', 'DB Services', 'Cloud SQL', '', 'Amazon RDS', ''])
+ws_summary.append(['', 'DB Services', 'Search on GCP', '', 'ElasticSearch', ''])
+ws_summary.append(['', 'DB Services', 'Cache on GCP', '', 'Elasticache', ''])
+ws_summary.append(['', 'DB Services', 'BigQuery', '', 'Redshit', ''])
+ws_summary.append(['', '', '', '', '', ''])
+ws_summary.append(['', 'Support', 'GCP Support', '', 'AWS Support Business', ''])
+ws_summary.append(['', 'Misc', 'Unclassified', '', 'Misc', ''])
+ws_summary.append(['', '', '', '', '', ''])
+ws_summary.append(['', 'GCP Monthly ', '', 'AWS Monthly', '', ''])
+
+wb.save(filename=report_filename)

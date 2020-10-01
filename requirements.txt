@@ -19,10 +19,13 @@ https://repo.anaconda.com/pkgs/main/osx-64/readline-7.0-h1de35cc_5.conda
 https://repo.anaconda.com/pkgs/main/osx-64/sqlite-3.33.0-hffcf06c_0.conda
 https://repo.anaconda.com/pkgs/main/osx-64/python-3.5.6-hc167b69_0.conda
 https://repo.anaconda.com/pkgs/main/osx-64/certifi-2018.8.24-py35_1.conda
+https://repo.anaconda.com/pkgs/main/noarch/et_xmlfile-1.0.1-py_1001.conda
+https://repo.anaconda.com/pkgs/main/noarch/jdcal-1.4.1-py_0.conda
 https://repo.anaconda.com/pkgs/main/osx-64/numpy-1.14.2-py35ha9ae307_0.conda
 https://repo.anaconda.com/pkgs/main/noarch/pytz-2020.1-py_0.conda
 https://repo.anaconda.com/pkgs/main/noarch/six-1.15.0-py_0.conda
 https://repo.anaconda.com/pkgs/main/noarch/wheel-0.35.1-py_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/openpyxl-2.6.3-py_0.conda
 https://repo.anaconda.com/pkgs/main/noarch/python-dateutil-2.8.1-py_0.conda
 https://repo.anaconda.com/pkgs/main/osx-64/setuptools-40.2.0-py35_0.conda
 https://repo.anaconda.com/pkgs/main/osx-64/pandas-0.23.4-py35h6440ff4_0.conda
