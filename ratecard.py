@@ -147,3 +147,20 @@ persistentdisk_ratecard = {
       "asia-southeast2": 0.052
     },
 }
+
+cloudsql_ratecard = {
+	'sqlserver':{
+		"non-ha-vcpus" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-VCPU"],
+		"non-ha-memory" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-MEMORY"],
+	},
+	'mysql':{
+		"non-ha-vcpus" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-VCPU"],
+		"non-ha-memory" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-MEMORY"],
+	},
+	'postgres':{
+		"non-ha-vcpus" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-VCPU"],
+		"non-ha-memory" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-MEMORY"],
+	},
+	"storage-ssd" : resp['gcp_price_list']["CP-CLOUDSQL-STORAGE-SSD"],
+	"cloudsql-storage-backup" : resp['gcp_price_list']["CP-CLOUDSQL-BACKUP"],
+}
