@@ -232,6 +232,26 @@ for r_idx, row in enumerate(spot_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
          ws_spot.cell(row=r_idx, column=c_idx, value=value)
 
+ws_summary.append(['', '', '', '${}'.format(round(sum(spotusage['gcp_cost'])+sum(boxusage['gcp_cost'])+sum(heavyusage['gcp_cost']), 2)), '', '${}'.format(round(sum(spotusage[columnnames['cost']])+sum(boxusage[columnnames['cost']])+sum(heavyusage[columnnames['cost']]), 2))])
+ws_summary.append(['', 'Storage', 'Persistent Disk', '', 'Elastic Block Storage', ''])
+ws_summary.append(['', 'Storage', 'Cloud Storage', '', 'Simple Storage Service(S3)', ''])
+ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
+ws_summary.append(['', '', '', '', '', ''])
+ws_summary.append(['', 'Networking', 'Cloud NAT', '', 'NAT Gateway', ''])
+ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '', 'Elastic Load Balancer', ''])
+ws_summary.append(['', 'Networking', 'Network Egress', '', 'Data Transfer', ''])
+ws_summary.append(['', 'Networking', 'Idle Addresseses', '', 'Idle Addresses', ''])
+ws_summary.append(['', '', '', '', '', ''])
+ws_summary.append(['', 'DB Services', 'Cloud SQL', '', 'Amazon RDS', ''])
+ws_summary.append(['', 'DB Services', 'Search on GCP', '', 'ElasticSearch', ''])
+ws_summary.append(['', 'DB Services', 'Cache on GCP', '', 'Elasticache', ''])
+ws_summary.append(['', 'DB Services', 'BigQuery', '', 'Redshit', ''])
+ws_summary.append(['', '', '', '', '', ''])
+ws_summary.append(['', 'Support', 'GCP Support', '', 'AWS Support Business', ''])
+ws_summary.append(['', 'Misc', 'Unclassified', '', 'Misc', ''])
+ws_summary.append(['', '', '', '', '', ''])
+ws_summary.append(['', 'GCP Monthly ', '', 'AWS Monthly', '', ''])
+
 wb.save(filename=report_filename)
 
 ######################################################################################################################################################
