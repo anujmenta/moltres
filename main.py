@@ -4,6 +4,7 @@ from ratecard import *
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.styles import Alignment
+from math import ceil
 
 machines = pd.read_csv('TCO reference - C-Machines.csv')
 rates = pd.read_csv('TCO reference - O-Rates.csv')
@@ -228,6 +229,37 @@ idleaddress[['gcp_cost', 'aws_cost']] = idleaddress.apply(idle_addresses_cost, a
 
 ######################################################################################################################################################
 
+loadbalancer = grouped[((grouped[columnnames['usage']].str.contains('DataProcessing-Bytes'))|(grouped[columnnames['usage']].str.contains('LCUUsage'))|(grouped[columnnames['usage']].str.contains('LoadBalancerUsage')))&(grouped[columnnames['productname']]=='Amazon Elastic Compute Cloud')]
+
+def loadbalancer_cost(row):
+  rowsplit = row[columnnames['usage']].split('-')
+  region_gcp = region_dict[rowsplit[0]]
+  usecase = '-'.join(rowsplit[1:])
+  return pd.Series([region_gcp, usecase])
+
+loadbalancer[['region', 'usecase']] = loadbalancer.apply(loadbalancer_cost, axis=1)
+
+load_grouped = loadbalancer.groupby(['region', 'usecase']).sum().reset_index()[['region', 'usecase', columnnames['quantity']]]
+
+def loadgrouped_cost(row):
+  region = row['region']
+  usecase = row['usecase']
+  quantity = row[columnnames['quantity']]
+  if usecase=='LoadBalancerUsage':
+    nrules = ceil(quantity/720)
+    cost = loadbalancer_ratecard['forwarding_rules'][region]*720
+    if nrules>5:
+      cost+=(nrules-5)*loadbalancer_ratecard['forwarding_rules_extra'][region]*720
+    return pd.Series([nrules, cost])
+  else:
+    cost = quantity*loadbalancer_ratecard['ingress'][region]
+    return pd.Series([quantity, cost])
+
+load_grouped[['rules/gb', 'gcp_cost']] = load_grouped.apply(loadgrouped_cost, axis=1)
+aws_loadbalancer = round(sum(loadbalancer[columnnames['cost']]),2)
+gcp_loadbalancer = round(sum(load_grouped['gcp_cost']),2)
+######################################################################################################################################################
+
 wb = Workbook()
 
 report_filename = 'tco_report.xlsx'
@@ -273,8 +305,8 @@ for r_idx, row in enumerate(pd_pyxl, 1):
 ws_summary.append(['', 'Storage', 'Cloud Storage', '', 'Simple Storage Service(S3)', ''])
 ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
 ws_summary.append(['', '', '', '', '', ''])
+ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '${}'.format(gcp_loadbalancer), 'Elastic Load Balancer', '${}'.format(aws_loadbalancer)])
 ws_summary.append(['', 'Networking', 'Cloud NAT', '${}'.format(round(nat_gcp,2)), 'NAT Gateway', '${}'.format(round(nat_aws,2))])
-ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '', 'Elastic Load Balancer', ''])
 ws_summary.append(['', 'Networking', 'Network Egress', '', 'Data Transfer', ''])
 ws_summary.append(['', 'Networking', 'Idle Addresseses', '${}'.format(round(sum(idleaddress['gcp_cost']), 2)), 'Idle Addresses', '${}'.format(round(sum(idleaddress['aws_cost']), 2))])
 ws_summary.append(['', '', '', '', '', ''])

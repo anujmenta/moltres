@@ -184,3 +184,9 @@ nat_gateway_ratecard = {
 idle_addresses_ratecard = {
 	'us' : resp['gcp_price_list']["CP-NETWORK-SERVICES-IP-ADDRESSES"]['us'],
 }
+
+loadbalancer_ratecard = {
+  'forwarding_rules' : resp['gcp_price_list']['FORWARDING_RULE_CHARGE_BASE'],
+  'forwarding_rules_extra' : resp['gcp_price_list']['FORWARDING_RULE_CHARGE_EXTRA'],
+  'ingress' : resp['gcp_price_list']['NETWORK_LOAD_BALANCED_INGRESS'],
+}
