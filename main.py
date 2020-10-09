@@ -256,7 +256,8 @@ def loadgrouped_cost(row):
     return pd.Series([quantity, cost])
 
 load_grouped[['rules/gb', 'gcp_cost']] = load_grouped.apply(loadgrouped_cost, axis=1)
-
+aws_loadbalancer = round(sum(loadbalancer[columnnames['cost']]),2)
+gcp_loadbalancer = round(sum(load_grouped['gcp_cost']),2)
 ######################################################################################################################################################
 
 wb = Workbook()
@@ -298,7 +299,7 @@ ws_summary.append(['', 'Storage', 'Cloud Storage', '', 'Simple Storage Service(S
 ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
 ws_summary.append(['', '', '', '', '', ''])
 ws_summary.append(['', 'Networking', 'Cloud NAT', '', 'NAT Gateway', ''])
-ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '', 'Elastic Load Balancer', ''])
+ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '${}'.format(gcp_loadbalancer), 'Elastic Load Balancer', '${}'.format(aws_loadbalancer)])
 ws_summary.append(['', 'Networking', 'Network Egress', '', 'Data Transfer', ''])
 ws_summary.append(['', 'Networking', 'Idle Addresseses', '', 'Idle Addresses', ''])
 ws_summary.append(['', '', '', '', '', ''])
