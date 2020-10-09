@@ -4,6 +4,7 @@ from ratecard import *
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.styles import Alignment
+from math import ceil
 
 machines = pd.read_csv('TCO reference - C-Machines.csv')
 rates = pd.read_csv('TCO reference - O-Rates.csv')
@@ -225,6 +226,36 @@ def idle_addresses_cost(row):
   return pd.Series([ninstances*idle_addresses_ratecard['us']*720, row[columnnames['cost']]])
 
 idleaddress[['gcp_cost', 'gcp_aws']] = idleaddress.apply(idle_addresses_cost, axis=1)
+
+######################################################################################################################################################
+
+loadbalancer = grouped[((grouped[columnnames['usage']].str.contains('DataProcessing-Bytes'))|(grouped[columnnames['usage']].str.contains('LCUUsage'))|(grouped[columnnames['usage']].str.contains('LoadBalancerUsage')))&(grouped[columnnames['productname']]=='Amazon Elastic Compute Cloud')]
+
+def loadbalancer_cost(row):
+  rowsplit = row[columnnames['usage']].split('-')
+  region_gcp = region_dict[rowsplit[0]]
+  usecase = '-'.join(rowsplit[1:])
+  return pd.Series([region_gcp, usecase])
+
+loadbalancer[['region', 'usecase']] = loadbalancer.apply(loadbalancer_cost, axis=1)
+
+load_grouped = loadbalancer.groupby(['region', 'usecase']).sum().reset_index()[['region', 'usecase', columnnames['quantity']]]
+
+def loadgrouped_cost(row):
+  region = row['region']
+  usecase = row['usecase']
+  quantity = row[columnnames['quantity']]
+  if usecase=='LoadBalancerUsage':
+    nrules = ceil(quantity/720)
+    cost = loadbalancer_ratecard['forwarding_rules'][region]*720
+    if nrules>5:
+      cost+=(nrules-5)*loadbalancer_ratecard['forwarding_rules_extra'][region]*720
+    return pd.Series([nrules, cost])
+  else:
+    cost = quantity*loadbalancer_ratecard['ingress'][region]
+    return pd.Series([quantity, cost])
+
+load_grouped[['rules/gb', 'gcp_cost']] = load_grouped.apply(loadgrouped_cost, axis=1)
 
 ######################################################################################################################################################
 
