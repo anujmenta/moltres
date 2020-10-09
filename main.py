@@ -225,7 +225,7 @@ def idle_addresses_cost(row):
   ninstances = int(row[columnnames['quantity']]/720)
   return pd.Series([ninstances*idle_addresses_ratecard['us']*720, row[columnnames['cost']]])
 
-idleaddress[['gcp_cost', 'gcp_aws']] = idleaddress.apply(idle_addresses_cost, axis=1)
+idleaddress[['gcp_cost', 'aws_cost']] = idleaddress.apply(idle_addresses_cost, axis=1)
 
 ######################################################################################################################################################
 
@@ -294,14 +294,21 @@ for r_idx, row in enumerate(spot_pyxl, 1):
          ws_spot.cell(row=r_idx, column=c_idx, value=value)
 
 ws_summary.append(['', '', '', '${}'.format(round(sum(spotusage['gcp_cost'])+sum(boxusage['gcp_cost'])+sum(heavyusage['gcp_cost']), 2)), '', '${}'.format(round(sum(spotusage[columnnames['cost']])+sum(boxusage[columnnames['cost']])+sum(heavyusage[columnnames['cost']]), 2))])
-ws_summary.append(['', 'Storage', 'Persistent Disk', '', 'Elastic Block Storage', ''])
+
+ws_summary.append(['', 'Storage', 'Persistent Disk', '${}'.format(round(sum(persistentdisk['GCP_cost']), 2)), 'Elastic Block Storage', '${}'.format(round(sum(persistentdisk[columnnames['cost']]), 2))])
+ws_pd = wb.create_sheet(title='Persistent Disk')
+pd_pyxl = dataframe_to_rows(persistentdisk)
+for r_idx, row in enumerate(pd_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+         ws_pd.cell(row=r_idx, column=c_idx, value=value)
+
 ws_summary.append(['', 'Storage', 'Cloud Storage', '', 'Simple Storage Service(S3)', ''])
 ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
 ws_summary.append(['', '', '', '', '', ''])
-ws_summary.append(['', 'Networking', 'Cloud NAT', '', 'NAT Gateway', ''])
 ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '${}'.format(gcp_loadbalancer), 'Elastic Load Balancer', '${}'.format(aws_loadbalancer)])
+ws_summary.append(['', 'Networking', 'Cloud NAT', '${}'.format(round(nat_gcp,2)), 'NAT Gateway', '${}'.format(round(nat_aws,2))])
 ws_summary.append(['', 'Networking', 'Network Egress', '', 'Data Transfer', ''])
-ws_summary.append(['', 'Networking', 'Idle Addresseses', '', 'Idle Addresses', ''])
+ws_summary.append(['', 'Networking', 'Idle Addresseses', '${}'.format(round(sum(idleaddress['gcp_cost']), 2)), 'Idle Addresses', '${}'.format(round(sum(idleaddress['aws_cost']), 2))])
 ws_summary.append(['', '', '', '', '', ''])
 ws_summary.append(['', 'DB Services', 'Cloud SQL', '', 'Amazon RDS', ''])
 ws_summary.append(['', 'DB Services', 'Search on GCP', '', 'ElasticSearch', ''])

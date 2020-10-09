@@ -176,13 +176,13 @@ persistentdisk_ratecard = {
 }
 
 nat_gateway_ratecard = {
-	'us-vm-low' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-GATEWAY-UPTIME-LOW-VM-NUMBER"],
-	'us-vm-high' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-GATEWAY-UPTIME-HIGH-VM-NUMBER"],
-	'us-bytes' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-TRAFFIC"],
+	'us-vm-low' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-GATEWAY-UPTIME-LOW-VM-NUMBER"]['us'],
+	'us-vm-high' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-GATEWAY-UPTIME-HIGH-VM-NUMBER"]['us'],
+	'us-bytes' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-TRAFFIC"]['us'],
 }
 
 idle_addresses_ratecard = {
-	'us' : resp['gcp_price_list']["CP-NETWORK-SERVICES-IP-ADDRESSES"],
+	'us' : resp['gcp_price_list']["CP-NETWORK-SERVICES-IP-ADDRESSES"]['us'],
 }
 
 loadbalancer_ratecard = {
