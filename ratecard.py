@@ -4,6 +4,7 @@ resp = requests.get('https://cloudpricingcalculator.appspot.com/static/data/pric
 
 
 region_dict = {
+  'US' : 'us',
   'USE1' : 'us-east4',
   'USE2' : 'us-central1',
   'USW1' : 'us-west1',
@@ -19,6 +20,7 @@ region_dict = {
   'APS2' : 'australia-southeast1',
   'APS3' : 'asia-south1',
   'CAN1' : 'us-central1',
+  'EU' : 'europe',
   'EUC1' : 'europe-west3',
   'EUW1' : 'europe-west2',
   'EUW2' : 'europe-west2',
