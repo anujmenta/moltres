@@ -2,6 +2,33 @@ import requests
 
 resp = requests.get('https://cloudpricingcalculator.appspot.com/static/data/pricelist.json').json()
 
+
+region_dict = {
+  'USE1' : 'us-east4',
+  'USE2' : 'us-central1',
+  'USW1' : 'us-west1',
+  'USW2' : 'us-west1',
+  'UGE1' : 'us-east1',
+  'UGW1' : 'us-west1',
+  'CPT' : 'us-central1',
+  'APE1' : 'asia-east2',
+  'APN1' : 'asia-northeast1',
+  'APN2' : 'asia-northeast3',
+  'APN3' : 'asia-northeast2',
+  'APS1' : 'asia-southeast1',
+  'APS2' : 'australia-southeast1',
+  'APS3' : 'asia-south1',
+  'CAN1' : 'us-central1',
+  'EUC1' : 'europe-west3',
+  'EUW1' : 'europe-west2',
+  'EUW2' : 'europe-west2',
+  'EUW3' : 'europe-west1',
+  'EUN1' : 'europe-north1',
+  'EUS1' : 'europe-west3',
+  'MES1' : 'us-central1',
+  'SAE1' : 'southamerica-east1',
+}
+
 compute_ratecard = {
 	'box':{
 		'n1-predefined-vcpus' : resp['gcp_price_list']["CP-COMPUTEENGINE-N1-PREDEFINED-VM-CORE"] ,
@@ -163,4 +190,20 @@ cloudsql_ratecard = {
 	},
 	"storage-ssd" : resp['gcp_price_list']["CP-CLOUDSQL-STORAGE-SSD"],
 	"cloudsql-storage-backup" : resp['gcp_price_list']["CP-CLOUDSQL-BACKUP"],
+}
+
+nat_gateway_ratecard = {
+	'us-vm-low' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-GATEWAY-UPTIME-LOW-VM-NUMBER"]['us'],
+	'us-vm-high' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-GATEWAY-UPTIME-HIGH-VM-NUMBER"]['us'],
+	'us-bytes' : resp['gcp_price_list']["CP-NETWORK-SERVICES-CLOUD-NAT-TRAFFIC"]['us'],
+}
+
+idle_addresses_ratecard = {
+	'us' : resp['gcp_price_list']["CP-NETWORK-SERVICES-IP-ADDRESSES"]['us'],
+}
+
+loadbalancer_ratecard = {
+  'forwarding_rules' : resp['gcp_price_list']['FORWARDING_RULE_CHARGE_BASE'],
+  'forwarding_rules_extra' : resp['gcp_price_list']['FORWARDING_RULE_CHARGE_EXTRA'],
+  'ingress' : resp['gcp_price_list']['NETWORK_LOAD_BALANCED_INGRESS'],
 }

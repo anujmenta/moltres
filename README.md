@@ -23,9 +23,9 @@ The services here are categorized into the following states:
 | Storage     | Cloud Storage     | Simple Storage Services(S3)     | Icebox |
 | Storage     | Filestore     | Elastic File storage     | Icebox |
 | Networking     | Network Egress     | Data Transfer     | Icebox |
-| Networking     | Cloud Load Balancer     | Elastic Load Balancer     | Icebox |
-| Networking     | Cloud NAT     | NAT Gateway     | Icebox |
-| Networking     | Idle Addresses     | Idle Addresses     | Icebox |
+| Networking     | Cloud Load Balancer     | Elastic Load Balancer     | Testing |
+| Networking     | Cloud NAT     | NAT Gateway     | Testing |
+| Networking     | Idle Addresses     | Idle Addresses     | Testing |
 | DB Services     | Cloud SQL     | Amazon RDS     | Testing |
 | DB Services     | GCP Search     | Elasticsearch     | Icebox |
 | DB Services     | GCP Cache      | Elasticache     | Icebox |
