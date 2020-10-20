@@ -22,7 +22,7 @@ The services here are categorized into the following states:
 | Storage     | Persistent Disk     | Elastic Block Storage     | Testing |
 | Storage     | Cloud Storage     | Simple Storage Services(S3)     | Icebox |
 | Storage     | Filestore     | Elastic File storage     | Icebox |
-| Networking     | Network Egress     | Data Transfer     | Icebox |
+| Networking     | Network Egress     | Data Transfer     | Testing |
 | Networking     | Cloud Load Balancer     | Elastic Load Balancer     | Testing |
 | Networking     | Cloud NAT     | NAT Gateway     | Testing |
 | Networking     | Idle Addresses     | Idle Addresses     | Testing |
