@@ -17,16 +17,16 @@ The services here are categorized into the following states:
 
 | Category | Sub-category(GCP) |Sub-category(AWS)| Status |
 | -------- | -------- | -------- |------ |
-| Compute     | Compute Engine : Premptible VMS     | Elastic Compute cloud:Spot usage     |Testing |
-| Compute     | Compute Engine : Regular VMS     | Elastic Compute cloud:Box usage     |Testing |
-| Storage     | Persistent Disk     | Elastic Block Storage     | Testing |
-| Storage     | Cloud Storage     | Simple Storage Services(S3)     | Icebox |
+| Compute     | Compute Engine : Premptible VMS     | Elastic Compute cloud:Spot usage     |Visualized |
+| Compute     | Compute Engine : Regular VMS     | Elastic Compute cloud:Box usage     |Visualized |
+| Storage     | Persistent Disk     | Elastic Block Storage     | Visualized |
+| Storage     | Cloud Storage     | Simple Storage Services(S3)     | In progress |
 | Storage     | Filestore     | Elastic File storage     | Icebox |
-| Networking     | Network Egress     | Data Transfer     | Testing |
-| Networking     | Cloud Load Balancer     | Elastic Load Balancer     | Testing |
-| Networking     | Cloud NAT     | NAT Gateway     | Testing |
-| Networking     | Idle Addresses     | Idle Addresses     | Testing |
-| DB Services     | Cloud SQL     | Amazon RDS     | Icebox |
+| Networking     | Network Egress     | Data Transfer     | Visualized |
+| Networking     | Cloud Load Balancer     | Elastic Load Balancer     | Visualized |
+| Networking     | Cloud NAT     | NAT Gateway     | Visualized |
+| Networking     | Idle Addresses     | Idle Addresses     | Visualized |
+| DB Services     | Cloud SQL     | Amazon RDS     | In progress |
 | DB Services     | GCP Search     | Elasticsearch     | Icebox |
 | DB Services     | GCP Cache      | Elasticache     | Icebox |
 | DB Services     | BigQuery     | Redshift     | Icebox |
