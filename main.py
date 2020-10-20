@@ -114,24 +114,26 @@ def parsecompute(row):
   val = row[columnnames['usage']]
   usagetype = get_usagetype(row)
   try:
-    region, rest = val.split('-')
+    region_aws, rest = val.split('-')
   except:
-    region, rest = 'USW2', val
+    region_aws, rest = 'USE1', val
     # return pd.Series([0]*8)
+  region_gcp = region_dict[region_aws]
   try:
-    usage, machine = rest.split(':')
+    usage, aws_machine = rest.split(':')
   except:
-    usage, machine = rest, ''
+    usage, aws_machine = rest, ''
     return pd.Series([0]*8)
-  machine = machine.replace('.elasticsearch', '')
+  machine = aws_machine.replace('.elasticsearch', '')
   gcpmachine = machines[machines['API Name']==machine].iloc[0]
   gcpmachine_name = [gcpmachine['Family'].upper(), gcpmachine['Type'].capitalize(), gcpmachine['Memory'], gcpmachine['vCPUs']]
   if gcpmachine_name[1]=='Standard' or gcpmachine_name[1]=='Highmem' or gcpmachine_name[1]=='Highcpu':
     gcpmachine_name[1] = 'Predefined'
   #Needs restructuring to accommodate for all regions and pull rate from the new JSON
   if gcpmachine_name[1] not in ['Small', 'Micro', 'Medium']:
-    rates_cpu = rates[(rates['Family']==gcpmachine_name[0])&(rates['Type']==gcpmachine_name[1])&(rates['Metric']=='vCPUs')&(rates['Code']==region_dict[region])].iloc[0][ratedict[usagetype]].replace('$', '')
-    rates_mem = rates[(rates['Family']==gcpmachine_name[0])&(rates['Type']==gcpmachine_name[1])&(rates['Metric']=='Memory')&(rates['Code']==region_dict[region])].iloc[0][ratedict[usagetype]].replace('$', '')
+    machine_id = '{}-{}'.format(gcpmachine_name[0],gcpmachine_name[1]).lower()
+    rates_cpu = compute_ratecard[usagetype]['{}-vcpus'.format(machine_id)][region_gcp]
+    rates_mem = compute_ratecard[usagetype]['{}-memory'.format(machine_id)][region_gcp]
     gcp_rate = gcpmachine_name[2]*float(rates_mem)+gcpmachine_name[3]*float(rates_cpu)
     if machine.startswith('p'):
       if gcpmachine['GPU model']=='NVIDIA Tesla K80':
@@ -144,8 +146,8 @@ def parsecompute(row):
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
-    if usagetype=='heavy' or usagetype=='box':
-      gcp_rate = sud(nunits, gcp_rate)
+    # if usagetype=='box':
+    #   gcp_rate = sud(nunits, gcp_rate)
   else:
     nunits = 0
   ssd_cost = 0
@@ -311,13 +313,13 @@ cost_matrix = {
 }
 
 if len(boxusage):
-  cost_matrix['gcp']['box_usage'] = round(sum(boxusage['gcp_cost']), 2)
+  cost_matrix['gcp']['box_compute'] = round(sum(boxusage['gcp_cost']), 2)
 
 if len(heavyusage):
-  cost_matrix['gcp']['heavy_usage'] = round(sum(heavyusage['gcp_cost']), 2)
+  cost_matrix['gcp']['heavy_compute'] = round(sum(heavyusage['gcp_cost']), 2)
 
 if len(spotusage):
-  cost_matrix['gcp']['spot_usage'] = round(sum(spotusage['gcp_cost']), 2)
+  cost_matrix['gcp']['spot_compute'] = round(sum(spotusage['gcp_cost']), 2)
 
 if len(persistentdisk):
   cost_matrix['gcp']['persistentdisk'] = round(sum(persistentdisk['GCP_cost']), 2)
@@ -331,6 +333,7 @@ if nat_aws:
 if len(idleaddress):
   cost_matrix['gcp']['idleaddress'] = round(sum(idleaddress['gcp_cost']), 2)
 
+# print(cost_matrix)
 ######################################################################################################################################################
 
 wb = Workbook()
