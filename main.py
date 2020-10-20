@@ -260,6 +260,64 @@ aws_loadbalancer = round(sum(loadbalancer[columnnames['cost']]),2)
 gcp_loadbalancer = round(sum(load_grouped['gcp_cost']),2)
 ######################################################################################################################################################
 
+egress_filter = (grouped[columnnames['usage']].str.contains('DataTransfer'))|(grouped[columnnames['usage']].str.contains('Out-Bytes'))
+
+egress_df = grouped[egress_filter]
+grouped = grouped[~egress_filter]
+
+egress_df = egress_df[egress_df[columnnames['cost']]!=0]
+
+def gbsplitter(val):
+  if val>143360:
+    return [10240, 10240*13, val-143360]
+  elif val>10240:
+    return [10240, val-10240, 0]
+  else:
+    return [val, 0, 0]
+
+def egress_cost(row):
+  # print(row)
+  usageval = row[columnnames['usage']]
+  quantity = row[columnnames['quantity']]
+  # try:
+  if 'DataTransfer-Regional-Bytes' in usageval:
+    aws_region = usageval.replace('DataTransfer-Regional-Bytes', '')
+    if aws_region:
+      aws_region = usageval.split('-')[0]
+    else:
+      aws_region = 'USW2'
+    gcp_region = region_dict[aws_region]
+    gcp_rate = network_egress_ratecard['vm-vm-internal'][gcp_region.split('-')[0]][gcp_region]
+    gcp_cost = quantity*gcp_rate
+  elif 'DataTransfer' in usageval:
+    aws_region = usageval.replace('DataTransfer-Out-Bytes', '')
+    if aws_region:
+      aws_region = usageval.split('-')[0]
+    else:
+      aws_region = 'USW2'
+    gcp_region = region_dict[aws_region]
+    gcp_rate = list(network_egress_ratecard['to-worldwide'][gcp_region.split('-')[0]].values())
+    gcp_cost = sum(x*y for x,y in zip(gcp_rate, gbsplitter(quantity)))
+  elif 'AWS-Out-Bytes' in usageval:
+    # print(row)
+    aws_regions = usageval.replace('-AWS-Out-Bytes', '').split('-')
+    if len(aws_regions)==2:
+      gcp_region_from = region_dict[aws_regions[0]]
+      gcp_region_to = region_dict[aws_regions[1]]
+      gcp_rate = network_egress_ratecard['vm-vm-external']['{}-{}'.format(gcp_region_from.split('-')[0], gcp_region_to.split('-')[0])][gcp_region_from]
+      gcp_cost = gcp_rate*quantity
+    else:
+      gcp_rate, gcp_cost = 0,0
+  return pd.Series([gcp_rate, gcp_cost])
+  # except:
+  #   return pd.Series([0,0])
+egress_df[['gcp_rate', 'gcp_cost']] = egress_df.apply(egress_cost, axis=1)
+
+egress_aws_cost = round(sum(egress_df[columnnames['cost']]), 2)
+egress_gcp_cost = round(sum(egress_df['gcp_cost']), 2)
+
+######################################################################################################################################################
+
 wb = Workbook()
 
 report_filename = 'tco_report.xlsx'
@@ -307,7 +365,14 @@ ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
 ws_summary.append(['', '', '', '', '', ''])
 ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '${}'.format(gcp_loadbalancer), 'Elastic Load Balancer', '${}'.format(aws_loadbalancer)])
 ws_summary.append(['', 'Networking', 'Cloud NAT', '${}'.format(round(nat_gcp,2)), 'NAT Gateway', '${}'.format(round(nat_aws,2))])
-ws_summary.append(['', 'Networking', 'Network Egress', '', 'Data Transfer', ''])
+
+ws_summary.append(['', 'Networking', 'Network Egress', '${}'.format(egress_gcp_cost), 'Data Transfer', '${}'.format(egress_aws_cost)])
+ws_negress = wb.create_sheet(title='Network Egress')
+negress_pyxl = dataframe_to_rows(egress_df)
+for r_idx, row in enumerate(negress_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+         ws_negress.cell(row=r_idx, column=c_idx, value=value)
+
 ws_summary.append(['', 'Networking', 'Idle Addresseses', '${}'.format(round(sum(idleaddress['gcp_cost']), 2)), 'Idle Addresses', '${}'.format(round(sum(idleaddress['aws_cost']), 2))])
 ws_summary.append(['', '', '', '', '', ''])
 ws_summary.append(['', 'DB Services', 'Cloud SQL', '', 'Amazon RDS', ''])
