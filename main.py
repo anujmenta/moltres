@@ -13,7 +13,7 @@ rates = pd.read_csv('TCO reference - O-Rates.csv')
 # df = pd.read_csv(csv_to_read)
 
 #provisional test on Alphasense
-df = pd.read_csv('bill_examples/ecsv_7_2020.csv')
+df = pd.read_csv('bill_examples/axcient_rowitems.csv')
 df = df[df['RecordType']=='PayerLineItem']
 #function to detect column names
 def detect_column_names(dataframe):
@@ -141,13 +141,14 @@ def parsecompute(row):
       elif gcpmachine['GPU model']=='NVIDIA Tesla V100':
         gcp_rate+=int(gcpmachine['GPUs'])*gpu_rates['NVIDIA Tesla V100'][usagetype]
   else:
-    gcp_rate = float(rates[(rates['Family']==gcpmachine_name[0])&(rates['Type']==gcpmachine_name[1])].iloc[0][ratedict[usagetype]].replace('$', ''))
+    machine_id = '{}-{}'.format(gcpmachine_name[0],gcpmachine_name[1]).lower()
+    gcp_rate = compute_ratecard[usagetype][machine_id][region_gcp]
 
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
-    if usagetype=='box':
-      gcp_rate = sud(nunits, gcp_rate)
+    # if usagetype=='box':
+    #   gcp_rate = sud(nunits, gcp_rate)
   else:
     nunits = 0
   ssd_cost = 0
