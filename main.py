@@ -13,8 +13,8 @@ rates = pd.read_csv('TCO reference - O-Rates.csv')
 # df = pd.read_csv(csv_to_read)
 
 #provisional test on Alphasense
-df = pd.read_csv('bill_examples/axcient_rowitems.csv')
-
+df = pd.read_csv('bill_examples/ecsv_7_2020.csv')
+df = df[df['RecordType']=='PayerLineItem']
 #function to detect column names
 def detect_column_names(dataframe):
   usage_options = ['lineItem/UsageType', 'UsageType']
@@ -146,8 +146,8 @@ def parsecompute(row):
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
-    # if usagetype=='box':
-    #   gcp_rate = sud(nunits, gcp_rate)
+    if usagetype=='box':
+      gcp_rate = sud(nunits, gcp_rate)
   else:
     nunits = 0
   ssd_cost = 0
@@ -207,17 +207,20 @@ grouped = grouped[~pd_filter]
 
 def parsepd(row):
   value = row[columnnames['usage']]
-  if not value.startswith('EBS'):
-    region, cat = value.split('-EBS:')
-  else:
-    region, cat = 'USE1', value.replace('EBS:', '')
-  if cat=='SnapshotUsage':
-    return pd.Series([persistentdisk_ratecard['snapshot'][region_dict[region]], row[columnnames['quantity']]*persistentdisk_ratecard['snapshot'][region_dict[region]]])
-  elif cat=='VolumeUsage.gp2':
-    return pd.Series([persistentdisk_ratecard['gp2'][region_dict[region]], row[columnnames['quantity']]*persistentdisk_ratecard['gp2'][region_dict[region]]])
-  elif 'Magnetic provisioned storage' in row[columnnames['description']]:
-    return pd.Series([persistentdisk_ratecard['magnetic'][region_dict[region]], row[columnnames['quantity']]*persistentdisk_ratecard['magnetic'][region_dict[region]]])
-
+  # print(value)
+  try:
+    if not value.startswith('EBS'):
+      region, cat = value.split('-EBS:')
+    else:
+      region, cat = 'USE1', value.replace('EBS:', '')
+    if cat=='SnapshotUsage':
+      return pd.Series([persistentdisk_ratecard['snapshot'][region_dict[region]], row[columnnames['quantity']]*persistentdisk_ratecard['snapshot'][region_dict[region]]])
+    elif cat=='VolumeUsage.gp2':
+      return pd.Series([persistentdisk_ratecard['gp2'][region_dict[region]], row[columnnames['quantity']]*persistentdisk_ratecard['gp2'][region_dict[region]]])
+    elif 'Magnetic provisioned storage' in row[columnnames['description']]:
+      return pd.Series([persistentdisk_ratecard['magnetic'][region_dict[region]], row[columnnames['quantity']]*persistentdisk_ratecard['magnetic'][region_dict[region]]])
+  except:
+    return pd.Series([0, 0])
 
 persistentdisk[['GCP_rate', 'GCP_cost']] = persistentdisk.apply(parsepd, axis=1)
 
@@ -288,6 +291,55 @@ def loadgrouped_cost(row):
 if len(loadbalancer):
   load_grouped[['rules/gb', 'gcp_cost']] = load_grouped.apply(loadgrouped_cost, axis=1)
 
+######################################################################################################################################################
+cloudstorage_filter = (grouped[columnnames['productname']]=='AmazonS3GlacierDeepArchive') | (grouped[columnnames['productname']]=='AmazonS3')
+cloudstorage = grouped[cloudstorage_filter]
+grouped = grouped[~cloudstorage_filter]
+
+def cloudstorage_cost(row):
+  usageval = row[columnnames['usage']]
+  desc = row[columnnames['description']]
+  quantity = row[columnnames['quantity']]
+  if 'Monitoring-Automation' in usageval or 'StorageAnalytics' in usageval or 'TagStorage' in usageval:
+    return pd.Series(['','', quantity, 0,0])
+
+  if usageval.endswith('Tier1') or usageval.endswith('Tier4'):
+    gcp_sku = 'class-a'
+  elif usageval.endswith('Tier2') or usageval.endswith('Tier3'):
+    gcp_sku = 'class-b'
+  elif 'Retrieval' in usageval:
+    gcp_sku = 'retrieval'
+  elif 'TimedStorage' in usageval:
+    gcp_sku = 'storage'
+  elif 'EarlyDelete' in usageval:
+    gcp_sku = 'storage'
+  else:
+    print(row)
+    return pd.Series(['','', quantity, 0,row[columnnames['cost']]])
+  if 'Glacier Deep Archive' in desc:
+    gcp_class = 'archive'
+  elif 'Glacier' in desc:
+    gcp_class = 'coldline'
+  elif 'Infrequent Access' in desc:
+    gcp_class = 'nearline'
+  else:
+    gcp_class = 'standard'
+  
+  region_aws = usageval.split('-')[0]
+  if region_aws in region_dict:
+    region_gcp = region_dict[region_aws]
+  else:
+    region_gcp = region_dict['USE1']
+  gcp_rate = cloudstorage_ratecard['{}-{}'.format(gcp_sku, gcp_class)][region_gcp]
+  if gcp_sku in ['class-a', 'class-b']:
+    gcp_rate/=10000
+  gcp_cost = gcp_rate*quantity
+  return pd.Series([gcp_class, gcp_sku, quantity, gcp_rate, gcp_cost])
+
+cloudstorage[['GCP Class', 'GCP SKU', 'Quantity', 'GCP Rate', 'GCP Cost']] = cloudstorage.apply(cloudstorage_cost, axis=1)
+
+cloudstorage_gcp_cost = round(sum(cloudstorage['GCP Cost']), 2)
+cloudstorage_aws_cost = round(sum(cloudstorage[columnnames['cost']]), 2)
 ######################################################################################################################################################
 
 cost_matrix = {
@@ -373,7 +425,8 @@ def egress_cost(row):
     else:
       aws_region = 'USW2'
     gcp_region = region_dict[aws_region]
-    gcp_rate = list(network_egress_ratecard['to-worldwide'][gcp_region.split('-')[0]].values())
+    gcp_rate = network_egress_ratecard['to-worldwide'][gcp_region.split('-')[0]]
+    gcp_rate = [gcp_rate["10240"], gcp_rate["143360"], gcp_rate["143361"]]
     gcp_cost = sum(x*y for x,y in zip(gcp_rate, gbsplitter(quantity)))
     gcp_rate = ' '.join(map(str, gcp_rate)) # To let it convert peacefully to excel
   elif 'AWS-Out-Bytes' in usageval:
@@ -382,6 +435,7 @@ def egress_cost(row):
     if len(aws_regions)==2:
       gcp_region_from = region_dict[aws_regions[0]]
       gcp_region_to = region_dict[aws_regions[1]]
+      # print(usageval)
       gcp_rate = network_egress_ratecard['vm-vm-external']['{}-{}'.format(gcp_region_from.split('-')[0], gcp_region_to.split('-')[0])][gcp_region_from]
       gcp_cost = gcp_rate*quantity
     else:
@@ -393,6 +447,7 @@ egress_df[['gcp_rate', 'gcp_cost']] = egress_df.apply(egress_cost, axis=1)
 
 egress_aws_cost = round(sum(egress_df[columnnames['cost']]), 2)
 egress_gcp_cost = round(sum(egress_df['gcp_cost']), 2)
+print(egress_gcp_cost, egress_aws_cost)
 
 ######################################################################################################################################################
 
@@ -439,7 +494,13 @@ for r_idx, row in enumerate(pd_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
          ws_pd.cell(row=r_idx, column=c_idx, value=value)
 
-ws_summary.append(['', 'Storage', 'Cloud Storage', '', 'Simple Storage Service(S3)', ''])
+ws_summary.append(['', 'Storage', 'Cloud Storage', '${}'.format(cloudstorage_gcp_cost), 'Simple Storage Service(S3)', '${}'.format(cloudstorage_aws_cost)])
+ws_gcs = wb.create_sheet(title='Cloud Storage')
+gcs_pyxl = dataframe_to_rows(cloudstorage)
+for r_idx, row in enumerate(gcs_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+         ws_gcs.cell(row=r_idx, column=c_idx, value=value)
+
 ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
 ws_summary.append(['', '', '', '', '', ''])
 ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '${}'.format(cost_matrix['gcp']['loadbalancer']), 'Elastic Load Balancer', '${}'.format(cost_matrix['aws']['loadbalancer'])])
