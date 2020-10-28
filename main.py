@@ -110,7 +110,10 @@ def get_usagetype(row):
 
   return usagetype
 
+suds_apply = input('Do you want to turn on SUDs? (Y/N)')
+
 def parsecompute(row):
+  global suds_apply
   val = row[columnnames['usage']]
   usagetype = get_usagetype(row)
   try:
@@ -147,8 +150,9 @@ def parsecompute(row):
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
-    # if usagetype=='box':
-    #   gcp_rate = sud(nunits, gcp_rate)
+    if suds_apply:
+      if usagetype=='box':
+        gcp_rate = sud(nunits, gcp_rate)
   else:
     nunits = 0
   ssd_cost = 0
@@ -343,52 +347,6 @@ cloudstorage_gcp_cost = round(sum(cloudstorage['GCP Cost']), 2)
 cloudstorage_aws_cost = round(sum(cloudstorage[columnnames['cost']]), 2)
 ######################################################################################################################################################
 
-cost_matrix = {
-  'aws':{
-    'box_compute' : round(sum(boxusage[columnnames['cost']]), 2),
-    'heavy_compute' : round(sum(heavyusage[columnnames['cost']]), 2),
-    'spot_compute' : round(sum(spotusage[columnnames['cost']]), 2),
-    'persistentdisk' : round(sum(persistentdisk[columnnames['cost']]), 2),
-    'loadbalancer' : round(sum(loadbalancer[columnnames['cost']]),2),
-    'cloudnat' : round(nat_aws, 2),
-    'idleaddress' : round(sum(idleaddress['aws_cost']), 2),
-  },
-  'gcp':{
-    'box_compute': 0,
-    'heavy_compute' : 0,
-    'spot_compute' : 0,
-    'persistentdisk' : 0,
-    'loadbalancer' : 0,
-    'cloudnat' : 0,
-    'idleaddress' : 0,
-
-  },
-}
-
-if len(boxusage):
-  cost_matrix['gcp']['box_compute'] = round(sum(boxusage['gcp_cost']), 2)
-
-if len(heavyusage):
-  cost_matrix['gcp']['heavy_compute'] = round(sum(heavyusage['gcp_cost']), 2)
-
-if len(spotusage):
-  cost_matrix['gcp']['spot_compute'] = round(sum(spotusage['gcp_cost']), 2)
-
-if len(persistentdisk):
-  cost_matrix['gcp']['persistentdisk'] = round(sum(persistentdisk['GCP_cost']), 2)
-
-if len(loadbalancer):
-  cost_matrix['gcp']['loadbalancer'] = round(sum(load_grouped['gcp_cost']), 2)
-
-if nat_aws:
-  cost_matrix['gcp']['cloudnat'] = round(nat_gcp, 2)
-
-if len(idleaddress):
-  cost_matrix['gcp']['idleaddress'] = round(sum(idleaddress['gcp_cost']), 2)
-
-# print(cost_matrix)
-######################################################################################################################################################
-
 egress_filter = (grouped[columnnames['usage']].str.contains('DataTransfer'))|(grouped[columnnames['usage']].str.contains('Out-Bytes'))
 
 egress_df = grouped[egress_filter]
@@ -449,7 +407,132 @@ egress_df[['gcp_rate', 'gcp_cost']] = egress_df.apply(egress_cost, axis=1)
 egress_aws_cost = round(sum(egress_df[columnnames['cost']]), 2)
 egress_gcp_cost = round(sum(egress_df['gcp_cost']), 2)
 print(egress_gcp_cost, egress_aws_cost)
+######################################################################################################################################################
+#Under construction
 
+cloudsql_filter = grouped[columnnames['productname']]=='Amazon Relational Database Service'
+cloudsql = grouped[cloudsql_filter]
+grouped = [~cloudsql_filter]
+
+def parsecloudsql(row):
+  usagevalue = row[columnnames['usage']]
+  val = row[columnnames['usage']]
+  print(val)
+  quantity = row[columnnames['quantity']]
+  if 'RDS:Multi-AZ' in val:
+    # print(val)
+    ha_coeff = 2
+    try:
+      region_aws, rest = val.split('RDS:Multi-AZ')
+    except:
+      region_aws, rest = 'USE1', val
+    if region_aws=='':
+      region_aws = 'USE1'
+    region_gcp = region_dict[region_aws.replace('-', '')]
+    return quantity*ha_coeff*cloudsql_ratecard['storage-ssd'][region_gcp]
+  elif 'RDS' in val:
+    # print(val)
+    ha_coeff = 1
+    try:
+      region_aws, rest = val.split('RDS:')
+    except:
+      region_aws, rest = 'USE1', val
+    if region_aws=='':
+      region_aws = 'USE1'
+    region_gcp = region_dict[region_aws.replace('-', '')]
+    if rest=='ChargedBackupUsage':
+      return quantity*ha_coeff*cloudsql_ratecard['cloudsql-storage-backup'][region_gcp]
+    elif rest=='GP2-Storage' :
+      return quantity*ha_coeff*cloudsql_ratecard['storage-ssd'][region_gcp]
+  elif 'Aurora' in val:
+    ha_coeff = 1
+    try:
+      region_aws, rest = val.split('Aurora:')
+    except:
+      region_aws, rest = 'USE1', val
+    region_aws = region_aws.replace('-', '')
+    region_gcp = region_dict[region_aws.replace('-', '')]
+    if rest=='BackupUsage':
+      return quantity*ha_coeff*cloudsql_ratecard['cloudsql-storage-backup'][region_gcp]
+  else:
+    try:
+      region_aws, rest = val.split('-')
+    except:
+      region_aws, rest = 'USE1', val
+      # return pd.Series([0]*8)
+    region_gcp = region_dict[region_aws]
+    try:
+      usage, aws_machine = rest.split(':')
+    except:
+      usage, aws_machine = rest, ''
+      # return pd.Series([0]*8)
+  gcp_machine = cloudsql_machineref[aws_machine]
+  print(gcp_machine)
+  # print(machine)
+  # gcpmachine = machines[machines['API Name']==machine].iloc[0]
+  # gcpmachine_name = [gcpmachine['Family'].lower(), gcpmachine['Type'].lower(), gcpmachine['Memory'], gcpmachine['vCPUs']]
+  # print(gcpmachine_name)
+  # if gcpmachine_name[1]=='standard' or gcpmachine_name[1]=='highmem' or gcpmachine_name[1]=='highcpu':
+  #   gcpmachine_name[1] = 'predefined'
+  # if gcpmachine_name[1] not in ['small', 'micro', 'medium']:
+    # machine_id = '{}-{}'.format(gcpmachine_name[0],gcpmachine_name[1])
+    # rates_cpu = compute_ratecard['box']['{}-vcpus'.format(machine_id)][region_gcp]
+    # rates_mem = compute_ratecard['box']['{}-memory'.format(machine_id)][region_gcp]
+    # gcp_rate = gcpmachine_name[2]*float(rates_mem)+gcpmachine_name[3]*float(rates_cpu)
+  # else:
+  #   machine_id = '{}-{}'.format(gcpmachine_name[0],gcpmachine_name[1])
+  #   gcp_rate = compute_ratecard['box'][machine_id][region_gcp]
+
+cloudsql.apply(parsecloudsql, axis=1)
+
+# Under construction
+
+######################################################################################################################################################
+
+cost_matrix = {
+  'aws':{
+    'box_compute' : round(sum(boxusage[columnnames['cost']]), 2),
+    'heavy_compute' : round(sum(heavyusage[columnnames['cost']]), 2),
+    'spot_compute' : round(sum(spotusage[columnnames['cost']]), 2),
+    'persistentdisk' : round(sum(persistentdisk[columnnames['cost']]), 2),
+    'loadbalancer' : round(sum(loadbalancer[columnnames['cost']]),2),
+    'cloudnat' : round(nat_aws, 2),
+    'idleaddress' : round(sum(idleaddress['aws_cost']), 2),
+  },
+  'gcp':{
+    'box_compute': 0,
+    'heavy_compute' : 0,
+    'spot_compute' : 0,
+    'persistentdisk' : 0,
+    'loadbalancer' : 0,
+    'cloudnat' : 0,
+    'idleaddress' : 0,
+
+  },
+}
+
+if len(boxusage):
+  cost_matrix['gcp']['box_compute'] = round(sum(boxusage['gcp_cost']), 2)
+
+if len(heavyusage):
+  cost_matrix['gcp']['heavy_compute'] = round(sum(heavyusage['gcp_cost']), 2)
+
+if len(spotusage):
+  cost_matrix['gcp']['spot_compute'] = round(sum(spotusage['gcp_cost']), 2)
+
+if len(persistentdisk):
+  cost_matrix['gcp']['persistentdisk'] = round(sum(persistentdisk['GCP_cost']), 2)
+
+if len(loadbalancer):
+  cost_matrix['gcp']['loadbalancer'] = round(sum(load_grouped['gcp_cost']), 2)
+
+if nat_aws:
+  cost_matrix['gcp']['cloudnat'] = round(nat_gcp, 2)
+
+if len(idleaddress):
+  cost_matrix['gcp']['idleaddress'] = round(sum(idleaddress['gcp_cost']), 2)
+
+# print(cost_matrix)
 ######################################################################################################################################################
 
 wb = Workbook()
