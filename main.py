@@ -3,6 +3,7 @@ import re
 from ratecard import *
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
+from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font, Border, Side
 from openpyxl.styles import Alignment
 from math import ceil
 
@@ -13,7 +14,7 @@ rates = pd.read_csv('TCO reference - O-Rates.csv')
 # df = pd.read_csv(csv_to_read)
 
 #provisional test on Alphasense
-df = pd.read_csv('bill_examples/ecsv_7_2020.csv')
+df = pd.read_csv('bill_examples/axcient_rowitems.csv')
 df = df[df['RecordType']=='PayerLineItem']
 #function to detect column names
 def detect_column_names(dataframe):
@@ -146,8 +147,8 @@ def parsecompute(row):
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
-    if usagetype=='box':
-      gcp_rate = sud(nunits, gcp_rate)
+    # if usagetype=='box':
+    #   gcp_rate = sud(nunits, gcp_rate)
   else:
     nunits = 0
   ssd_cost = 0
@@ -450,6 +451,12 @@ egress_gcp_cost = round(sum(egress_df['gcp_cost']), 2)
 print(egress_gcp_cost, egress_aws_cost)
 
 ######################################################################################################################################################
+support_filter = grouped[columnnames['usage']]=='Dollar'
+support = grouped[support_filter]
+grouped = grouped[~support_filter]
+
+
+######################################################################################################################################################
 
 wb = Workbook()
 
@@ -460,32 +467,47 @@ ws_summary.title = 'Summary'
 
 ws_summary.append([''])
 ws_summary.append(['', 'Summarized View - Total Cost of Ownership on GCP'])
+ws_summary.append(['', 'Type', 'GCP', 'Estimates', 'AWS', 'Actuals', '% Savings'])
 center = ws_summary['B2']
 center.alignment = Alignment(horizontal='center')
 ws_summary.merge_cells(start_row=2, start_column=2, end_row=2, end_column=7)
 ws_summary.append(['', 'Compute', 'GCE - Preemptible VMs', '${}'.format(cost_matrix['gcp']['spot_compute']), 'EC2 - Spot Usage', '${}'.format(cost_matrix['aws']['spot_compute'])])
-ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Box)', '${}'.format(cost_matrix['gcp']['box_compute']), 'EC2 - Regular Usage(Box)', '${}'.format(cost_matrix['aws']['box_compute'])])
-ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Heavy)', '${}'.format(cost_matrix['gcp']['heavy_compute']), 'EC2 - Regular Usage(Heavy)', '${}'.format(cost_matrix['aws']['heavy_compute'])])
+ws_spot = wb.create_sheet(title='SpotUsage')
 
+for column_cells in ws_summary.columns:
+  ws_summary.column_dimensions[column_cells[0].column_letter].width = 15
+
+ws_summary.column_dimensions[ws_summary.cell(row=ws_summary._current_row, column=3).column_letter].width = 20
+ws_summary.column_dimensions[ws_summary.cell(row=ws_summary._current_row, column=5).column_letter].width = 20
+
+spot_pyxl = dataframe_to_rows(spotusage)
+for r_idx, row in enumerate(spot_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+         ws_spot.cell(row=r_idx, column=c_idx, value=value)
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(SpotUsage!L:L)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(SpotUsage!G:G)'
+
+ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Box)', '${}'.format(cost_matrix['gcp']['box_compute']), 'EC2 - Regular Usage(Box)', '${}'.format(cost_matrix['aws']['box_compute'])])
 ws_box = wb.create_sheet(title='BoxUsage')
 box_pyxl = dataframe_to_rows(boxusage)
 for r_idx, row in enumerate(box_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
          ws_box.cell(row=r_idx, column=c_idx, value=value)
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(BoxUsage!L:L)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(BoxUsage!G:G)'
 
+ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Heavy)', '${}'.format(cost_matrix['gcp']['heavy_compute']), 'EC2 - Regular Usage(Heavy)', '${}'.format(cost_matrix['aws']['heavy_compute'])])
 ws_heavy = wb.create_sheet(title='HeavyUsage')
 heavy_pyxl = dataframe_to_rows(heavyusage)
 for r_idx, row in enumerate(heavy_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
          ws_heavy.cell(row=r_idx, column=c_idx, value=value)
-
-ws_spot = wb.create_sheet(title='SpotUsage')
-spot_pyxl = dataframe_to_rows(spotusage)
-for r_idx, row in enumerate(spot_pyxl, 1):
-    for c_idx, value in enumerate(row, 1):
-         ws_spot.cell(row=r_idx, column=c_idx, value=value)
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(HeavyUsage!L:L)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(HeavyUsage!G:G)'
 
 ws_summary.append(['', '', '', '${}'.format(cost_matrix['gcp']['box_compute']+cost_matrix['gcp']['heavy_compute']+cost_matrix['gcp']['spot_compute']), '', '${}'.format(cost_matrix['aws']['box_compute']+cost_matrix['aws']['heavy_compute']+cost_matrix['aws']['spot_compute'])])
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D5:D6)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(F5:F6)'
 
 ws_summary.append(['', 'Storage', 'Persistent Disk', '${}'.format(cost_matrix['gcp']['persistentdisk']), 'Elastic Block Storage', '${}'.format(cost_matrix['aws']['persistentdisk'])])
 ws_pd = wb.create_sheet(title='Persistent Disk')
@@ -493,6 +515,8 @@ pd_pyxl = dataframe_to_rows(persistentdisk)
 for r_idx, row in enumerate(pd_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
          ws_pd.cell(row=r_idx, column=c_idx, value=value)
+ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Persistent Disk'!I:I)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Persistent Disk'!G:G)"
 
 ws_summary.append(['', 'Storage', 'Cloud Storage', '${}'.format(cloudstorage_gcp_cost), 'Simple Storage Service(S3)', '${}'.format(cloudstorage_aws_cost)])
 ws_gcs = wb.create_sheet(title='Cloud Storage')
@@ -500,11 +524,23 @@ gcs_pyxl = dataframe_to_rows(cloudstorage)
 for r_idx, row in enumerate(gcs_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
          ws_gcs.cell(row=r_idx, column=c_idx, value=value)
-
-ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
+ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Cloud Storage'!L:L)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Cloud Storage'!G:G)"
+# ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
 ws_summary.append(['', '', '', '', '', ''])
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D8:D9)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(F8:F9)'
+
 ws_summary.append(['', 'Networking', 'Cloud Load Balancer', '${}'.format(cost_matrix['gcp']['loadbalancer']), 'Elastic Load Balancer', '${}'.format(cost_matrix['aws']['loadbalancer'])])
-ws_summary.append(['', 'Networking', 'Cloud NAT', '${}'.format(round(nat_gcp,2)), 'NAT Gateway', '${}'.format(round(nat_aws,2))])
+ws_lb = wb.create_sheet(title='Load Balancer')
+lb_pyxl = dataframe_to_rows(loadbalancer)
+for r_idx, row in enumerate(lb_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+         ws_lb.cell(row=r_idx, column=c_idx, value=value)
+ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Load Balancer'!L:L)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Load Balancer'!G:G)"
+
+ws_summary.append(['', 'Networking', 'Cloud NAT', round(nat_gcp,2), 'NAT Gateway', round(nat_aws,2)])
 
 ws_summary.append(['', 'Networking', 'Network Egress', '${}'.format(egress_gcp_cost), 'Data Transfer', '${}'.format(egress_aws_cost)])
 ws_negress = wb.create_sheet(title='Network Egress')
@@ -512,26 +548,73 @@ negress_pyxl = dataframe_to_rows(egress_df)
 for r_idx, row in enumerate(negress_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
          ws_negress.cell(row=r_idx, column=c_idx, value=value)
+ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Network Egress'!G:G)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Network Egress'!E:E)"
 
 ws_summary.append(['', 'Networking', 'Idle Addresseses', '${}'.format(round(sum(idleaddress['gcp_cost']), 2)), 'Idle Addresses', '${}'.format(round(sum(idleaddress['aws_cost']), 2))])
+ws_negress = wb.create_sheet(title='Idle Addresses')
+Idaddress_pyxl = dataframe_to_rows(idleaddress)
+for r_idx, row in enumerate(Idaddress_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+         ws_negress.cell(row=r_idx, column=c_idx, value=value)
+ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Idle Addresses'!H:H)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Idle Addresses'!G:G)"
+
 ws_summary.append(['', '', '', '', '', ''])
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D11:D14)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(F11:F14)'
+
 ws_summary.append(['', 'DB Services', 'Cloud SQL', '', 'Amazon RDS', ''])
-ws_summary.append(['', 'DB Services', 'Search on GCP', '', 'ElasticSearch', ''])
-ws_summary.append(['', 'DB Services', 'Cache on GCP', '', 'Elasticache', ''])
-ws_summary.append(['', 'DB Services', 'BigQuery', '', 'Redshit', ''])
+# ws_summary.append(['', 'DB Services', 'Search on GCP', '', 'ElasticSearch', ''])
+# ws_summary.append(['', 'DB Services', 'Cache on GCP', '', 'Elasticache', ''])
+# ws_summary.append(['', 'DB Services', 'BigQuery', '', 'Redshit', ''])
 ws_summary.append(['', '', '', '', '', ''])
-ws_summary.append(['', 'Support', 'GCP Support', '', 'AWS Support Business', ''])
+ws_summary.append(['', 'Support', 'GCP Support', 0, 'AWS Support Business', sum(support[columnnames['cost']])])
+
 ws_summary.append(['', 'Misc', 'Unclassified', '', 'Misc', ''])
+ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Uncomputed'!G:G)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Uncomputed'!G:G)"
+
 ws_summary.append(['', '', '', '', '', ''])
-ws_summary.append(['', 'GCP Monthly ', '', 'AWS Monthly', '', ''])
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D18:D19)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(F18:F19)'
+
+ws_summary.append(['', 'GCP Monthly', '', '', 'AWS Monthly', '', ''])
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=D7+D10+D15+D17+D20'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=F7+F10+F15+F17+F20'
 
 #Throw everything else into the 'Other' tab
+border = Border(left=Side(border_style='thin', color='000000'),
+                right=Side(border_style='thin', color='000000'),
+                top=Side(border_style='thin', color='000000'),
+                bottom=Side(border_style='thin', color='000000'))
+
+for i in range(4, 22):
+  ws_summary.cell(row=i, column=7).value = "=1-D{}/F{}".format(i, i)
+  ws_summary.cell(row=i, column=7).number_format = "0.00%"
+  ws_summary.cell(row=i, column=4).number_format = "$0.00"
+  ws_summary.cell(row=i, column=6).number_format = "$0.00"
+  for col in range(2, 8):
+    ws_summary.cell(row=i, column=col).border = border
 
 ws_others = wb.create_sheet(title='Uncomputed')
 others_pyxl = dataframe_to_rows(grouped)
 for r_idx, row in enumerate(others_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
          ws_others.cell(row=r_idx, column=c_idx, value=value)
+
+# def set_border(ws, cell_range):
+#     border = Border(left=Side(border_style='thin', color='000000'),
+#                 right=Side(border_style='thin', color='000000'),
+#                 top=Side(border_style='thin', color='000000'),
+#                 bottom=Side(border_style='thin', color='000000'))
+
+#     rows = ws.iter_rows(cell_range)
+#     for row in rows:
+#         for cell in row:
+#             cell.border = border
+
+# set_border(ws_summary, 'B2:G21')
 
 
 wb.save(filename=report_filename)
