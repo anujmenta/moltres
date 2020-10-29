@@ -14,6 +14,8 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'bill_examples'
 app.config['XML_FOLDER'] = 'xml_files'
 app.config['CSV_FOLDER'] = 'csv_files'
+app.config['OUTPUT_FOLDER'] = 'reports'
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -35,53 +37,12 @@ def page_to_csv(purifieddict, category, region, usagetype, defaultxpos):
 				csv_appender.append([category, region, usagetype]+[x[0] for x in sorted(purifieddict[key], key=lambda x: float(x[2]))])
 	return [csv_appender, category, region, usagetype]
 
-# def process_pdf(filename):
-# 	filename = filename.replace('.pdf', '')
-# 	xml_file_path = os.path.join(app.config['XML_FOLDER'], filename+'.xml')
-# 	pdf_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename+'.pdf')
-# 	csv_file_path = os.path.join(app.config['CSV_FOLDER'], filename+'.csv')
-# 	os.system('pdf2txt.py -o {} {}'.format(xml_file_path, pdf_file_path))
-# 	soup = BeautifulSoup(open('{}'.format(xml_file_path)).read())
-# 	defaultxpos = ['76.074', '85.272', '86.191']
-# 	master_csv = []
-# 	pageno = 0
-# 	category = ''
-# 	region = ''
-# 	usagetype = ''
-# 	xset = set()
-# 	xlist = []
-# 	list_mastersamples = []
-
-
-# 	for page in soup.find_all('page'):
-# 	  pageno+=1
-# 	  mastersample = collections.defaultdict(list)
-# 	  for box in page.find_all('textbox'):
-# 	    tmp = []
-# 	    for line in box.find_all('textline'):
-# 	      y_val = line.find('text')['bbox'].split(',')[1]
-# 	      x_val = line.find('text')['bbox'].split(',')[0]
-# 	      size = line.find('text')['size']
-# 	      value = ''.join([i.text for i in line.find_all('text')])
-# 	      if value.encode('utf-8')!='' and value.encode('utf-8')!='\xc2\xa0\n' and 'Page' not in value:
-# 	        tmp.append([value.encode('utf-8').decode('utf-8','ignore').replace(u'\xa0', u' ').replace(u'\xb7', u'').strip(), y_val, x_val, size])
-# 	    if tmp:
-# 	      for t in tmp:
-# 	        sent, y, x, size = t
-# 	        mastersample[float(y)].append([sent, y, x, size])
-# 	        if float(x)<100 and float(x)>30:
-# 	          xset.add(float(x))
-# 	          xlist.append(float(x))
-# 	  list_mastersamples.append(mastersample)
-
-# 	defaultxpos = [x[0] for x in collections.Counter(xlist).most_common(3)][::-1]
-# 	print(defaultxpos)
-# 	for mastersample in list_mastersamples:
-# 	  result, category, region, usagetype = page_to_csv(mastersample, category, region, usagetype, defaultxpos)
-# 	  master_csv+=result
-
-# 	df = pd.DataFrame(master_csv, columns=['Category', 'Region', 'Usagetype', 'Description', 'Quantity', 'Cost'])
-# 	df.to_csv('{}'.format(csv_file_path), index=None)
+def get_report(filename):
+	filename = filename.replace('.csv', '')
+	aws_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename+'.csv')
+	report_file_path = os.path.join(app.config['OUTPUT_FOLDER'], filename+'_report.xlsx')
+	os.system('python main.py --input {} --output {}'.format(aws_file_path))
+	return report_file_path
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -100,11 +61,12 @@ def upload_file():
             filename = secure_filename(file.filename)
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            # process_pdf(filename)
+            download_path = get_report(filename)
             print(os.listdir('bill_examples'))
+            print(os.listdir('reports'))
             # print(os.listdir('xml_files'))
             # print(os.listdir('csv_files'))
-            return send_file(os.path.join(app.config['CSV_FOLDER'], filename.replace('.pdf', '')+'.csv'), as_attachment=True)
+            return send_file(download_path, as_attachment=True)
             # return redirect(url_for('uploaded_file',filename=filename))
     return '''
     <!doctype html>

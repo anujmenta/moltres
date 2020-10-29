@@ -6,6 +6,15 @@ from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font, Border, Side
 from openpyxl.styles import Alignment
 from math import ceil
+import argparse
+
+parser = argparse.ArgumentParser(description='Optional app description')
+parser.add_argument('--input', type=str,
+                    help='Path to csv bill')
+parser.add_argument('--output', type=str,
+                    help='Path to output report')
+
+args = parser.parse_args()
 
 machines = pd.read_csv('TCO reference - C-Machines.csv')
 rates = pd.read_csv('TCO reference - O-Rates.csv')
@@ -14,7 +23,7 @@ rates = pd.read_csv('TCO reference - O-Rates.csv')
 # df = pd.read_csv(csv_to_read)
 
 #provisional test on Alphasense
-df = pd.read_csv('bill_examples/axcient_rowitems.csv')
+df = pd.read_csv(args.input)
 df = df[df['RecordType']=='PayerLineItem']
 #function to detect column names
 def detect_column_names(dataframe):
@@ -460,7 +469,7 @@ grouped = grouped[~support_filter]
 
 wb = Workbook()
 
-report_filename = 'tco_report.xlsx'
+report_filename = args.output
 
 ws_summary = wb.active
 ws_summary.title = 'Summary'
