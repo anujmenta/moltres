@@ -8,7 +8,7 @@ import os
 import collections
 from werkzeug.utils import secure_filename
 
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'csv', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'bill_examples'
@@ -101,9 +101,9 @@ def upload_file():
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             # process_pdf(filename)
-            print(os.listdir('uploads'))
-            print(os.listdir('xml_files'))
-            print(os.listdir('csv_files'))
+            print(os.listdir('bill_examples'))
+            # print(os.listdir('xml_files'))
+            # print(os.listdir('csv_files'))
             return send_file(os.path.join(app.config['CSV_FOLDER'], filename.replace('.pdf', '')+'.csv'), as_attachment=True)
             # return redirect(url_for('uploaded_file',filename=filename))
     return '''
