@@ -1,3 +1,10 @@
 pandas
 openpyxl
 requests
+Flask
+Flask-RESTful
+gunicorn
+Jinja2
+peewee
+Werkzeug
+pandas
