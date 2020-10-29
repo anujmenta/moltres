@@ -24,7 +24,11 @@ rates = pd.read_csv('TCO reference - O-Rates.csv')
 
 #provisional test on Alphasense
 df = pd.read_csv(args.input)
-df = df[df['RecordType']=='PayerLineItem']
+try:
+  df = df[df['RecordType']=='PayerLineItem']
+except:
+  print('Looks like Recordtype is not available in args.input')
+  pass
 #function to detect column names
 def detect_column_names(dataframe):
   usage_options = ['lineItem/UsageType', 'UsageType']
@@ -346,10 +350,14 @@ def cloudstorage_cost(row):
   gcp_cost = gcp_rate*quantity
   return pd.Series([gcp_class, gcp_sku, quantity, gcp_rate, gcp_cost])
 
-cloudstorage[['GCP Class', 'GCP SKU', 'Quantity', 'GCP Rate', 'GCP Cost']] = cloudstorage.apply(cloudstorage_cost, axis=1)
+if len(cloudstorage):
+  cloudstorage[['GCP Class', 'GCP SKU', 'Quantity', 'GCP Rate', 'GCP Cost']] = cloudstorage.apply(cloudstorage_cost, axis=1)
+  cloudstorage_gcp_cost = round(sum(cloudstorage['GCP Cost']), 2)
+  cloudstorage_aws_cost = round(sum(cloudstorage[columnnames['cost']]), 2)
+else:
+  cloudstorage_gcp_cost = 0
+  cloudstorage_aws_cost = 0
 
-cloudstorage_gcp_cost = round(sum(cloudstorage['GCP Cost']), 2)
-cloudstorage_aws_cost = round(sum(cloudstorage[columnnames['cost']]), 2)
 ######################################################################################################################################################
 
 cost_matrix = {
@@ -418,41 +426,41 @@ def egress_cost(row):
   # print(row)
   usageval = row[columnnames['usage']]
   quantity = row[columnnames['quantity']]
-  # try:
-  if 'DataTransfer-Regional-Bytes' in usageval:
-    aws_region = usageval.replace('DataTransfer-Regional-Bytes', '')
-    if aws_region:
-      aws_region = usageval.split('-')[0]
-    else:
-      aws_region = 'USW2'
-    gcp_region = region_dict[aws_region]
-    gcp_rate = network_egress_ratecard['vm-vm-internal'][gcp_region.split('-')[0]][gcp_region]
-    gcp_cost = quantity*gcp_rate
-  elif 'DataTransfer' in usageval:
-    aws_region = usageval.replace('DataTransfer-Out-Bytes', '')
-    if aws_region:
-      aws_region = usageval.split('-')[0]
-    else:
-      aws_region = 'USW2'
-    gcp_region = region_dict[aws_region]
-    gcp_rate = network_egress_ratecard['to-worldwide'][gcp_region.split('-')[0]]
-    gcp_rate = [gcp_rate["10240"], gcp_rate["143360"], gcp_rate["143361"]]
-    gcp_cost = sum(x*y for x,y in zip(gcp_rate, gbsplitter(quantity)))
-    gcp_rate = ' '.join(map(str, gcp_rate)) # To let it convert peacefully to excel
-  elif 'AWS-Out-Bytes' in usageval:
-    # print(row)
-    aws_regions = usageval.replace('-AWS-Out-Bytes', '').split('-')
-    if len(aws_regions)==2:
-      gcp_region_from = region_dict[aws_regions[0]]
-      gcp_region_to = region_dict[aws_regions[1]]
-      # print(usageval)
-      gcp_rate = network_egress_ratecard['vm-vm-external']['{}-{}'.format(gcp_region_from.split('-')[0], gcp_region_to.split('-')[0])][gcp_region_from]
-      gcp_cost = gcp_rate*quantity
-    else:
-      gcp_rate, gcp_cost = 0,0
-  return pd.Series([gcp_rate, gcp_cost])
-  # except:
-  #   return pd.Series([0,0])
+  try:
+    if 'DataTransfer-Regional-Bytes' in usageval:
+      aws_region = usageval.replace('DataTransfer-Regional-Bytes', '')
+      if aws_region:
+        aws_region = usageval.split('-')[0]
+      else:
+        aws_region = 'USW2'
+      gcp_region = region_dict[aws_region]
+      gcp_rate = network_egress_ratecard['vm-vm-internal'][gcp_region.split('-')[0]][gcp_region]
+      gcp_cost = quantity*gcp_rate
+    elif 'DataTransfer' in usageval:
+      aws_region = usageval.replace('DataTransfer-Out-Bytes', '')
+      if aws_region:
+        aws_region = usageval.split('-')[0]
+      else:
+        aws_region = 'USW2'
+      gcp_region = region_dict[aws_region]
+      gcp_rate = network_egress_ratecard['to-worldwide'][gcp_region.split('-')[0]]
+      gcp_rate = [gcp_rate["10240"], gcp_rate["143360"], gcp_rate["143361"]]
+      gcp_cost = sum(x*y for x,y in zip(gcp_rate, gbsplitter(quantity)))
+      gcp_rate = ' '.join(map(str, gcp_rate)) # To let it convert peacefully to excel
+    elif 'AWS-Out-Bytes' in usageval:
+      # print(row)
+      aws_regions = usageval.replace('-AWS-Out-Bytes', '').split('-')
+      if len(aws_regions)==2:
+        gcp_region_from = region_dict[aws_regions[0]]
+        gcp_region_to = region_dict[aws_regions[1]]
+        # print(usageval)
+        gcp_rate = network_egress_ratecard['vm-vm-external']['{}-{}'.format(gcp_region_from.split('-')[0], gcp_region_to.split('-')[0])][gcp_region_from]
+        gcp_cost = gcp_rate*quantity
+      else:
+        gcp_rate, gcp_cost = 0,0
+    return pd.Series([gcp_rate, gcp_cost])
+  except:
+    return pd.Series([0,0])
 egress_df[['gcp_rate', 'gcp_cost']] = egress_df.apply(egress_cost, axis=1)
 
 egress_aws_cost = round(sum(egress_df[columnnames['cost']]), 2)
@@ -489,30 +497,38 @@ for column_cells in ws_summary.columns:
 ws_summary.column_dimensions[ws_summary.cell(row=ws_summary._current_row, column=3).column_letter].width = 20
 ws_summary.column_dimensions[ws_summary.cell(row=ws_summary._current_row, column=5).column_letter].width = 20
 
+
+totalcost_column_index = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
 spot_pyxl = dataframe_to_rows(spotusage)
 for r_idx, row in enumerate(spot_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
-         ws_spot.cell(row=r_idx, column=c_idx, value=value)
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_spot.cell(row=r_idx, column=c_idx, value=value)
 ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(SpotUsage!L:L)'
-ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(SpotUsage!G:G)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(SpotUsage!{}:{})'.format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Box)', '${}'.format(cost_matrix['gcp']['box_compute']), 'EC2 - Regular Usage(Box)', '${}'.format(cost_matrix['aws']['box_compute'])])
 ws_box = wb.create_sheet(title='BoxUsage')
 box_pyxl = dataframe_to_rows(boxusage)
 for r_idx, row in enumerate(box_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
-         ws_box.cell(row=r_idx, column=c_idx, value=value)
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_box.cell(row=r_idx, column=c_idx, value=value)
 ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(BoxUsage!L:L)'
-ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(BoxUsage!G:G)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(BoxUsage!{}:{})'.format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Heavy)', '${}'.format(cost_matrix['gcp']['heavy_compute']), 'EC2 - Regular Usage(Heavy)', '${}'.format(cost_matrix['aws']['heavy_compute'])])
 ws_heavy = wb.create_sheet(title='HeavyUsage')
 heavy_pyxl = dataframe_to_rows(heavyusage)
 for r_idx, row in enumerate(heavy_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
-         ws_heavy.cell(row=r_idx, column=c_idx, value=value)
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_heavy.cell(row=r_idx, column=c_idx, value=value)
 ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(HeavyUsage!L:L)'
-ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(HeavyUsage!G:G)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(HeavyUsage!{}:{})'.format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', '', '', '${}'.format(cost_matrix['gcp']['box_compute']+cost_matrix['gcp']['heavy_compute']+cost_matrix['gcp']['spot_compute']), '', '${}'.format(cost_matrix['aws']['box_compute']+cost_matrix['aws']['heavy_compute']+cost_matrix['aws']['spot_compute'])])
 ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D5:D6)'
@@ -523,18 +539,22 @@ ws_pd = wb.create_sheet(title='Persistent Disk')
 pd_pyxl = dataframe_to_rows(persistentdisk)
 for r_idx, row in enumerate(pd_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
-         ws_pd.cell(row=r_idx, column=c_idx, value=value)
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_pd.cell(row=r_idx, column=c_idx, value=value)
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Persistent Disk'!I:I)"
-ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Persistent Disk'!G:G)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Persistent Disk'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', 'Storage', 'Cloud Storage', '${}'.format(cloudstorage_gcp_cost), 'Simple Storage Service(S3)', '${}'.format(cloudstorage_aws_cost)])
 ws_gcs = wb.create_sheet(title='Cloud Storage')
 gcs_pyxl = dataframe_to_rows(cloudstorage)
 for r_idx, row in enumerate(gcs_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
-         ws_gcs.cell(row=r_idx, column=c_idx, value=value)
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_gcs.cell(row=r_idx, column=c_idx, value=value)
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Cloud Storage'!L:L)"
-ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Cloud Storage'!G:G)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Cloud Storage'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 # ws_summary.append(['', 'Storage', 'Filestore', '', 'Elastic File Storage', ''])
 ws_summary.append(['', '', '', '', '', ''])
 ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D8:D9)'
@@ -545,9 +565,11 @@ ws_lb = wb.create_sheet(title='Load Balancer')
 lb_pyxl = dataframe_to_rows(loadbalancer)
 for r_idx, row in enumerate(lb_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
-         ws_lb.cell(row=r_idx, column=c_idx, value=value)
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_lb.cell(row=r_idx, column=c_idx, value=value)
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Load Balancer'!L:L)"
-ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Load Balancer'!G:G)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Load Balancer'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', 'Networking', 'Cloud NAT', round(nat_gcp,2), 'NAT Gateway', round(nat_aws,2)])
 
@@ -556,18 +578,22 @@ ws_negress = wb.create_sheet(title='Network Egress')
 negress_pyxl = dataframe_to_rows(egress_df)
 for r_idx, row in enumerate(negress_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
-         ws_negress.cell(row=r_idx, column=c_idx, value=value)
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_negress.cell(row=r_idx, column=c_idx, value=value)
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Network Egress'!G:G)"
-ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Network Egress'!E:E)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Network Egress'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', 'Networking', 'Idle Addresseses', '${}'.format(round(sum(idleaddress['gcp_cost']), 2)), 'Idle Addresses', '${}'.format(round(sum(idleaddress['aws_cost']), 2))])
 ws_negress = wb.create_sheet(title='Idle Addresses')
 Idaddress_pyxl = dataframe_to_rows(idleaddress)
 for r_idx, row in enumerate(Idaddress_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
-         ws_negress.cell(row=r_idx, column=c_idx, value=value)
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_negress.cell(row=r_idx, column=c_idx, value=value)
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Idle Addresses'!H:H)"
-ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Idle Addresses'!G:G)"
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Idle Addresses'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', '', '', '', '', ''])
 ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D11:D14)'
@@ -581,8 +607,8 @@ ws_summary.append(['', '', '', '', '', ''])
 ws_summary.append(['', 'Support', 'GCP Support', 0, 'AWS Support Business', sum(support[columnnames['cost']])])
 
 ws_summary.append(['', 'Misc', 'Unclassified', '', 'Misc', ''])
-ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Uncomputed'!G:G)"
-ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Uncomputed'!G:G)"
+ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Uncomputed'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
+ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Uncomputed'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', '', '', '', '', ''])
 ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D18:D19)'
@@ -610,7 +636,9 @@ ws_others = wb.create_sheet(title='Uncomputed')
 others_pyxl = dataframe_to_rows(grouped)
 for r_idx, row in enumerate(others_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
-         ws_others.cell(row=r_idx, column=c_idx, value=value)
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_others.cell(row=r_idx, column=c_idx, value=value)
 
 # def set_border(ws, cell_range):
 #     border = Border(left=Side(border_style='thin', color='000000'),
