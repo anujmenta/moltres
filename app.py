@@ -41,7 +41,7 @@ def get_report(filename):
 	filename = filename.replace('.csv', '')
 	aws_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename+'.csv')
 	report_file_path = os.path.join(app.config['OUTPUT_FOLDER'], filename+'_report.xlsx')
-	os.system('python main.py --input {} --output {}'.format(aws_file_path))
+	os.system('python main.py --input {} --output {}'.format(aws_file_path, report_file_path))
 	return report_file_path
 
 @app.route('/upload', methods=['GET', 'POST'])
