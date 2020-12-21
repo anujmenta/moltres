@@ -57,6 +57,7 @@ region_dict = {
   'APS3' : 'asia-south1',
   'CAN1' : 'us-central1',
   'EU' : 'europe',
+  'AFS1' : 'europe',
   'EUC1' : 'europe-west3',
   'EUW1' : 'europe-west2',
   'EUW2' : 'europe-west2',
@@ -360,6 +361,22 @@ cloudstorage_ratecard = {
   'storage-archive':resp['gcp_price_list']["CP-BIGSTORE-STORAGE-ARCHIVE"],
 }
 
+cloudsql_ratecard = {
+  'sqlserver':{
+    "non-ha-vcpus" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-VCPU"],
+    "non-ha-memory" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-MEMORY"],
+  },
+  'mysql':{
+    "non-ha-vcpus" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-VCPU"],
+    "non-ha-memory" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-MEMORY"],
+  },
+  'postgres':{
+    "non-ha-vcpus" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-VCPU"],
+    "non-ha-memory" : resp['gcp_price_list']["CP-CLOUDSQLSERVER-MEMORY"],
+  },
+  "storage-ssd" : resp['gcp_price_list']["CP-CLOUDSQL-STORAGE-SSD"],
+  "cloudsql-storage-backup" : resp['gcp_price_list']["CP-CLOUDSQL-BACKUP"],
+}
 
 
 cloudsql_machineref = {

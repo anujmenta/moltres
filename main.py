@@ -13,8 +13,8 @@ rates = pd.read_csv('TCO reference - O-Rates.csv')
 # df = pd.read_csv(csv_to_read)
 
 #provisional test on Alphasense
-df = pd.read_csv('bill_examples/axcient_rowitems.csv')
-df = df[df['RecordType']=='PayerLineItem']
+df = pd.read_csv('bill_examples/akerna_rowitems.csv')
+df = df[df['lineItem/LineItemType']=='Usage']
 #function to detect column names
 def detect_column_names(dataframe):
   usage_options = ['lineItem/UsageType', 'UsageType']
@@ -183,7 +183,7 @@ box_filter = grouped[columnnames['usage']].str.contains('BoxUsage')
 boxusage = grouped[box_filter].sort_values(columnnames['usage'])
 grouped = grouped[~box_filter]
 
-heavy_filter = (grouped[columnnames['usage']].str.contains('HeavyUsage'))&(~grouped[columnnames['usage']].str.contains('HeavyUsage:db')&(grouped[columnnames['productname']]=='AmazonEC2'))
+heavy_filter = (grouped[columnnames['usage']].str.contains('HeavyUsage'))&(~grouped[columnnames['usage']].str.contains('HeavyUsage:db')&((grouped[columnnames['productname']]=='Amazon Elastic Compute Cloud')|(grouped[columnnames['productname']]=='AmazonEC2')))
 heavyusage = grouped[heavy_filter].sort_values(columnnames['usage'])
 grouped = grouped[~heavy_filter]
 
@@ -341,10 +341,11 @@ def cloudstorage_cost(row):
   gcp_cost = gcp_rate*quantity
   return pd.Series([gcp_class, gcp_sku, quantity, gcp_rate, gcp_cost])
 
-cloudstorage[['GCP Class', 'GCP SKU', 'Quantity', 'GCP Rate', 'GCP Cost']] = cloudstorage.apply(cloudstorage_cost, axis=1)
+if len(cloudstorage):
+  cloudstorage[['GCP Class', 'GCP SKU', 'Quantity', 'GCP Rate', 'GCP Cost']] = cloudstorage.apply(cloudstorage_cost, axis=1)
 
-cloudstorage_gcp_cost = round(sum(cloudstorage['GCP Cost']), 2)
-cloudstorage_aws_cost = round(sum(cloudstorage[columnnames['cost']]), 2)
+  cloudstorage_gcp_cost = round(sum(cloudstorage['GCP Cost']), 2)
+  cloudstorage_aws_cost = round(sum(cloudstorage[columnnames['cost']]), 2)
 ######################################################################################################################################################
 
 egress_filter = (grouped[columnnames['usage']].str.contains('DataTransfer'))|(grouped[columnnames['usage']].str.contains('Out-Bytes'))
@@ -417,7 +418,7 @@ grouped = [~cloudsql_filter]
 def parsecloudsql(row):
   usagevalue = row[columnnames['usage']]
   val = row[columnnames['usage']]
-  print(val)
+  # print(val)
   quantity = row[columnnames['quantity']]
   if 'RDS:Multi-AZ' in val:
     # print(val)
@@ -428,6 +429,7 @@ def parsecloudsql(row):
       region_aws, rest = 'USE1', val
     if region_aws=='':
       region_aws = 'USE1'
+    print(region_aws.replace('-', ''))
     region_gcp = region_dict[region_aws.replace('-', '')]
     return quantity*ha_coeff*cloudsql_ratecard['storage-ssd'][region_gcp]
   elif 'RDS' in val:
