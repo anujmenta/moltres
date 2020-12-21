@@ -30,7 +30,7 @@ recordtype_options = {
 }
 try:
   recordtype_col = list(set(recordtype_options).intersection(set(df.columns)))[0]
-  df = df[df[recordtype_col]==recordtype_options[recordtype_col]]
+  df = df[(df[recordtype_col]==recordtype_options[recordtype_col])|(df[recordtype_col]=='RIFee')]
 except:
   print('Looks like Recordtype is not available in args.input')
   pass
@@ -197,7 +197,7 @@ box_filter = grouped[columnnames['usage']].str.contains('BoxUsage')
 boxusage = grouped[box_filter].sort_values(columnnames['usage'])
 grouped = grouped[~box_filter]
 
-heavy_filter = (grouped[columnnames['usage']].str.contains('HeavyUsage'))&(~grouped[columnnames['usage']].str.contains('HeavyUsage:db')&(grouped[columnnames['productname']]=='AmazonEC2'))
+heavy_filter = (grouped[columnnames['usage']].str.contains('HeavyUsage'))&(~grouped[columnnames['usage']].str.contains('HeavyUsage:db')&((grouped[columnnames['productname']]=='Amazon Elastic Compute Cloud')|(grouped[columnnames['productname']]=='AmazonEC2')))
 heavyusage = grouped[heavy_filter].sort_values(columnnames['usage'])
 grouped = grouped[~heavy_filter]
 
