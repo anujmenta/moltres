@@ -531,8 +531,8 @@ ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(HeavyUsage!
 ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(HeavyUsage!{}:{})'.format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', '', '', '${}'.format(cost_matrix['gcp']['box_compute']+cost_matrix['gcp']['heavy_compute']+cost_matrix['gcp']['spot_compute']), '', '${}'.format(cost_matrix['aws']['box_compute']+cost_matrix['aws']['heavy_compute']+cost_matrix['aws']['spot_compute'])])
-ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D5:D6)'
-ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(F5:F6)'
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D4:D6)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(F4:F6)'
 
 ws_summary.append(['', 'Storage', 'Persistent Disk', '${}'.format(cost_matrix['gcp']['persistentdisk']), 'Elastic Block Storage', '${}'.format(cost_matrix['aws']['persistentdisk'])])
 ws_pd = wb.create_sheet(title='Persistent Disk')
