@@ -24,8 +24,13 @@ rates = pd.read_csv('TCO reference - O-Rates.csv')
 
 #provisional test on Alphasense
 df = pd.read_csv(args.input)
+recordtype_options = {
+  'lineItem/LineItemType' : 'Usage',
+  'RecordType' : 'PayerLineItem',
+}
 try:
-  df = df[df['RecordType']=='PayerLineItem']
+  recordtype_col = list(set(recordtype_options).intersection(set(df.columns)))[0]
+  df = df[df[recordtype_col]==recordtype_options[recordtype_col]]
 except:
   print('Looks like Recordtype is not available in args.input')
   pass
