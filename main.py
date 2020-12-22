@@ -191,7 +191,7 @@ def parsecompute(row):
   sud_savings = nunits*(original_rate-gcp_rate)
   # print(ssd_cost, int(gcpmachine['Instance Storage']), ssd_rate[usagetype], nunits, nunits//744)
   # print(nunits, original_rate)
-  returner = [nunits, machine_id]+[gcp_rate, nunits*gcp_rate+ssd_cost, sud_savings, ssd_cost, sud_savings/(nunits*original_rate)*100]
+  returner = [nunits, '{}, {}cpus, {} mem'.format(machine_id, gcpmachine_name[3], gcpmachine_name[2])]+[gcp_rate, nunits*gcp_rate+ssd_cost, sud_savings, ssd_cost, sud_savings/(nunits*original_rate)*100]
   return pd.Series(returner)
 
 columnnames = detect_column_names(df)
