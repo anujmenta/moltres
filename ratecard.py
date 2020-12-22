@@ -108,6 +108,7 @@ compute_ratecard = {
 		'f1-micro' : resp['gcp_price_list']["CP-COMPUTEENGINE-VMIMAGE-F1-MICRO-PREEMPTIBLE"] ,
 		'g1-small' : resp['gcp_price_list']["CP-COMPUTEENGINE-VMIMAGE-G1-SMALL-PREEMPTIBLE"] ,
 	},
+  'os': resp['gcp_price_list']['CP-COMPUTEENGINE-OS'],
 }
 
 # persistentdisk_ratecard = {

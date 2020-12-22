@@ -149,6 +149,12 @@ def parsecompute(row):
   if gcpmachine_name[1]=='Standard' or gcpmachine_name[1]=='Highmem' or gcpmachine_name[1]=='Highcpu':
     gcpmachine_name[1] = 'Predefined'
   #Needs restructuring to accommodate for all regions and pull rate from the new JSON
+  if 'windows' in row[columnnames['description']].lower():
+    os_type = 'win'
+  elif 'suse' in row[columnnames['description']].lower():
+    os_type = 'suse'
+  else:
+    os_type = ''
   if gcpmachine_name[1] not in ['Small', 'Micro', 'Medium']:
     machine_id = '{}-{}'.format(gcpmachine_name[0],gcpmachine_name[1]).lower()
     rates_cpu = compute_ratecard[usagetype]['{}-vcpus'.format(machine_id)][region_gcp]
@@ -159,10 +165,19 @@ def parsecompute(row):
         gcp_rate+=int(gcpmachine['GPUs'])*gpu_rates['NVIDIA Tesla K80'][usagetype]
       elif gcpmachine['GPU model']=='NVIDIA Tesla V100':
         gcp_rate+=int(gcpmachine['GPUs'])*gpu_rates['NVIDIA Tesla V100'][usagetype]
+    if os_type:
+      os_rate = compute_ratecard['os'][os_type]['high']
+    else:
+      os_rate = 0
+    gcp_rate+=os_rate*gcpmachine_name[3]
   else:
     machine_id = '{}-{}'.format(gcpmachine_name[0],gcpmachine_name[1]).lower()
     gcp_rate = compute_ratecard[usagetype][machine_id][region_gcp]
-
+    if os_type:
+      os_rate = compute_ratecard['os'][os_type]['low']
+    else:
+      os_rate = 0
+    gcp_rate+=os_rate*gcpmachine_name[3]
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
@@ -176,7 +191,7 @@ def parsecompute(row):
   sud_savings = nunits*(original_rate-gcp_rate)
   # print(ssd_cost, int(gcpmachine['Instance Storage']), ssd_rate[usagetype], nunits, nunits//744)
   # print(nunits, original_rate)
-  returner = [nunits]+gcpmachine_name[:2]+[gcp_rate, nunits*gcp_rate+ssd_cost, sud_savings, ssd_cost, sud_savings/(nunits*original_rate)*100]
+  returner = [nunits, machine_id]+[gcp_rate, nunits*gcp_rate+ssd_cost, sud_savings, ssd_cost, sud_savings/(nunits*original_rate)*100]
   return pd.Series(returner)
 
 columnnames = detect_column_names(df)
@@ -208,15 +223,15 @@ grouped = grouped[~spot_filter]
 
 if len(boxusage):
   print('Box AWS: ', sum(boxusage[columnnames['cost']]))
-  boxusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = boxusage.apply(parsecompute, axis=1)
+  boxusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = boxusage.apply(parsecompute, axis=1)
   # print('Boxusage', sum(boxusage[columnnames['cost']]), sum(boxusage['gcp_cost']))
 if len(heavyusage):
   print('heavy AWS: ', sum(heavyusage[columnnames['cost']]), len(heavyusage))
-  heavyusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = heavyusage.apply(parsecompute, axis=1)
+  heavyusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = heavyusage.apply(parsecompute, axis=1)
   # print('Heavyusage', sum(heavyusage[columnnames['cost']]), sum(heavyusage['gcp_cost']))
 if len(spotusage):
   print('spot AWS: ', sum(spotusage[columnnames['cost']]))
-  spotusage[['nunits', 'gcp_family', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = spotusage.apply(parsecompute, axis=1)
+  spotusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = spotusage.apply(parsecompute, axis=1)
   # print('Spotusage', sum(spotusage[columnnames['cost']]), sum(spotusage['gcp_cost']))
 
 ######################################################################################################################################################
@@ -510,8 +525,10 @@ for r_idx, row in enumerate(spot_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
       if value==columnnames['cost']:
         totalcost_column_letter = totalcost_column_index[c_idx-1]
+      if value=='gcp_cost':
+        gcpcost_column_letter = totalcost_column_index[c_idx-1]
       ws_spot.cell(row=r_idx, column=c_idx, value=value)
-ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(SpotUsage!L:L)'
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(SpotUsage!{}:{})'.format(gcpcost_column_letter, gcpcost_column_letter)
 ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(SpotUsage!{}:{})'.format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Box)', '${}'.format(cost_matrix['gcp']['box_compute']), 'EC2 - Regular Usage(Box)', '${}'.format(cost_matrix['aws']['box_compute'])])
@@ -521,8 +538,10 @@ for r_idx, row in enumerate(box_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
       if value==columnnames['cost']:
         totalcost_column_letter = totalcost_column_index[c_idx-1]
+      if value=='gcp_cost':
+        gcpcost_column_letter = totalcost_column_index[c_idx-1]
       ws_box.cell(row=r_idx, column=c_idx, value=value)
-ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(BoxUsage!L:L)'
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(BoxUsage!{}:{})'.format(gcpcost_column_letter, gcpcost_column_letter)
 ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(BoxUsage!{}:{})'.format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Heavy)', '${}'.format(cost_matrix['gcp']['heavy_compute']), 'EC2 - Regular Usage(Heavy)', '${}'.format(cost_matrix['aws']['heavy_compute'])])
@@ -532,8 +551,10 @@ for r_idx, row in enumerate(heavy_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
       if value==columnnames['cost']:
         totalcost_column_letter = totalcost_column_index[c_idx-1]
+      if value=='gcp_cost':
+        gcpcost_column_letter = totalcost_column_index[c_idx-1]
       ws_heavy.cell(row=r_idx, column=c_idx, value=value)
-ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(HeavyUsage!L:L)'
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(HeavyUsage!{}:{})'.format(gcpcost_column_letter, gcpcost_column_letter)
 ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(HeavyUsage!{}:{})'.format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', '', '', '${}'.format(cost_matrix['gcp']['box_compute']+cost_matrix['gcp']['heavy_compute']+cost_matrix['gcp']['spot_compute']), '', '${}'.format(cost_matrix['aws']['box_compute']+cost_matrix['aws']['heavy_compute']+cost_matrix['aws']['spot_compute'])])
