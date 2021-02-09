@@ -8,7 +8,7 @@ At the moment, we are only focusing on AWS to GCP, meaning the tool will let the
 Service status:
 
 The services here are categorized into the following states:
-1. Plolyd : Plotted graphs on Plotly and integrated into report
+1. Plotlyd : Plotted graphs on Plotly and integrated into report
 2. Visualized : Generating output into a Excel sheet
 3. Finished : Testing and merging to master done
 4. Testing : The coding is done but tests are not done yet
@@ -26,7 +26,7 @@ The services here are categorized into the following states:
 | Networking     | Cloud Load Balancer     | Elastic Load Balancer     | Visualized |
 | Networking     | Cloud NAT     | NAT Gateway     | Visualized |
 | Networking     | Idle Addresses     | Idle Addresses     | Visualized |
-| DB Services     | Cloud SQL     | Amazon RDS     | In progress |
+| DB Services     | Cloud SQL     | Amazon RDS     | Visualized |
 | DB Services     | GCP Search     | Elasticsearch     | Icebox |
 | DB Services     | GCP Cache      | Elasticache     | Icebox |
 | DB Services     | BigQuery     | Redshift     | Icebox |

@@ -129,9 +129,22 @@ def get_usagetype(row):
 
   return usagetype
 
+def get_region(usagetypeval):
+  """
+  Takes the 'UsageType' value of a rowitem and returns the GCP and AWS regions """
+  try:
+    region_aws, rest = usagetypeval.split('-')
+  except:
+    region_aws, rest = 'USE1', usagetypeval
+    # return pd.Series([0]*8)
+  region_gcp = region_dict[region_aws]
+
+  return (region_gcp, region_aws, rest)
+
 def parsecompute(row):
   val = row[columnnames['usage']]
   usagetype = get_usagetype(row)
+  # print(val)
   try:
     region_aws, rest = val.split('-')
   except:
@@ -142,8 +155,9 @@ def parsecompute(row):
     usage, aws_machine = rest.split(':')
   except:
     usage, aws_machine = rest, ''
-    return pd.Series([0]*8)
+    return pd.Series([0]*7)
   machine = aws_machine.replace('.elasticsearch', '')
+  # print(machine)
   gcpmachine = machines[machines['API Name']==machine].iloc[0]
   gcpmachine_name = [gcpmachine['Family'].upper(), gcpmachine['Type'].capitalize(), gcpmachine['Memory'], gcpmachine['vCPUs']]
   if gcpmachine_name[1]=='Standard' or gcpmachine_name[1]=='Highmem' or gcpmachine_name[1]=='Highcpu':
@@ -221,6 +235,7 @@ spot_filter = grouped[columnnames['usage']].str.contains('SpotUsage')
 spotusage = grouped[spot_filter].sort_values(columnnames['usage'])
 grouped = grouped[~spot_filter]
 
+# print(boxusage)
 if len(boxusage):
   print('Box AWS: ', sum(boxusage[columnnames['cost']]))
   boxusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = boxusage.apply(parsecompute, axis=1)
@@ -379,6 +394,66 @@ else:
   cloudstorage_gcp_cost = 0
   cloudstorage_aws_cost = 0
 
+
+######################################################################################################################################################
+
+cloudsql_filter = grouped[columnnames['productname']]=='Amazon Relational Database Service'
+cloudsql = grouped[cloudsql_filter]
+grouped = grouped[~cloudsql_filter]
+
+def parsecloudsql(row):
+  usagevalue = row[columnnames['usage']]
+  quantity = row[columnnames['quantity']]
+  desc = row[columnnames['description']] 
+  ha_multiplier = 1
+  if 'Multi-AZ' in usagevalue:
+    ha_multiplier = 2
+  if 'MySQL' in desc:
+    engine = 'MySQL'
+  elif 'PostgreSQL' in desc:
+    engine = 'PostgreSQL'
+  elif 'SQL Server' in desc:
+    engine = 'SQL Server'
+  else:
+    engine = 'MySQL'
+  # gcp_region, aws_region, rest = get_region(usagevalue)
+  
+  try:
+    rest, machine = usagevalue.split(':')
+  except:
+    rest, machine = usagevalue, ''
+    return pd.Series([0]*2)
+  # print(rest, machine)
+  try:
+    if '-' in rest:
+      region_aws = rest.split('-')[0]
+      usage = rest[len(region_aws)+1:]
+    else:
+      region_aws, usage = 'USE1', rest
+  except:
+    region_aws, usage = 'USE1', rest
+  # try:
+  #   region_aws, usage = rest.split('-')
+  # except:
+  #   region_aws, usage = 'USE1', rest
+    # return pd.Series([0]*8)
+  gcp_region = region_dict[region_aws]
+  # print(usage)
+  # print(region_aws, gcp_region, usage, machine)
+  if usage=='InstanceUsage' or usage=='Multi-AZUsage':
+    if machine in cloudsql_machineref:
+      gcp_machine = cloudsql_machineref[machine]
+      gcp_rate = cloudsql_instances_ratecard['CP-'+gcp_machine.upper()][gcp_region]*ha_multiplier
+      return pd.Series([gcp_rate, gcp_rate*quantity])
+    else:
+      return pd.Series([0]*2)
+  elif usage=='RDS' and 'GP2-Storage' in machine:
+    gcp_rate = cloudsql_other_ratecard['gp2'][gcp_region]
+    return pd.Series([gcp_rate, gcp_rate*quantity])
+  else:
+    return pd.Series([0]*2)
+
+cloudsql[['gcp_rate', 'gcp_cost']] = cloudsql.apply(parsecloudsql, axis=1)
 ######################################################################################################################################################
 
 cost_matrix = {
@@ -486,7 +561,7 @@ egress_df[['gcp_rate', 'gcp_cost']] = egress_df.apply(egress_cost, axis=1)
 
 egress_aws_cost = round(sum(egress_df[columnnames['cost']]), 2)
 egress_gcp_cost = round(sum(egress_df['gcp_cost']), 2)
-print(egress_gcp_cost, egress_aws_cost)
+# print(egress_gcp_cost, egress_aws_cost)
 
 ######################################################################################################################################################
 support_filter = grouped[columnnames['usage']]=='Dollar'
@@ -520,7 +595,9 @@ ws_summary.column_dimensions[ws_summary.cell(row=ws_summary._current_row, column
 
 
 totalcost_column_index = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
+
 spot_pyxl = dataframe_to_rows(spotusage)
+gcpcost_column_letter = 'Z'
 for r_idx, row in enumerate(spot_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
       if value==columnnames['cost']:
@@ -534,6 +611,7 @@ ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(SpotUsage!{
 ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Box)', '${}'.format(cost_matrix['gcp']['box_compute']), 'EC2 - Regular Usage(Box)', '${}'.format(cost_matrix['aws']['box_compute'])])
 ws_box = wb.create_sheet(title='BoxUsage')
 box_pyxl = dataframe_to_rows(boxusage)
+gcpcost_column_letter = 'Z'
 for r_idx, row in enumerate(box_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
       if value==columnnames['cost']:
@@ -547,6 +625,7 @@ ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(BoxUsage!{}
 ws_summary.append(['', 'Compute', 'GCE - Regular VMs(Heavy)', '${}'.format(cost_matrix['gcp']['heavy_compute']), 'EC2 - Regular Usage(Heavy)', '${}'.format(cost_matrix['aws']['heavy_compute'])])
 ws_heavy = wb.create_sheet(title='HeavyUsage')
 heavy_pyxl = dataframe_to_rows(heavyusage)
+gcpcost_column_letter = 'Z'
 for r_idx, row in enumerate(heavy_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
       if value==columnnames['cost']:
@@ -612,13 +691,13 @@ ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Network Eg
 ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Network Egress'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
 ws_summary.append(['', 'Networking', 'Idle Addresseses', '${}'.format(round(sum(idleaddress['gcp_cost']), 2)), 'Idle Addresses', '${}'.format(round(sum(idleaddress['aws_cost']), 2))])
-ws_negress = wb.create_sheet(title='Idle Addresses')
+ws_idadress = wb.create_sheet(title='Idle Addresses')
 Idaddress_pyxl = dataframe_to_rows(idleaddress)
 for r_idx, row in enumerate(Idaddress_pyxl, 1):
     for c_idx, value in enumerate(row, 1):
       if value==columnnames['cost']:
         totalcost_column_letter = totalcost_column_index[c_idx-1]
-      ws_negress.cell(row=r_idx, column=c_idx, value=value)
+      ws_idadress.cell(row=r_idx, column=c_idx, value=value)
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Idle Addresses'!H:H)"
 ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Idle Addresses'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
@@ -626,11 +705,23 @@ ws_summary.append(['', '', '', '', '', ''])
 ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D11:D14)'
 ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(F11:F14)'
 
-ws_summary.append(['', 'DB Services', 'Cloud SQL', '', 'Amazon RDS', ''])
+ws_cloudsql = wb.create_sheet(title='Cloud SQL')
+cloudsql_pyxl = dataframe_to_rows(cloudsql)
+for r_idx, row in enumerate(cloudsql_pyxl, 1):
+    for c_idx, value in enumerate(row, 1):
+      if value==columnnames['cost']:
+        totalcost_column_letter = totalcost_column_index[c_idx-1]
+      ws_cloudsql.cell(row=r_idx, column=c_idx, value=value)
+
+ws_summary.append(['', 'DB Services', 'Cloud SQL', '${}'.format(round(sum(cloudsql['gcp_cost']), 2)), 'Amazon RDS', round(sum(cloudsql[columnnames['cost']]), 2)])
+ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Cloud SQL'!I:I)"
 # ws_summary.append(['', 'DB Services', 'Search on GCP', '', 'ElasticSearch', ''])
 # ws_summary.append(['', 'DB Services', 'Cache on GCP', '', 'Elasticache', ''])
 # ws_summary.append(['', 'DB Services', 'BigQuery', '', 'Redshit', ''])
 ws_summary.append(['', '', '', '', '', ''])
+ws_summary.cell(row=ws_summary._current_row, column=4).value = '=SUM(D16:D16)'
+ws_summary.cell(row=ws_summary._current_row, column=6).value = '=SUM(F16:F16)'
+
 ws_summary.append(['', 'Support', 'GCP Support', 0, 'AWS Support Business', sum(support[columnnames['cost']])])
 
 ws_summary.append(['', 'Misc', 'Unclassified', '', 'Misc', ''])
