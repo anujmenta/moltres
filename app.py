@@ -46,7 +46,9 @@ def get_report(filename):
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
-    if request.method == 'POST':
+    if request.method=='GET':
+        return render_template('upload.html')
+    elif request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
@@ -68,15 +70,6 @@ def upload_file():
             # print(os.listdir('csv_files'))
             return send_file(download_path, as_attachment=True)
             # return redirect(url_for('uploaded_file',filename=filename))
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
-    ''' 
 
 @app.route('/')
 def index():
