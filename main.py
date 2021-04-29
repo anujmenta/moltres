@@ -8,6 +8,20 @@ from openpyxl.styles import Alignment
 from math import ceil
 import argparse
 
+category_toggle = {
+  'box_compute': True,
+  'heavy_compute' : True,
+  'spot_compute' : True,
+  'persistentdisk' : True,
+  'cloudstorage':True,
+  'loadbalancer' : True,
+  'cloudnat' : True,
+  'idleaddress' : True,
+  'cloudsql': False,
+  'egress': True,
+  'support': True,
+}
+
 parser = argparse.ArgumentParser(description='Optional app description')
 parser.add_argument('--input', type=str,
                     help='Path to csv bill')
@@ -195,8 +209,8 @@ def parsecompute(row):
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
-    # if usagetype=='box':
-    #   gcp_rate = sud(nunits, gcp_rate)
+    if usagetype=='box':
+      gcp_rate = sud(nunits, gcp_rate)
   else:
     nunits = 0
   ssd_cost = 0
@@ -221,39 +235,23 @@ df[columnnames['rate']] = df[columnnames['cost']]/df[columnnames['quantity']]
 grouped = df.groupby([columnnames['usage'], columnnames['description'], columnnames['productname']]).agg({columnnames['cost']:'sum', columnnames['rate']:'mean', columnnames['quantity']:'sum'}).reset_index()
 
 aws_actual_cost = sum(grouped[columnnames['cost']])
-print(aws_actual_cost)
+print('AWS total cost: ', aws_actual_cost)
 
-box_filter = grouped[columnnames['usage']].str.contains('BoxUsage')
-boxusage = grouped[box_filter].sort_values(columnnames['usage'])
-grouped = grouped[~box_filter]
-
-heavy_filter = (grouped[columnnames['usage']].str.contains('HeavyUsage'))&(~grouped[columnnames['usage']].str.contains('HeavyUsage:db')&((grouped[columnnames['productname']]=='Amazon Elastic Compute Cloud')|(grouped[columnnames['productname']]=='AmazonEC2')))
-heavyusage = grouped[heavy_filter].sort_values(columnnames['usage'])
-grouped = grouped[~heavy_filter]
-
-spot_filter = grouped[columnnames['usage']].str.contains('SpotUsage')
-spotusage = grouped[spot_filter].sort_values(columnnames['usage'])
-grouped = grouped[~spot_filter]
-
-# print(boxusage)
-if len(boxusage):
-  print('Box AWS: ', sum(boxusage[columnnames['cost']]))
-  boxusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = boxusage.apply(parsecompute, axis=1)
-  # print('Boxusage', sum(boxusage[columnnames['cost']]), sum(boxusage['gcp_cost']))
-if len(heavyusage):
-  print('heavy AWS: ', sum(heavyusage[columnnames['cost']]), len(heavyusage))
-  heavyusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = heavyusage.apply(parsecompute, axis=1)
-  # print('Heavyusage', sum(heavyusage[columnnames['cost']]), sum(heavyusage['gcp_cost']))
-if len(spotusage):
-  print('spot AWS: ', sum(spotusage[columnnames['cost']]))
-  spotusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = spotusage.apply(parsecompute, axis=1)
+# # print(boxusage)
+# if len(boxusage):
+#   print('Box AWS: ', sum(boxusage[columnnames['cost']]))
+  
+#   # print('Boxusage', sum(boxusage[columnnames['cost']]), sum(boxusage['gcp_cost']))
+# if len(heavyusage):
+#   print('heavy AWS: ', sum(heavyusage[columnnames['cost']]), len(heavyusage))
+  
+#   # print('Heavyusage', sum(heavyusage[columnnames['cost']]), sum(heavyusage['gcp_cost']))
+# if len(spotusage):
+#   print('spot AWS: ', sum(spotusage[columnnames['cost']]))
+  
   # print('Spotusage', sum(spotusage[columnnames['cost']]), sum(spotusage['gcp_cost']))
 
 ######################################################################################################################################################
-
-pd_filter = (grouped[columnnames['usage']].str.contains('VolumeUsage.gp2')) | (grouped[columnnames['usage']].str.contains('SnapshotUsage')) | ((grouped[columnnames['usage']].str.contains('VolumeUsage'))&(grouped[columnnames['description']].str.contains('Magnetic provisioned storage')))
-persistentdisk = grouped[pd_filter].sort_values(columnnames['usage'])
-grouped = grouped[~pd_filter]
 
 def parsepd(row):
   value = row[columnnames['usage']]
@@ -272,10 +270,6 @@ def parsepd(row):
   except:
     return pd.Series([0, 0])
 
-persistentdisk[['GCP_rate', 'GCP_cost']] = persistentdisk.apply(parsepd, axis=1)
-
-print("PD AWS: ", sum(persistentdisk[columnnames['cost']]), " PD GCP: ", sum(persistentdisk['GCP_cost']))
-
 
 ######################################################################################################################################################
 
@@ -291,39 +285,21 @@ def nat_gateway_cost(dataframe):
     cost = nat_gateway_ratecard['us-vm-high']*720+ngb*nat_gateway_ratecard['us-bytes']
   return [cost, sum(nat_gateway_bytes[columnnames['cost']])+sum(nat_gateway_hours[columnnames['cost']])]
 
-nat_gcp, nat_aws = nat_gateway_cost(grouped)#df is the grouped dataframe
-
-nat_filter = grouped[columnnames['usage']].str.contains('NatGateway-Bytes') | grouped[columnnames['usage']].str.contains('NatGateway-Hours')
-grouped = grouped[~nat_filter]
 
 #feed this input into the viz tool
 ######################################################################################################################################################
-
-idle_filter = grouped[columnnames['usage']].str.contains('ElasticIP:IdleAddress')
-idleaddress = grouped[idle_filter]
-grouped = grouped[~idle_filter]
 
 def idle_addresses_cost(row):
   ninstances = int(row[columnnames['quantity']]/720)
   return pd.Series([ninstances*idle_addresses_ratecard['us']*720, row[columnnames['cost']]])
 
-idleaddress[['gcp_cost', 'aws_cost']] = idleaddress.apply(idle_addresses_cost, axis=1)
-
 ######################################################################################################################################################
-
-loadbalancer_filter = ((grouped[columnnames['usage']].str.contains('DataProcessing-Bytes'))|(grouped[columnnames['usage']].str.contains('LCUUsage'))|(grouped[columnnames['usage']].str.contains('LoadBalancerUsage')))&(grouped[columnnames['productname']]=='Amazon Elastic Compute Cloud')
-loadbalancer = grouped[loadbalancer_filter]
-grouped = grouped[~loadbalancer_filter]
 
 def loadbalancer_cost(row):
   rowsplit = row[columnnames['usage']].split('-')
   region_gcp = region_dict[rowsplit[0]]
   usecase = '-'.join(rowsplit[1:])
   return pd.Series([region_gcp, usecase])
-
-if len(loadbalancer):
-  loadbalancer[['region', 'usecase']] = loadbalancer.apply(loadbalancer_cost, axis=1)
-  load_grouped = loadbalancer.groupby(['region', 'usecase']).sum().reset_index()[['region', 'usecase', columnnames['quantity']]]
 
 def loadgrouped_cost(row):
   region = row['region']
@@ -338,13 +314,8 @@ def loadgrouped_cost(row):
   else:
     cost = quantity*loadbalancer_ratecard['ingress'][region]
     return pd.Series([quantity, cost])
-if len(loadbalancer):
-  load_grouped[['rules/gb', 'gcp_cost']] = load_grouped.apply(loadgrouped_cost, axis=1)
 
 ######################################################################################################################################################
-cloudstorage_filter = (grouped[columnnames['productname']]=='AmazonS3GlacierDeepArchive') | (grouped[columnnames['productname']]=='AmazonS3')
-cloudstorage = grouped[cloudstorage_filter]
-grouped = grouped[~cloudstorage_filter]
 
 def cloudstorage_cost(row):
   usageval = row[columnnames['usage']]
@@ -386,20 +357,8 @@ def cloudstorage_cost(row):
   gcp_cost = gcp_rate*quantity
   return pd.Series([gcp_class, gcp_sku, quantity, gcp_rate, gcp_cost])
 
-if len(cloudstorage):
-  cloudstorage[['GCP Class', 'GCP SKU', 'Quantity', 'GCP Rate', 'GCP Cost']] = cloudstorage.apply(cloudstorage_cost, axis=1)
-  cloudstorage_gcp_cost = round(sum(cloudstorage['GCP Cost']), 2)
-  cloudstorage_aws_cost = round(sum(cloudstorage[columnnames['cost']]), 2)
-else:
-  cloudstorage_gcp_cost = 0
-  cloudstorage_aws_cost = 0
-
 
 ######################################################################################################################################################
-
-cloudsql_filter = grouped[columnnames['productname']]=='Amazon Relational Database Service'
-cloudsql = grouped[cloudsql_filter]
-grouped = grouped[~cloudsql_filter]
 
 def parsecloudsql(row):
   usagevalue = row[columnnames['usage']]
@@ -453,62 +412,8 @@ def parsecloudsql(row):
   else:
     return pd.Series([0]*2)
 
-cloudsql[['gcp_rate', 'gcp_cost']] = cloudsql.apply(parsecloudsql, axis=1)
 ######################################################################################################################################################
 
-cost_matrix = {
-  'aws':{
-    'box_compute' : round(sum(boxusage[columnnames['cost']]), 2),
-    'heavy_compute' : round(sum(heavyusage[columnnames['cost']]), 2),
-    'spot_compute' : round(sum(spotusage[columnnames['cost']]), 2),
-    'persistentdisk' : round(sum(persistentdisk[columnnames['cost']]), 2),
-    'loadbalancer' : round(sum(loadbalancer[columnnames['cost']]),2),
-    'cloudnat' : round(nat_aws, 2),
-    'idleaddress' : round(sum(idleaddress['aws_cost']), 2),
-  },
-  'gcp':{
-    'box_compute': 0,
-    'heavy_compute' : 0,
-    'spot_compute' : 0,
-    'persistentdisk' : 0,
-    'loadbalancer' : 0,
-    'cloudnat' : 0,
-    'idleaddress' : 0,
-
-  },
-}
-
-if len(boxusage):
-  cost_matrix['gcp']['box_compute'] = round(sum(boxusage['gcp_cost']), 2)
-
-if len(heavyusage):
-  cost_matrix['gcp']['heavy_compute'] = round(sum(heavyusage['gcp_cost']), 2)
-
-if len(spotusage):
-  cost_matrix['gcp']['spot_compute'] = round(sum(spotusage['gcp_cost']), 2)
-
-if len(persistentdisk):
-  cost_matrix['gcp']['persistentdisk'] = round(sum(persistentdisk['GCP_cost']), 2)
-
-if len(loadbalancer):
-  cost_matrix['gcp']['loadbalancer'] = round(sum(load_grouped['gcp_cost']), 2)
-
-if nat_aws:
-  cost_matrix['gcp']['cloudnat'] = round(nat_gcp, 2)
-
-if len(idleaddress):
-  cost_matrix['gcp']['idleaddress'] = round(sum(idleaddress['gcp_cost']), 2)
-
-# print(cost_matrix)
-######################################################################################################################################################
-
-egress_filter = (grouped[columnnames['usage']].str.contains('DataTransfer'))|(grouped[columnnames['usage']].str.contains('Out-Bytes'))
-
-egress_df = grouped[egress_filter]
-egress_df = egress_df.groupby(columnnames['usage']).sum().reset_index()
-grouped = grouped[~egress_filter]
-
-egress_df = egress_df[egress_df[columnnames['cost']]!=0]
 
 def gbsplitter(val):
   if val>143360:
@@ -557,16 +462,137 @@ def egress_cost(row):
     return pd.Series([gcp_rate, gcp_cost])
   except:
     return pd.Series([0,0])
-egress_df[['gcp_rate', 'gcp_cost']] = egress_df.apply(egress_cost, axis=1)
 
-egress_aws_cost = round(sum(egress_df[columnnames['cost']]), 2)
-egress_gcp_cost = round(sum(egress_df['gcp_cost']), 2)
-# print(egress_gcp_cost, egress_aws_cost)
+
+# cost_matrix['aws']['egress_df'] = round(sum(egress_df[columnnames['cost']]), 2)
+# cost_matrix['aws']['egress_df'] = round(sum(egress_df['gcp_cost']), 2)
+# print(cost_matrix['aws']['egress_df'], cost_matrix['aws']['egress_df'])
 
 ######################################################################################################################################################
+
+
+cost_matrix = {
+  'aws':{
+    'box_compute' : 0,
+    'heavy_compute' : 0,
+    'spot_compute' : 0,
+    'persistentdisk' : 0,
+    'cloudstorage': 0,
+    'loadbalancer' : 0,
+    'cloudnat' : 0,
+    'idleaddress' : 0,
+    'cloudsql': 0,
+  },
+  'gcp':{
+    'box_compute': 0,
+    'heavy_compute' : 0,
+    'spot_compute' : 0,
+    'persistentdisk' : 0,
+    'cloudstorage':0,
+    'loadbalancer' : 0,
+    'cloudnat' : 0,
+    'idleaddress' : 0,
+    'cloudsql': 0,
+
+  },
+}
+
+box_filter = grouped[columnnames['usage']].str.contains('BoxUsage')
+boxusage = grouped[box_filter].sort_values(columnnames['usage'])
+if len(boxusage) and category_toggle['box_compute']:
+  boxusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = boxusage.apply(parsecompute, axis=1)
+  cost_matrix['aws']['box_compute'] = round(sum(boxusage[columnnames['cost']]), 2)
+  cost_matrix['gcp']['box_compute'] = round(sum(boxusage['gcp_cost']), 2)
+  grouped = grouped[~box_filter]
+
+heavy_filter = (grouped[columnnames['usage']].str.contains('HeavyUsage'))&(~grouped[columnnames['usage']].str.contains('HeavyUsage:db')&((grouped[columnnames['productname']]=='Amazon Elastic Compute Cloud')|(grouped[columnnames['productname']]=='AmazonEC2')))
+heavyusage = grouped[heavy_filter].sort_values(columnnames['usage'])
+if len(heavyusage) and category_toggle['heavy_compute']:
+  heavyusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = heavyusage.apply(parsecompute, axis=1)
+  cost_matrix['aws']['heavy_compute'] = round(sum(heavyusage[columnnames['cost']]), 2)
+  cost_matrix['gcp']['heavy_compute'] = round(sum(heavyusage['gcp_cost']), 2)
+  grouped = grouped[~heavy_filter]
+
+spot_filter = grouped[columnnames['usage']].str.contains('SpotUsage')
+spotusage = grouped[spot_filter].sort_values(columnnames['usage'])
+if len(spotusage) and category_toggle['spot_compute']:
+  spotusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = spotusage.apply(parsecompute, axis=1)
+  cost_matrix['aws']['spot_compute'] = round(sum(spotusage[columnnames['cost']]), 2)
+  cost_matrix['gcp']['spot_compute'] = round(sum(spotusage['gcp_cost']), 2)
+
+pd_filter = (grouped[columnnames['usage']].str.contains('VolumeUsage.gp2')) | (grouped[columnnames['usage']].str.contains('SnapshotUsage')) | ((grouped[columnnames['usage']].str.contains('VolumeUsage'))&(grouped[columnnames['description']].str.contains('Magnetic provisioned storage')))
+persistentdisk = grouped[pd_filter].sort_values(columnnames['usage'])
+if len(persistentdisk) and category_toggle['persistentdisk']:
+  persistentdisk[['GCP_rate', 'GCP_cost']] = persistentdisk.apply(parsepd, axis=1)
+  cost_matrix['aws']['persistentdisk'] = round(sum(persistentdisk[columnnames['cost']]), 2)
+  cost_matrix['gcp']['persistentdisk'] = round(sum(persistentdisk['GCP_cost']), 2)
+  grouped = grouped[~pd_filter]
+  print("PD AWS: ", sum(persistentdisk[columnnames['cost']]), " PD GCP: ", sum(persistentdisk['GCP_cost']))
+
+cloudstorage_filter = (grouped[columnnames['productname']]=='AmazonS3GlacierDeepArchive') | (grouped[columnnames['productname']]=='AmazonS3')
+cloudstorage = grouped[cloudstorage_filter]
+if len(cloudstorage) and category_toggle['cloudstorage']:
+  cloudstorage[['GCP Class', 'GCP SKU', 'Quantity', 'GCP Rate', 'GCP Cost']] = cloudstorage.apply(cloudstorage_cost, axis=1)
+  cost_matrix['aws']['cloudstorage'] = round(sum(cloudstorage[columnnames['cost']]), 2)
+  cost_matrix['gcp']['cloudstorage'] = round(sum(cloudstorage['GCP Cost']), 2)
+  grouped = grouped[~cloudstorage_filter]
+
+loadbalancer_filter = ((grouped[columnnames['usage']].str.contains('DataProcessing-Bytes'))|(grouped[columnnames['usage']].str.contains('LCUUsage'))|(grouped[columnnames['usage']].str.contains('LoadBalancerUsage')))&(grouped[columnnames['productname']]=='Amazon Elastic Compute Cloud')
+loadbalancer = grouped[loadbalancer_filter]
+if len(loadbalancer) and category_toggle['loadbalancer']:
+  loadbalancer[['region', 'usecase']] = loadbalancer.apply(loadbalancer_cost, axis=1)
+  load_grouped = loadbalancer.groupby(['region', 'usecase']).sum().reset_index()[['region', 'usecase', columnnames['quantity']]]
+  load_grouped[['rules/gb', 'gcp_cost']] = load_grouped.apply(loadgrouped_cost, axis=1)
+  cost_matrix['aws']['loadbalancer'] = round(sum(loadbalancer[columnnames['cost']]), 2)
+  cost_matrix['gcp']['loadbalancer'] = round(sum(load_grouped['gcp_cost']), 2)
+  grouped = grouped[~loadbalancer_filter]
+
+nat_filter = grouped[columnnames['usage']].str.contains('NatGateway-Bytes') | grouped[columnnames['usage']].str.contains('NatGateway-Hours')
+nat_df = grouped[nat_filter]
+if len(nat_df) and category_toggle['cloudnat']:
+  nat_gcp, nat_aws = nat_gateway_cost(grouped)
+  cost_matrix['aws']['cloudnat'] = round(nat_aws, 2)
+  cost_matrix['gcp']['cloudnat'] = round(nat_gcp, 2)
+  grouped = grouped[~nat_filter]
+
+idle_filter = grouped[columnnames['usage']].str.contains('ElasticIP:IdleAddress')
+idleaddress = grouped[idle_filter]
+if len(idleaddress) and category_toggle['idleaddress']:
+  idleaddress[['gcp_cost', 'aws_cost']] = idleaddress.apply(idle_addresses_cost, axis=1)
+  cost_matrix['aws']['idleaddress'] = round(sum(idleaddress['aws_cost']), 2)
+  cost_matrix['gcp']['idleaddress'] = round(sum(idleaddress['gcp_cost']), 2)
+  grouped = grouped[~idle_filter]
+
+cloudsql_filter = (grouped[columnnames['productname']]=='Amazon Relational Database Service') | (grouped[columnnames['productname']]=='AmazonRDS')
+cloudsql = grouped[cloudsql_filter]
+if len(cloudsql) and category_toggle['cloudsql']:
+  cloudsql[['gcp_rate', 'gcp_cost']] = cloudsql.apply(parsecloudsql, axis=1)
+  cost_matrix['aws']['cloudsql'] = round(sum(cloudsql[columnnames['cost']]), 2)
+  cost_matrix['gcp']['cloudsql'] = round(sum(cloudsql['gcp_cost']), 2)
+  grouped = grouped[~cloudsql_filter]
+
+egress_filter = (grouped[columnnames['usage']].str.contains('DataTransfer'))|(grouped[columnnames['usage']].str.contains('Out-Bytes'))
+egress_df = grouped[egress_filter]
+egress_df = egress_df.groupby(columnnames['usage']).sum().reset_index()
+# egress_df = egress_df[egress_df[columnnames['cost']]!=0]
+if len(egress_df) and category_toggle['egress']:
+  egress_df[['gcp_rate', 'gcp_cost']] = egress_df.apply(egress_cost, axis=1)
+  cost_matrix['aws']['egress_df'] = round(sum(egress_df[columnnames['cost']]), 2)
+  cost_matrix['gcp']['egress_df'] = round(sum(egress_df['gcp_cost']), 2)
+  grouped = grouped[~egress_filter]
+
 support_filter = grouped[columnnames['usage']]=='Dollar'
 support = grouped[support_filter]
-grouped = grouped[~support_filter]
+if len(support) and category_toggle['support']:
+  cost_matrix['aws']['support'] = round(sum(support[columnnames['cost']]), 2)
+  cost_matrix['gcp']['support'] = 0
+  grouped = grouped[~support_filter]
+
+print(cost_matrix)
+######################################################################################################################################################
+# support_filter = grouped[columnnames['usage']]=='Dollar'
+# support = grouped[support_filter]
+# grouped = grouped[~support_filter]
 
 
 ######################################################################################################################################################
@@ -651,7 +677,7 @@ for r_idx, row in enumerate(pd_pyxl, 1):
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Persistent Disk'!I:I)"
 ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Persistent Disk'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
-ws_summary.append(['', 'Storage', 'Cloud Storage', '${}'.format(cloudstorage_gcp_cost), 'Simple Storage Service(S3)', '${}'.format(cloudstorage_aws_cost)])
+ws_summary.append(['', 'Storage', 'Cloud Storage', '${}'.format(cost_matrix['gcp']['cloudstorage']), 'Simple Storage Service(S3)', '${}'.format(cost_matrix['aws']['cloudstorage'])])
 ws_gcs = wb.create_sheet(title='Cloud Storage')
 gcs_pyxl = dataframe_to_rows(cloudstorage)
 for r_idx, row in enumerate(gcs_pyxl, 1):
@@ -679,7 +705,7 @@ ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Load Balan
 
 ws_summary.append(['', 'Networking', 'Cloud NAT', round(nat_gcp,2), 'NAT Gateway', round(nat_aws,2)])
 
-ws_summary.append(['', 'Networking', 'Network Egress', '${}'.format(egress_gcp_cost), 'Data Transfer', '${}'.format(egress_aws_cost)])
+ws_summary.append(['', 'Networking', 'Network Egress', '${}'.format(cost_matrix['gcp']['egress_df']), 'Data Transfer', '${}'.format(cost_matrix['aws']['egress_df'])])
 ws_negress = wb.create_sheet(title='Network Egress')
 negress_pyxl = dataframe_to_rows(egress_df)
 for r_idx, row in enumerate(negress_pyxl, 1):
@@ -712,8 +738,8 @@ for r_idx, row in enumerate(cloudsql_pyxl, 1):
       if value==columnnames['cost']:
         totalcost_column_letter = totalcost_column_index[c_idx-1]
       ws_cloudsql.cell(row=r_idx, column=c_idx, value=value)
-
-ws_summary.append(['', 'DB Services', 'Cloud SQL', '${}'.format(round(sum(cloudsql['gcp_cost']), 2)), 'Amazon RDS', round(sum(cloudsql[columnnames['cost']]), 2)])
+# ws_summary.append(['', 'DB Services', 'Cloud SQL','', 'Amazon RDS', ''])
+ws_summary.append(['', 'DB Services', 'Cloud SQL', '${}'.format(cost_matrix['gcp']['cloudsql']), 'Amazon RDS', '${}'.format(cost_matrix['aws']['cloudsql'])])
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Cloud SQL'!I:I)"
 # ws_summary.append(['', 'DB Services', 'Search on GCP', '', 'ElasticSearch', ''])
 # ws_summary.append(['', 'DB Services', 'Cache on GCP', '', 'Elasticache', ''])
