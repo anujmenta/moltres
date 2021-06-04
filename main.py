@@ -7,26 +7,14 @@ from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Fo
 from openpyxl.styles import Alignment
 from math import ceil
 import argparse
-
-category_toggle = {
-  'box_compute': True,
-  'heavy_compute' : True,
-  'spot_compute' : True,
-  'persistentdisk' : True,
-  'cloudstorage':True,
-  'loadbalancer' : True,
-  'cloudnat' : True,
-  'idleaddress' : True,
-  'cloudsql': False,
-  'egress': True,
-  'support': True,
-}
+import json
 
 parser = argparse.ArgumentParser(description='Optional app description')
 parser.add_argument('--input', type=str,
                     help='Path to csv bill')
 parser.add_argument('--output', type=str,
                     help='Path to output report')
+parser.add_argument('--subcats', type=str, help='Sub categories boolean values')
 
 args = parser.parse_args()
 
@@ -36,26 +24,59 @@ rates = pd.read_csv('TCO reference - O-Rates.csv')
 # csv_to_read = input('path to csv file: ')
 # df = pd.read_csv(csv_to_read)
 
-#provisional test on Alphasense
+
+
+if args.subcats:
+  subcats_args = eval(args.subcats)
+  category_toggle = {
+    'suds_bool' : subcats_args['suds_bool'],
+    'box_compute': subcats_args['box_compute'],
+    'heavy_compute' : subcats_args['heavy_compute'],
+    'spot_compute' : subcats_args['spot_compute'],
+    'persistentdisk' : subcats_args['persistentdisk'],
+    'cloudstorage':subcats_args['cloudstorage'],
+    'loadbalancer' : subcats_args['loadbalancer'],
+    'cloudnat' : subcats_args['cloudnat'],
+    'idleaddress' : subcats_args['idleaddress'],
+    'cloudsql' : subcats_args['cloudsql'],
+    'egress' : subcats_args['egress'],
+    'support' : subcats_args['support'],
+  }
+else:
+  category_toggle = {
+    'suds_bool' : True,
+    'box_compute': True,
+    'heavy_compute' : True,
+    'spot_compute' : True,
+    'persistentdisk' : True,
+    'cloudstorage':True,
+    'loadbalancer' : True,
+    'cloudnat' : True,
+    'idleaddress' : True,
+    'cloudsql' : True,
+    'egress' : True,
+    'support' : True,
+  }
+
 df = pd.read_csv(args.input)
 recordtype_options = {
   'lineItem/LineItemType' : 'Usage',
-  'RecordType' : 'PayerLineItem',
+  'RecordType' : ['LineItem', 'PayerLineItem', 'LinkedLineItem'],
 }
 try:
   recordtype_col = list(set(recordtype_options).intersection(set(df.columns)))[0]
-  df = df[(df[recordtype_col]==recordtype_options[recordtype_col])|(df[recordtype_col]=='RIFee')]
+  df = df[(df[recordtype_col].isin(recordtype_options[recordtype_col]))|(df[recordtype_col]=='RIFee')]
 except:
   print('Looks like Recordtype is not available in args.input')
   pass
 #function to detect column names
 def detect_column_names(dataframe):
   usage_options = ['lineItem/UsageType', 'UsageType']
-  cost_options = ['lineItem/UnblendedCost', 'TotalCost']
-  rate_options = ['BlendedRate', 'UnblendedRate', 'lineItem/UnblendedRate']
+  cost_options = ['lineItem/UnblendedCost', 'TotalCost', "Cost"]
+  rate_options = ['BlendedRate', 'UnblendedRate', 'lineItem/UnblendedRate', "Rate"]
   description_options = ['lineItem/LineItemDescription', 'ItemDescription']
   quantity_options = ['lineItem/UsageAmount', 'UsageQuantity']
-  productname_options = ['product/ProductName', 'ProductCode']
+  productname_options = ['product/ProductName', 'ProductCode', "ProductName"]
   type_options = ['ItemType']
 
   columnnames = {
@@ -171,6 +192,8 @@ def parsecompute(row):
     usage, aws_machine = rest, ''
     return pd.Series([0]*7)
   machine = aws_machine.replace('.elasticsearch', '')
+  if machine not in list(machines['API Name']):
+    return pd.Series([0]*7)
   # print(machine)
   gcpmachine = machines[machines['API Name']==machine].iloc[0]
   gcpmachine_name = [gcpmachine['Family'].upper(), gcpmachine['Type'].capitalize(), gcpmachine['Memory'], gcpmachine['vCPUs']]
@@ -209,7 +232,7 @@ def parsecompute(row):
   original_rate = gcp_rate
   if row[columnnames['rate']]:
     nunits = row[columnnames['cost']]/row[columnnames['rate']]
-    if usagetype=='box':
+    if usagetype=='box' and category_toggle['suds_bool']:
       gcp_rate = sud(nunits, gcp_rate)
   else:
     nunits = 0
@@ -405,11 +428,13 @@ def parsecloudsql(row):
       gcp_rate = cloudsql_instances_ratecard['CP-'+gcp_machine.upper()][gcp_region]*ha_multiplier
       return pd.Series([gcp_rate, gcp_rate*quantity])
     else:
+      # print('Machine not found, ', machine)
       return pd.Series([0]*2)
   elif usage=='RDS' and 'GP2-Storage' in machine:
     gcp_rate = cloudsql_other_ratecard['gp2'][gcp_region]
     return pd.Series([gcp_rate, gcp_rate*quantity])
   else:
+    # print('Usage not found, ',usage)
     return pd.Series([0]*2)
 
 ######################################################################################################################################################
@@ -464,9 +489,9 @@ def egress_cost(row):
     return pd.Series([0,0])
 
 
-# cost_matrix['aws']['egress_df'] = round(sum(egress_df[columnnames['cost']]), 2)
-# cost_matrix['aws']['egress_df'] = round(sum(egress_df['gcp_cost']), 2)
-# print(cost_matrix['aws']['egress_df'], cost_matrix['aws']['egress_df'])
+# cost_matrix['aws']['egress'] = round(sum(egress_df[columnnames['cost']]), 2)
+# cost_matrix['aws']['egress'] = round(sum(egress_df['gcp_cost']), 2)
+# print(cost_matrix['aws']['egress'], cost_matrix['aws']['egress'])
 
 ######################################################################################################################################################
 
@@ -481,7 +506,9 @@ cost_matrix = {
     'loadbalancer' : 0,
     'cloudnat' : 0,
     'idleaddress' : 0,
-    'cloudsql': 0,
+    'egress': 0,
+    'cloudsql': 0, 
+    'support': 0,
   },
   'gcp':{
     'box_compute': 0,
@@ -492,7 +519,9 @@ cost_matrix = {
     'loadbalancer' : 0,
     'cloudnat' : 0,
     'idleaddress' : 0,
-    'cloudsql': 0,
+    'egress': 0,
+    'cloudsql': 0, 
+    'support': 0,
 
   },
 }
@@ -519,6 +548,7 @@ if len(spotusage) and category_toggle['spot_compute']:
   spotusage[['nunits', 'gcp_type', 'gcp_rate', 'gcp_cost', 'sud_savings', 'ssd_cost', 'sud_savings_percentage']] = spotusage.apply(parsecompute, axis=1)
   cost_matrix['aws']['spot_compute'] = round(sum(spotusage[columnnames['cost']]), 2)
   cost_matrix['gcp']['spot_compute'] = round(sum(spotusage['gcp_cost']), 2)
+  grouped = grouped[~spot_filter]
 
 pd_filter = (grouped[columnnames['usage']].str.contains('VolumeUsage.gp2')) | (grouped[columnnames['usage']].str.contains('SnapshotUsage')) | ((grouped[columnnames['usage']].str.contains('VolumeUsage'))&(grouped[columnnames['description']].str.contains('Magnetic provisioned storage')))
 persistentdisk = grouped[pd_filter].sort_values(columnnames['usage'])
@@ -577,8 +607,8 @@ egress_df = egress_df.groupby(columnnames['usage']).sum().reset_index()
 # egress_df = egress_df[egress_df[columnnames['cost']]!=0]
 if len(egress_df) and category_toggle['egress']:
   egress_df[['gcp_rate', 'gcp_cost']] = egress_df.apply(egress_cost, axis=1)
-  cost_matrix['aws']['egress_df'] = round(sum(egress_df[columnnames['cost']]), 2)
-  cost_matrix['gcp']['egress_df'] = round(sum(egress_df['gcp_cost']), 2)
+  cost_matrix['aws']['egress'] = round(sum(egress_df[columnnames['cost']]), 2)
+  cost_matrix['gcp']['egress'] = round(sum(egress_df['gcp_cost']), 2)
   grouped = grouped[~egress_filter]
 
 support_filter = grouped[columnnames['usage']]=='Dollar'
@@ -588,7 +618,7 @@ if len(support) and category_toggle['support']:
   cost_matrix['gcp']['support'] = 0
   grouped = grouped[~support_filter]
 
-print(cost_matrix)
+# print(cost_matrix)
 ######################################################################################################################################################
 # support_filter = grouped[columnnames['usage']]=='Dollar'
 # support = grouped[support_filter]
@@ -703,9 +733,9 @@ for r_idx, row in enumerate(lb_pyxl, 1):
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Load Balancer'!L:L)"
 ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Load Balancer'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
-ws_summary.append(['', 'Networking', 'Cloud NAT', round(nat_gcp,2), 'NAT Gateway', round(nat_aws,2)])
+ws_summary.append(['', 'Networking', 'Cloud NAT', '${}'.format(cost_matrix['gcp']['cloudnat']), 'NAT Gateway', '${}'.format(cost_matrix['aws']['cloudnat'])])
 
-ws_summary.append(['', 'Networking', 'Network Egress', '${}'.format(cost_matrix['gcp']['egress_df']), 'Data Transfer', '${}'.format(cost_matrix['aws']['egress_df'])])
+ws_summary.append(['', 'Networking', 'Network Egress', '${}'.format(cost_matrix['gcp']['egress']), 'Data Transfer', '${}'.format(cost_matrix['aws']['egress'])])
 ws_negress = wb.create_sheet(title='Network Egress')
 negress_pyxl = dataframe_to_rows(egress_df)
 for r_idx, row in enumerate(negress_pyxl, 1):
@@ -716,7 +746,7 @@ for r_idx, row in enumerate(negress_pyxl, 1):
 ws_summary.cell(row=ws_summary._current_row, column=4).value = "=SUM('Network Egress'!G:G)"
 ws_summary.cell(row=ws_summary._current_row, column=6).value = "=SUM('Network Egress'!{}:{})".format(totalcost_column_letter, totalcost_column_letter)
 
-ws_summary.append(['', 'Networking', 'Idle Addresseses', '${}'.format(round(sum(idleaddress['gcp_cost']), 2)), 'Idle Addresses', '${}'.format(round(sum(idleaddress['aws_cost']), 2))])
+ws_summary.append(['', 'Networking', 'Idle Addresseses', '${}'.format(cost_matrix['gcp']['idleaddress']), 'Idle Addresses', '${}'.format(cost_matrix['aws']['idleaddress'])])
 ws_idadress = wb.create_sheet(title='Idle Addresses')
 Idaddress_pyxl = dataframe_to_rows(idleaddress)
 for r_idx, row in enumerate(Idaddress_pyxl, 1):
