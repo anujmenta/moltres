@@ -55,7 +55,11 @@ def upload_file():
         subcat_str = '"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},'.format('suds_bool', 'suds_bool' in dict(request.form), 'box_compute', 'box_compute' in dict(request.form), 'heavy_compute', 'heavy_compute' in dict(request.form), 'spot_compute', 'spot_compute' in dict(request.form), 'persistentdisk', 'persistentdisk' in dict(request.form), 'cloudstorage', 'cloudstorage' in dict(request.form), 'loadbalancer', 'loadbalancer' in dict(request.form), 'cloudnat', 'cloudnat' in dict(request.form), 'idleaddress', 'idleaddress' in dict(request.form), 'cloudsql', 'cloudsql' in dict(request.form), 'egress', 'egress' in dict(request.form), 'support', 'support' in dict(request.form))
         # print(json.loads('{'+subcat_str+'}'))
         # check if the post request has the file part
-        company_name = dict(request.form)['company'].lower().replace(' ','').replace('.', '')
+        company_name = dict(request.form)['company']
+        if type(company_name)==list:
+            company_name = company_name[0].lower().replace(' ','').replace('.', '')
+        else:
+            company_name = company_name.lower().replace(' ','').replace('.', '')
         requester = dict(request.form)['email']
         print(company_name, requester)
         if 'file' not in request.files:
