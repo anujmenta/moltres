@@ -38,11 +38,12 @@ def page_to_csv(purifieddict, category, region, usagetype, defaultxpos):
 	return [csv_appender, category, region, usagetype]
 
 def get_report(filename, subcat_str):
-	filename = filename.replace('.csv', '')
-	aws_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename+'.csv')
-	report_file_path = os.path.join(app.config['OUTPUT_FOLDER'], filename+'_report.xlsx')
-	os.system('python main.py --input {} --output {} --subcats {}'.format(aws_file_path, report_file_path, "'{"+subcat_str+"}'"))
-	return report_file_path
+    filename = filename.replace('.csv', '')
+    aws_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename+'.csv')
+    report_file_path = os.path.join(app.config['OUTPUT_FOLDER'], filename.replace('_rowitems', '')+'_moltres_report.xlsx')
+    # os.system('python main.py --input {} --output {} --subcats {}'.format(aws_file_path, report_file_path, "'{"+subcat_str+"}'"))
+    os.system('python main.py --input {} --output {} '.format(aws_file_path, report_file_path, "'{"+subcat_str+"}'"))
+    return report_file_path
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -54,6 +55,9 @@ def upload_file():
         subcat_str = '"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},"{}":{},'.format('suds_bool', 'suds_bool' in dict(request.form), 'box_compute', 'box_compute' in dict(request.form), 'heavy_compute', 'heavy_compute' in dict(request.form), 'spot_compute', 'spot_compute' in dict(request.form), 'persistentdisk', 'persistentdisk' in dict(request.form), 'cloudstorage', 'cloudstorage' in dict(request.form), 'loadbalancer', 'loadbalancer' in dict(request.form), 'cloudnat', 'cloudnat' in dict(request.form), 'idleaddress', 'idleaddress' in dict(request.form), 'cloudsql', 'cloudsql' in dict(request.form), 'egress', 'egress' in dict(request.form), 'support', 'support' in dict(request.form))
         # print(json.loads('{'+subcat_str+'}'))
         # check if the post request has the file part
+        company_name = dict(request.form)['company'].lower().replace(' ','').replace('.', '')
+        requester = dict(request.form)['email']
+        print(company_name, requester)
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
@@ -64,7 +68,8 @@ def upload_file():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            # filename = secure_filename(file.filename)
+            filename = company_name+'_rowitems.csv'
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             download_path = get_report(filename, subcat_str)

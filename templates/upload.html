@@ -1092,10 +1092,12 @@
    <body>
    	<center>
       <form action = "/upload" method = "POST" 
-         enctype = "multipart/form-data" style="margin-top:23%;">
+         enctype = "multipart/form-data" style="margin-top:15%;">
+         <input type = "text" name = "company" onfocus="this.value=''" value='Enter company Name' /><br><br>
+         <input type = "text" name = "email" onfocus="this.value=''" value='Enter email address' /><br><br>
          <input type = "file" name = "file"/>
          <input type = "submit"/><br>
-         <input type = "checkbox" name='suds_bool' checked> Sustained Use Discounts<br>
+<!--          <input type = "checkbox" name='suds_bool' checked> Sustained Use Discounts<br>
          <input type = "checkbox" name='box_compute' value="1" default="2" checked> On-demand compute(Box)
          <input type = "checkbox" name='heavy_compute' checked> On-demand compute(Heavy)
          <input type = "checkbox" name='spot_compute' checked> Preemptible compute(Spot)<br>
@@ -1106,7 +1108,7 @@
          <input type = "checkbox" name='idleaddress' checked> Idle Addresses
          <input type = "checkbox" name='egress' checked> Network Egress<br>
          <input type = "checkbox" name='cloudsql' checked> CloudSQL<br>
-         <input type = "checkbox" name='support' checked> Support<br>
+         <input type = "checkbox" name='support' checked> Support<br> -->
       </form>   
     </center>
    </body>

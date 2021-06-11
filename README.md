@@ -9,7 +9,7 @@ Service status:
 
 The services here are categorized into the following states:
 1. Plotlyd : Plotted graphs on Plotly and integrated into report
-2. Visualized : Generating output into a Excel sheet
+2. Reported : Generating output into a Excel sheet
 3. Finished : Testing and merging to master done
 4. Testing : The coding is done but tests are not done yet
 5. In progress : Branch created and code being written
@@ -17,16 +17,16 @@ The services here are categorized into the following states:
 
 | Category | Sub-category(GCP) |Sub-category(AWS)| Status |
 | -------- | -------- | -------- |------ |
-| Compute     | Compute Engine : Premptible VMS     | Elastic Compute cloud:Spot usage     |Visualized |
-| Compute     | Compute Engine : Regular VMS     | Elastic Compute cloud:Box usage     |Visualized |
-| Storage     | Persistent Disk     | Elastic Block Storage     | Visualized |
-| Storage     | Cloud Storage     | Simple Storage Services(S3)     | Visualized |
+| Compute     | Compute Engine : Premptible VMS     | Elastic Compute cloud:Spot usage     |Reported |
+| Compute     | Compute Engine : Regular VMS     | Elastic Compute cloud:Box usage     |Reported |
+| Storage     | Persistent Disk     | Elastic Block Storage     | Reported |
+| Storage     | Cloud Storage     | Simple Storage Services(S3)     | Reported |
 | Storage     | Filestore     | Elastic File storage     | Icebox |
-| Networking     | Network Egress     | Data Transfer     | Visualized |
-| Networking     | Cloud Load Balancer     | Elastic Load Balancer     | Visualized |
-| Networking     | Cloud NAT     | NAT Gateway     | Visualized |
-| Networking     | Idle Addresses     | Idle Addresses     | Visualized |
-| DB Services     | Cloud SQL     | Amazon RDS     | Visualized |
+| Networking     | Network Egress     | Data Transfer     | Reported |
+| Networking     | Cloud Load Balancer     | Elastic Load Balancer     | Reported |
+| Networking     | Cloud NAT     | NAT Gateway     | Reported |
+| Networking     | Idle Addresses     | Idle Addresses     | Reported |
+| DB Services     | Cloud SQL     | Amazon RDS     | Reported |
 | DB Services     | GCP Search     | Elasticsearch     | Icebox |
 | DB Services     | GCP Cache      | Elasticache     | Icebox |
 | DB Services     | BigQuery     | Redshift     | Icebox |
