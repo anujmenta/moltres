@@ -61,7 +61,8 @@ else:
 df = pd.read_csv(args.input)
 recordtype_options = {
   'lineItem/LineItemType' : 'Usage',
-  'RecordType' : ['LineItem', 'PayerLineItem', 'LinkedLineItem'],
+  'RecordType' : ['LinkedLineItem'],
+  # 'RecordType' : ['LineItem', 'PayerLineItem', 'LinkedLineItem'],
 }
 try:
   recordtype_col = list(set(recordtype_options).intersection(set(df.columns)))[0]
